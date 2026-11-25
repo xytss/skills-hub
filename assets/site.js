@@ -133,23 +133,31 @@ function buildTree(skills) {
   return root;
 }
 
-function skillItem(skill) {
+function skillItem(skill, facets = []) {
   const li = element('li', 'skill-item');
   const button = element('button', 'skill-open');
   button.type = 'button';
   button.setAttribute('aria-haspopup', 'dialog');
   button.setAttribute('aria-label', `查看 ${skill.name} 详情`);
-  const arrow = element('span', 'open-arrow');
-  arrow.append(icon('chevron'));
-  button.append(icon('database'), element('strong', '', skill.name), element('span', 'badge badge-blue', `v${skill.version}`), arrow);
+  button.append(icon('database'), element('strong', '', skill.name), element('span', 'badge badge-blue', `v${skill.version}`), element('span', 'skill-inline-description', `— ${skill.description}`));
   button.addEventListener('click', () => openSkill(skill));
   const preview = element('div', 'skill-preview');
-  preview.append(element('p', 'skill-description', skill.description));
   const table = dataTable(null, [['适用任务', skill.details.scenarios.map(scenario => scenario.name).join('、')], ['默认数据库', skill.database]], 'mini-table');
   const links = element('div', 'skill-links');
   links.append(link('使用指南', fileUrl(skill.overview), 'book'), link('执行规范', fileUrl(skill.entry), 'code'));
   preview.append(table, links);
   li.append(button, preview);
+  if (facets.length) {
+    const list = element('ul', 'skill-facets');
+    facets.forEach(facet => {
+      const item = element('li');
+      const row = element('div', 'facet-row');
+      row.append(icon('layers'), element('span', '', facet.name));
+      item.append(row);
+      list.append(item);
+    });
+    li.append(list);
+  }
   return li;
 }
 
@@ -166,12 +174,11 @@ function renderBranch(branch) {
   }
   const chevron = element('span', 'chevron');
   if (hasChildren) chevron.append(icon('chevron'));
-  const count = element('span', 'branch-count', String(branch.members.size));
-  count.setAttribute('aria-label', `${branch.members.size} 项 Skill`);
-  count.title = `${branch.members.size} 项 Skill`;
-  button.append(chevron, icon(hasChildren ? 'folder' : 'layers'), element('span', '', branch.name), count);
-  branch.skills.forEach(skill => children.append(skillItem(skill)));
-  branch.children.forEach(child => children.append(renderBranch(child)));
+  button.append(chevron, icon(hasChildren ? 'folder' : 'layers'), element('span', '', branch.name));
+  const facets = [...branch.children.values()];
+  const groupFacets = branch.skills.length === 1 && facets.every(child => child.children.size === 0 && child.skills.length === 0);
+  branch.skills.forEach(skill => children.append(skillItem(skill, groupFacets ? facets : [])));
+  if (!groupFacets) branch.children.forEach(child => children.append(renderBranch(child)));
   if (hasChildren) button.addEventListener('click', () => {
     const expanded = button.getAttribute('aria-expanded') === 'true';
     button.setAttribute('aria-expanded', String(!expanded));
@@ -391,6 +398,7 @@ document.querySelector('.dialog-tabs').addEventListener('keydown', event => {
 });
 document.getElementById('close-dialog').addEventListener('click', () => dialog.close());
 document.getElementById('dialog-install').addEventListener('click', () => setTab('install', true));
+document.querySelectorAll('a[href="#install"]').forEach(anchor => anchor.addEventListener('click', () => { document.getElementById('install').open = true; }));
 dialog.addEventListener('close', () => { document.body.style.overflow = ''; });
 dialog.addEventListener('click', event => {
   const box = dialog.getBoundingClientRect();
