@@ -1,0 +1,13 @@
+# Local working files
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Illustration drafts and preparation records
+skills/*/assets/overview-comic*.png
+skills/*/assets/overview-comic-prompt*.md
+skills/*/assets/source-record.json

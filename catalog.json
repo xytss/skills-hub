@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "updated_on": "2026-11-25",
+  "skills": [
+    {
+      "name": "database-design",
+      "title": "数据库设计",
+      "version": "3.2.0",
+      "description": "业务需求建模、现有Schema评审与慢查询索引诊断。",
+      "category_paths": [
+        "后端开发/数据库与存储/关系型数据库/PostgreSQL",
+        "后端开发/数据库与存储/数据库架构与设计/逻辑建模与范式设计",
+        "后端开发/数据库与存储/数据库架构与设计/Schema评审与迁移",
+        "后端开发/数据库与存储/数据库架构与设计/索引设计与查询调优",
+        "后端开发/数据库与存储/数据库架构与设计/并发控制与多租户隔离"
+      ],
+      "entry": "skills/database-design/SKILL.md",
+      "overview": "skills/database-design/README.md",
+      "image": "skills/database-design/assets/overview.png"
+    }
+  ]
+}
