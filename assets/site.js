@@ -44,7 +44,7 @@ function element(tag, className, text) {
 function icon(name) {
   if (name === 'share') {
     const image = element('img', 'icon share-icon');
-    image.src = 'assets/icons/share-forward.svg';
+    image.src = 'assets/icons/showcase-jump.svg';
     image.alt = '';
     return image;
   }
