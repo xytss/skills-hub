@@ -692,3 +692,11 @@ document.querySelectorAll('.site-header nav a[href^="#"]').forEach(link => link.
 window.addEventListener('hashchange', () => setNavSection(location.hash === '#install' ? 'install' : 'catalog'));
 setNavSection(location.hash === '#install' ? 'install' : 'catalog');
 loadCatalog();
+
+const repositoryEntry = document.querySelector('.repository-entry');
+const repositoryLink = repositoryEntry.querySelector('.repository-link');
+repositoryLink.addEventListener('pointerenter', () => repositoryEntry.classList.remove('tooltip-dismissed'));
+repositoryLink.addEventListener('focus', () => repositoryEntry.classList.remove('tooltip-dismissed'));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') repositoryEntry.classList.add('tooltip-dismissed');
+});
