@@ -1,9 +1,9 @@
 <p>
-  <img src="assets/readme-brand.svg?v=3" width="350" height="67" alt="Skills Hub">
+  <img src="assets/readme-wordmark.svg" width="350" height="67" alt="Skills Hub">
 </p>
 
 <p>
-  <img src="assets/repository-status.svg?v=3" width="150" height="28" alt="MIT License · 1 Skill">
+  <img src="assets/readme-badges.svg" width="150" height="28" alt="MIT License · 1 Skill">
 </p>
 
 面向 AI Agent 的开发 Skills，按领域分类，提供使用指南与执行规范。
