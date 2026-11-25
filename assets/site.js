@@ -35,10 +35,15 @@ let savedAgent = null;
 try { savedAgent = localStorage.getItem('skills-hub.agent'); } catch {}
 const state = {
   skills: [], view: 'cards', currentSkill: null, selectedSkill: null,
-  activeCategory: [], branches: new Map(), selectedAgent: Math.max(0, AGENTS.findIndex(agent => agent.name === savedAgent)), sequence: 0
+  activeCategory: [], branches: new Map(), previewOpen: true, installMode: 'prompt', selectedAgent: Math.max(0, AGENTS.findIndex(agent => agent.name === savedAgent)), sequence: 0
 };
 let dialogReturnFocus = null;
 const dialog = document.getElementById('skill-dialog');
+const previewDrawer = document.getElementById('preview-drawer');
+const previewPanel = document.getElementById('knowledge-preview');
+const wideViewport = matchMedia('(min-width: 1440px)');
+const smallViewport = matchMedia('(max-width: 1023px)');
+let previewReturnFocus = null;
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -168,6 +173,7 @@ function syncCatalogSelection() {
     button.classList.toggle('is-selected', selected);
     if (selected) button.setAttribute('aria-current', 'true'); else button.removeAttribute('aria-current');
   });
+  document.querySelectorAll('[data-skill-name]').forEach(item => item.classList.toggle('is-selected', item.dataset.skillName === state.selectedSkill?.name));
 }
 
 function selectCategory(path) {
@@ -177,6 +183,9 @@ function selectCategory(path) {
   syncCatalogSelection();
   renderWorkspace();
   renderPageInstall();
+  renderPreview();
+  arrangePreview();
+  if (smallViewport.matches) { toggleCatalog(false); document.getElementById('workspace-title').focus({ preventScroll: true }); }
 }
 
 function skillItem(skill) {
@@ -184,10 +193,10 @@ function skillItem(skill) {
   const button = element('button', 'skill-open');
   button.type = 'button';
   button.dataset.skill = skill.name;
-  button.setAttribute('aria-haspopup', 'dialog');
-  button.setAttribute('aria-label', `查看 ${skill.name} 详情`);
+  button.setAttribute('aria-controls', 'knowledge-preview');
+  button.setAttribute('aria-label', `预览 ${skill.name}`);
   button.append(icon('file'), element('strong', '', skill.name));
-  button.addEventListener('click', () => openSkill(skill, button));
+  button.addEventListener('click', () => showPreview(skill, button));
   li.append(button);
   return li;
 }
@@ -240,6 +249,7 @@ function renderCatalog() {
 
 function skillCard(skill) {
   const card = element('article', 'skill-card');
+  card.dataset.skillName = skill.name;
   const head = element('div', 'skill-card-head');
   const identity = element('div', 'skill-identity');
   const symbol = element('span', 'skill-symbol');
@@ -249,8 +259,9 @@ function skillCard(skill) {
   const heading = element('h3');
   const titleButton = element('button', 'skill-title-button', skill.name);
   titleButton.type = 'button';
-  titleButton.setAttribute('aria-haspopup', 'dialog');
-  titleButton.addEventListener('click', () => openSkill(skill, titleButton));
+  titleButton.setAttribute('aria-controls', 'knowledge-preview');
+  titleButton.setAttribute('aria-label', `预览 ${skill.name}`);
+  titleButton.addEventListener('click', () => showPreview(skill, titleButton));
   heading.append(titleButton);
   title.append(heading, element('span', 'badge badge-blue', `v${skill.version}`));
   info.append(title, element('p', '', skill.description));
@@ -263,21 +274,11 @@ function skillCard(skill) {
   agents.title = AGENTS.map(agent => agent.name).join('、');
   metadata.append(database, agents);
   const actions = element('div', 'skill-actions');
-  const detail = element('button', 'secondary-button', '查看详情');
+  const detail = element('button', 'secondary-button', '展开详情');
   detail.type = 'button';
   detail.setAttribute('aria-haspopup', 'dialog');
   detail.addEventListener('click', () => openSkill(skill, detail));
-  const install = element('button', 'primary-button', '安装');
-  install.type = 'button';
-  install.setAttribute('aria-label', `安装 ${skill.name}`);
-  install.addEventListener('click', () => {
-    state.selectedSkill = skill;
-    syncCatalogSelection();
-    renderPageInstall();
-    navigateTo('install');
-    document.getElementById('page-agent').focus({ preventScroll: true });
-  });
-  actions.append(detail, install);
+  actions.append(detail);
   card.append(head, metadata, actions);
   return card;
 }
@@ -291,17 +292,30 @@ function renderWorkspace() {
   if (!skills.length) content.append(element('p', 'empty-state', '此分类暂无 Skill。'));
   else if (state.view === 'table') {
     const rows = skills.map(skill => {
+      const title = element('div', 'table-skill');
       const button = element('button', '', skill.name);
       button.type = 'button';
-      button.setAttribute('aria-haspopup', 'dialog');
-      button.addEventListener('click', () => openSkill(skill, button));
-      return [button, `v${skill.version}`, skill.navigation_path.at(-1), skill.database];
+      button.setAttribute('aria-label', `预览 ${skill.name}`);
+      button.setAttribute('aria-controls', 'knowledge-preview');
+      button.addEventListener('click', () => showPreview(skill, button));
+      title.append(button, element('span', 'table-database', skill.database));
+      const preview = element('button', 'table-preview', '预览');
+      preview.type = 'button';
+      preview.setAttribute('aria-label', `在侧栏预览 ${skill.name}`);
+      preview.addEventListener('click', () => showPreview(skill, preview));
+      return [title, skill.details.scenarios.map(item => item.name).join(' · '), element('span', 'badge badge-blue', `v${skill.version}`), preview];
     });
     const wrap = element('div', 'table-scroll');
-    wrap.append(dataTable(['Skill', '版本', '分类', '默认数据库'], rows));
+    const table = dataTable(['Skill', '适用任务', '版本', '操作'], rows, 'catalog-table');
+    table.querySelectorAll('tbody tr').forEach((row, index) => {
+      row.classList.add('skill-table-row');
+      row.dataset.skillName = skills[index].name;
+    });
+    wrap.append(table);
     content.append(wrap);
   } else skills.forEach(skill => content.append(skillCard(skill)));
   document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === state.view)));
+  syncCatalogSelection();
 }
 
 function renderPageInstall() {
@@ -309,7 +323,7 @@ function renderPageInstall() {
   const panel = document.getElementById('install');
   panel.hidden = !skill;
   if (!skill) return;
-  document.getElementById('install-title').textContent = `安装 ${skill.name}`;
+  document.getElementById('install-title').textContent = state.installMode === 'prompt' ? '安装提示词' : '手动安装';
   document.getElementById('page-install').replaceChildren(installWidget(skill, 'page'));
 }
 
@@ -373,6 +387,14 @@ function installCommand(agent, skill) {
   ].join('\n');
 }
 
+function installationPrompt(agent, skill) {
+  return [
+    `请从 ${REPOSITORY} 安装 ${skill.name}。`,
+    `阅读安装说明与 SKILL.md，按 ${agent.name} 的 Skill 规范配置。`,
+    '检查已有版本，完成后返回安装位置、验证结果和调用方式。'
+  ].join('\n');
+}
+
 function syncAgentWidgets() {
   document.querySelectorAll('.install-widget').forEach(widget => widget.updateAgent());
 }
@@ -390,45 +412,70 @@ function installWidget(skill, prefix) {
     select.append(option);
   });
   label.append(select);
-  const copy = element('button', 'copy-command-button');
+  const copy = element('button', 'copy-command-button primary-button');
   copy.type = 'button';
-  copy.setAttribute('aria-label', '复制安装命令');
-  function resetCopy() { copy.replaceChildren(icon('copy'), element('span', '', '复制安装命令')); }
+  function resetCopy() {
+    const text = state.installMode === 'prompt' ? '复制安装提示词' : '复制安装命令';
+    copy.setAttribute('aria-label', text);
+    copy.replaceChildren(icon('copy'), element('span', '', text));
+  }
   let resetTimer = null;
-  resetCopy();
   controls.append(label, copy);
+  const prompt = element('div', 'prompt-text');
+  prompt.id = `${prefix}-install-prompt`;
   const caption = element('p', 'command-caption', 'PowerShell · 用户级安装');
   const codeBlock = element('div', 'code-block');
+  codeBlock.id = `${prefix}-install-command`;
   const pre = element('pre');
   const code = element('code');
   pre.append(code);
   codeBlock.append(pre);
   copy.addEventListener('click', async () => {
+    const manual = state.installMode === 'manual';
+    const content = manual ? code : prompt;
+    const text = content.textContent;
+    const copiedAgent = AGENTS[state.selectedAgent].name;
     try {
-      const copiedAgent = AGENTS[state.selectedAgent].name;
-      await navigator.clipboard.writeText(code.textContent);
+      await navigator.clipboard.writeText(text);
       copy.replaceChildren(icon('check'), element('span', '', '已复制'));
-      document.getElementById('announcement').textContent = `${copiedAgent} 安装命令已复制`;
+      document.getElementById('announcement').textContent = `${copiedAgent} ${manual ? '安装命令' : '安装提示词'}已复制`;
       clearTimeout(resetTimer);
       resetTimer = setTimeout(resetCopy, 1800);
     } catch {
       const selection = window.getSelection();
       const range = document.createRange();
-      range.selectNodeContents(code);
+      range.selectNodeContents(content);
       selection.removeAllRanges();
       selection.addRange(range);
       copy.replaceChildren(element('span', '', '请按 Ctrl+C 复制'));
-      document.getElementById('announcement').textContent = '请按 Ctrl+C 复制已选中的命令';
+      document.getElementById('announcement').textContent = '请按 Ctrl+C 复制已选中的内容';
     }
   });
   const path = element('p', 'install-path');
   const invocation = element('p', 'install-invocation');
+  const mode = element('button', 'install-mode-button');
+  mode.type = 'button';
+  mode.setAttribute('aria-controls', `${prompt.id} ${codeBlock.id}`);
+  mode.addEventListener('click', () => {
+    state.installMode = state.installMode === 'prompt' ? 'manual' : 'prompt';
+    syncAgentWidgets();
+  });
   widget.updateAgent = () => {
     const agent = AGENTS[state.selectedAgent];
+    const manual = state.installMode === 'manual';
     select.value = String(state.selectedAgent);
+    prompt.textContent = installationPrompt(agent, skill);
+    prompt.hidden = manual;
     code.textContent = installCommand(agent, skill);
+    codeBlock.hidden = !manual;
+    caption.hidden = !manual;
+    path.hidden = !manual;
+    invocation.hidden = !manual;
     path.replaceChildren(element('span', '', '安装目录'), element('code', '', `~/${agent.directory}/${skill.name}/`));
     invocation.replaceChildren(element('span', '', '调用'), element('code', '', agent.invocation.replaceAll('database-design', skill.name)));
+    mode.replaceChildren(icon(manual ? 'message' : 'terminal'), document.createTextNode(manual ? '使用安装提示词' : '手动安装'));
+    mode.setAttribute('aria-expanded', String(manual));
+    if (prefix === 'page') document.getElementById('install-title').textContent = manual ? '手动安装' : '安装提示词';
     clearTimeout(resetTimer);
     resetCopy();
   };
@@ -438,8 +485,75 @@ function installWidget(skill, prefix) {
     syncAgentWidgets();
   });
   widget.updateAgent();
-  widget.append(controls, caption, codeBlock, path, invocation);
+  widget.append(controls, prompt, caption, codeBlock, path, invocation, mode);
   return widget;
+}
+
+function updateBodyLock() {
+  document.body.style.overflow = dialog.open || previewDrawer.open ? 'hidden' : '';
+}
+
+function toggleCatalog(open) {
+  document.querySelector('.workspace').classList.toggle('catalog-expanded', open);
+  document.getElementById('catalog-toggle').setAttribute('aria-expanded', String(open));
+}
+
+function renderPreview() {
+  const skill = state.selectedSkill;
+  if (!skill) { previewPanel.hidden = true; return; }
+  document.getElementById('preview-title').textContent = skill.name;
+  document.getElementById('preview-version').textContent = `v${skill.version}`;
+  const content = document.getElementById('preview-content');
+  const table = element('div', 'table-scroll');
+  table.append(dataTable(['任务', '输入', '输出'], skill.details.scenarios.map(item => [item.name, item.input, item.output]), 'preview-table'));
+  content.replaceChildren(
+    section('用途', 'book', element('p', '', skill.details.purpose)),
+    section('输入与输出', 'table', table),
+    section('调用示例', 'message', element('blockquote', 'preview-example', skill.details.example))
+  );
+  content.scrollTop = 0;
+  document.getElementById('preview-guide').href = fileUrl(skill.overview);
+  document.getElementById('preview-source').href = fileUrl(skill.entry);
+}
+
+function restorePreviewFocus() {
+  const origin = previewReturnFocus?.isConnected && previewReturnFocus.getClientRects().length ? previewReturnFocus : null;
+  const selected = [...document.querySelectorAll('[data-skill-name]')].find(item => item.dataset.skillName === state.selectedSkill?.name);
+  const fallback = selected?.querySelector('button') || document.querySelector('.skill-title-button, .table-preview');
+  (origin || fallback)?.focus({ preventScroll: true });
+}
+
+function arrangePreview(requested = false) {
+  const workspace = document.querySelector('.workspace');
+  const visible = state.previewOpen && Boolean(state.selectedSkill);
+  if (wideViewport.matches) {
+    if (previewDrawer.open) previewDrawer.close();
+    if (previewPanel.parentElement !== workspace) workspace.append(previewPanel);
+    previewPanel.hidden = !visible;
+    workspace.classList.toggle('preview-hidden', !visible);
+  } else {
+    if (previewPanel.parentElement !== previewDrawer) previewDrawer.append(previewPanel);
+    previewPanel.hidden = !state.selectedSkill;
+    workspace.classList.add('preview-hidden');
+    if (!visible && previewDrawer.open) previewDrawer.close();
+    if (requested && visible && !smallViewport.matches && !previewDrawer.open) previewDrawer.showModal();
+  }
+  updateBodyLock();
+}
+
+function showPreview(skill, trigger = document.activeElement) {
+  previewReturnFocus = trigger;
+  state.selectedSkill = skill;
+  state.previewOpen = true;
+  if (!filteredSkills().some(item => item.name === skill.name)) {
+    state.activeCategory = skill.navigation_path;
+    renderWorkspace();
+  }
+  syncCatalogSelection();
+  renderPageInstall();
+  renderPreview();
+  if (smallViewport.matches) { arrangePreview(); openSkill(skill, trigger); }
+  else arrangePreview(true);
 }
 
 function setNavSection(section) {
@@ -478,6 +592,8 @@ function openSkill(skill, trigger = document.activeElement) {
   }
   syncCatalogSelection();
   renderPageInstall();
+  renderPreview();
+  arrangePreview();
   document.getElementById('dialog-title').textContent = skill.name;
   document.getElementById('dialog-subtitle').textContent = skill.description;
   document.getElementById('dialog-version').textContent = `v${skill.version}`;
@@ -488,7 +604,7 @@ function openSkill(skill, trigger = document.activeElement) {
   document.getElementById('dialog-source').href = fileUrl(skill.entry);
   setTab('overview');
   if (!dialog.open) dialog.showModal();
-  document.body.style.overflow = 'hidden';
+  updateBodyLock();
 }
 
 async function loadCatalog() {
@@ -508,16 +624,44 @@ async function loadCatalog() {
     document.getElementById('catalog-count').textContent = `${state.skills.length} 项`;
     renderCatalog();
     renderPageInstall();
+    renderPreview();
+    arrangePreview();
   } catch {
     const error = element('p', 'error', '目录加载失败，请重试。');
     const retry = element('button', 'retry-button', '重新加载');
     retry.type = 'button';
     retry.addEventListener('click', () => { content.replaceChildren(element('p', 'loading', '正在读取目录…')); loadCatalog(); });
     content.replaceChildren(error, retry);
+    renderPageInstall();
+    renderPreview();
+    arrangePreview();
   }
 }
 
 hydrateIcons();
+document.getElementById('catalog-toggle').addEventListener('click', () => toggleCatalog(document.getElementById('catalog-toggle').getAttribute('aria-expanded') !== 'true'));
+document.getElementById('close-preview').addEventListener('click', () => {
+  state.previewOpen = false;
+  if (previewDrawer.open) previewDrawer.close();
+  arrangePreview();
+  restorePreviewFocus();
+});
+document.getElementById('expand-preview').addEventListener('click', event => {
+  const trigger = previewDrawer.open ? previewReturnFocus : event.currentTarget;
+  if (previewDrawer.open) previewDrawer.close();
+  if (state.selectedSkill) openSkill(state.selectedSkill, trigger);
+});
+previewDrawer.addEventListener('cancel', () => { state.previewOpen = false; });
+previewDrawer.addEventListener('close', () => {
+  updateBodyLock();
+  if (!dialog.open) restorePreviewFocus();
+});
+previewDrawer.addEventListener('click', event => {
+  const box = previewDrawer.getBoundingClientRect();
+  if (event.target === previewDrawer && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) { state.previewOpen = false; previewDrawer.close(); }
+});
+wideViewport.addEventListener('change', () => arrangePreview());
+smallViewport.addEventListener('change', () => { if (smallViewport.matches && previewDrawer.open) previewDrawer.close(); arrangePreview(); });
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
   state.view = button.dataset.view;
   if (state.skills.length) renderWorkspace();
@@ -534,7 +678,7 @@ document.querySelector('.dialog-tabs').addEventListener('keydown', event => {
 document.getElementById('close-dialog').addEventListener('click', () => dialog.close());
 document.getElementById('dialog-install').addEventListener('click', () => setTab('install', true));
 dialog.addEventListener('close', () => {
-  document.body.style.overflow = '';
+  updateBodyLock();
   if (dialogReturnFocus?.isConnected) dialogReturnFocus.focus({ preventScroll: true });
 });
 dialog.addEventListener('click', event => {
