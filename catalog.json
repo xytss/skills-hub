@@ -7,6 +7,8 @@
       "title": "数据库设计",
       "version": "3.2.0",
       "description": "业务需求建模、现有Schema评审与慢查询索引诊断。",
+      "navigation_path": ["后端开发", "数据库与存储", "数据库架构与设计"],
+      "database": "PostgreSQL 15+",
       "category_paths": [
         "后端开发/数据库与存储/关系型数据库/PostgreSQL",
         "后端开发/数据库与存储/数据库架构与设计/逻辑建模与范式设计",
@@ -16,7 +18,23 @@
       ],
       "entry": "skills/database-design/SKILL.md",
       "overview": "skills/database-design/README.md",
-      "image": "skills/database-design/assets/overview.png"
+      "image": "skills/database-design/assets/overview.png",
+      "details": {
+        "purpose": "根据业务需求、现有表结构或慢查询 SQL，完成关系型数据库建模、结构评审与查询优化，并整理字段字典、约束、索引和 DDL。",
+        "scenarios": [
+          {"name": "需求建模", "input": "业务需求与数据库版本", "output": "实体关系图、字段字典、约束及 DDL"},
+          {"name": "结构评审", "input": "现有 DDL 或表结构", "output": "问题清单、迁移方案与兼容性说明"},
+          {"name": "查询优化", "input": "SQL、表结构与执行计划", "output": "瓶颈分析、SQL 改写与索引依据"}
+        ],
+        "workflow": [
+          {"title": "识别任务", "description": "根据输入材料选择建模、评审或查询优化流程。"},
+          {"title": "梳理结构", "description": "明确实体关系、字段语义、数据完整性及并发要求。"},
+          {"title": "输出方案", "description": "整理完整字段字典、约束、索引依据与 DDL。"},
+          {"title": "一致性检查", "description": "核对字典、DDL、索引和示例 SQL 的名称、类型及默认值。"}
+        ],
+        "principles": ["业务不变量与数据正确性优先", "明确数据库版本与类型语义", "分别记录静态推演与实测证据", "涉及 4 张及以上表时分阶段交付"],
+        "example": "请使用 database-design，为多租户项目管理系统设计数据库，包含项目、成员和任务。使用 PostgreSQL 15，先梳理实体关系，再给出完整字段字典、约束和索引方案。"
+      }
     }
   ]
 }

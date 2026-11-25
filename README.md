@@ -6,6 +6,8 @@
 
 面向主流 AI Agent 的可复用 Skills，按开发领域分类。
 
+[浏览 Skill 目录](https://xytss.github.io/skills-hub/)
+
 </div>
 
 ---

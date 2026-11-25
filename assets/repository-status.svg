@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="146" height="22" viewBox="0 0 146 22" role="img" aria-label="MIT License · Skills 1">
   <rect width="47" height="22" rx="4" fill="#656d76"/>
   <text x="23.5" y="15.5" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">MIT</text>
-  <rect x="57" width="89" height="22" rx="4" fill="#8b5cf6"/>
+  <rect x="57" width="89" height="22" rx="4" fill="#2563eb"/>
   <text x="101.5" y="15.5" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">Skills 1</text>
 </svg>
