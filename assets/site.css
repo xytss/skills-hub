@@ -45,15 +45,13 @@ code, pre { font-family: var(--font-code); }
 .repository-link > [data-icon='github'] .icon { width: 20px; height: 20px; }
 .jump-icon { margin-left: 8px; padding-left: 16px; border-left: 1px solid #cad6e8; }
 .page { width: 100%; margin: 0; padding: 24px var(--page-gutter); }
-.page-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+.page-heading { display: none; margin-bottom: 16px; }
 #catalog-toggle { display: none; }
-.page-heading h1 { font-size: var(--text-page); font-weight: var(--weight-bold); letter-spacing: -.3px; line-height: 1.333333; margin: 0; }
-.page-heading p { font-size: var(--text-body); color: var(--muted); margin: 0; }
 .workspace { --catalog-width: 260px; --preview-width: clamp(440px,32vw,560px); --workspace-gap: 16px; position: relative; display: grid; grid-template-columns: var(--catalog-width) minmax(0,1fr) var(--preview-width); gap: var(--workspace-gap); align-items: start; }
 /* Decorative rules sit in the existing gutters, without adding layout columns. */
-.workspace::before, .workspace::after { content: ''; position: absolute; top: 6px; bottom: 6px; width: 2px; border-left: 2px dashed #c2cede; pointer-events: none; }
-.workspace::before { left: calc(var(--catalog-width) + (var(--workspace-gap) - 2px) / 2); }
-.workspace::after { right: calc(var(--preview-width) + (var(--workspace-gap) - 2px) / 2); }
+.workspace::before, .workspace::after { content: ''; position: absolute; top: 6px; bottom: 6px; width: 1px; border-left: 1px dashed #b8d8c5; transform: scaleX(.5); transform-origin: center; pointer-events: none; }
+.workspace::before { left: calc(var(--catalog-width) + (var(--workspace-gap) - 1px) / 2); }
+.workspace::after { right: calc(var(--preview-width) + (var(--workspace-gap) - 1px) / 2); }
 .workspace.preview-hidden::after { display: none; }
 .workspace.preview-hidden { grid-template-columns: 260px minmax(0,1fr); }
 .workspace-main { min-width: 0; display: grid; gap: 16px; }
@@ -212,7 +210,7 @@ select { font-size: var(--text-body); background: white; border: 1px solid #bfcf
 #catalog, #install { scroll-margin-top: 24px; }
 .catalog-panel { position: sticky; top: 24px; }
 .catalog-content { max-height: calc(100dvh - 240px); overflow-y: auto; }
-.preview-panel { position: sticky; top: 24px; height: max(480px,calc(100dvh - 220px)); max-height: 840px; display: flex; flex-direction: column; }
+.preview-panel { position: sticky; top: 24px; height: max(480px,calc(100dvh - 164px)); max-height: 840px; display: flex; flex-direction: column; }
 .preview-heading { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
 .preview-symbol { display: inline-flex; justify-content: center; align-items: center; width: 36px; height: 36px; flex-shrink: 0; background: #edf4ff; color: var(--blue); border-radius: 6px; }
 .preview-symbol .icon { width: 23px; height: 23px; }
@@ -255,6 +253,7 @@ select { font-size: var(--text-body); background: white; border: 1px solid #bfcf
 @media (max-width: 1023px) {
   .workspace::before, .workspace::after { display: none; }
   .workspace, .workspace.preview-hidden { grid-template-columns: minmax(0,1fr); }
+  .page-heading { display: flex; }
   #catalog-toggle { display: inline-flex; }
   .workspace > .catalog-panel { display: none; position: static; }
   .workspace.catalog-expanded > .catalog-panel { display: block; }
@@ -272,7 +271,6 @@ select { font-size: var(--text-body); background: white; border: 1px solid #bfcf
   .icon.share-icon { width: 24px; height: 20px; }
   .page { padding: 20px 14px; }
   .page-heading { margin-bottom: 20px; }
-  .page-heading h1 { font-size: var(--text-page); }
   #catalog-toggle { font-size: var(--text-xs); padding: 4px 9px; }
   .workspace-main { gap: 16px; }
   .panel-heading { padding: 14px; gap: 10px; flex-wrap: wrap; }

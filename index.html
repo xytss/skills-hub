@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/icons/skills-hub.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/noto-sans-sc-ui.woff2?v=20261125-11" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261125-11">
-  <link rel="stylesheet" href="assets/site.css?v=20261125-13">
+  <link rel="stylesheet" href="assets/site.css?v=20261125-14">
   <script src="assets/site.js?v=20261125-11" defer></script>
 </head>
 <body>
@@ -21,7 +21,8 @@
     </div>
   </header>
   <main class="page">
-    <header class="page-heading"><h1>Skill 资源库</h1><button id="catalog-toggle" class="secondary-button" type="button" aria-expanded="false" aria-controls="catalog"><span data-icon="folder"></span>分类目录</button></header>
+    <h1 class="sr-only">Skill 资源库</h1>
+    <div class="page-heading"><button id="catalog-toggle" class="secondary-button" type="button" aria-expanded="false" aria-controls="catalog"><span data-icon="folder"></span>分类目录</button></div>
     <div class="workspace">
       <section class="panel catalog-panel" id="catalog" aria-labelledby="catalog-title"><header class="panel-heading"><h2 id="catalog-title">分类目录</h2></header><div id="catalog-content" class="catalog-content" aria-live="polite"><p class="loading">正在读取目录…</p></div></section>
       <div class="workspace-main">
