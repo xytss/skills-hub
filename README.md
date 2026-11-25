@@ -2,14 +2,9 @@
 
 # Skills Hub
 
-**面向主流 AI Agent 的可复用 Skills**
+[![MIT License · Skills 1](assets/repository-status.svg)](#skill-catalog)
 
-按开发领域分类，提供使用指南与执行规范。
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Skills: 1](https://img.shields.io/badge/Skills-1-8b5cf6.svg)](#skill-catalog)
-
-[分类目录](#skill-catalog) · [快速使用](#quick-start) · [维护规范](#contributing)
+面向主流 AI Agent 的可复用 Skills，按开发领域分类。
 
 </div>
 
@@ -20,39 +15,43 @@
 ## 分类目录
 
 <details open>
-<summary><strong>后端开发</strong></summary>
-
+<summary><img src="assets/categories/backend.svg" alt="后端开发" width="92%" height="36" align="absmiddle"></summary>
+<ul>
+<li type="none">
 <details open>
 <summary><strong>数据库与存储</strong></summary>
-
-#### 关系型数据库
-
-- [PostgreSQL](#database-design)
-
-#### 数据库架构与设计
-
-<a id="database-design"></a>
-
-**[database-design](skills/database-design/)** · `v3.2.0`
-
-数据库需求建模、结构评审与查询优化。
-
-| 项目 | 内容 |
-| :--- | :--- |
-| 适用任务 | 新业务建表、现有 Schema 评审、慢查询诊断 |
-| 默认数据库 | PostgreSQL 15+ |
-
-[使用指南](skills/database-design/README.md) · [执行规范](skills/database-design/SKILL.md)
-
-分类标签：
-
-- 逻辑建模与范式设计
-- Schema 评审与迁移
-- 索引设计与查询调优
-- 并发控制与多租户隔离
-
+<ul>
+<li>
+<strong>关系型数据库</strong>
+<ul>
+<li><a href="#database-design">PostgreSQL</a></li>
+</ul>
+</li>
+<li>
+<strong>数据库架构与设计</strong>
+<ul>
+<li id="database-design">
+<p><strong><a href="skills/database-design/">database-design</a></strong> <code>v3.2.0</code> — 数据库需求建模、结构评审与查询优化。</p>
+<table>
+<tbody>
+<tr><th align="left" scope="row" width="128">适用任务</th><td width="320">建模、评审、查询优化</td></tr>
+<tr><th align="left" scope="row">默认数据库</th><td>PostgreSQL 15+</td></tr>
+</tbody>
+</table>
+<p><a href="skills/database-design/README.md">使用指南</a> · <a href="skills/database-design/SKILL.md">执行规范</a></p>
+<ul>
+<li>逻辑建模与范式设计</li>
+<li>Schema 评审与迁移</li>
+<li>索引设计与查询调优</li>
+<li>并发控制与多租户隔离</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </details>
-
+</li>
+</ul>
 </details>
 
 ---
