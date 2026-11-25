@@ -2,6 +2,7 @@
 
 const REPOSITORY = 'https://github.com/xytss/skills-hub';
 const ICONS = {
+  hierarchy: '<rect x="9" y="2" width="6" height="5" rx="1"/><rect x="1" y="17" width="6" height="5" rx="1"/><rect x="9" y="17" width="6" height="5" rx="1"/><rect x="17" y="17" width="6" height="5" rx="1"/><path d="M12 7v10M4 17v-5h16v5"/>',
   branches: '<circle cx="6" cy="5" r="2"/><circle cx="18" cy="9" r="2"/><circle cx="18" cy="19" r="2"/><path d="M6 7v10a2 2 0 0 0 2 2h8M6 9h10"/>',
   directory: '<path d="M3 5h6l2 3h10v12H3z"/><path d="M7 12h10M7 16h7"/>',
   folder: '<path d="M3 5h6l2 3h10v12H3z"/>',
@@ -30,7 +31,7 @@ const AGENTS = [
   { name: 'Gemini CLI', symbol: 'Ge', directory: '.gemini/skills', invocation: '请使用 database-design', docs: 'https://geminicli.com/docs/cli/skills/' },
   { name: 'GitHub Copilot', symbol: 'Gh', directory: '.copilot/skills', invocation: '请使用 database-design', docs: 'https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills' }
 ];
-const state = { skills: [], view: 'tree', currentSkill: null, sequence: 0 };
+const state = { skills: [], view: 'tree', currentSkill: null, selectedSkill: null, sequence: 0 };
 const dialog = document.getElementById('skill-dialog');
 
 function element(tag, className, text) {
@@ -41,6 +42,12 @@ function element(tag, className, text) {
 }
 
 function icon(name) {
+  if (name === 'share') {
+    const image = element('img', 'icon share-icon');
+    image.src = 'assets/icons/share-forward.svg';
+    image.alt = '';
+    return image;
+  }
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('viewBox', '0 0 24 24');
   svg.setAttribute('class', 'icon');
@@ -113,15 +120,17 @@ function treeNode(name) {
 function buildTree(skills) {
   const root = treeNode('root');
   skills.forEach(skill => {
+    const path = skill.navigation_path || skill.category_paths[0].split('/').slice(0, -1);
     skill.category_paths.forEach(categoryPath => {
       let category = root;
-      categoryPath.split('/').forEach(name => {
+      const parts = categoryPath.split('/');
+      const navigation = path.every((name, index) => parts[index] === name) ? parts.slice(0, path.length) : parts;
+      navigation.forEach(name => {
         if (!category.children.has(name)) category.children.set(name, treeNode(name));
         category = category.children.get(name);
         category.members.add(skill.name);
       });
     });
-    const path = skill.navigation_path || skill.category_paths[0].split('/').slice(0, -1);
     let current = root;
     path.forEach(name => {
       if (!current.children.has(name)) current.children.set(name, treeNode(name));
@@ -133,31 +142,16 @@ function buildTree(skills) {
   return root;
 }
 
-function skillItem(skill, facets = []) {
+function skillItem(skill) {
   const li = element('li', 'skill-item');
   const button = element('button', 'skill-open');
   button.type = 'button';
   button.setAttribute('aria-haspopup', 'dialog');
   button.setAttribute('aria-label', `查看 ${skill.name} 详情`);
-  button.append(icon('database'), element('strong', '', skill.name), element('span', 'badge badge-blue', `v${skill.version}`), element('span', 'skill-inline-description', `— ${skill.description}`));
-  button.addEventListener('click', () => openSkill(skill));
-  const preview = element('div', 'skill-preview');
-  const table = dataTable(null, [['适用任务', skill.details.scenarios.map(scenario => scenario.name).join('、')], ['默认数据库', skill.database]], 'mini-table');
-  const links = element('div', 'skill-links');
-  links.append(link('使用指南', fileUrl(skill.overview), 'book'), link('执行规范', fileUrl(skill.entry), 'code'));
-  preview.append(table, links);
-  li.append(button, preview);
-  if (facets.length) {
-    const list = element('ul', 'skill-facets');
-    facets.forEach(facet => {
-      const item = element('li');
-      const row = element('div', 'facet-row');
-      row.append(icon('layers'), element('span', '', facet.name));
-      item.append(row);
-      list.append(item);
-    });
-    li.append(list);
-  }
+  button.append(icon('folder'), element('strong', '', skill.name));
+  button.classList.toggle('is-selected', state.selectedSkill?.name === skill.name);
+  button.addEventListener('click', () => { state.selectedSkill = skill; renderWorkspace(); openSkill(skill); });
+  li.append(button);
   return li;
 }
 
@@ -174,11 +168,9 @@ function renderBranch(branch) {
   }
   const chevron = element('span', 'chevron');
   if (hasChildren) chevron.append(icon('chevron'));
-  button.append(chevron, icon(hasChildren ? 'folder' : 'layers'), element('span', '', branch.name));
-  const facets = [...branch.children.values()];
-  const groupFacets = branch.skills.length === 1 && facets.every(child => child.children.size === 0 && child.skills.length === 0);
-  branch.skills.forEach(skill => children.append(skillItem(skill, groupFacets ? facets : [])));
-  if (!groupFacets) branch.children.forEach(child => children.append(renderBranch(child)));
+  button.append(chevron, icon('folder'), element('span', '', branch.name));
+  branch.skills.forEach(skill => children.append(skillItem(skill)));
+  branch.children.forEach(child => children.append(renderBranch(child)));
   if (hasChildren) button.addEventListener('click', () => {
     const expanded = button.getAttribute('aria-expanded') === 'true';
     button.setAttribute('aria-expanded', String(!expanded));
@@ -192,12 +184,19 @@ function renderBranch(branch) {
 function renderCatalog() {
   const content = document.getElementById('catalog-content');
   content.replaceChildren();
-  if (state.view === 'tree') {
-    const tree = element('ul', 'tree');
-    tree.setAttribute('aria-label', '按开发领域分类的 Skill 目录');
-    buildTree(state.skills).children.forEach(branch => tree.append(renderBranch(branch)));
-    content.append(tree);
-  } else {
+  const tree = element('ul', 'tree');
+  tree.setAttribute('aria-label', '按开发领域分类的 Skill 目录');
+  buildTree(state.skills).children.forEach(branch => tree.append(renderBranch(branch)));
+  content.append(tree);
+  renderWorkspace();
+}
+
+function renderWorkspace() {
+  const content = document.getElementById('skill-content');
+  const skill = state.selectedSkill || state.skills[0];
+  document.getElementById('workspace-title').textContent = skill.navigation_path.at(-1);
+  content.replaceChildren();
+  if (state.view === 'table') {
     const rows = state.skills.map(skill => {
       const button = element('button', '', skill.name);
       button.type = 'button';
@@ -208,6 +207,38 @@ function renderCatalog() {
     const wrap = element('div', 'table-scroll');
     wrap.append(dataTable(['Skill', '版本', '分类', '默认数据库'], rows));
     content.append(wrap);
+  } else {
+    const card = element('article', 'skill-card');
+    const head = element('div', 'skill-card-head');
+    const identity = element('div', 'skill-identity');
+    const symbol = element('span', 'skill-symbol');
+    symbol.append(icon('database'));
+    const info = element('div', 'skill-info');
+    const title = element('div', 'skill-title');
+    title.append(element('h3', '', skill.name), element('span', 'badge badge-blue', `v${skill.version}`));
+    info.append(title, element('p', '', skill.description));
+    identity.append(symbol, info);
+    const actions = element('div', 'skill-actions');
+    const detail = element('button', 'primary-button', '查看详情');
+    detail.type = 'button';
+    detail.setAttribute('aria-haspopup', 'dialog');
+    detail.addEventListener('click', () => openSkill(skill));
+    actions.append(link('使用指南', fileUrl(skill.overview), 'file'), link('执行规范', fileUrl(skill.entry), 'file'), detail);
+    head.append(identity, actions);
+    const metadata = element('div', 'skill-metadata');
+    [['默认数据库', skill.database, 'database'], ['适用任务', skill.details.scenarios.map(s => s.name).join('、'), 'file']].forEach(([label, value, name]) => {
+      const row = element('p');
+      row.append(icon(name), element('span', 'metadata-label', `${label}：`), element('span', '', value));
+      metadata.append(row);
+    });
+    const tags = element('div', 'skill-categories');
+    skill.category_paths.filter(path => path.startsWith(skill.navigation_path.join('/') + '/')).forEach(path => {
+      const tag = element('div', 'category-tag');
+      tag.append(icon('hierarchy'), element('span', '', path.split('/').at(-1)));
+      tags.append(tag);
+    });
+    card.append(head, metadata, tags);
+    content.append(card);
   }
   document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === state.view)));
 }
@@ -222,13 +253,14 @@ function createOverview(skill) {
   main.append(section('输入与输出', 'table', scenarioWrap));
   main.append(section('调用示例', 'terminal', element('blockquote', 'example', skill.details.example)));
   const tags = element('div', 'tags');
-  const labels = [...new Set(skill.category_paths.map(path => path.split('/').at(-1)))];
+  const labels = [...new Set(skill.category_paths.filter(path => path.startsWith(skill.navigation_path.join('/') + '/')).map(path => path.split('/').at(-1)))];
   labels.forEach(label => tags.append(element('span', 'tag', label)));
   main.append(section('分类', 'branches', tags));
   const workflow = element('ol', 'workflow');
-  skill.details.workflow.forEach(item => {
+  skill.details.workflow.forEach((item, index) => {
     const li = element('li');
     li.append(element('h4', '', item.title), element('p', '', item.description));
+    if (index < skill.details.workflow.length - 1) { const arrow = element('span', 'workflow-arrow'); arrow.append(icon('arrow')); li.append(arrow); }
     workflow.append(li);
   });
   aside.append(section('执行流程', 'workflow', workflow));
@@ -269,6 +301,7 @@ function installCommand(agent, skill) {
 }
 
 function installWidget(skill, prefix) {
+  const compact = prefix === 'page';
   const fragment = element('div', 'install-widget');
   const controls = element('div', 'install-controls');
   const label = element('label', 'agent-select', 'AI Agent');
@@ -315,13 +348,25 @@ function installWidget(skill, prefix) {
   const invocation = element('p', 'install-path');
   function update() {
     const agent = AGENTS[Number(select.value)];
-    code.textContent = installCommand(agent, skill);
+    code.textContent = compact ? `git clone '${REPOSITORY}.git'` : installCommand(agent, skill);
+    if (fullCode) fullCode.textContent = installCommand(agent, skill);
     path.replaceChildren(document.createTextNode('安装目录：'), element('code', '', `~/${agent.directory}/${skill.name}/`));
     invocation.replaceChildren(document.createTextNode('调用：'), element('code', '', agent.invocation.replaceAll('database-design', skill.name)));
   }
+  let fullCode = null;
+  let fullDetails = null;
+  if (compact) {
+    fullDetails = element('details', 'full-command');
+    const summary = element('summary', '', '完整安装命令');
+    const complete = element('pre');
+    fullCode = element('code');
+    complete.append(fullCode);
+    fullDetails.append(summary, complete, path, invocation);
+  }
   select.addEventListener('change', update);
   update();
-  fragment.append(controls, codeBlock, path, invocation);
+  fragment.append(controls, codeBlock);
+  if (compact) fragment.append(fullDetails); else fragment.append(path, invocation);
   return fragment;
 }
 
@@ -339,6 +384,7 @@ function setTab(name, focus = false) {
 function openSkill(skill) {
   state.currentSkill = skill;
   document.getElementById('dialog-title').textContent = skill.name;
+  document.getElementById('dialog-subtitle').textContent = skill.description;
   document.getElementById('dialog-version').textContent = `v${skill.version}`;
   document.getElementById('panel-overview').replaceChildren(createOverview(skill));
   document.getElementById('panel-spec').replaceChildren(createSpec(skill));
@@ -361,7 +407,8 @@ async function loadCatalog() {
       if (!skill.name || !skill.version || !skill.details || !Array.isArray(skill.category_paths)) throw new Error('Invalid skill metadata');
     });
     state.skills = catalog.skills;
-    document.getElementById('skill-count').textContent = `Skills ${state.skills.length}`;
+    state.selectedSkill = state.skills[0];
+    document.getElementById('skill-count').textContent = `${state.skills.length} 项 Skill`;
     document.getElementById('catalog-count').textContent = `${state.skills.length} 项`;
     renderCatalog();
     document.getElementById('page-install').replaceChildren(installWidget(state.skills[0], 'page'));
@@ -375,17 +422,9 @@ async function loadCatalog() {
 }
 
 hydrateIcons();
-AGENTS.forEach(agent => {
-  const li = element('li');
-  const anchor = link(agent.name, agent.docs);
-  anchor.prepend(element('span', 'agent-symbol', agent.symbol));
-  anchor.append(icon('external'));
-  li.append(anchor);
-  document.getElementById('agent-list').append(li);
-});
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
   state.view = button.dataset.view;
-  if (state.skills.length) renderCatalog();
+  if (state.skills.length) renderWorkspace();
 }));
 document.querySelectorAll('[data-tab]').forEach(button => button.addEventListener('click', () => setTab(button.dataset.tab)));
 document.querySelector('.dialog-tabs').addEventListener('keydown', event => {
@@ -398,7 +437,6 @@ document.querySelector('.dialog-tabs').addEventListener('keydown', event => {
 });
 document.getElementById('close-dialog').addEventListener('click', () => dialog.close());
 document.getElementById('dialog-install').addEventListener('click', () => setTab('install', true));
-document.querySelectorAll('a[href="#install"]').forEach(anchor => anchor.addEventListener('click', () => { document.getElementById('install').open = true; }));
 dialog.addEventListener('close', () => { document.body.style.overflow = ''; });
 dialog.addEventListener('click', event => {
   const box = dialog.getBoundingClientRect();

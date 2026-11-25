@@ -2,7 +2,7 @@
 
 面向主流 AI Agent 的可复用 Skills，按开发领域分类。
 
-<a href="https://xytss.github.io/skills-hub/"><strong>打开 Skill 展示页</strong>&nbsp;<img src="assets/icons/arrow-up-right.svg" width="16" height="16" alt="" align="absmiddle"></a>
+<a href="https://xytss.github.io/skills-hub/"><strong>打开 Skill 展示页</strong>&nbsp;<img src="assets/icons/share-forward.svg" width="16" height="16" alt="" align="absmiddle"></a>
 
 ## Skill 目录
 
