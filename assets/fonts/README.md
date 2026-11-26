@@ -1,5 +1,7 @@
 # 字体资源
 
+当前页面已改用系统字体：Windows 11 的英文采用 Segoe UI Variable Text，中文采用 Microsoft YaHei UI，代码采用 Consolas。页面不再导入本目录的 fonts.css。下列文件保留作为历史资源，其授权继续随文件保存。
+
 | 用途 | 字体 | 授权 | 上游来源 |
 | --- | --- | --- | --- |
 | 中英文界面 | Noto Sans SC，可变字重 | SIL OFL 1.1 | [Google Fonts](https://github.com/google/fonts/tree/main/ofl/notosanssc) |

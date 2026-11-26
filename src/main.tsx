@@ -6,7 +6,6 @@ import type { Catalog } from './types';
 import { loadCatalog } from './lib/catalog';
 import { theme } from './theme';
 import { Header } from './components/Header';
-import '../assets/fonts/fonts.css';
 import '../assets/site.css';
 import '../assets/prompts.css';
 import './styles.css';
