@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { Button, ConfigProvider, Drawer, Flex, Modal, Steps, Table, Tabs, Tag, Tree, Typography } from 'antd';
 import type { DataNode } from 'antd/es/tree';
 import Markdown from 'react-markdown';
@@ -13,8 +13,9 @@ import { CopyButton } from '../components/CopyButton';
 import { ResourceTree } from '../components/ResourceTree';
 
 function PromptGuide({ prompt, onExpand }: { prompt: Prompt; onExpand?: () => void }) {
-  return <aside className="panel prompt-guide" aria-labelledby="prompt-guide-title">
-    <header className="panel-heading"><h2 id="prompt-guide-title">使用说明</h2>{onExpand && <Button type="text" className="icon-button" aria-label="展开使用说明" icon={<Icon name="expand" />} onClick={onExpand} />}</header>
+  const titleId = useId();
+  return <aside className="panel prompt-guide" aria-labelledby={titleId}>
+    <header className="panel-heading"><h2 id={titleId}>使用说明</h2>{onExpand && <Button type="text" className="icon-button" aria-label="展开使用说明" icon={<Icon name="expand" />} onClick={onExpand} />}</header>
     <div className="preview-content">
       <section className="info-section"><h3 className="info-title">适用环境</h3><Table className="environment-table" size="small" pagination={false} showHeader={false} columns={[{ dataIndex: 'label', width: '36%' }, { dataIndex: 'value' }]} dataSource={[{ key: 'agent', label: '工具', value: prompt.agent }, { key: 'system', label: '系统', value: prompt.system }, { key: 'shell', label: '终端', value: prompt.shell }]} /></section>
       <section className="info-section"><h3 className="info-title">标签</h3><Flex wrap gap={6}>{prompt.tags.map(tag => <Tag className={prompt.featured_tags.includes(tag) ? 'feature-tag' : ''} key={tag}>{tag}</Tag>)}</Flex></section>
@@ -77,7 +78,7 @@ function PromptContent({ prompt, prompts }: { prompt: Prompt; prompts: Prompt[] 
       {!narrow && <PromptGuide prompt={prompt} onExpand={() => setGuideOpen(true)} />}
     </div>
     {small && <Drawer title="目录与大纲" placement="left" size={320} open={catalogOpen} onClose={() => setCatalogOpen(false)} focusable={{ focusTriggerAfterClose: !pendingNavigation.current }} afterOpenChange={open => { if (!open && pendingNavigation.current) { const id = pendingNavigation.current; pendingNavigation.current = ''; outline.navigate(id); } }} className="resource-drawer prompt-navigation-drawer">{navigation}</Drawer>}
-    {narrow ? <Drawer title="使用说明" placement="right" open={guideOpen} onClose={() => setGuideOpen(false)} size={440} className="resource-drawer prompt-guide-overlay"><PromptGuide prompt={prompt} /></Drawer> : <Modal open={guideOpen} onCancel={() => setGuideOpen(false)} footer={null} width={440} className="prompt-guide-overlay" title="使用说明"><PromptGuide prompt={prompt} /></Modal>}
+    {narrow ? <Drawer title="使用说明" placement="right" open={guideOpen} onClose={() => setGuideOpen(false)} size={440} className="resource-drawer prompt-guide-overlay"><PromptGuide prompt={prompt} /></Drawer> : <Modal centered open={guideOpen} onCancel={() => setGuideOpen(false)} footer={null} width={440} className="prompt-guide-overlay" title="使用说明"><PromptGuide prompt={prompt} /></Modal>}
   </main>;
 }
 

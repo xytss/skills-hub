@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Button, Drawer, Flex, Modal, Segmented, Select, Steps, Table, Tabs, Tag } from 'antd';
 import type { ReactNode } from 'react';
 import type { Skill } from '../types';
@@ -6,7 +6,7 @@ import { REPOSITORY, fileUrl } from '../lib/catalog';
 import { useMedia } from '../hooks/useMedia';
 import { Icon } from '../components/Icon';
 import { CopyButton } from '../components/CopyButton';
-import { ResourceTree } from '../components/ResourceTree';
+import { ResourceTree, type CatalogNode } from '../components/ResourceTree';
 
 const agents = [
   { name: 'Codex', directory: '.agents/skills', invocation: '$database-design' },
@@ -45,7 +45,7 @@ function InstallWidget({ skill, agentName, setAgent, mode, setMode }: { skill: S
     `Copy-Item -LiteralPath './skills-hub/skills/${skill.name}' -Destination $skillRoot -Recurse -Force`
   ].join('\n');
   return <div className="install-widget">
-    <Flex className="install-controls" align="center" justify="space-between" gap={16} wrap><Flex align="center" gap={12}><span id="agent-label">AI Agent</span><Select aria-label="AI Agent" value={agentName} onChange={setAgent} options={agents.map(agent => ({ value: agent.name, label: agent.name }))} /></Flex><CopyButton text={manual ? command : prompt} label={manual ? '复制安装命令' : '复制安装提示词'} /></Flex>
+    <Flex className="install-controls" align="center" justify="space-between" gap={16} wrap><Flex align="center" gap={12}><span>AI Agent</span><Select aria-label="AI Agent" value={agentName} onChange={setAgent} options={agents.map(agent => ({ value: agent.name, label: agent.name }))} /></Flex><CopyButton text={manual ? command : prompt} label={manual ? '复制安装命令' : '复制安装提示词'} /></Flex>
     {manual ? <><p className="command-caption">PowerShell · 用户级安装</p><div className="code-block"><pre><code>{command}</code></pre></div><p className="install-path">安装目录 <code>~/{agent.directory}/{skill.name}/</code></p><p className="install-invocation">调用 <code>{agent.invocation.replaceAll('database-design', skill.name)}</code></p></> : <div className="prompt-text">{prompt}</div>}
     <Button type="link" className="install-mode-button" icon={<Icon name={manual ? 'message' : 'terminal'} />} aria-expanded={manual} onClick={() => setMode(manual ? 'prompt' : 'manual')}>{manual ? '使用安装提示词' : '手动安装'}</Button>
   </div>;
@@ -65,7 +65,7 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
   const [selected, setSelected] = useState(skills[0]);
   const [category, setCategory] = useState(skills[0].navigation_path);
   const [members, setMembers] = useState(skills.map(skill => skill.name));
-  const [view, setView] = useState('cards');
+  const [view, setView] = useState(() => localStorage.getItem('skills-hub.view') === 'table' ? 'table' : 'cards');
   const [previewOpen, setPreviewOpen] = useState(true);
   const [previewRequested, setPreviewRequested] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
@@ -78,23 +78,44 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
   });
   const wide = useMedia('(min-width: 1440px)');
   const small = useMedia('(max-width: 1023px)');
+  const catalogAction = useRef<(() => void) | null>(null);
+  const pendingDetails = useRef(false);
+  const previewOpener = useRef<HTMLElement | null>(null);
   const filtered = useMemo(() => skills.filter(skill => members.includes(skill.name)), [skills, members]);
   useEffect(() => { document.title = 'Skills Hub · Skill 资源库'; }, []);
   function updateAgent(name: string) { setAgent(name); localStorage.setItem('skills-hub.agent', name); }
-  function openDetails(skill: Skill) { setSelected(skill); setDetailTab('overview'); setPreviewRequested(false); setDetailsOpen(true); }
-  function preview(skill: Skill) { setSelected(skill); setPreviewOpen(true); if (small) openDetails(skill); else if (!wide) setPreviewRequested(true); }
+  function updateView(value: string) { setView(value); localStorage.setItem('skills-hub.view', value); }
+  function openDetails(skill: Skill) {
+    setSelected(skill); setDetailTab('overview'); setPreviewRequested(false);
+    if (!wide && !small && previewRequested) pendingDetails.current = true;
+    else setDetailsOpen(true);
+  }
+  function preview(skill: Skill) {
+    setSelected(skill); setPreviewOpen(true);
+    if (small) openDetails(skill);
+    else if (!wide) { previewOpener.current = document.activeElement as HTMLElement; setPreviewRequested(true); }
+  }
+  function selectCatalog(node: CatalogNode) {
+    const select = () => {
+      if (node.kind === 'resource') {
+        if (small) document.getElementById('catalog-toggle')!.focus();
+        preview(skills.find(skill => skill.name === node.resource)!); return;
+      }
+      setCategory(node.path); setMembers(node.members);
+      if (!node.members.includes(selected.name)) setSelected(skills.find(skill => node.members.includes(skill.name))!);
+      if (small) requestAnimationFrame(() => document.getElementById('workspace-title')!.focus());
+    };
+    if (small) { catalogAction.current = select; setCatalogOpen(false); }
+    else select();
+  }
   const installProps = { skill: selected, agentName: agent, setAgent: updateAgent, mode, setMode };
+  const catalog = <section className="panel catalog-panel" id="catalog"><header className="panel-heading"><h2>分类目录</h2></header><div className="catalog-content"><ResourceTree resources={skills} selected={selected.name} category={category} onSelect={selectCatalog} /></div></section>;
   return <main className="page">
     <div className="page-heading"><Button id="catalog-toggle" icon={<Icon name="folder" />} aria-expanded={catalogOpen} aria-controls="catalog" onClick={() => setCatalogOpen(!catalogOpen)}>分类目录</Button></div>
-    <div className={`workspace${previewOpen ? '' : ' preview-hidden'}${catalogOpen ? ' catalog-expanded' : ''}`}>
-      <section className="panel catalog-panel" id="catalog"><header className="panel-heading"><h2>分类目录</h2></header><div className="catalog-content"><ResourceTree resources={skills} selected={selected.name} category={category} onSelect={node => {
-        if (node.kind === 'resource') { preview(skills.find(skill => skill.name === node.resource)!); return; }
-        setCategory(node.path); setMembers(node.members);
-        if (!node.members.includes(selected.name)) setSelected(skills.find(skill => node.members.includes(skill.name))!);
-        if (small) { setCatalogOpen(false); requestAnimationFrame(() => document.getElementById('workspace-title')!.focus()); }
-      }} /></div></section>
+    <div className={`workspace${previewOpen ? '' : ' preview-hidden'}`}>
+      {!small && catalog}
       <div className="workspace-main">
-        <section className="panel skills-panel" aria-labelledby="workspace-title"><header className="panel-heading"><div className="heading-group"><h1 id="workspace-title" tabIndex={-1}>{category.at(-1) || '全部 Skill'}</h1><Tag className="resource-meta-tag" color="blue" variant="filled">{filtered.length} 项 Skill</Tag></div><Segmented aria-label="Skill 展示方式" value={view} onChange={setView} options={[{ value: 'cards', label: '卡片', icon: <Icon name="layers" /> }, { value: 'table', label: '表格', icon: <Icon name="table" /> }]} /></header><div className="skill-content">
+        <section className="panel skills-panel" aria-labelledby="workspace-title"><header className="panel-heading"><div className="heading-group"><h1 id="workspace-title" tabIndex={-1}>{category.at(-1) || '全部 Skill'}</h1><Tag className="resource-meta-tag" color="blue" variant="filled">{filtered.length} 项 Skill</Tag></div><Segmented aria-label="Skill 展示方式" value={view} onChange={updateView} options={[{ value: 'cards', label: '卡片', icon: <Icon name="layers" /> }, { value: 'table', label: '表格', icon: <Icon name="table" /> }]} /></header><div className="skill-content">
           {view === 'cards' ? filtered.map(skill => <article className="skill-card" key={skill.name}><div className="skill-card-head"><div className="skill-identity"><span className="skill-symbol"><Icon name="database" /></span><div className="skill-info"><div className="skill-title"><h3><Button type="text" className="skill-title-button" aria-label={`预览 ${skill.name}`} onClick={() => preview(skill)}>{skill.name}</Button></h3><Tag className="resource-meta-tag" color="blue" variant="filled">v{skill.version}</Tag></div><p>{skill.description}</p></div></div></div><div className="skill-metadata"><span className="metadata-item"><Icon name="database" />{skill.database}</span><span>Codex · Claude Code · Cursor 等</span></div><div className="skill-actions"><Button onClick={() => openDetails(skill)}>展开详情</Button></div></article>) : <Table className="skills-table" size="small" pagination={false} rowKey="name" dataSource={filtered} rowClassName={skill => skill.name === selected.name ? 'is-selected' : ''} columns={[
             { title: 'Skill', dataIndex: 'name', width: '32%', render: (_, skill) => <div className="table-skill"><Button type="link" className="table-title-button" aria-label={`预览 ${skill.name}`} onClick={() => preview(skill)}>{skill.name}</Button><span className="table-database">{skill.database}</span></div> },
             { title: '适用任务', render: (_, skill) => skill.details.scenarios.map(item => item.name).join(' · ') }, { title: '版本', width: '16%', render: (_, skill) => <Tag className="resource-meta-tag" color="blue" variant="filled">v{skill.version}</Tag> },
@@ -105,8 +126,9 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
       </div>
       {wide && previewOpen && <Preview skill={selected} onExpand={() => openDetails(selected)} onClose={() => setPreviewOpen(false)} />}
     </div>
-    <Drawer title={selected.name} placement="right" size={520} open={!wide && !small && previewRequested} onClose={() => setPreviewRequested(false)} className="resource-drawer skill-preview-overlay"><Preview skill={selected} onExpand={() => openDetails(selected)} /></Drawer>
-    <Modal className="skill-details-modal" title={<Flex align="center" gap={16}><span className="dialog-icon"><Icon name="database" /></span><span>{selected.name}</span><Tag className="resource-meta-tag" color="blue" variant="filled">v{selected.version}</Tag></Flex>} open={detailsOpen} onCancel={() => setDetailsOpen(false)} width={960} footer={<div className="resource-modal-footer"><ResourceLinks skill={selected} /><Button type="link" icon={<Icon name="download" />} onClick={() => setDetailTab('install')}>安装方式</Button></div>}>
+    {small && <Drawer title="分类目录" placement="left" size={320} open={catalogOpen} onClose={() => setCatalogOpen(false)} focusable={{ focusTriggerAfterClose: !catalogAction.current }} afterOpenChange={open => { if (!open && catalogAction.current) { const action = catalogAction.current; catalogAction.current = null; action(); } }} className="resource-drawer skill-catalog-overlay">{catalog}</Drawer>}
+    <Drawer title={selected.name} placement="right" size={520} open={!wide && !small && previewRequested} onClose={() => setPreviewRequested(false)} extra={<Button type="text" aria-label="展开知识卡片" icon={<Icon name="expand" />} onClick={() => openDetails(selected)}>展开详情</Button>} focusable={{ focusTriggerAfterClose: !pendingDetails.current }} afterOpenChange={open => { if (!open && pendingDetails.current) { pendingDetails.current = false; previewOpener.current!.focus(); setDetailsOpen(true); } }} className="resource-drawer skill-preview-overlay"><Preview skill={selected} /></Drawer>
+    <Modal centered className="skill-details-modal" title={<Flex align="center" gap={16}><span className="dialog-icon"><Icon name="database" /></span><span>{selected.name}</span><Tag className="resource-meta-tag" color="blue" variant="filled">v{selected.version}</Tag></Flex>} open={detailsOpen} onCancel={() => setDetailsOpen(false)} width={960} footer={<div className="resource-modal-footer"><ResourceLinks skill={selected} /><Button type="link" icon={<Icon name="download" />} onClick={() => setDetailTab('install')}>安装方式</Button></div>}>
       <p className="detail-description">{selected.description}</p><Tabs activeKey={detailTab} onChange={setDetailTab} items={[{ key: 'overview', label: '概览', children: <Overview skill={selected} /> }, { key: 'spec', label: '规格表', children: <Specification skill={selected} /> }, { key: 'install', label: '安装', children: <InstallWidget {...installProps} /> }]} />
     </Modal>
   </main>;
