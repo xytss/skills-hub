@@ -85,6 +85,8 @@ Ant Design 主题字号由同一组 rem 字号变量和浏览器根字号计算�
 
 Agent选择保存在统一状态中：首页、预览相关安装区与完整卡片保持一致，并在浏览器存储可用时保留到下次访问。
 
+安装方式使用 Ant Design Segmented 直接展示“提示词安装 / 手动安装”，与 Agent 选择、复制按钮排列在同一工具栏；安装方式与 Agent 在首页、完整卡片中同步。安装区标题固定为“安装”，资源名称与版本继续显示在右侧。
+
 “手动安装”显示对应Agent的PowerShell脚本、安装目录和调用方式；该模式提供“复制安装命令”。复制内容始终与当前可见文本一致。复制成功短暂显示“已复制”，按钮尺寸保持稳定。
 
 ## 交互检查
@@ -128,6 +130,10 @@ Agent选择保存在统一状态中：首页、预览相关安装区与完整卡
 - 页面内容元数据统一保存在 `catalog.json` 的 `prompts` 数组中。两页共用 `src/components` 下的导航、图标、分类树与复制组件，使用 ConfigProvider 统一颜色、字体和组件 Token。
 
 ## React 组件与发布
+
+- 使用 `ant-design-skill` 确定界面结构，使用 `ant-design` 和 `antd` 技能核对组件决策与实际 API。开发机的 Ant Design CLI 用于 API、语义样式和兼容性检查，前端不依赖 CLI 运行。
+- 步骤说明通过 ConfigProvider 的 `steps.styles` / `steps.classNames` 统一样式；编号通过公开的 `iconRender` / `components.Icon` 渲染。提示词 Tabs 通过公开 `classNames` 管理头部与内容区，阅读器使用两行 Grid 约束高度，正文保持独立滚动。
+- 提示词的“下载文件 / 查看源码”使用 Ant Design 次要文字按钮；文件读取完成前禁用下载操作。
 
 - 保留首页、`prompts.html?prompt=codex-win`、`#catalog`、`#install` 与正文大纲锚点。两页共享入口，按页面懒加载 React 模块。
 - 分类目录与大纲使用 Ant Design Tree；操作控件使用 Button、Tabs、Select、Segmented；表格与流程使用 Table、Tag、Steps；弹窗与窄屏侧栏使用 Modal、Drawer。

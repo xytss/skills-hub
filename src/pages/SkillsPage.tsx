@@ -46,15 +46,14 @@ function InstallWidget({ skill, agentName, setAgent, mode, setMode }: { skill: S
     `Copy-Item -LiteralPath './skills-hub/skills/${skill.name}' -Destination $skillRoot -Recurse -Force`
   ].join('\n');
   return <div className="install-widget">
-    <Flex className="install-controls" align="center" justify="space-between" gap={16} wrap><Flex align="center" gap={12}><span>AI Agent</span><Select aria-label="AI Agent" value={agentName} onChange={setAgent} options={agents.map(agent => ({ value: agent.name, label: agent.name }))} /></Flex><CopyButton text={manual ? command : prompt} label={manual ? '复制安装命令' : '复制安装提示词'} /></Flex>
+    <Flex className="install-controls" align="center" justify="space-between" gap={16} wrap><Segmented aria-label="安装方式" value={mode} onChange={setMode} options={[{ value: 'prompt', label: '提示词安装' }, { value: 'manual', label: '手动安装' }]} /><Flex className="install-agent" align="center" gap={8}><span>AI Agent</span><Select aria-label="AI Agent" value={agentName} onChange={setAgent} options={agents.map(agent => ({ value: agent.name, label: agent.name }))} /></Flex><CopyButton text={manual ? command : prompt} label={manual ? '复制安装命令' : '复制安装提示词'} /></Flex>
     {manual ? <><p className="command-caption">PowerShell · 用户级安装</p><div className="code-block"><pre><code>{command}</code></pre></div><p className="install-path">安装目录 <code>~/{agent.directory}/{skill.name}/</code></p><p className="install-invocation">调用 <code>{agent.invocation.replaceAll('database-design', skill.name)}</code></p></> : <div className="prompt-text">{prompt}</div>}
-    <Button type="link" className="install-mode-button" icon={<Icon name={manual ? 'message' : 'terminal'} />} aria-expanded={manual} onClick={() => setMode(manual ? 'prompt' : 'manual')}>{manual ? '使用安装提示词' : '手动安装'}</Button>
   </div>;
 }
 
 function Overview({ skill }: { skill: Skill }) {
   const tags = [...new Set(skill.category_paths.filter(path => path.startsWith(`${skill.navigation_path.join('/')}/`)).map(path => path.split('/').at(-1)!))];
-  return <div className="overview-grid"><div className="overview-main"><Section title="用途"><p>{skill.details.purpose}</p></Section><Section title="输入与输出"><Scenarios skill={skill} /></Section><Section title="调用示例"><blockquote className="example"><Icon name="message" /><span>{skill.details.example}</span></blockquote></Section><Section title="分类"><Flex wrap gap={4}>{tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Flex></Section></div><div className="overview-aside"><Section title="执行流程"><Steps orientation="vertical" size="small" current={-1} items={skill.details.workflow.map(item => ({ title: item.title, content: item.description }))} /></Section><Section title="设计原则"><ul className="principles">{skill.details.principles.map(item => <li key={item}><Icon name="check" /><span>{item}</span></li>)}</ul></Section></div></div>;
+  return <div className="overview-grid"><div className="overview-main"><Section title="用途"><p>{skill.details.purpose}</p></Section><Section title="输入与输出"><Scenarios skill={skill} /></Section><Section title="调用示例"><blockquote className="example"><Icon name="message" /><span>{skill.details.example}</span></blockquote></Section><Section title="分类"><Flex wrap gap={4}>{tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Flex></Section></div><div className="overview-aside"><Section title="执行流程"><Steps orientation="vertical" size="small" current={-1} iconRender={(_, { index, components }) => <components.Icon>{index + 1}</components.Icon>} items={skill.details.workflow.map(item => ({ title: item.title, content: item.description }))} /></Section><Section title="设计原则"><ul className="principles">{skill.details.principles.map(item => <li key={item}><Icon name="check" /><span>{item}</span></li>)}</ul></Section></div></div>;
 }
 
 function Specification({ skill }: { skill: Skill }) {
@@ -123,7 +122,7 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
             { title: '操作', width: '18%', render: (_, skill) => <Button type="link" size="small" aria-label={`在侧栏预览 ${skill.name}`} onClick={() => preview(skill)}>预览</Button> }
           ]} />}
         </div></section>
-        <section className="panel install-panel" id="install"><header className="install-heading"><h2>{mode === 'manual' ? '手动安装' : '安装提示词'}</h2><span className="install-target">{selected.name}<ResourceMetaTag>v{selected.version}</ResourceMetaTag></span></header><InstallWidget {...installProps} /></section>
+        <section className="panel install-panel" id="install"><header className="install-heading"><h2>安装</h2><span className="install-target">{selected.name}<ResourceMetaTag>v{selected.version}</ResourceMetaTag></span></header><InstallWidget {...installProps} /></section>
       </div>
       {wide && previewOpen && <Preview skill={selected} onExpand={() => openDetails(selected)} onClose={() => setPreviewOpen(false)} />}
     </div>

@@ -9,7 +9,8 @@
 .site-header nav .repository-label .icon { width: 20px; height: 20px; }
 .copy-resource-button { min-width: 112px; }
 .install-controls .copy-resource-button { min-width: 166px; }
-.install-controls .ant-select { min-width: 200px; }
+.install-agent { color: var(--muted); font-size: var(--text-xs); white-space: nowrap; }
+.install-agent .ant-select { width: 144px; min-width: 144px; font-size: var(--text-body); }
 .ant-segmented { background: var(--surface); border: 1px solid var(--control-border); padding: 0; border-radius: 7px; }
 .ant-segmented-item { border-radius: 5px; }
 .ant-segmented-item + .ant-segmented-item { border-left: 1px solid var(--control-border); }
@@ -41,14 +42,13 @@
 .outline-tree .ant-tree-node-selected::before { content: ''; position: absolute; left: -2px; top: 10.5px; width: 2px; height: 14px; background: var(--blue); border-radius: 1px; }
 .outline-tree .ant-tree-switcher { width: 20px; line-height: 35px; color: var(--icon-muted); }
 .outline-tree .ant-tree-indent-unit { width: 15px; }
-.reader-tabs.ant-tabs { flex: 1; min-height: 0; }
-.reader-tabs > .ant-tabs-nav { flex-shrink: 0; background: var(--surface); margin: 0; padding: 0 var(--panel-inset); }
-.reader-tabs > .ant-tabs-nav::before { border-bottom-color: var(--line); }
-.reader-tabs .ant-tabs-tab { padding: 11px 0; }
+.prompt-reader .reader-tabs { display: grid; grid-template-rows: auto minmax(0, 1fr); flex: 1; min-height: 0; }
+.reader-tabs .reader-tabs-header { flex-shrink: 0; background: var(--surface); margin: 0; padding: 0 var(--panel-inset); }
+.reader-tabs .reader-tabs-header::before { border-bottom-color: var(--line); }
+.reader-tabs .reader-tabs-item { padding: 11px 0; }
 .reader-tabs .ant-tabs-nav .ant-tabs-extra-content { min-width: 0; }
-.reader-tabs .ant-tabs-body-holder { flex: 1; min-width: 0; min-height: 0; overflow: hidden; }
-.reader-tabs .ant-tabs-body { height: 100%; }
-.reader-tabs .ant-tabs-content-active { display: flex; flex-direction: column; height: 100%; }
+.reader-tabs .reader-tabs-body { height: 100%; min-width: 0; min-height: 0; overflow: hidden; }
+.reader-tabs .reader-tabs-content { height: 100%; }
 .reader-tabs .prompt-scroll { display: block; height: 100%; }
 .prompt-document p { line-height: inherit; }
 .prompt-document { max-width: 85ch; margin-inline: auto; }
@@ -71,13 +71,8 @@
 .ant-tag { margin: 0; border-color: var(--tag-border); border-radius: 4px; padding: 3px 8px; font-size: var(--text-xs); line-height: var(--line-meta); }
 .ant-tag.feature-tag { border-color: var(--tag-feature-border); background: var(--blue-soft); color: var(--blue-strong); }
 .resource-meta-tag.ant-tag { border: 0; padding: 1px 7px; font-size: var(--text-xs); line-height: 1.5; font-weight: var(--weight-semibold); white-space: nowrap; }
-.prompt-guide .ant-steps { margin-top: 16px; }
-.ant-steps .ant-steps-item-icon { border-radius: 5px; background: var(--surface); border: 1px solid var(--step-border); }
-.ant-steps .ant-steps-item-wait .ant-steps-item-icon > .ant-steps-icon { color: var(--blue); }
-.prompt-guide .ant-steps .ant-steps-item-wait .ant-steps-item-icon, .overview-aside .ant-steps .ant-steps-item-wait .ant-steps-item-icon { background: var(--surface); border: 1px solid var(--step-border); border-radius: 5px; }
-.prompt-guide .ant-steps .ant-steps-item-icon-number, .overview-aside .ant-steps .ant-steps-item-icon-number { color: var(--blue); }
-.ant-steps .ant-steps-item-title { font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--text-emphasis); }
-.ant-steps .ant-steps-item-description, .ant-steps .ant-steps-item-content { font-size: var(--text-xs); color: var(--muted); }
+.resource-steps { margin-top: var(--section-gap); }
+.prompt-file-actions .prompt-file-button { color: var(--text-secondary); font-size: var(--text-body); }
 .preview-footer a { display: inline-flex; align-items: center; }
 .preview-footer a > .icon:last-child { width: 12px; height: 12px; }
 .resource-drawer .ant-drawer-body { padding: 0; min-height: 0; }
@@ -106,19 +101,17 @@
 .skill-title-button.ant-btn:not(:disabled):hover { color: var(--blue); background: transparent; }
 .table-title-button.ant-btn { justify-self: start; color: var(--blue); font-weight: var(--weight-semibold); }
 .skill-title-button.ant-btn > span, .table-title-button.ant-btn > span { overflow-wrap: anywhere; }
-.install-mode-button.ant-btn { padding: 0; height: 30px; }
 .install-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px var(--section-gap); margin-bottom: var(--section-gap); }
 .install-heading h2 { margin: 0; font-size: var(--text-section); line-height: var(--line-heading); font-weight: var(--weight-semibold); }
 .install-target { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px; min-width: 0; color: var(--muted); font-size: var(--text-xs); overflow-wrap: anywhere; }
 .skill-actions .ant-btn { color: var(--action-ink); }
-.overview-grid .ant-steps { margin-top: 16px; }
 .overview-grid .ant-tag { padding: 3px 4px; }
 @media (max-width: 1439px) { .prompt-mobile-controls #prompt-catalog-toggle { display: none; } }
 @media (max-width: 1023px) {
   .prompt-mobile-controls #prompt-catalog-toggle { display: inline-flex; }
-  .reader-tabs.ant-tabs { overflow: visible; }
-  .reader-tabs .ant-tabs-body-holder { flex: none; overflow: visible; }
-  .reader-tabs .ant-tabs-body, .reader-tabs .ant-tabs-content-active { height: auto; }
+  .prompt-reader .reader-tabs { display: flex; overflow: visible; }
+  .reader-tabs .reader-tabs-body { flex: none; overflow: visible; }
+  .reader-tabs .reader-tabs-content { height: auto; }
   .reader-tabs .prompt-scroll { height: auto; }
   .reader-tabs .prompt-scroll { overflow-y: visible; }
   .prompt-workspace > .prompt-navigation { max-height: 500px; }
@@ -131,10 +124,10 @@
 @media (max-width: 600px) {
   .site-header nav a > .icon { display: none; }
   .site-header nav .repository-link .icon { display: block; width: 24px; height: 20px; }
-  .reader-tabs > .ant-tabs-nav { display: flex; flex-wrap: wrap; padding: 0 14px; }
+  .reader-tabs .reader-tabs-header { display: flex; flex-wrap: wrap; padding: 0 14px; }
   .reader-tabs > .ant-tabs-nav .ant-tabs-extra-content { width: 100%; order: 2; border-top: 1px solid #edf1f7; }
   .reader-tabs > .ant-tabs-nav .ant-tabs-nav-wrap { flex: 1; }
-  .reader-tabs .ant-tabs-tab { font-size: var(--text-xs); padding: 10px 4px; }
+  .reader-tabs .reader-tabs-item { font-size: var(--text-xs); padding: 10px 4px; }
   .reader-tabs .prompt-file-actions { padding: 8px 4px 10px; border: 0; }
   .prompt-heading-row .copy-resource-button { min-width: 94px; padding-inline: 9px; font-size: var(--text-xs); }
   .install-controls .ant-select { min-width: 170px; }
