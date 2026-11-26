@@ -231,7 +231,7 @@ function renderCatalog() {
       const anchor = element('a', `skill-open${prompt.name === promptState.current.name ? ' is-selected' : ''}`);
       anchor.href = `?prompt=${encodeURIComponent(prompt.name)}`;
       if (prompt.name === promptState.current.name) anchor.setAttribute('aria-current', 'page');
-      anchor.append(icon('file'), element('strong', '', prompt.name));
+      anchor.append(icon('prompt'), element('strong', '', prompt.name));
       leaf.append(anchor);
       children.append(leaf);
     });

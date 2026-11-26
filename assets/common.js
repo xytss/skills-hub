@@ -32,6 +32,12 @@ function element(tag, className, text) {
 }
 
 function icon(name) {
+  if (name === 'prompt') {
+    const image = element('img', 'icon prompt-icon');
+    image.src = 'assets/icons/prompt.svg';
+    image.alt = '';
+    return image;
+  }
   if (['share', 'github', 'skills-hub'].includes(name)) {
     const image = element('img', `icon ${name === 'share' ? 'share-icon' : name === 'github' ? 'github-mark' : 'brand-icon'}`);
     image.src = `assets/icons/${name === 'share' ? 'showcase-jump' : name === 'github' ? 'github-mark' : 'skills-hub'}.svg`;
