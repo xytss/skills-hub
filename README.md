@@ -72,6 +72,26 @@ AI 工程与 Agent
 
 安装后示例：请使用 `database-design`，评审这份 PostgreSQL 表结构。
 
+## 本地开发
+
+前端使用 React、TypeScript、Ant Design 与 Vite，保留原站配色、布局和本地字体。
+
+使用 Node.js 22.12 或以上版本，在仓库目录运行：
+
+```powershell
+npm ci
+npm run dev
+```
+
+本地入口为终端输出地址下的 `/skills-hub/`；提示词页面为 `/skills-hub/prompts.html?prompt=codex-win`。
+
+```powershell
+npm run build
+npm run preview
+```
+
+构建输出位于 `dist/`。推送 `main` 后，由 GitHub Actions 构建并发布到 GitHub Pages。资源目录与 `catalog.json` 在构建时原样复制。
+
 ---
 
 [参与贡献](https://github.com/xytss/skills-hub/pulls) · [提交问题](https://github.com/xytss/skills-hub/issues) · [MIT License](LICENSE)

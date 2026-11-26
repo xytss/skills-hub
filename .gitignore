@@ -6,6 +6,9 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+node_modules/
+dist/
+*.tsbuildinfo
 
 # Illustration drafts and preparation records
 skills/*/assets/overview-comic*.png

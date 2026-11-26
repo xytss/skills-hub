@@ -1,10 +1,10 @@
 # Skill 资源库界面规范
 
-页面采用方案B“列表伸展，安装底置”：三栏等高，目录通高，中间列表填充剩余高度、安装区底部对齐；提供紧凑表格切换视图。完整知识卡片复用原生对话框，执行流程采用纵向阅读结构。
+页面采用方案B“列表伸展，安装底置”：三栏等高，目录通高，中间列表填充剩余高度、安装区底部对齐；提供紧凑表格切换视图。完整知识卡片使用 Ant Design Modal，执行流程采用纵向阅读结构。
 
 ## 技术与字体
 
-沿用静态 HTML、CSS Grid、原生 JavaScript 与 catalog.json。无需前端框架或构建服务，使用 GitHub Pages 发布。现有 SVG 图标和本地 Noto Sans SC、JetBrains Mono 字体继续复用。
+使用 React、TypeScript、Ant Design 与 Vite，保留 CSS Grid 三栏布局及 catalog.json 数据。页面经 Vite 构建为静态文件，通过 GitHub Actions 发布至 GitHub Pages。现有 SVG 图标和本地 Noto Sans SC、JetBrains Mono 字体继续复用。
 
 | 层级 | 字号／行高 | 用途 |
 | --- | --- | --- |
@@ -25,7 +25,7 @@
 - 页面底部不显示独立的许可证页脚。
 - 右上角GitHub名称与绿色跳转图标之间不设分隔线；仅绿色图标作为仓库超链接，保留独立的键盘焦点和访问名称。悬停或键盘聚焦时显示浅绿色背景与“打开 GitHub 仓库（新标签页）”提示，Escape可收起提示。
 - 1440px及以上：目录260px、中间自适应、右侧预览约440～560px；关闭预览后中间扩展使用空出的宽度。
-- 1024～1439px：目录260px、中间内容自适应，点击Skill后以右侧原生对话框抽屉预览。
+- 1024～1439px：目录260px、中间内容自适应，点击Skill后以右侧 Ant Design Drawer 抽屉预览。
 - 1024px以下：主内容单列，“分类目录”按钮展开导航；点击Skill使用完整知识对话框。
 - 桌面三栏共同使用工作区高度max(560px, 100dvh - 112px)，其中112px为64px导航与上下各24px间距；短窗口由页面继续滚动。
 - 左侧白色目录面板延伸至工作区底部，树节点紧凑靠上；超长目录在标题下独立滚动。
@@ -71,7 +71,7 @@ Agent选择保存在统一状态中：首页、预览相关安装区与完整卡
 
 - 当前分类和具体Skill分别保存状态；折叠不会改变当前范围。
 - 关闭预览后可通过Skill名称或“预览”重新打开。
-- 原生对话框和抽屉支持Escape；关闭后回到触发控件。
+- Modal 和 Drawer 支持 Escape；关闭后回到触发控件。
 - 顶部导航按资源栏目高亮；Skill 页面访问目录或安装区时均保持 Skills 栏目选中。
 - 窄屏展开分类后，选择范围会回到主内容并聚焦范围标题。
 - 键盘焦点轮廓独立于粉色选中状态；动效尊重prefers-reduced-motion。
@@ -97,7 +97,18 @@ Agent选择保存在统一状态中：首页、预览相关安装区与完整卡
 - 正文由 `prompts/codex-win.md` 渲染，原文不做摘要替换。复制与下载始终使用完整原文；正文和原始 Markdown 视图各自保存滚动位置。
 - 右栏展示适用环境、9 个标签和三步使用方式；底部显示使用指南与提示词原文。说明面板可展开到原生对话框，支持 Escape 和关闭后焦点返回。
 - 1024～1439px 保留左侧与正文，使用说明通过按钮打开；1024px 以下以单列阅读、折叠目录及大纲、说明对话框适配。
-- 页面内容元数据统一保存在 `catalog.json` 的 `prompts` 数组中。公共 DOM、图标和仓库链接工具置于 `assets/common.js`，两页分别加载自身的交互脚本。
+- 页面内容元数据统一保存在 `catalog.json` 的 `prompts` 数组中。两页共用 `src/components` 下的导航、图标、分类树与复制组件，使用 ConfigProvider 统一颜色、字体和组件 Token。
+
+## React 组件与发布
+
+- 保留首页、`prompts.html?prompt=codex-win`、`#catalog`、`#install` 与正文大纲锚点。两页共享入口，按页面懒加载 React 模块。
+- 分类目录与大纲使用 Ant Design Tree；操作控件使用 Button、Tabs、Select、Segmented；表格与流程使用 Table、Tag、Steps；弹窗与窄屏侧栏使用 Modal、Drawer。
+- 资源标题仍为 20px，区块标题为 16px，正文控件为 14px，辅助信息为 12px。目录蓝色选中线、叶节点浅粉色背景、大纲字高短线与自定义提示词 SVG 的使用范围保持原约定。
+- 提示词正文使用 React Markdown 与 GFM 渲染，由 Markdown AST 生成大纲与规则锚点；复制与下载继续使用未经改写的原始 Markdown。
+- `src/hooks/usePromptOutline.ts` 管理正文定位、滚动高亮、父节点展开及末章定位；安装区与详情共享 Agent 选择及安装模式。
+- 运行 `npm run dev` 开发，`npm run build` 执行类型检查与生产构建，`npm run preview` 预览生产站点。开发和发布均使用 `/skills-hub/` 路径。
+- 构建将 `catalog.json`、`skills/`、`prompts/` 原样复制到产物，保留资源访问地址。设置 `emptyOutDir: false`，构建不清空已有产物；旧 JavaScript 文件保留供历史查阅，页面运行入口已切换到 React。
+- `.github/workflows/deploy.yml` 在推送 main 后安装锁定依赖、构建并部署静态产物。Pages 的发布来源使用 GitHub Actions。
 
 ### 实现截图
 

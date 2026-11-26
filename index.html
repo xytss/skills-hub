@@ -7,51 +7,9 @@
   <meta name="description" content="面向主流 AI Agent 的可复用 Skills，按开发领域浏览，查看用途、输入输出与安装方式。">
   <title>Skills Hub · Skill 资源库</title>
   <link rel="icon" href="assets/icons/skills-hub.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/noto-sans-sc-ui.woff2?v=20261125-11" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261125-11">
-  <link rel="stylesheet" href="assets/site.css?v=20261126-1">
-  <script src="assets/common.js?v=20261126-2" defer></script>
-  <script src="assets/site.js?v=20261126-2" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#catalog">跳到 Skill 资源库</a>
-  <header class="site-header">
-    <div class="header-inner">
-    <a class="brand" href="./" aria-label="Skills Hub 首页"><span class="brand-mark" data-icon="skills-hub"></span><span>Skills Hub</span></a>
-    <nav aria-label="主导航"><a href="#catalog" class="nav-active"><span data-icon="folder"></span>Skills</a><a href="prompts.html"><span data-icon="prompt"></span>全局提示词</a><span class="repository-entry"><span class="repository-label"><span data-icon="github"></span>GitHub</span><a class="repository-link" href="https://github.com/xytss/skills-hub" target="_blank" rel="noopener noreferrer" aria-label="在新标签页打开 GitHub 仓库" aria-describedby="repository-tooltip"><span class="jump-icon" data-icon="share"></span></a><span id="repository-tooltip" class="repository-tooltip" role="tooltip">打开 GitHub 仓库（新标签页）</span></span></nav>
-    </div>
-  </header>
-  <main class="page">
-    <h1 class="sr-only">Skill 资源库</h1>
-    <div class="page-heading"><button id="catalog-toggle" class="secondary-button" type="button" aria-expanded="false" aria-controls="catalog"><span data-icon="folder"></span>分类目录</button></div>
-    <div class="workspace">
-      <section class="panel catalog-panel" id="catalog" aria-labelledby="catalog-title"><header class="panel-heading"><h2 id="catalog-title">分类目录</h2></header><div id="catalog-content" class="catalog-content" aria-live="polite"><p class="loading">正在读取目录…</p></div></section>
-      <div class="workspace-main">
-        <section class="panel skills-panel" aria-labelledby="workspace-title"><header class="panel-heading"><div class="heading-group"><h2 id="workspace-title" tabindex="-1">数据库架构与设计</h2><span id="skill-count" class="badge badge-blue">Skills</span><span id="catalog-count" hidden></span></div><div class="view-switch" role="group" aria-label="Skill 展示方式"><button type="button" data-view="cards" aria-pressed="true"><span data-icon="layers"></span>卡片</button><button type="button" data-view="table" aria-pressed="false"><span data-icon="table"></span>表格</button></div></header><div id="skill-content" class="skill-content"></div></section>
-        <section class="panel install-panel" id="install" aria-labelledby="install-title">
-          <h2 id="install-title">安装提示词</h2>
-          <div id="page-install"></div>
-        </section>
-      </div>
-      <aside id="knowledge-preview" class="panel preview-panel" aria-labelledby="preview-title" hidden>
-        <header class="preview-heading">
-          <span class="preview-symbol" data-icon="database"></span>
-          <div class="preview-identity"><h2 id="preview-title"></h2><span id="preview-version" class="badge badge-blue"></span></div>
-          <div class="preview-actions"><button id="expand-preview" class="icon-button" type="button" aria-label="展开知识卡片"><span data-icon="external"></span></button><button id="close-preview" class="icon-button" type="button" aria-label="关闭知识预览"><span data-icon="close"></span></button></div>
-        </header>
-        <div id="preview-content" class="preview-content"></div>
-        <footer class="preview-footer"><a id="preview-guide" target="_blank" rel="noopener noreferrer"><span data-icon="book"></span>使用指南<span class="small-icon" data-icon="external"></span></a><a id="preview-source" target="_blank" rel="noopener noreferrer"><span data-icon="file"></span>SKILL.md<span class="small-icon" data-icon="external"></span></a></footer>
-      </aside>
-    </div>
-  </main>
-
-  <dialog id="preview-drawer" aria-labelledby="preview-title"></dialog>
-  <dialog id="skill-dialog" aria-labelledby="dialog-title">
-    <header class="dialog-heading"><div class="dialog-identity"><span class="dialog-icon" data-icon="database"></span><div><div class="dialog-title-line"><h2 id="dialog-title"></h2><span class="badge badge-blue" id="dialog-version"></span></div><p id="dialog-subtitle"></p></div></div><button class="icon-button" id="close-dialog" type="button" aria-label="关闭 Skill 详情"><span data-icon="close"></span></button></header>
-    <div class="dialog-tabs" role="tablist" aria-label="Skill 详情视图"><button id="tab-overview" role="tab" aria-controls="panel-overview" aria-selected="true" data-tab="overview">概览</button><button id="tab-spec" role="tab" aria-controls="panel-spec" aria-selected="false" tabindex="-1" data-tab="spec">规格表</button><button id="tab-install" role="tab" aria-controls="panel-install" aria-selected="false" tabindex="-1" data-tab="install">安装</button></div>
-    <div class="dialog-body"><section id="panel-overview" role="tabpanel" aria-labelledby="tab-overview"></section><section id="panel-spec" role="tabpanel" aria-labelledby="tab-spec" hidden></section><section id="panel-install" role="tabpanel" aria-labelledby="tab-install" hidden></section></div>
-    <footer class="dialog-footer"><a id="dialog-guide" target="_blank" rel="noopener noreferrer"><span data-icon="book"></span>使用指南<span data-icon="external" class="small-icon"></span></a><a id="dialog-source" target="_blank" rel="noopener noreferrer"><span data-icon="code"></span>SKILL.md<span data-icon="external" class="small-icon"></span></a><button id="dialog-install" type="button"><span data-icon="download"></span>安装方式</button></footer>
-  </dialog>
-  <div id="announcement" class="sr-only" aria-live="polite"></div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
