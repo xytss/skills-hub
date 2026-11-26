@@ -6,11 +6,11 @@
   <img src="assets/readme-badges.svg" width="150" height="28" alt="MIT License · 1 Skill">
 </p>
 
-面向 AI Agent 的开发 Skills，按领域分类，提供使用指南与执行规范。
+面向 AI Agent 的开发 Skills 与全局提示词，按领域分类，提供使用指南与执行规范。
 
 <a href="https://xytss.github.io/skills-hub/"><strong>浏览 Skill 资源库</strong>&nbsp;<img src="assets/icons/showcase-jump.svg" width="22" height="18" alt="" align="absmiddle"></a>
 
-[分类目录](#skill-目录) · [快速使用](#快速使用) · [参与贡献](https://github.com/xytss/skills-hub/pulls)
+[分类目录](#skill-目录) · [全局提示词](#全局提示词) · [快速使用](#快速使用) · [参与贡献](https://github.com/xytss/skills-hub/pulls)
 
 # Skill 目录
 
@@ -39,6 +39,18 @@
     </tr>
   </tbody>
 </table>
+
+# 全局提示词
+
+```text
+AI 工程与 Agent
+└── 系统指令与提示词
+    └── codex-win
+```
+
+| 提示词 | 适用环境 | 说明 | 入口 |
+| --- | --- | --- | --- |
+| codex-win | Codex · Windows 11 · PowerShell 7 | 去 AI 味、反防御性编程、React / Ant Design 界面与中文沟通 | [在线阅读与复制](https://xytss.github.io/skills-hub/prompts.html?prompt=codex-win) · [使用指南](prompts/README.md) · [原文](prompts/codex-win.md) |
 
 # 浏览与安装
 
