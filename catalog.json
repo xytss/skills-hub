@@ -40,7 +40,7 @@
   "prompts": [
     {
       "name": "codex-win",
-      "description": "Windows 下的 Codex 全局指令，涵盖去 AI 味、反防御性编程、React / Ant Design 界面与中文沟通。",
+      "description": "适用于 Windows 11 与 PowerShell 7 环境的 Codex 全局指令集。核心约束包括：禁止执行文件删除操作、杜绝防御性冗余代码与无效测试、保持前端页面（默认 React + Ant Design）视觉与文案精简，以及采用结论先行的简体中文沟通。",
       "navigation_path": [
         "AI 工程与 Agent",
         "系统指令与提示词"
