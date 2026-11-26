@@ -63,6 +63,7 @@
 .environment-table .ant-table-tbody > tr > td { padding: 8px 12px; }
 .ant-tag { margin: 0; border-color: #d4e0f0; border-radius: 4px; padding: 3px 8px; font-size: var(--text-xs); line-height: 1.65; }
 .ant-tag.feature-tag { border-color: #e0edff; background: #eaf2ff; color: var(--blue-strong); }
+.resource-meta-tag.ant-tag { border: 0; padding: 1px 7px; color: var(--blue-strong); background: #e7f0ff; font-size: var(--text-xs); line-height: 1.5; font-weight: var(--weight-semibold); white-space: nowrap; }
 .prompt-guide .ant-steps { margin-top: 16px; }
 .ant-steps .ant-steps-item-icon { border-radius: 5px; background: #fff; border: 1px solid #c8dafa; }
 .ant-steps .ant-steps-item-wait .ant-steps-item-icon > .ant-steps-icon { color: var(--blue); }
@@ -92,7 +93,11 @@
 .scenario-table .ant-table { font-size: var(--text-body); }
 .skills-table .ant-table { font-size: var(--text-body); }
 .skills-table .is-selected > td { background: #fffafc; }
-.table-skill button { background: transparent; padding: 0; border: 0; color: var(--blue); text-align: left; }
+.skill-title-button.ant-btn, .table-title-button.ant-btn { height: auto; max-width: 100%; padding: 0; border: 0; border-radius: 3px; background: transparent; box-shadow: none; font: inherit; line-height: inherit; text-align: left; white-space: normal; }
+.skill-title-button.ant-btn { color: inherit; }
+.skill-title-button.ant-btn:not(:disabled):hover { color: var(--blue); background: transparent; }
+.table-title-button.ant-btn { justify-self: start; color: var(--blue); font-weight: var(--weight-semibold); }
+.skill-title-button.ant-btn > span, .table-title-button.ant-btn > span { overflow-wrap: anywhere; }
 .install-mode-button.ant-btn { padding: 0; height: 30px; }
 .install-panel > h2 { font-size: var(--text-section); }
 .skill-actions .ant-btn { color: #405474; }
