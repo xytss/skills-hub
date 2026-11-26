@@ -12,9 +12,11 @@
   --text-xs: .75rem; --text-sm: .75rem; --text-base: .875rem;
   --text-body: .875rem; --text-nav: .875rem; --text-title: 1.25rem;
   --text-section: 1rem; --text-brand: 1.25rem; --text-page: 1.5rem;
+  --text-code: .8125rem; --text-mobile-title: 1.125rem;
+  --line-body: 1.5714286; --line-reading: 1.7142857; --line-title: 1.4; --line-heading: 1.5; --line-meta: 1.5;
   --weight-regular: 400; --weight-medium: 500; --weight-semibold: 600; --weight-bold: 600;
   font-family: var(--font-ui); font-synthesis: none;
-  font-size: 100%; line-height: 1.5714286; color: var(--ink); background: var(--page);
+  font-size: 100%; line-height: var(--line-body); color: var(--ink); background: var(--page);
 }
 * { box-sizing: border-box; }
 body { margin: 0; font-size: var(--text-body); }
@@ -71,7 +73,7 @@ code, pre { font-family: var(--font-code); }
 .panel { min-width: 0; border: 1px solid var(--line); border-radius: 8px; background: white; }
 .panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 16px 20px; }
 .skills-panel > .panel-heading { min-height: 64px; }
-.panel-heading h2, .install-panel > h2 { margin: 0; font-size: var(--text-section); line-height: 1.4; font-weight: var(--weight-bold); }
+.panel-heading h2, .install-panel > h2 { margin: 0; font-size: var(--text-section); line-height: var(--line-heading); font-weight: var(--weight-bold); }
 .heading-group { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
 .badge { display: inline-flex; align-items: center; border-radius: 4px; padding: 1px 7px; font-size: var(--text-xs); line-height: 1.5; font-weight: var(--weight-semibold); white-space: nowrap; }
 .badge-blue { color: var(--blue-strong); background: #e7f0ff; }

@@ -4,7 +4,7 @@
 .ant-btn .icon { width: 16px; height: 16px; }
 .ant-btn.icon-button { padding: 0; }
 .ant-btn.icon-button .icon { width: 20px; height: 20px; }
-.site-header nav a > .icon { width: 18px; height: 18px; }
+.site-header nav a > .icon { width: 20px; height: 20px; }
 .site-header nav .repository-link .icon { width: 35px; height: 26px; }
 .site-header nav .repository-label .icon { width: 20px; height: 20px; }
 .copy-resource-button { min-width: 112px; }
@@ -61,7 +61,7 @@
 .environment-table .ant-table-tbody > tr > td:first-child { background: #f5f7fa; border-right: 1px solid var(--line); }
 .environment-table .ant-table-tbody > tr:last-child > td { border-bottom: 0; }
 .environment-table .ant-table-tbody > tr > td { padding: 8px 12px; }
-.ant-tag { margin: 0; border-color: #d4e0f0; border-radius: 4px; padding: 3px 8px; font-size: var(--text-xs); line-height: 1.65; }
+.ant-tag { margin: 0; border-color: #d4e0f0; border-radius: 4px; padding: 3px 8px; font-size: var(--text-xs); line-height: var(--line-meta); }
 .ant-tag.feature-tag { border-color: #e0edff; background: #eaf2ff; color: var(--blue-strong); }
 .resource-meta-tag.ant-tag { border: 0; padding: 1px 7px; color: var(--blue-strong); background: #e7f0ff; font-size: var(--text-xs); line-height: 1.5; font-weight: var(--weight-semibold); white-space: nowrap; }
 .prompt-guide .ant-steps { margin-top: 16px; }

@@ -4,7 +4,7 @@ export const theme: ThemeConfig = {
   token: {
     colorPrimary: '#2563eb', colorText: '#172235', colorTextSecondary: '#63728a',
     colorBorder: '#dbe4ef', colorBgLayout: '#f8fafd', colorBgContainer: '#fff',
-    fontFamily: "'Noto Sans SC', sans-serif", fontSize: 14, borderRadius: 6,
+    fontFamily: 'var(--font-ui)', fontFamilyCode: 'var(--font-code)', fontSize: 14, borderRadius: 6,
     controlHeight: 32, lineHeight: 1.5714286, motion: true
   },
   components: {
