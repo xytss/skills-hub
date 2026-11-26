@@ -16,6 +16,7 @@ export default defineConfig(({ command }) => ({
   }],
   build: {
     emptyOutDir: false,
+    assetsInlineLimit: filePath => filePath.endsWith('.woff2') ? false : undefined,
     rollupOptions: { input: { skills: resolve('index.html'), prompts: resolve('prompts.html') } }
   }
 }));

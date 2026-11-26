@@ -5,7 +5,7 @@
   --surface: #fff; --page: #f8fafd;
   --skill-selected: #FFF4F7; --skill-ink: #263144; --skill-icon: #B98A9A;
   --page-gutter: clamp(24px, 1.6vw, 40px);
-  --catalog-width: 260px; --workspace-gap: 16px;
+  --catalog-width: 260px; --workspace-gap: 16px; --workspace-rule-color: #b8d8c5;
   --workspace-height: max(560px, calc(100dvh - 112px));
   --font-ui: 'Noto Sans SC', 'Segoe UI Variable Text', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei UI', sans-serif;
   --font-code: Consolas, 'Noto Sans SC', 'SFMono-Regular', Menlo, Monaco, 'Liberation Mono', 'Courier New', 'PingFang SC', 'Microsoft YaHei UI', monospace;
@@ -60,7 +60,7 @@ code, pre { font-family: var(--font-code); }
 #catalog-toggle { display: none; }
 .workspace { --preview-width: clamp(440px,32vw,560px); position: relative; display: grid; grid-template-columns: var(--catalog-width) minmax(0,1fr) var(--preview-width); gap: var(--workspace-gap); height: var(--workspace-height); align-items: stretch; }
 /* Decorative rules sit in the existing gutters, without adding layout columns. */
-.workspace::before, .workspace::after { content: ''; position: absolute; top: 6px; bottom: 6px; width: 1px; border-left: 1px dashed #b8d8c5; transform: scaleX(.5); transform-origin: center; pointer-events: none; }
+.workspace::before, .workspace::after, .prompt-workspace::before, .prompt-workspace::after { content: ''; position: absolute; top: 6px; bottom: 6px; width: 1px; border-left: 1px dashed var(--workspace-rule-color); transform: scaleX(.5); transform-origin: center; pointer-events: none; }
 .workspace::before { left: calc(var(--catalog-width) + (var(--workspace-gap) - 1px) / 2); }
 .workspace::after { right: calc(var(--preview-width) + (var(--workspace-gap) - 1px) / 2); }
 .workspace.preview-hidden::after { display: none; }

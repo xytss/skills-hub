@@ -1,7 +1,6 @@
 .prompt-workspace { --prompt-guide-width: clamp(320px, 24vw, 380px); position: relative; display: grid; grid-template-columns: var(--catalog-width) minmax(0, 1fr) var(--prompt-guide-width); gap: var(--workspace-gap); height: var(--workspace-height); align-items: stretch; }
-.prompt-workspace::before, .prompt-workspace::after { content: ''; position: absolute; top: 6px; bottom: 6px; width: 0; border-left: 1px dashed #b8d8c5; pointer-events: none; }
-.prompt-workspace::before { left: calc(var(--catalog-width) + var(--workspace-gap) / 2); }
-.prompt-workspace::after { right: calc(var(--prompt-guide-width) + var(--workspace-gap) / 2); }
+.prompt-workspace::before { left: calc(var(--catalog-width) + (var(--workspace-gap) - 1px) / 2); }
+.prompt-workspace::after { right: calc(var(--prompt-guide-width) + (var(--workspace-gap) - 1px) / 2); }
 .prompt-navigation, .prompt-reader, .prompt-guide { min-height: 0; display: flex; flex-direction: column; }
 .prompt-categories { flex-shrink: 0; }
 .prompt-navigation .panel-heading { min-height: 56px; }

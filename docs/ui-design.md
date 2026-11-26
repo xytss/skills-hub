@@ -23,6 +23,8 @@ Windows 11 下，英文界面与正文采用 Segoe UI Variable Text，中文及�
 
 Ant Design 的字体与代码字体引用同一组 CSS 字体变量。移动端文档一级标题为18px，章节标题保持16px，与14px正文保留层级。
 
+中文字体采用常用界面、当前页面文案及其余Unicode区间分包。两页仅预加载常用界面字库，保留font-display: swap；所有WOFF2保持独立文件，不内联进主CSS。新增中文文案后运行`npm run fonts:build`更新内容子集，常规构建直接使用已提交的字库。
+
 导航图标采用20px显示尺寸；Skills 的扳手与铅笔图标使用24×24 SVG坐标、1.5单位主描边，省略不适合小尺寸的断点与圆点细节。
 
 正文尺度参考 [TDesign Web 字体Token](https://github.com/Tencent/tdesign-common/blob/develop/style/web/theme/_font.less)、[Ant Design字体规范](https://ant.design/docs/spec/font/)，标题层级参考 [Fluent 2](https://fluent2.microsoft.design/typography)。
@@ -31,7 +33,7 @@ Ant Design 的字体与代码字体引用同一组 CSS 字体变量。移动端�
 
 - 顶部品牌为Skills Hub，正文直接进入三栏内容，不重复显示“Skill 资源库”标题。移动端保留“分类目录”按钮。导航与正文使用同一组左右对齐线。
 - 页面使用可用宽度，桌面左右留白24～40px，栏间距16px。
-- Prompt 页在两侧栏间留白中心绘制1px浅绿色虚线；使用说明收起时隐藏右线，单栏布局隐藏两线，分隔线不参与交互。
+- Skills 与 Prompt 页统一在两侧栏间留白中心绘制视觉宽度0.5px的浅绿色虚线，共用颜色变量；使用说明或预览收起时隐藏右线，单栏布局隐藏两线，分隔线不参与交互。
 - 桌面品牌右侧短分隔线与目录右侧绿色虚线共用一条垂直对齐线，导航随品牌区域宽度同步右移。
 - 页面底部不显示独立的许可证页脚。
 - 右上角GitHub名称与绿色跳转图标之间不设分隔线；仅绿色图标作为仓库超链接，保留独立的键盘焦点和访问名称。悬停或键盘聚焦时显示浅绿色背景与“打开 GitHub 仓库（新标签页）”提示，Escape可收起提示。
