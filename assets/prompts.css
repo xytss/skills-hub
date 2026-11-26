@@ -21,7 +21,9 @@
 .prompt-header { padding: 20px 20px 12px; flex-shrink: 0; }
 .prompt-heading-row { display: flex; gap: 16px; justify-content: space-between; align-items: center; }
 .prompt-identity { display: flex; gap: 16px; min-width: 0; align-items: center; }
-.prompt-identity h1 { margin: 0 0 4px; font-size: var(--text-title); line-height: var(--line-title); font-weight: var(--weight-semibold); }
+.prompt-identity > div { min-width: 0; }
+.prompt-title-row { margin-bottom: 4px; }
+.prompt-identity h1 { margin: 0; font-size: var(--text-title); line-height: var(--line-title); font-weight: var(--weight-semibold); }
 .prompt-identity p { margin: 0; color: var(--muted); font-size: var(--text-xs); line-height: var(--line-meta); }
 .prompt-description { margin: 16px 0 0; color: #53627a; font-size: var(--text-body); line-height: var(--line-reading); }
 #copy-prompt { min-width: 112px; flex-shrink: 0; }

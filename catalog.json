@@ -40,6 +40,7 @@
   "prompts": [
     {
       "name": "codex-win",
+      "version": "1.0.0",
       "description": "适用于 Windows 11 与 PowerShell 7 环境的 Codex 全局指令集。核心约束包括：禁止执行文件删除操作、杜绝防御性冗余代码与无效测试、保持前端页面（默认 React + Ant Design）视觉与文案精简，以及采用结论先行的简体中文沟通。",
       "navigation_path": [
         "AI 工程与 Agent",

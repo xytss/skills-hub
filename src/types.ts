@@ -7,7 +7,7 @@ export interface Skill {
   details: { purpose: string; scenarios: Scenario[]; workflow: WorkflowStep[]; principles: string[]; example: string };
 }
 export interface Prompt {
-  name: string; description: string; navigation_path: string[];
+  name: string; version: string; description: string; navigation_path: string[];
   agent: string; system: string; shell: string; tags: string[]; featured_tags: string[];
   entry: string; overview: string; outline_labels: string[];
 }
