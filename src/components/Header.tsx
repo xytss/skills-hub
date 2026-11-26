@@ -8,7 +8,7 @@ export function Header({ page }: { page: 'skills' | 'prompts' }) {
     <nav aria-label="主导航">
       <a href="./#catalog" className={page === 'skills' ? 'nav-active' : ''} aria-current={page === 'skills' ? 'page' : undefined}><Icon name="skills" />Skills</a>
       <a href="prompts.html" className={page === 'prompts' ? 'nav-active' : ''} aria-current={page === 'prompts' ? 'page' : undefined}><Icon name="prompt" />全局提示词</a>
-      <span className="repository-entry"><span className="repository-label"><Icon name="github" />GitHub</span><Tooltip title="打开 GitHub 仓库（新标签页）"><a className="repository-link" href={REPOSITORY} target="_blank" rel="noopener noreferrer" aria-label="在新标签页打开 GitHub 仓库"><Icon name="share" /></a></Tooltip></span>
+      <span className="repository-entry"><span className="repository-label"><Icon name="github" />GitHub</span><Tooltip title="打开 GitHub 仓库（新标签页）" trigger={['hover', 'focus']}><a className="repository-link" href={REPOSITORY} target="_blank" rel="noopener noreferrer" aria-label="在新标签页打开 GitHub 仓库"><Icon name="share" /></a></Tooltip></span>
     </nav>
   </div></header>;
 }

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
-import { Button, ConfigProvider, Drawer, Flex, Modal, Steps, Table, Tabs, Tag, Tree, Typography } from 'antd';
+import { Button, ConfigProvider, Drawer, Flex, Modal, Steps, Table, Tabs, Tag, Tooltip, Tree, Typography } from 'antd';
 import type { DataNode } from 'antd/es/tree';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -11,11 +11,12 @@ import { usePromptOutline } from '../hooks/usePromptOutline';
 import { Icon } from '../components/Icon';
 import { CopyButton } from '../components/CopyButton';
 import { ResourceTree } from '../components/ResourceTree';
+import { ResourceMetaTag } from '../components/ResourceMetaTag';
 
 function PromptGuide({ prompt, onExpand }: { prompt: Prompt; onExpand?: () => void }) {
   const titleId = useId();
   return <aside className="panel prompt-guide" aria-labelledby={titleId}>
-    <header className="panel-heading"><h2 id={titleId}>使用说明</h2>{onExpand && <Button type="text" className="icon-button" aria-label="展开使用说明" icon={<Icon name="expand" />} onClick={onExpand} />}</header>
+    <header className="panel-heading"><h2 id={titleId}>使用说明</h2>{onExpand && <Tooltip title="展开使用说明" trigger={['hover', 'focus']}><Button type="text" className="icon-button" aria-label="展开使用说明" icon={<Icon name="expand" />} onClick={onExpand} /></Tooltip>}</header>
     <div className="preview-content">
       <section className="info-section"><h3 className="info-title">适用环境</h3><Table className="environment-table" size="small" pagination={false} showHeader={false} columns={[{ dataIndex: 'label', width: '36%' }, { dataIndex: 'value' }]} dataSource={[{ key: 'agent', label: '工具', value: prompt.agent }, { key: 'system', label: '系统', value: prompt.system }, { key: 'shell', label: '终端', value: prompt.shell }]} /></section>
       <section className="info-section"><h3 className="info-title">标签</h3><Flex wrap gap={6}>{prompt.tags.map(tag => <Tag className={prompt.featured_tags.includes(tag) ? 'feature-tag' : ''} key={tag}>{tag}</Tag>)}</Flex></section>
@@ -69,7 +70,7 @@ function PromptContent({ prompt, prompts }: { prompt: Prompt; prompts: Prompt[] 
     <div className="prompt-workspace">
       {!small && navigation}
       <section className="panel prompt-reader" aria-labelledby="prompt-title" aria-busy={!raw && !error}>
-        <header className="prompt-header"><div className="prompt-heading-row"><div className="prompt-identity"><span className="skill-symbol"><Icon name="file" /></span><div><Flex className="prompt-title-row" align="center" gap={10} wrap><h1 id="prompt-title" tabIndex={-1}>{prompt.name}</h1><Tag className="resource-meta-tag" color="blue" variant="filled">v{prompt.version}</Tag></Flex><p>{prompt.agent} / {prompt.system} / {prompt.shell}</p></div></div>{!small && <CopyButton text={raw} label="复制全文" disabled={!raw} />}</div><Typography.Paragraph className="prompt-description" ellipsis={small ? { rows: 2, expandable: 'collapsible', symbol: expanded => expanded ? '收起' : '展开' } : false}>{prompt.description}</Typography.Paragraph></header>
+        <header className="prompt-header"><div className="prompt-heading-row"><div className="prompt-identity"><span className="skill-symbol"><Icon name="file" /></span><div><Flex className="prompt-title-row" align="center" gap={10} wrap><h1 id="prompt-title" tabIndex={-1}>{prompt.name}</h1><ResourceMetaTag>v{prompt.version}</ResourceMetaTag></Flex><p>{prompt.agent} / {prompt.system} / {prompt.shell}</p></div></div>{!small && <CopyButton text={raw} label="复制全文" disabled={!raw} />}</div><Typography.Paragraph className="prompt-description" ellipsis={small ? { rows: 2, expandable: 'collapsible', symbol: expanded => expanded ? '收起' : '展开' } : false}>{prompt.description}</Typography.Paragraph></header>
         <Tabs className="reader-tabs" activeKey={tab} onChange={setTab} tabBarExtraContent={compact ? undefined : fileActions} renderTabBar={(props, DefaultTabBar) => <><DefaultTabBar {...props} />{compact && <div className="mobile-file-actions">{fileActions}</div>}</>} items={[
           { key: 'document', label: '正文', forceRender: true, children: <div className="prompt-scroll document-scroll" ref={scrollRef}><article className="prompt-document" id="panel-document">{error ? <p role="alert">{error}</p> : raw ? <Markdown remarkPlugins={plugins}>{raw}</Markdown> : <p className="loading">正在读取提示词…</p>}</article></div> },
           { key: 'markdown', label: '原始 Markdown', forceRender: true, children: <div className="prompt-scroll markdown-scroll"><pre className="prompt-markdown" id="prompt-markdown">{raw}</pre></div> }

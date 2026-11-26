@@ -4,7 +4,7 @@ import { ConfigProvider, Spin } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import type { Catalog } from './types';
 import { loadCatalog } from './lib/catalog';
-import { theme } from './theme';
+import { createTheme } from './theme';
 import { Header } from './components/Header';
 import '../assets/fonts/chinese.css';
 import '../assets/site.css';
@@ -17,6 +17,7 @@ const isPrompts = location.pathname.endsWith('/prompts.html');
 document.body.classList.toggle('prompts-page', isPrompts);
 
 function App() {
+  const [theme] = useState(createTheme);
   const [catalog, setCatalog] = useState<Catalog>();
   const [error, setError] = useState('');
   useEffect(() => { loadCatalog().then(setCatalog).catch(error => { console.error(error); setError(error.message); }); }, []);
