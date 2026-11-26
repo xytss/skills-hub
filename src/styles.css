@@ -51,6 +51,11 @@
 .reader-tabs .ant-tabs-content-active { display: flex; flex-direction: column; height: 100%; }
 .reader-tabs .prompt-scroll { display: block; height: 100%; }
 .prompt-document p { line-height: inherit; }
+.prompt-document { max-width: 85ch; margin-inline: auto; }
+.prompt-description.ant-typography { margin-bottom: 0; }
+.skills-panel .heading-group h1 { margin: 0; font-size: var(--text-section); line-height: var(--line-heading); font-weight: var(--weight-semibold); }
+.prompt-navigation-drawer .prompt-navigation { height: 100%; }
+.prompt-navigation-drawer .prompt-categories .panel-heading { display: flex; }
 .prompt-document [tabindex='-1']:focus { outline: none; }
 .prompt-identity h1, .skill-title h3, .preview-identity h2 { color: var(--ink); }
 .prompt-file-actions { font-size: var(--text-body); }
@@ -113,6 +118,10 @@
   .reader-tabs .prompt-scroll { overflow-y: visible; }
   .prompt-workspace > .prompt-navigation { max-height: 500px; }
   .prompt-outline { min-height: 150px; }
+  .prompt-mobile-controls { position: sticky; top: 0; z-index: 10; align-items: center; gap: 8px; padding: 8px 0; background: var(--page); }
+  .prompt-mobile-controls .ant-btn { height: 40px; padding-inline: 8px; }
+  .prompt-mobile-controls .copy-resource-button { min-width: 0; margin-left: auto; }
+  .prompt-document [id], #prompt-title { scroll-margin-top: 76px; }
 }
 @media (max-width: 600px) {
   .site-header nav a > .icon { display: none; }

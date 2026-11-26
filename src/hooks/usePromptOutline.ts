@@ -21,7 +21,7 @@ export function usePromptOutline(entries: OutlineEntry[], scrollRef: RefObject<H
     requestAnimationFrame(() => {
       const root = scrollRef.current!;
       const node = document.getElementById(entry.id)!;
-      const offset = 20;
+      const offset = small ? 76 : 20;
       const top = node.getBoundingClientRect().top + (small ? window.scrollY : root.scrollTop - root.getBoundingClientRect().top) - offset;
       pending.current = entry;
       (small ? window : root).scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
@@ -35,7 +35,7 @@ export function usePromptOutline(entries: OutlineEntry[], scrollRef: RefObject<H
     const sync = () => {
       if (pending.current) { select(pending.current); return; }
       if (!document.getElementById(targets[0].id)!.getClientRects().length) return;
-      const threshold = small ? 24 : root.getBoundingClientRect().top + 24;
+      const threshold = small ? 80 : root.getBoundingClientRect().top + 24;
       let entry = targets[0];
       for (const target of targets) { if (document.getElementById(target.id)!.getBoundingClientRect().top <= threshold) entry = target; else break; }
       select(entry);

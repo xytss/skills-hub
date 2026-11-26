@@ -21,7 +21,7 @@ function App() {
   const [error, setError] = useState('');
   useEffect(() => { loadCatalog().then(setCatalog).catch(error => { console.error(error); setError(error.message); }); }, []);
   return <ConfigProvider locale={zhCN} theme={theme}>
-    <a className="skip-link" href={isPrompts ? '#prompt-title' : '#catalog'}>跳到主内容</a>
+    <a className="skip-link" href={isPrompts ? '#prompt-title' : '#workspace-title'}>跳到主内容</a>
     <Header page={isPrompts ? 'prompts' : 'skills'} />
     {error ? <main className="page"><p role="alert">{error}</p></main> : <Suspense fallback={<div className="page-loading" aria-label="正在加载资源"><Spin /></div>}>{catalog ? isPrompts ? <PromptsPage prompts={catalog.prompts} /> : <SkillsPage skills={catalog.skills} /> : <div className="page-loading"><Spin /></div>}</Suspense>}
   </ConfigProvider>;
