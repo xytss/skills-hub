@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
-import { Button, ConfigProvider, Drawer, Flex, Modal, Steps, Table, Tabs, Tag, Tooltip, Tree, Typography } from 'antd';
+import { Button, ConfigProvider, Descriptions, Drawer, Flex, Modal, Steps, Tabs, Tag, Tooltip, Tree, Typography } from 'antd';
 import type { DataNode } from 'antd/es/tree';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -18,7 +18,7 @@ function PromptGuide({ prompt, onExpand }: { prompt: Prompt; onExpand?: () => vo
   return <aside className="panel prompt-guide" aria-labelledby={titleId}>
     <header className="panel-heading"><h2 id={titleId}>使用说明</h2>{onExpand && <Tooltip title="展开使用说明" trigger={['hover', 'focus']}><Button type="text" className="icon-button" aria-label="展开使用说明" icon={<Icon name="expand" />} onClick={onExpand} /></Tooltip>}</header>
     <div className="preview-content">
-      <section className="info-section"><h3 className="info-title">适用环境</h3><Table className="environment-table" size="small" pagination={false} showHeader={false} columns={[{ dataIndex: 'label', width: '36%' }, { dataIndex: 'value' }]} dataSource={[{ key: 'agent', label: '工具', value: prompt.agent }, { key: 'system', label: '系统', value: prompt.system }, { key: 'shell', label: '终端', value: prompt.shell }]} /></section>
+      <section className="info-section"><h3 className="info-title">适用环境</h3><Descriptions className="resource-descriptions environment-descriptions" size="small" bordered column={1} colon={false} classNames={{ label: 'resource-field-label', content: 'resource-field-value' }} items={[{ key: 'agent', label: '工具', children: prompt.agent }, { key: 'system', label: '系统', children: prompt.system }, { key: 'shell', label: '终端', children: prompt.shell }]} /></section>
       <section className="info-section"><h3 className="info-title">标签</h3><Flex wrap gap={6}>{prompt.tags.map(tag => <Tag className={prompt.featured_tags.includes(tag) ? 'feature-tag' : ''} key={tag}>{tag}</Tag>)}</Flex></section>
       <section className="info-section"><h3 className="info-title">使用方式</h3><Steps orientation="vertical" current={-1} size="small" items={[{ title: '复制全文', content: '获取完整提示词' }, { title: '配置全局指令', content: '粘贴到 Codex 的全局指令配置' }, { title: '按项目补充', content: '添加具体业务约定' }]} /></section>
     </div>

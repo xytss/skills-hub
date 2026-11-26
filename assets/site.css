@@ -3,6 +3,10 @@
   --blue: #2563eb; --blue-strong: #1655e6; --blue-soft: #eaf2ff;
   --ink: #172235; --muted: #63728a; --line: #dbe4ef; --tree-line: #ccdcef;
   --surface: #fff; --page: #f8fafd;
+  --text-secondary: #53627a; --text-emphasis: #293a53; --code-ink: #3d5577; --action-ink: #405474;
+  --reading-ink: #263144; --icon-muted: #60738e; --line-soft: #edf1f7;
+  --step-border: #c8dafa; --surface-code: #f3f6fa; --table-selected: #fffafc;
+  --panel-inset: 24px; --section-gap: 16px;
   --surface-hover: #f5f8fd; --control-border: #c8d4e5;
   --control-selected-bg: #edf4ff; --control-selected-border: #6994fb;
   --table-header-bg: #f5f7fa; --table-header-ink: #354962;
@@ -128,8 +132,8 @@ code, pre { font-family: var(--font-code); }
 .skill-title h3 { margin: 0; color: #152137; font-size: var(--text-title); font-weight: var(--weight-bold); line-height: 1.4; }
 .skill-title-button { padding: 0; border: 0; border-radius: 3px; background: transparent; color: inherit; font: inherit; text-align: left; overflow-wrap: anywhere; }
 .skill-title-button:hover { color: var(--blue); }
-.skill-info p { margin: 0; max-width: 65ch; font-size: var(--text-body); line-height: 1.5714286; color: #53627a; }
-.skill-metadata { display: flex; flex-wrap: wrap; align-items: center; column-gap: 20px; row-gap: 6px; margin: 12px 0 16px 64px; color: #63728a; font-size: var(--text-xs); }
+.skill-info p { margin: 0; max-width: 65ch; font-size: var(--text-body); line-height: 1.5714286; color: var(--text-secondary); }
+.skill-metadata { display: flex; flex-wrap: wrap; align-items: center; column-gap: 20px; row-gap: 6px; margin: 12px 0 16px 64px; color: var(--muted); font-size: var(--text-xs); }
 .metadata-item { display: inline-flex; align-items: center; gap: 6px; }
 .metadata-item .icon { width: 15px; height: 15px; }
 .skill-actions { display: flex; align-items: center; gap: 10px; margin-left: 64px; }
@@ -149,10 +153,10 @@ code, pre { font-family: var(--font-code); }
 .agent-select { display: inline-flex; gap: 12px; align-items: center; color: #586b87; font-size: var(--text-body); padding-left: 0; }
 select { font-size: var(--text-body); background: white; border: 1px solid #bfcfe4; border-radius: 6px; min-width: 200px; min-height: 32px; padding: 4px 28px 4px 11px; color: #24344a; }
 .command-caption { margin: -3px 0 8px; color: var(--muted); font-size: var(--text-xs); }
-.code-block { min-width: 0; background: #f3f6fa; border: 1px solid #e6edf5; border-radius: 7px; }
+.code-block { min-width: 0; background: var(--surface-code); border: 1px solid #e6edf5; border-radius: 7px; }
 .code-block pre { margin: 0; padding: 14px 16px; overflow-x: auto; font: var(--text-xs)/1.9 var(--font-code); white-space: pre-wrap; overflow-wrap: anywhere; color: #273b56; }
-.install-path, .install-invocation { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; font-size: var(--text-xs); color: #63728a; }
-.install-path code, .install-invocation code { font: inherit; font-family: var(--font-code); color: #3d5577; overflow-wrap: anywhere; }
+.install-path, .install-invocation { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; font-size: var(--text-xs); color: var(--muted); }
+.install-path code, .install-invocation code { font: inherit; font-family: var(--font-code); color: var(--code-ink); overflow-wrap: anywhere; }
 .install-invocation code { padding: 1px 6px; border-radius: 4px; background: #eef4fd; }
 .loading, .error { color: var(--muted); font-size: var(--text-body); padding: 12px 0; }
 .retry-button { padding: 5px 12px; border: 1px solid #b9cdef; background: white; color: var(--blue); border-radius: 5px; }

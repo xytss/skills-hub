@@ -17,14 +17,14 @@
 .outline-link[aria-current='location']::before { content: ''; position: absolute; left: -2px; top: calc(7px + .25em); width: 2px; height: 1em; border-radius: 1px; background: var(--blue); pointer-events: none; }
 .outline-list > li > .outline-row > .outline-link { color: var(--ink); }
 .outline-list > li > .outline-row > .outline-link[aria-current='location'] { color: var(--blue-strong); }
-.prompt-header { padding: 20px 20px 12px; flex-shrink: 0; }
+.prompt-header { padding: 20px var(--panel-inset) 12px; flex-shrink: 0; }
 .prompt-heading-row { display: flex; gap: 16px; justify-content: space-between; align-items: center; }
 .prompt-identity { display: flex; gap: 16px; min-width: 0; align-items: center; }
 .prompt-identity > div { min-width: 0; }
 .prompt-title-row { margin-bottom: 4px; }
 .prompt-identity h1 { margin: 0; font-size: var(--text-title); line-height: var(--line-title); font-weight: var(--weight-semibold); }
 .prompt-identity p { margin: 0; color: var(--muted); font-size: var(--text-xs); line-height: var(--line-meta); }
-.prompt-description { margin: 16px 0 0; color: #53627a; font-size: var(--text-body); line-height: var(--line-reading); }
+.prompt-description { margin: 16px 0 0; color: var(--text-secondary); font-size: var(--text-body); line-height: var(--line-reading); }
 #copy-prompt { min-width: 112px; flex-shrink: 0; }
 #copy-prompt:disabled { opacity: .5; cursor: wait; }
 .prompt-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 20px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
@@ -32,11 +32,11 @@
 .prompt-tabs button { border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--muted); padding: 11px 8px; white-space: nowrap; }
 .prompt-tabs button[aria-selected='true'] { color: var(--blue); border-bottom-color: var(--blue); font-weight: var(--weight-medium); }
 .prompt-file-actions { display: flex; gap: 18px; align-items: center; }
-.prompt-file-actions a { display: inline-flex; gap: 6px; align-items: center; color: #53627a; white-space: nowrap; }
+.prompt-file-actions a { display: inline-flex; gap: 6px; align-items: center; color: var(--text-secondary); white-space: nowrap; }
 .prompt-file-actions .icon { width: 16px; height: 16px; }
 .prompt-scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
-.prompt-document, .prompt-markdown { margin: 0; padding: 20px 24px 32px; }
-.prompt-document { font-size: var(--text-body); line-height: var(--line-reading); color: #263144; }
+.prompt-document, .prompt-markdown { margin: 0; padding: 20px var(--panel-inset) 32px; }
+.prompt-document { font-size: var(--text-body); line-height: var(--line-reading); color: var(--reading-ink); }
 .prompt-document h1 { margin: 0 0 20px; font-size: var(--text-title); font-weight: var(--weight-semibold); line-height: var(--line-title); }
 .prompt-document h2 { margin: 24px 0 10px; font-size: var(--text-section); font-weight: var(--weight-semibold); line-height: var(--line-heading); color: var(--ink); }
 .prompt-document h3 { margin: 18px 0 8px; font-size: var(--text-body); font-weight: var(--weight-semibold); }
@@ -45,10 +45,10 @@
 .prompt-document li { margin: 7px 0; }
 .prompt-document li::marker { color: var(--muted); }
 .prompt-document strong { font-weight: var(--weight-semibold); }
-.prompt-document code { padding: 1px 4px; border-radius: 3px; background: #f3f6fa; font-size: var(--text-code); line-height: calc(var(--text-body) * var(--line-reading)); overflow-wrap: anywhere; }
+.prompt-document code { padding: 1px 4px; border-radius: 3px; background: var(--surface-code); font-size: var(--text-code); line-height: calc(var(--text-body) * var(--line-reading)); overflow-wrap: anywhere; }
 .prompt-document [id] { scroll-margin-top: 20px; }
 .prompt-document:focus-visible, #panel-markdown:focus-visible { outline-offset: -4px; }
-.prompt-markdown { white-space: pre-wrap; overflow-wrap: anywhere; font-size: var(--text-code); line-height: 1.6923077; color: #3d5577; }
+.prompt-markdown { white-space: pre-wrap; overflow-wrap: anywhere; font-size: var(--text-code); line-height: 1.6923077; color: var(--code-ink); }
 .prompt-guide > .panel-heading { min-height: 64px; padding-top: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
 .prompt-guide .preview-content { padding-top: 20px; }
 .prompt-environment-table th, .prompt-environment-table td { border-width: 0 0 1px; padding: 8px 12px; }

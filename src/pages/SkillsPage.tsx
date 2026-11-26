@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Button, Drawer, Flex, Modal, Segmented, Select, Steps, Table, Tabs, Tag, Tooltip } from 'antd';
+import { Button, Descriptions, Drawer, Flex, Modal, Segmented, Select, Steps, Table, Tabs, Tag, Tooltip } from 'antd';
 import type { ReactNode } from 'react';
 import type { Skill } from '../types';
 import { REPOSITORY, fileUrl } from '../lib/catalog';
@@ -59,7 +59,7 @@ function Overview({ skill }: { skill: Skill }) {
 
 function Specification({ skill }: { skill: Skill }) {
   const rows: [string, ReactNode][] = [['名称', skill.name], ['中文名称', skill.title], ['版本', `v${skill.version}`], ['默认数据库', skill.database], ['主要分类', skill.navigation_path.join(' · ')], ['适用场景', skill.details.scenarios.map(item => item.name).join('、')], ['输入材料', skill.details.scenarios.map(item => item.input).join('；')], ['输出内容', skill.details.scenarios.map(item => item.output).join('；')], ['使用指南', <a href={fileUrl(skill.overview)} target="_blank" rel="noopener noreferrer">{skill.overview}</a>], ['SKILL.md', <a href={fileUrl(skill.entry)} target="_blank" rel="noopener noreferrer">{skill.entry}</a>], ['许可证', 'MIT']];
-  return <Table size="small" bordered pagination={false} showHeader={false} rowKey="label" columns={[{ dataIndex: 'label', width: 135 }, { dataIndex: 'value' }]} dataSource={rows.map(([label, value]) => ({ label, value }))} />;
+  return <Descriptions className="resource-descriptions specification-descriptions" size="small" bordered column={1} colon={false} classNames={{ label: 'resource-field-label', content: 'resource-field-value' }} items={rows.map(([label, children]) => ({ key: label, label, children }))} />;
 }
 
 export default function SkillsPage({ skills }: { skills: Skill[] }) {
@@ -123,7 +123,7 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
             { title: '操作', width: '18%', render: (_, skill) => <Button type="link" size="small" aria-label={`在侧栏预览 ${skill.name}`} onClick={() => preview(skill)}>预览</Button> }
           ]} />}
         </div></section>
-        <section className="panel install-panel" id="install"><h2>{mode === 'manual' ? '手动安装' : '安装提示词'}</h2><InstallWidget {...installProps} /></section>
+        <section className="panel install-panel" id="install"><header className="install-heading"><h2>{mode === 'manual' ? '手动安装' : '安装提示词'}</h2><span className="install-target">{selected.name}<ResourceMetaTag>v{selected.version}</ResourceMetaTag></span></header><InstallWidget {...installProps} /></section>
       </div>
       {wide && previewOpen && <Preview skill={selected} onExpand={() => openDetails(selected)} onClose={() => setPreviewOpen(false)} />}
     </div>
