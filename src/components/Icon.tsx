@@ -1,5 +1,6 @@
 import brand from '../../assets/icons/skills-hub.svg';
 import prompt from '../../assets/icons/prompt.svg';
+import skills from '../../assets/icons/skills.svg';
 import github from '../../assets/icons/github-mark.svg';
 import share from '../../assets/icons/showcase-jump.svg';
 
@@ -27,10 +28,11 @@ const paths = {
   workflow: '<rect x="3" y="3" width="7" height="5" rx="1"/><rect x="14" y="16" width="7" height="5" rx="1"/><path d="M6 8v10h8m-3-3 3 3-3 3M10 5h8v7"/>'
 } as const;
 
-export type IconName = keyof typeof paths | 'skills-hub' | 'prompt' | 'github' | 'share';
+export type IconName = keyof typeof paths | 'skills-hub' | 'skills' | 'prompt' | 'github' | 'share';
 export function Icon({ name }: { name: IconName }) {
   switch (name) {
     case 'skills-hub': return <img className="icon brand-icon" src={brand} alt="" />;
+    case 'skills': return <img className="icon skills-icon" src={skills} alt="" />;
     case 'prompt': return <img className="icon prompt-icon" src={prompt} alt="" />;
     case 'github': return <img className="icon github-mark" src={github} alt="" />;
     case 'share': return <img className="icon share-icon" src={share} alt="" />;
