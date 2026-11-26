@@ -4,7 +4,7 @@
 
 ## 技术与字体
 
-使用 React、TypeScript、Ant Design 与 Vite，保留 CSS Grid 三栏布局及 catalog.json 数据。页面经 Vite 构建为静态文件，通过 GitHub Actions 发布至 GitHub Pages。保留现有 SVG 图标；字体采用操作系统已安装的界面字体与等宽字体。
+使用 React、TypeScript、Ant Design 与 Vite，保留 CSS Grid 三栏布局及 catalog.json 数据。页面经 Vite 构建为静态文件，通过 GitHub Actions 发布至 GitHub Pages。保留现有 SVG 图标；中文采用本地托管的 Noto Sans SC，英文与等宽代码采用系统字体。
 
 | 层级 | 字号／行高 | 用途 |
 | --- | --- | --- |
@@ -15,11 +15,11 @@
 | 代码与原始 Markdown | 13px／22px | 等宽代码；正文中的行内代码继承正文行高 |
 | 辅助信息 | 12px／18px | 版本、环境、标签与补充信息 |
 
-字重为400、500、600，中文按系统字体的可用字重映射。根字号保留浏览器默认值，组件使用rem。
+字重为400、500、600；中文使用可变字体对应字重。根字号保留浏览器默认值，组件使用rem。
 
-Windows 11 下，英文界面与正文采用 Segoe UI Variable Text，中文采用 Microsoft YaHei UI，代码与原始 Markdown 采用 Consolas。依据 [Windows 字体规范](https://learn.microsoft.com/en-us/windows/apps/design/signature-experiences/typography) 与 Ant Design 的系统字体优先原则重新选型；避免页面加载期间等待字体下载。
+Windows 11 下，英文界面与正文采用 Segoe UI Variable Text，中文及全角标点采用 Noto Sans SC，代码与原始 Markdown 的英文采用 Consolas。Noto Sans SC 以 SIL OFL 1.1 授权在站内托管；通过 chinese.css 的 unicode-range 限制中文字体覆盖范围，保留现有英文字形。
 
-界面字体按 Segoe UI、Microsoft YaHei UI、Apple 系统字体、PingFang SC、Noto Sans CJK SC 与 sans-serif 顺序兼容其他平台；代码按 SFMono-Regular、Menlo、Monaco、Liberation Mono、Courier New 回退，中文使用 Microsoft YaHei UI 或 PingFang SC 补充。页面不加载外部字体或自托管字体文件，旧字体资源保留在仓库中作为历史资料。
+英文字体按 Segoe UI、Apple 系统字体与 sans-serif 兼容其他平台；代码按 SFMono-Regular、Menlo、Monaco、Liberation Mono、Courier New 回退。中文字体加载前可使用 PingFang SC 或 Microsoft YaHei UI。页面不请求外部字体 CDN；JetBrains Mono 作为历史资源保留。
 
 Ant Design 的字体与代码字体引用同一组 CSS 字体变量。移动端文档一级标题为18px，章节标题保持16px，与14px正文保留层级。
 
@@ -91,7 +91,7 @@ Agent选择保存在统一状态中：首页、预览相关安装区与完整卡
 
 检查1568×1003px默认三栏、1920px宽屏、1024～1439px抽屉、768px与320/390px窄屏；核对卡片／表格筛选一致、Agent联动、提示词复制、手动命令复制与焦点返回。
 
-前端截图需与实际实现对照，字体规格以本文件为准。历史字体文件的来源与授权保存在assets/fonts/；当前系统字体只在用户设备上调用。
+前端截图需与实际实现对照，字体规格以本文件为准。本地字体文件的来源与授权保存在assets/fonts/；系统字体只在用户设备上调用。
 
 ## 方案B设计参考
 

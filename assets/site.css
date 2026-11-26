@@ -7,8 +7,8 @@
   --page-gutter: clamp(24px, 1.6vw, 40px);
   --catalog-width: 260px; --workspace-gap: 16px;
   --workspace-height: max(560px, calc(100dvh - 112px));
-  --font-ui: 'Segoe UI Variable Text', 'Segoe UI', 'Microsoft YaHei UI', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Noto Sans CJK SC', sans-serif;
-  --font-code: Consolas, 'SFMono-Regular', Menlo, Monaco, 'Liberation Mono', 'Courier New', 'Microsoft YaHei UI', 'PingFang SC', monospace;
+  --font-ui: 'Noto Sans SC', 'Segoe UI Variable Text', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei UI', sans-serif;
+  --font-code: Consolas, 'Noto Sans SC', 'SFMono-Regular', Menlo, Monaco, 'Liberation Mono', 'Courier New', 'PingFang SC', 'Microsoft YaHei UI', monospace;
   --text-xs: .75rem; --text-sm: .75rem; --text-base: .875rem;
   --text-body: .875rem; --text-nav: .875rem; --text-title: 1.25rem;
   --text-section: 1rem; --text-brand: 1.25rem; --text-page: 1.5rem;
