@@ -9,9 +9,10 @@
 .outline-list ul { margin: 2px 0 8px 15px; padding-left: 13px; border-left: 1px solid var(--tree-line); }
 .outline-row { display: flex; align-items: flex-start; gap: 2px; }
 .outline-toggle { flex: 0 0 20px; }
-.outline-link { display: block; flex: 1; min-width: 0; padding: 7px 4px; color: var(--muted); line-height: 1.5; font-size: var(--text-body); overflow-wrap: anywhere; }
+.outline-link { position: relative; display: block; flex: 1; min-width: 0; padding: 7px 4px; color: var(--muted); line-height: 1.5; font-size: var(--text-body); overflow-wrap: anywhere; }
 .outline-link:hover { text-decoration: none; color: var(--blue); background: #f5f8fd; border-radius: 4px; }
-.outline-link[aria-current='location'] { color: var(--blue-strong); font-weight: var(--weight-medium); box-shadow: -2px 0 0 var(--blue); }
+.outline-link[aria-current='location'] { color: var(--blue-strong); font-weight: var(--weight-medium); }
+.outline-link[aria-current='location']::before { content: ''; position: absolute; left: -2px; top: calc(7px + .25em); width: 2px; height: 1em; border-radius: 1px; background: var(--blue); pointer-events: none; }
 .outline-list > li > .outline-row > .outline-link { color: var(--ink); }
 .outline-list > li > .outline-row > .outline-link[aria-current='location'] { color: var(--blue-strong); }
 .prompt-header { padding: 20px 20px 12px; flex-shrink: 0; }

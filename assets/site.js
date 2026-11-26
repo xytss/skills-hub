@@ -495,7 +495,7 @@ function showPreview(skill, trigger = document.activeElement) {
 
 function setNavSection(section) {
   document.querySelectorAll('.site-header nav a[href^="#"]').forEach(link => {
-    const active = link.hash === `#${section}`;
+    const active = link.hash === `#${section === 'install' ? 'catalog' : section}`;
     link.classList.toggle('nav-active', active);
     if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
   });
