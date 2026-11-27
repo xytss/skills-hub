@@ -83,7 +83,6 @@ code, pre { font-family: var(--font-code); }
 .panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 16px 20px; }
 .skills-panel > .panel-heading { min-height: 64px; }
 .panel-heading h2, .install-panel > h2 { margin: 0; font-size: var(--text-section); line-height: var(--line-heading); font-weight: var(--weight-bold); }
-.heading-group { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
 .badge { display: inline-flex; align-items: center; border-radius: 4px; padding: 1px 7px; font-size: var(--text-xs); line-height: 1.5; font-weight: var(--weight-semibold); white-space: nowrap; }
 .badge-blue { color: var(--blue-strong); background: var(--resource-meta-bg); }
 .catalog-panel { min-height: 0; }

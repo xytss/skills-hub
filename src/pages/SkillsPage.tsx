@@ -20,6 +20,7 @@ const agents = [
 
 const publisherLabels = { official: '官方', community: '社区', project: '本仓库' };
 type ListPosition = 'start' | 'selected';
+type BrowseMode = 'category' | 'resource';
 
 function categorySkills(skills: Skill[], path: string[]) {
   const prefix = path.join('/');
@@ -138,7 +139,7 @@ function Specification({ skill }: { skill: Skill }) {
   </Flex>;
 }
 
-function SkillsWorkspace({ skills, selected, category, members, listPosition, onNavigate }: { skills: Skill[]; selected: Skill; category: string[]; members: string[]; listPosition: ListPosition; onNavigate: (skill: Skill, category: string[], position: ListPosition) => void }) {
+function SkillsWorkspace({ skills, selected, category, members, browseMode, listPosition, onNavigate }: { skills: Skill[]; selected: Skill; category: string[]; members: string[]; browseMode: BrowseMode; listPosition: ListPosition; onNavigate: (skill: Skill, category: string[], position: ListPosition, mode: BrowseMode) => void }) {
   const [view, setView] = useState(() => localStorage.getItem('skills-hub.view') === 'table' ? 'table' : 'cards');
   const [previewOpen, setPreviewOpen] = useState(true);
   const [previewRequested, setPreviewRequested] = useState(false);
@@ -169,20 +170,21 @@ function SkillsWorkspace({ skills, selected, category, members, listPosition, on
     if (itemBounds.top < bounds.top || itemBounds.bottom > bounds.bottom) content.scrollTop += itemBounds.top - bounds.top;
   }, [selected.id, category, members, view, listPosition]);
   function updateAgent(name: string) { setAgent(name); localStorage.setItem('skills-hub.agent', name); }
-  function updateView(value: string) { onNavigate(selected, category, 'selected'); setView(value); localStorage.setItem('skills-hub.view', value); }
+  function updateView(value: string) { onNavigate(selected, category, 'selected', browseMode); setView(value); localStorage.setItem('skills-hub.view', value); }
   function openDetails(skill: Skill) {
     detailsOpener.current = { element: !wide && !small && previewRequested ? previewOpener.current! : document.activeElement as HTMLElement, skillId: skill.id };
-    onNavigate(skill, category, 'selected'); setDetailTab('overview'); setPreviewRequested(false);
+    onNavigate(skill, category, 'selected', browseMode); setDetailTab('overview'); setPreviewRequested(false);
     if (!wide && !small && previewRequested) pendingDetails.current = true;
     else setDetailsOpen(true);
   }
-  function preview(skill: Skill, path: string[]) {
-    onNavigate(skill, path, 'selected'); setPreviewOpen(true);
+  function showPreview(skill: Skill) {
+    setPreviewOpen(true);
     if (small) { detailsOpener.current = { element: document.activeElement as HTMLElement, skillId: skill.id }; setDetailTab('overview'); setPreviewRequested(false); setDetailsOpen(true); }
     else if (!wide) { previewOpener.current = document.activeElement as HTMLElement; setPreviewRequested(true); }
   }
+  function preview(skill: Skill) { onNavigate(skill, category, 'selected', browseMode); showPreview(skill); }
   function selectRelated(skill: Skill) {
-    onNavigate(skill, skill.navigation_path, 'selected'); setDetailTab('overview'); setPreviewOpen(true);
+    onNavigate(skill, skill.navigation_path, 'selected', 'resource'); setDetailTab('overview'); setPreviewOpen(true);
   }
   function restoreDetailsFocus() {
     const opener = detailsOpener.current!;
@@ -191,16 +193,17 @@ function SkillsWorkspace({ skills, selected, category, members, listPosition, on
   }
   function selectCategory(path: string[]) {
     const matching = categorySkills(skills, path);
-    onNavigate(matching.some(skill => skill.id === selected.id) ? selected : matching[0], path, 'start');
+    onNavigate(matching.some(skill => skill.id === selected.id) ? selected : matching[0], path, 'start', 'category');
     requestAnimationFrame(() => document.getElementById('workspace-title')!.focus());
   }
   function selectCatalog(node: CatalogNode) {
     const select = () => {
       if (node.kind === 'resource') {
         if (small) document.getElementById('catalog-toggle')!.focus();
-        preview(skills.find(skill => skill.id === node.resource)!, node.path); return;
+        const skill = skills.find(skill => skill.id === node.resource)!;
+        onNavigate(skill, node.path, 'selected', 'resource'); showPreview(skill); return;
       }
-      onNavigate(node.members.includes(selected.id) ? selected : skills.find(skill => node.members.includes(skill.id))!, node.path, 'start');
+      onNavigate(node.members.includes(selected.id) ? selected : skills.find(skill => node.members.includes(skill.id))!, node.path, 'start', 'category');
       if (small) requestAnimationFrame(() => document.getElementById('workspace-title')!.focus());
     };
     if (small) { catalogAction.current = select; setCatalogOpen(false); }
@@ -208,24 +211,34 @@ function SkillsWorkspace({ skills, selected, category, members, listPosition, on
   }
   const installProps = { skill: selected, skills, agentName: agent, setAgent: updateAgent, mode, setMode };
   const previewProps = { skill: selected, skills, onRelatedSelect: selectRelated };
-  const catalog = <section className="panel catalog-panel" id="catalog"><header className="panel-heading"><h2>分类目录</h2></header><div className="catalog-content"><ResourceTree resources={treeResources} selected={selected.id} category={category} onSelect={selectCatalog} /></div></section>;
+  const catalog = <section className="panel catalog-panel" id="catalog"><header className="panel-heading"><h2>分类目录</h2></header><div className="catalog-content"><ResourceTree resources={treeResources} selected={selected.id} category={category} selection={browseMode} onSelect={selectCatalog} /></div></section>;
+  const ancestors = browseMode === 'resource' ? category : category.slice(0, -1);
+  const heading = browseMode === 'resource' ? selected.displayName : category.at(-1);
   const columns: TableColumnsType<Skill> = [
-    { title: 'Skill', dataIndex: 'name', width: '38%', render: (_, skill) => <div className="table-skill"><Button type="link" className="table-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill, category)}>{skill.displayName}</Button><span className="table-database">{publisherLabels[skill.publisherType]} · {skill.tags.join(' · ')}</span></div> },
+    { title: 'Skill', dataIndex: 'name', width: '38%', render: (_, skill) => <div className="table-skill"><Button type="link" className="table-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button><span className="table-database">{publisherLabels[skill.publisherType]} · {skill.tags.join(' · ')}</span></div> },
     { title: 'Skill 版本', width: '22%', render: (_, skill) => <SkillVersionTag skill={skill} /> },
     { title: '关联版本', width: '28%', render: (_, skill) => productVersionLabel(skill) ?? '—' },
-    { title: '操作', width: '12%', render: (_, skill) => <Button type="link" size="small" aria-label={`在侧栏预览 ${skill.displayName}`} onClick={() => preview(skill, category)}>预览</Button> }
+    { title: '操作', width: '12%', render: (_, skill) => <Button type="link" size="small" aria-label={`在侧栏预览 ${skill.displayName}`} onClick={() => preview(skill)}>预览</Button> }
   ];
   return <main className="page">
     <div className="page-heading"><Button id="catalog-toggle" icon={<Icon name="folder" />} aria-expanded={catalogOpen} aria-controls="catalog" onClick={() => setCatalogOpen(!catalogOpen)}>分类目录</Button></div>
     <div className={`workspace${previewOpen ? '' : ' preview-hidden'}`}>
       {!small && catalog}
       <div className="workspace-main">
-        <section className="panel skills-panel" aria-labelledby="workspace-title"><header className="panel-heading"><div className="heading-group">{category.length > 1 && <><Breadcrumb className="skill-breadcrumb" aria-label="上级分类" items={category.slice(0, -1).map((part, index) => ({ title: <Button type="link" className="breadcrumb-button" onClick={() => selectCategory(category.slice(0, index + 1))}>{part}</Button> }))} /><span className="breadcrumb-separator" aria-hidden="true">/</span></>}<h1 id="workspace-title" tabIndex={-1}>{category.at(-1)}</h1><ResourceMetaTag>{filtered.length} 项 Skill</ResourceMetaTag></div><Segmented aria-label="Skill 展示方式" value={view} onChange={updateView} options={[{ value: 'cards', label: '卡片', icon: <Icon name="layers" /> }, { value: 'table', label: '表格', icon: <Icon name="table" /> }]} /></header><div className="skill-content" ref={listContent}>
+        <section className="panel skills-panel" aria-labelledby="workspace-title">
+          <header className="panel-heading skills-heading">
+            <Flex className="skill-heading-context" vertical gap={4}>
+              {ancestors.length > 0 && <Breadcrumb className="skill-breadcrumb" aria-label="上级分类" items={ancestors.map((part, index) => ({ title: <Button type="link" className="breadcrumb-button" onClick={() => selectCategory(category.slice(0, index + 1))}>{part}</Button> }))} />}
+              <Flex className="skill-heading-title" align="center" gap={8} wrap><h1 id="workspace-title" tabIndex={-1}>{heading}</h1><ResourceMetaTag>{filtered.length} 项 Skill</ResourceMetaTag></Flex>
+            </Flex>
+            <Segmented className="skill-view-switch" aria-label="Skill 展示方式" value={view} onChange={updateView} options={[{ value: 'cards', label: '卡片', icon: <Icon name="layers" /> }, { value: 'table', label: '表格', icon: <Icon name="table" /> }]} />
+          </header>
+          <div className="skill-content" ref={listContent}>
           {view === 'cards' ? filtered.map(skill => <article className={`skill-card${skill.id === selected.id ? ' is-selected' : ''}`} data-skill-id={skill.id} aria-current={skill.id === selected.id ? 'true' : undefined} key={skill.id}>
             <Flex className="skill-identity" align="start" gap={16}>
               <span className="skill-symbol"><SkillSymbol skill={skill} /></span>
               <div className="skill-info">
-                <Flex className="skill-title" align="center" gap={12} wrap><h3><Button type="text" className="skill-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill, category)}>{skill.displayName}</Button></h3><SkillVersionTag skill={skill} /></Flex>
+                <Flex className="skill-title" align="center" gap={12} wrap><h3><Button type="text" className="skill-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button></h3><SkillVersionTag skill={skill} /></Flex>
                 <p>{skill.description}</p>
                 <Flex className="skill-metadata" align="center" gap="6px 20px" wrap>{skill.database ? <span className="metadata-item"><Icon name="database" />{skill.database}</span> : <Flex className="skill-tags" wrap gap={4}><Tag>{publisherLabels[skill.publisherType]}</Tag>{skill.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Flex>}{skill.productVersions.length > 0 && <span className="skill-product-version">{productVersionLabel(skill)}</span>}</Flex>
                 <Flex className="skill-actions" align="center" gap={10}><Button onClick={() => openDetails(skill)}>展开详情</Button></Flex>
@@ -264,16 +277,17 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
   const selected = requestedSkill === null ? scoped[0] : skills.find(skill => skill.id === requestedSkill);
   if (!selected) return <NavigationError message={`Skill 不存在：${requestedSkill}`} />;
   const category = scope ?? selected.navigation_path;
-  const members = categorySkills(skills, category).map(skill => skill.id);
+  const browseMode: BrowseMode = requestedSkill !== null && scope === null ? 'resource' : 'category';
+  const members = browseMode === 'resource' ? [selected.id] : categorySkills(skills, category).map(skill => skill.id);
   if (!members.includes(selected.id)) return <NavigationError message="当前 Skill 不属于此分类" />;
-  function navigate(skill: Skill, path: string[], position: ListPosition) {
+  function navigate(skill: Skill, path: string[], position: ListPosition, mode: BrowseMode) {
     const url = new URL(location.href);
     url.searchParams.set('skill', skill.id);
-    if (path.join('/') === skill.navigation_path.join('/')) url.searchParams.delete('category');
+    if (mode === 'resource') url.searchParams.delete('category');
     else url.searchParams.set('category', path.join('/'));
     url.hash = 'catalog';
     if (url.href !== location.href) history.pushState(null, '', url);
     setRoute({ url, position });
   }
-  return <SkillsWorkspace skills={skills} selected={selected} category={category} members={members} listPosition={route.position} onNavigate={navigate} />;
+  return <SkillsWorkspace skills={skills} selected={selected} category={category} members={members} browseMode={browseMode} listPosition={route.position} onNavigate={navigate} />;
 }

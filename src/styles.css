@@ -54,7 +54,11 @@
 .prompt-document p { line-height: inherit; }
 .prompt-document { max-width: 85ch; margin-inline: auto; }
 .prompt-description.ant-typography { margin-bottom: 0; }
-.skills-panel .heading-group h1 { margin: 0; font-size: var(--text-section); line-height: var(--line-heading); font-weight: var(--weight-semibold); }
+.skills-heading { align-items: flex-end; }
+.skill-heading-context { flex: 1; min-width: 0; }
+.skill-heading-title { min-height: 32px; min-width: 0; }
+.skill-heading-title h1 { margin: 0; font-size: var(--text-section); line-height: var(--line-heading); font-weight: var(--weight-semibold); overflow-wrap: anywhere; }
+.skill-view-switch { flex-shrink: 0; }
 .prompt-navigation-drawer .prompt-navigation { height: 100%; }
 .prompt-navigation-drawer .prompt-categories .panel-heading { display: flex; }
 .prompt-document [tabindex='-1']:focus { outline: none; }
@@ -108,9 +112,8 @@
 .overview-grid .ant-tag { padding: 3px 4px; }
 .overview-grid.overview-single { grid-template-columns: minmax(0, 1fr); }
 .skill-tags .ant-tag { margin: 0; }
-.skill-breadcrumb { min-width: 0; font-family: var(--font-ui); font-size: var(--text-body); }
-.breadcrumb-separator { color: var(--muted); }
-.breadcrumb-button.ant-btn { height: auto; padding: 0; color: var(--muted); font-size: var(--text-body); line-height: var(--line-heading); white-space: normal; }
+.skill-breadcrumb { min-width: 0; font-family: var(--font-ui); font-size: var(--text-xs); }
+.breadcrumb-button.ant-btn { height: auto; padding: 0; color: var(--muted); font-size: inherit; line-height: var(--line-meta); white-space: normal; }
 .breadcrumb-button.ant-btn:hover { color: var(--blue); }
 .version-descriptions .resource-field-label { width: 78px; color: var(--muted); }
 .version-descriptions .resource-field-value { color: var(--ink); }
