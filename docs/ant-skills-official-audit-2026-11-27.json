@@ -1,0 +1,1664 @@
+{
+  "verifiedAt": "2026-11-27",
+  "timeZone": "Asia/Shanghai",
+  "scope": {
+    "frontendSkillCount": 34,
+    "totalSkillCount": 35,
+    "semanticSkillVersionCount": 9,
+    "revisionOnlySkillCount": 26
+  },
+  "versionPolicy": {
+    "skillVersion": "只采用技能定义、元数据或技能 CHANGELOG 中明确发布的编号。",
+    "revision": "未独立编号的技能用仓库提交标识本次核验快照。",
+    "currentPackages": "对应软件的发布版本，来源为 npm 官方 registry；与技能适用范围分别保存。",
+    "templateVersion": "Pro 等脚手架模板以官方仓库 package.json 为版本依据。"
+  },
+  "proposedTaxonomy": {
+    "root": "前端开发",
+    "ecosystem": "蚂蚁前端生态",
+    "directoryDepth": 3,
+    "groups": [
+      {
+        "name": "界面设计与主题定制",
+        "skillIds": [
+          "ant-design-skill",
+          "ant-design-visual-design",
+          "antd-theme-customization"
+        ]
+      },
+      {
+        "name": "组件开发与文档查询",
+        "skillIds": [
+          "ant-design-official",
+          "antd-cli-skill",
+          "antd-component-lookup",
+          "ant-design-react-community"
+        ]
+      },
+      {
+        "name": "应用工程与版本迁移",
+        "skillIds": [
+          "antd-migration",
+          "pro-upgrade",
+          "umi-max"
+        ]
+      },
+      {
+        "name": "AI 对话与生成式界面",
+        "skillIds": [
+          "x-components",
+          "use-x-chat",
+          "x-chat-provider",
+          "x-request",
+          "x-markdown",
+          "x-card"
+        ]
+      },
+      {
+        "name": "Vue、移动端与小程序",
+        "skillIds": [
+          "ant-design-vue",
+          "ant-design-mobile",
+          "ant-design-mini"
+        ]
+      },
+      {
+        "name": "统计图表与数据叙事",
+        "skillIds": [
+          "antv-g2-chart",
+          "antv-t8-ntv"
+        ]
+      },
+      {
+        "name": "关系图、流程图与地图",
+        "skillIds": [
+          "antv-g6-graph",
+          "antv-x6-editor",
+          "antv-l7"
+        ]
+      },
+      {
+        "name": "AI 图表与快速配图",
+        "skillIds": [
+          "chart-visualization-image",
+          "chart-visualization-gpt-vis",
+          "antv-gpt-vis"
+        ]
+      },
+      {
+        "name": "信息图生成与扩展",
+        "skillIds": [
+          "infographic-creator",
+          "antv-infographic",
+          "infographic-syntax-creator",
+          "infographic-structure-creator",
+          "infographic-item-creator",
+          "infographic-template-updater"
+        ]
+      },
+      {
+        "name": "图标与设计资源",
+        "skillIds": [
+          "icon-retrieval"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "repo": "ant-design/antd-skill",
+      "branch": "main",
+      "commit": "e65d2d3da9a2a129885131f5aeffe2c9037f83cb"
+    },
+    {
+      "repo": "ant-design/ant-design-cli",
+      "branch": "main",
+      "commit": "b82d656ae100e241b4c1166b9547382656c10f43"
+    },
+    {
+      "repo": "ant-design/ant-design",
+      "branch": "master",
+      "commit": "768405c1019435763adab015d47bf503505340d6"
+    },
+    {
+      "repo": "ant-design/ant-design-pro",
+      "branch": "master",
+      "commit": "c70e0d89525933c4dab373143d486c93331392fb"
+    },
+    {
+      "repo": "AntGroupDesign/Ant-Design-Skill",
+      "branch": "main",
+      "commit": "a79207836fa1e29b442cd3e88320b94e2a094da9"
+    },
+    {
+      "repo": "ant-design/x",
+      "branch": "main",
+      "commit": "da08db16714b608d7f5db248c2b2fcc30a756660"
+    },
+    {
+      "repo": "antvis/chart-visualization-skills",
+      "branch": "master",
+      "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3"
+    },
+    {
+      "repo": "antvis/GPT-Vis",
+      "branch": "ai",
+      "commit": "ea3e9cb0514ac3023ec4709e77447122290447c9"
+    },
+    {
+      "repo": "antvis/Infographic",
+      "branch": "main",
+      "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209"
+    },
+    {
+      "repo": "antvis/L7",
+      "branch": "master",
+      "commit": "f022a1406260cf909123a2ce361440512877afdb"
+    },
+    {
+      "repo": "full-stack-skills/antd-skills",
+      "branch": "main",
+      "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe"
+    },
+    {
+      "repo": "hidekatsu-izuno/design-system-skills",
+      "branch": "main",
+      "commit": "6195a0e1869efc8ebef01e5b93dbc20806f0cf84"
+    },
+    {
+      "repo": "mik284/umi-max-enterprise",
+      "branch": "master",
+      "commit": "0d1607028b1d70b6dbb04a0fbd06f00e9e1de14d"
+    },
+    {
+      "repo": "xytss/skills-hub",
+      "branch": "main",
+      "commit": "026cce872c56f700917f4cd2463aff9e5e24dc37"
+    }
+  ],
+  "packages": [
+    {
+      "package": "@ant-design/cli",
+      "version": "6.7.2",
+      "homepage": "https://github.com/ant-design/ant-design-cli#readme",
+      "repository": "git+https://github.com/ant-design/ant-design-cli.git",
+      "source": "https://registry.npmjs.org/%40ant-design%2Fcli/latest"
+    },
+    {
+      "package": "@ant-design/x",
+      "version": "2.10.0",
+      "homepage": "https://x.ant.design",
+      "repository": "git+https://github.com/ant-design/x.git",
+      "source": "https://registry.npmjs.org/%40ant-design%2Fx/latest"
+    },
+    {
+      "package": "antd",
+      "version": "6.7.2",
+      "homepage": "https://ant.design",
+      "repository": "git+https://github.com/ant-design/ant-design.git",
+      "source": "https://registry.npmjs.org/antd/latest"
+    },
+    {
+      "package": "@ant-design/x-sdk",
+      "version": "2.10.0",
+      "homepage": "https://x.ant.design/x-sdks/introduce",
+      "repository": "git+https://github.com/ant-design/x.git",
+      "source": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/latest"
+    },
+    {
+      "package": "@ant-design/x-markdown",
+      "version": "2.10.0",
+      "homepage": "https://x.ant.design/x-markdowns/introduce",
+      "repository": "git+https://github.com/ant-design/x.git",
+      "source": "https://registry.npmjs.org/%40ant-design%2Fx-markdown/latest"
+    },
+    {
+      "package": "@ant-design/x-skill",
+      "version": "2.10.0",
+      "homepage": "https://x.ant.design/x-skills/introduce",
+      "repository": "git+https://github.com/ant-design/x.git",
+      "source": "https://registry.npmjs.org/%40ant-design%2Fx-skill/latest"
+    },
+    {
+      "package": "@ant-design/pro-components",
+      "version": "2.8.10",
+      "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/components#readme",
+      "repository": "git+https://github.com/ant-design/pro-components.git",
+      "source": "https://registry.npmjs.org/%40ant-design%2Fpro-components/latest"
+    },
+    {
+      "package": "@ant-design/x-card",
+      "version": "2.10.0",
+      "homepage": "https://x.ant.design/x-card",
+      "repository": "git+https://github.com/ant-design/x.git",
+      "source": "https://registry.npmjs.org/%40ant-design%2Fx-card/latest"
+    },
+    {
+      "package": "ant-design-vue",
+      "version": "4.2.6",
+      "homepage": "https://www.antdv.com/",
+      "repository": "git+https://github.com/vueComponent/ant-design-vue.git",
+      "source": "https://registry.npmjs.org/ant-design-vue/latest"
+    },
+    {
+      "package": "antd-mobile",
+      "version": "5.43.0",
+      "homepage": "https://github.com/ant-design/ant-design-mobile#readme",
+      "repository": "git+https://github.com/ant-design/ant-design-mobile.git",
+      "source": "https://registry.npmjs.org/antd-mobile/latest"
+    },
+    {
+      "package": "@umijs/max",
+      "version": "4.7.40",
+      "homepage": "https://github.com/umijs/umi/tree/master/packages/max#readme",
+      "repository": "git+https://github.com/umijs/umi.git",
+      "source": "https://registry.npmjs.org/%40umijs%2Fmax/latest"
+    },
+    {
+      "package": "@antv/g2",
+      "version": "5.4.8",
+      "homepage": "https://github.com/antvis/g2#readme",
+      "repository": "git+https://github.com/antvis/g2.git",
+      "source": "https://registry.npmjs.org/%40antv%2Fg2/latest"
+    },
+    {
+      "package": "@antv/g6",
+      "version": "5.1.1",
+      "homepage": "https://g6.antv.antgroup.com/",
+      "repository": "git+https://github.com/antvis/g6.git",
+      "source": "https://registry.npmjs.org/%40antv%2Fg6/latest"
+    },
+    {
+      "package": "@antv/x6",
+      "version": "3.1.8",
+      "homepage": "https://x6.antv.antgroup.com/tutorial/about",
+      "repository": "git+https://github.com/antvis/x6.git",
+      "source": "https://registry.npmjs.org/%40antv%2Fx6/latest"
+    },
+    {
+      "package": "@antv/l7",
+      "version": "2.29.1",
+      "homepage": null,
+      "repository": "git@github.com:antvis/L7.git",
+      "source": "https://registry.npmjs.org/%40antv%2Fl7/latest"
+    },
+    {
+      "package": "@antv/t8",
+      "version": "0.3.1",
+      "homepage": "https://github.com/antvis/T8#readme",
+      "repository": "git+ssh://git@github.com/antvis/T8.git",
+      "source": "https://registry.npmjs.org/%40antv%2Ft8/latest"
+    },
+    {
+      "package": "@antv/gpt-vis",
+      "version": "1.3.2",
+      "homepage": "https://gpt-vis.antv.vision",
+      "repository": "git+https://github.com/antvis/GPT-Vis.git",
+      "source": "https://registry.npmjs.org/%40antv%2Fgpt-vis/latest"
+    },
+    {
+      "package": "@antv/infographic",
+      "version": "0.2.20",
+      "homepage": "https://github.com/antvis/Infographic#readme",
+      "repository": "git+ssh://git@github.com/antvis/Infographic.git",
+      "source": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
+    },
+    {
+      "package": "antd-mini",
+      "version": "3.4.3",
+      "homepage": "https://mini.ant.design/",
+      "repository": "git+https://github.com/ant-design/ant-design-mini.git",
+      "source": "https://registry.npmjs.org/antd-mini/latest"
+    }
+  ],
+  "entries": [
+    {
+      "id": "ant-design-skill",
+      "name": "ant-design-skill",
+      "displayName": "ant-design-skill",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "基础设计与开发"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "界面设计与主题定制"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": "1.0.0",
+      "skillVersionSource": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/main/CHANGELOG.md",
+      "revision": {
+        "repository": "AntGroupDesign/Ant-Design-Skill",
+        "branch": "main",
+        "commit": "a79207836fa1e29b442cd3e88320b94e2a094da9",
+        "pinnedSourceUrl": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/a79207836fa1e29b442cd3e88320b94e2a094da9/ant-design-skill/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/main/ant-design-skill/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://ant.design/docs/spec/introduce/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "React 19、antd 6、ProComponents ^2.7.0",
+      "currentPackages": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/latest"
+        },
+        {
+          "name": "@ant-design/pro-components",
+          "version": "2.8.10",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fpro-components/latest"
+        }
+      ],
+      "notes": [
+        "技能版本来自 CHANGELOG；SKILL.md 头部未单列版本。"
+      ]
+    },
+    {
+      "id": "ant-design-official",
+      "name": "ant-design",
+      "displayName": "ant-design（官方）",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "基础设计与开发"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "组件开发与文档查询"
+      ],
+      "catalogVersionBeforeAudit": "v6",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "ant-design/antd-skill",
+        "branch": "main",
+        "commit": "e65d2d3da9a2a129885131f5aeffe2c9037f83cb",
+        "pinnedSourceUrl": "https://github.com/ant-design/antd-skill/blob/e65d2d3da9a2a129885131f5aeffe2c9037f83cb/skills/ant-design/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/antd-skill/blob/main/skills/ant-design/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://ant.design/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "antd 6、Pro 5 / ProComponents、X 2",
+      "currentPackages": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/latest"
+        },
+        {
+          "name": "@ant-design/x",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx/latest"
+        }
+      ],
+      "notes": [
+        "技能明确列出 Pro 5；当前 Pro 模板 package.json 为 6.0.3，应分开记录。"
+      ]
+    },
+    {
+      "id": "antd-cli-skill",
+      "name": "antd",
+      "displayName": "antd",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "基础设计与开发"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "组件开发与文档查询"
+      ],
+      "catalogVersionBeforeAudit": "v3-v6",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "ant-design/ant-design-cli",
+        "branch": "main",
+        "commit": "b82d656ae100e241b4c1166b9547382656c10f43",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design-cli/blob/b82d656ae100e241b4c1166b9547382656c10f43/skills/antd/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/ant-design-cli/blob/main/skills/antd/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://ant.design/docs/react/cli/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "按 antd 版本查询；含 v3→v4、v4→v5、v5→v6 迁移指导",
+      "currentPackages": [
+        {
+          "name": "@ant-design/cli",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fcli/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "antd-theme-customization",
+      "name": "antd-theme-customization",
+      "displayName": "antd-theme-customization",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "主题定制与迁移"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "界面设计与主题定制"
+      ],
+      "catalogVersionBeforeAudit": "v5/v6",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "ant-design/ant-design",
+        "branch": "master",
+        "commit": "768405c1019435763adab015d47bf503505340d6",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-theme-customization/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-theme-customization/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://ant.design/docs/react/customize-theme/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "主题指南包含 v5 样式体系说明；落地时按目标 antd 版本查询",
+      "currentPackages": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "antd-component-lookup",
+      "name": "antd-component-lookup",
+      "displayName": "antd-component-lookup",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "主题定制与迁移"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "组件开发与文档查询"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "ant-design/ant-design",
+        "branch": "master",
+        "commit": "768405c1019435763adab015d47bf503505340d6",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-component-lookup/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-component-lookup/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://ant.design/components/overview/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "跟随目标版本的官方组件文档",
+      "currentPackages": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "antd-migration",
+      "name": "antd-migration",
+      "displayName": "antd-migration",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "主题定制与迁移"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "应用工程与版本迁移"
+      ],
+      "catalogVersionBeforeAudit": "v4 → v5",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "ant-design/ant-design",
+        "branch": "master",
+        "commit": "768405c1019435763adab015d47bf503505340d6",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-migration/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-migration/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://5x.ant.design/docs/react/migration-v5/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "antd 4 → 5",
+      "currentPackages": [],
+      "relatedVersions": {
+        "antd4": "4.24.16",
+        "antd5": "5.29.3"
+      },
+      "relatedVersionsSource": "https://registry.npmjs.org/antd",
+      "notes": [
+        "SKILL.md 中 ant.design/docs/react/migration-v5 本次返回 404；已核对的历史文档入口为 5x.ant.design。"
+      ]
+    },
+    {
+      "id": "pro-upgrade",
+      "name": "pro-upgrade",
+      "displayName": "pro-upgrade",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "主题定制与迁移"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "应用工程与版本迁移"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "ant-design/ant-design-pro",
+        "branch": "master",
+        "commit": "c70e0d89525933c4dab373143d486c93331392fb",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design-pro/blob/c70e0d89525933c4dab373143d486c93331392fb/.claude/skills/pro-upgrade/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://github.com/ant-design/ant-design-pro/blob/master/docs/cheatsheet.en-US.md",
+      "docsCheck": "upstream_document_read",
+      "homepageUrl": "https://pro.ant.design/",
+      "compatibleVersions": "基于 Pro 脚手架比较最新模板",
+      "currentPackages": [],
+      "templateVersion": "6.0.3",
+      "templateVersionSource": "https://github.com/ant-design/ant-design-pro/blob/master/package.json",
+      "notes": [
+        "官网首页本次跳转 preview.pro.ant.design/welcome；使用文档应指向官方 Cheatsheet。",
+        "模板 package.json 为 private:true；npm 中 ant-design-pro 的历史 2.3.2 不用作当前模板版本。"
+      ]
+    },
+    {
+      "id": "x-components",
+      "name": "x-components",
+      "displayName": "x-components",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "AI 对话界面（Ant Design X）"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成式界面"
+      ],
+      "catalogVersionBeforeAudit": "2.10.0",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-components/SKILL.md",
+      "revision": {
+        "repository": "ant-design/x",
+        "branch": "main",
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-components/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-components/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://x.ant.design/components/introduce/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "Ant Design X 2",
+      "currentPackages": [
+        {
+          "name": "@ant-design/x",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "use-x-chat",
+      "name": "use-x-chat",
+      "displayName": "use-x-chat",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "AI 对话界面（Ant Design X）"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成式界面"
+      ],
+      "catalogVersionBeforeAudit": "2.10.0",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/use-x-chat/SKILL.md",
+      "revision": {
+        "repository": "ant-design/x",
+        "branch": "main",
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/use-x-chat/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/use-x-chat/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "Ant Design X SDK 2",
+      "currentPackages": [
+        {
+          "name": "@ant-design/x-sdk",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "x-chat-provider",
+      "name": "x-chat-provider",
+      "displayName": "x-chat-provider",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "AI 对话界面（Ant Design X）"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成式界面"
+      ],
+      "catalogVersionBeforeAudit": "2.10.0",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-chat-provider/SKILL.md",
+      "revision": {
+        "repository": "ant-design/x",
+        "branch": "main",
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-chat-provider/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-chat-provider/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "Ant Design X SDK 2",
+      "currentPackages": [
+        {
+          "name": "@ant-design/x-sdk",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "x-request",
+      "name": "x-request",
+      "displayName": "x-request",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "AI 对话界面（Ant Design X）"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成式界面"
+      ],
+      "catalogVersionBeforeAudit": "2.10.0",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-request/SKILL.md",
+      "revision": {
+        "repository": "ant-design/x",
+        "branch": "main",
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-request/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-request/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "Ant Design X SDK 2",
+      "currentPackages": [
+        {
+          "name": "@ant-design/x-sdk",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "x-markdown",
+      "name": "x-markdown",
+      "displayName": "x-markdown",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "AI 对话界面（Ant Design X）"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成式界面"
+      ],
+      "catalogVersionBeforeAudit": "2.10.0",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-markdown/SKILL.md",
+      "revision": {
+        "repository": "ant-design/x",
+        "branch": "main",
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-markdown/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-markdown/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://x.ant.design/x-markdowns/introduce/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "Ant Design X Markdown 2",
+      "currentPackages": [
+        {
+          "name": "@ant-design/x-markdown",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-markdown/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "x-card",
+      "name": "x-card",
+      "displayName": "x-card",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "AI 对话界面（Ant Design X）"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成式界面"
+      ],
+      "catalogVersionBeforeAudit": "2.10.0",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-card/SKILL.md",
+      "revision": {
+        "repository": "ant-design/x",
+        "branch": "main",
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-card/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-card/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://x.ant.design/x-cards/introduce/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "技能主要讲解 A2UI v0.9；当前 X Card 文档同时列出 v0.8 / v0.9",
+      "currentPackages": [
+        {
+          "name": "@ant-design/x-card",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-card/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "ant-design-vue",
+      "name": "ant-design-vue",
+      "displayName": "ant-design-vue",
+      "publisherType": "community",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "跨端与社区扩展"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "Vue、移动端与小程序"
+      ],
+      "catalogVersionBeforeAudit": "Vue 3",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "full-stack-skills/antd-skills",
+        "branch": "main",
+        "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
+        "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-vue/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-vue/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://www.antdv.com/",
+      "docsCheck": "website_resolved_client_rendered",
+      "compatibleVersions": "Vue 3、Ant Design Vue 4",
+      "currentPackages": [
+        {
+          "name": "ant-design-vue",
+          "version": "4.2.6",
+          "versionSourceUrl": "https://registry.npmjs.org/ant-design-vue/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "ant-design-mobile",
+      "name": "ant-design-mobile",
+      "displayName": "ant-design-mobile",
+      "publisherType": "community",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "跨端与社区扩展"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "Vue、移动端与小程序"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "full-stack-skills/antd-skills",
+        "branch": "main",
+        "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
+        "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-mobile/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mobile/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://mobile.ant.design/zh/guide/quick-start/",
+      "docsCheck": "website_resolved_client_rendered",
+      "compatibleVersions": "未固定具体版本；参考 Ant Design Mobile 当前文档",
+      "currentPackages": [
+        {
+          "name": "antd-mobile",
+          "version": "5.43.0",
+          "versionSourceUrl": "https://registry.npmjs.org/antd-mobile/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "ant-design-mini",
+      "name": "ant-design-mini",
+      "displayName": "ant-design-mini",
+      "publisherType": "community",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "跨端与社区扩展"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "Vue、移动端与小程序"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "full-stack-skills/antd-skills",
+        "branch": "main",
+        "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
+        "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-mini/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mini/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://mini.ant.design/",
+      "docsCheck": "website_resolved_client_rendered",
+      "compatibleVersions": "Ant Design Mini",
+      "currentPackages": [
+        {
+          "name": "antd-mini",
+          "version": "3.4.3",
+          "versionSourceUrl": "https://registry.npmjs.org/antd-mini/latest"
+        }
+      ],
+      "notes": [
+        "技能名为 ant-design-mini，实际组件库 npm 包名为 antd-mini。"
+      ]
+    },
+    {
+      "id": "umi-max",
+      "name": "umi-max",
+      "displayName": "umi-max",
+      "publisherType": "community",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "跨端与社区扩展"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "应用工程与版本迁移"
+      ],
+      "catalogVersionBeforeAudit": "3.0",
+      "skillVersion": "3.0",
+      "skillVersionSource": "https://github.com/mik284/umi-max-enterprise/blob/master/SKILL.md",
+      "revision": {
+        "repository": "mik284/umi-max-enterprise",
+        "branch": "master",
+        "commit": "0d1607028b1d70b6dbb04a0fbd06f00e9e1de14d",
+        "pinnedSourceUrl": "https://github.com/mik284/umi-max-enterprise/blob/0d1607028b1d70b6dbb04a0fbd06f00e9e1de14d/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/mik284/umi-max-enterprise/blob/master/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://umijs.org/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "Umi 4；技能内容偏 antd 5",
+      "currentPackages": [
+        {
+          "name": "@umijs/max",
+          "version": "4.7.40",
+          "versionSourceUrl": "https://registry.npmjs.org/%40umijs%2Fmax/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "ant-design-visual-design",
+      "name": "ant-design",
+      "displayName": "ant-design（视觉设计版）",
+      "publisherType": "community",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "跨端与社区扩展"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "界面设计与主题定制"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "hidekatsu-izuno/design-system-skills",
+        "branch": "main",
+        "commit": "6195a0e1869efc8ebef01e5b93dbc20806f0cf84",
+        "pinnedSourceUrl": "https://github.com/hidekatsu-izuno/design-system-skills/blob/6195a0e1869efc8ebef01e5b93dbc20806f0cf84/skills/ant-design/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/hidekatsu-izuno/design-system-skills/blob/main/skills/ant-design/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://ant.design/docs/spec/introduce/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "视觉参考 Ant Design；技能未声明固定组件库版本",
+      "currentPackages": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "ant-design-react-community",
+      "name": "ant-design-react",
+      "displayName": "ant-design-react（社区 v4）",
+      "publisherType": "community",
+      "currentCategoryPath": [
+        "前端开发",
+        "Ant Design 生态",
+        "跨端与社区扩展"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "组件开发与文档查询"
+      ],
+      "catalogVersionBeforeAudit": "v4",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "full-stack-skills/antd-skills",
+        "branch": "main",
+        "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
+        "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-react/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-react/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://4x.ant.design/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "antd 4",
+      "currentPackages": [],
+      "relatedVersions": {
+        "antd4": "4.24.16"
+      },
+      "relatedVersionsSource": "https://registry.npmjs.org/antd",
+      "notes": [
+        "技能入口引用 v4 文档；当前主站 antd 为 6.7.2，按历史项目用途收录。"
+      ]
+    },
+    {
+      "id": "antv-g2-chart",
+      "name": "antv-g2-chart",
+      "displayName": "antv-g2-chart",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "专业图表与地图"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "统计图表与数据叙事"
+      ],
+      "catalogVersionBeforeAudit": "G2 v5",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/chart-visualization-skills",
+        "branch": "master",
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-g2-chart/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g2-chart/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://g2.antv.antgroup.com/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "G2 5",
+      "currentPackages": [
+        {
+          "name": "@antv/g2",
+          "version": "5.4.8",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fg2/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "antv-g6-graph",
+      "name": "antv-g6-graph",
+      "displayName": "antv-g6-graph",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "专业图表与地图"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "关系图、流程图与地图"
+      ],
+      "catalogVersionBeforeAudit": "G6 v5",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/chart-visualization-skills",
+        "branch": "master",
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-g6-graph/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g6-graph/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://g6.antv.antgroup.com/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "G6 5",
+      "currentPackages": [
+        {
+          "name": "@antv/g6",
+          "version": "5.1.1",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fg6/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "antv-x6-editor",
+      "name": "antv-x6-editor",
+      "displayName": "antv-x6-editor",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "专业图表与地图"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "关系图、流程图与地图"
+      ],
+      "catalogVersionBeforeAudit": "X6 v3",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/chart-visualization-skills",
+        "branch": "master",
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-x6-editor/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-x6-editor/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://x6.antv.antgroup.com/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "X6 3",
+      "currentPackages": [
+        {
+          "name": "@antv/x6",
+          "version": "3.1.8",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fx6/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "antv-l7",
+      "name": "antv-l7",
+      "displayName": "antv-l7",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "专业图表与地图"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "关系图、流程图与地图"
+      ],
+      "catalogVersionBeforeAudit": "L7 2.x",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/L7",
+        "branch": "master",
+        "commit": "f022a1406260cf909123a2ce361440512877afdb",
+        "pinnedSourceUrl": "https://github.com/antvis/L7/blob/f022a1406260cf909123a2ce361440512877afdb/skills/l7/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/L7/blob/master/skills/l7/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://l7.antv.antgroup.com/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "L7 2",
+      "currentPackages": [
+        {
+          "name": "@antv/l7",
+          "version": "2.29.1",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fl7/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "antv-t8-ntv",
+      "name": "antv-t8-ntv",
+      "displayName": "antv-t8-ntv",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "专业图表与地图"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "统计图表与数据叙事"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/chart-visualization-skills",
+        "branch": "master",
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-t8-ntv/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-t8-ntv/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://github.com/antvis/T8/blob/main/README.md",
+      "docsCheck": "upstream_document_read",
+      "compatibleVersions": "T8",
+      "currentPackages": [
+        {
+          "name": "@antv/t8",
+          "version": "0.3.1",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Ft8/latest"
+        }
+      ],
+      "declaredDocsUrl": "https://t8.antv.vision/en/tutorial/quick-start",
+      "notes": [
+        "上游声明的独立文档入口本次工具未能读取，采用已读取的官方 README 作为跳转入口。"
+      ]
+    },
+    {
+      "id": "icon-retrieval",
+      "name": "icon-retrieval",
+      "displayName": "icon-retrieval",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "专业图表与地图"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "图标与设计资源"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/chart-visualization-skills",
+        "branch": "master",
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/icon-retrieval/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
+      "docsCheck": "upstream_document_read",
+      "homepageUrl": "https://www.weavefox.cn/",
+      "compatibleVersions": "HTTP 图标检索 API",
+      "currentPackages": [],
+      "serviceUrl": "https://www.weavefox.cn/api/v1/infographic/icon",
+      "notes": [
+        "服务未公开独立语义版本；以技能修订提交记录核验快照。"
+      ]
+    },
+    {
+      "id": "chart-visualization-image",
+      "name": "chart-visualization",
+      "displayName": "chart-visualization（图片版）",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "AI 图表与快速配图"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 图表与快速配图"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/chart-visualization-skills",
+        "branch": "master",
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/chart-visualization/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
+      "docsCheck": "upstream_document_read",
+      "compatibleVersions": "AntV 图表图片生成服务",
+      "currentPackages": [],
+      "serviceUrl": "https://antv-studio.alipay.com/api/gpt-vis",
+      "notes": [
+        "图片服务未公开独立语义版本；不套用 GPT-Vis SDK 版本。"
+      ]
+    },
+    {
+      "id": "chart-visualization-gpt-vis",
+      "name": "chart-visualization",
+      "displayName": "chart-visualization（GPT-Vis 集成版）",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "AI 图表与快速配图"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 图表与快速配图"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/GPT-Vis",
+        "branch": "ai",
+        "commit": "ea3e9cb0514ac3023ec4709e77447122290447c9",
+        "pinnedSourceUrl": "https://github.com/antvis/GPT-Vis/blob/ea3e9cb0514ac3023ec4709e77447122290447c9/skills/chart-visualization/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/GPT-Vis/blob/ai/skills/chart-visualization/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://gpt-vis.antv.vision/docs/agent-skill",
+      "docsCheck": "website_read",
+      "compatibleVersions": "GPT-Vis 1.x 的 JSON / Syntax / 集成代码",
+      "currentPackages": [
+        {
+          "name": "@antv/gpt-vis",
+          "version": "1.3.2",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fgpt-vis/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "antv-gpt-vis",
+      "name": "antv-gpt-vis",
+      "displayName": "antv-gpt-vis",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "AI 图表与快速配图"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 图表与快速配图"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/chart-visualization-skills",
+        "branch": "master",
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-gpt-vis/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-gpt-vis/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://gpt-vis.antv.vision/docs",
+      "docsCheck": "website_link_verified",
+      "compatibleVersions": "GPT-Vis JSON / Syntax / 集成代码",
+      "currentPackages": [
+        {
+          "name": "@antv/gpt-vis",
+          "version": "1.3.2",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fgpt-vis/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "infographic-creator",
+      "name": "infographic-creator",
+      "displayName": "infographic-creator",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "信息图生成"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/Infographic",
+        "branch": "main",
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-creator/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-creator/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://infographic.antv.vision/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "AntV Infographic",
+      "currentPackages": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "antv-infographic",
+      "name": "antv-infographic",
+      "displayName": "antv-infographic",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "信息图生成"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/chart-visualization-skills",
+        "branch": "master",
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-infographic/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-infographic/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://infographic.antv.vision/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "AntV Infographic",
+      "currentPackages": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "infographic-syntax-creator",
+      "name": "infographic-syntax-creator",
+      "displayName": "infographic-syntax-creator",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "信息图生成"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/Infographic",
+        "branch": "main",
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-syntax-creator/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-syntax-creator/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://infographic.antv.vision/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "AntV Infographic",
+      "currentPackages": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "infographic-structure-creator",
+      "name": "infographic-structure-creator",
+      "displayName": "infographic-structure-creator",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "信息图生成"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/Infographic",
+        "branch": "main",
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-structure-creator/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-structure-creator/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://infographic.antv.vision/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "AntV Infographic",
+      "currentPackages": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "infographic-item-creator",
+      "name": "infographic-item-creator",
+      "displayName": "infographic-item-creator",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "信息图生成"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/Infographic",
+        "branch": "main",
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-item-creator/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-item-creator/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://infographic.antv.vision/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "AntV Infographic",
+      "currentPackages": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "infographic-template-updater",
+      "name": "infographic-template-updater",
+      "displayName": "infographic-template-updater",
+      "publisherType": "official",
+      "currentCategoryPath": [
+        "前端开发",
+        "数据可视化（AntV）",
+        "信息图生成"
+      ],
+      "proposedCategoryPath": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "catalogVersionBeforeAudit": "latest",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "revision": {
+        "repository": "antvis/Infographic",
+        "branch": "main",
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-template-updater/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-template-updater/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://infographic.antv.vision/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "AntV Infographic",
+      "currentPackages": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "database-design",
+      "name": "database-design",
+      "displayName": "database-design",
+      "publisherType": "project",
+      "currentCategoryPath": [
+        "后端开发",
+        "数据库与存储",
+        "数据库架构与设计"
+      ],
+      "proposedCategoryPath": [
+        "后端开发",
+        "数据库与存储",
+        "数据库架构与设计"
+      ],
+      "catalogVersionBeforeAudit": "3.2.0",
+      "skillVersion": "3.2.0",
+      "skillVersionSource": "https://github.com/xytss/skills-hub/blob/main/skills/database-design/SKILL.md",
+      "revision": {
+        "repository": "xytss/skills-hub",
+        "branch": "main",
+        "commit": "026cce872c56f700917f4cd2463aff9e5e24dc37",
+        "pinnedSourceUrl": "https://github.com/xytss/skills-hub/blob/026cce872c56f700917f4cd2463aff9e5e24dc37/skills/database-design/SKILL.md"
+      },
+      "sourceUrl": "https://github.com/xytss/skills-hub/blob/main/skills/database-design/SKILL.md",
+      "sourceVerified": true,
+      "docsUrl": "https://www.postgresql.org/docs/15/",
+      "docsCheck": "website_read",
+      "compatibleVersions": "PostgreSQL 15+",
+      "currentPackages": [
+        {
+          "name": "PostgreSQL 15 系列",
+          "version": "15.20",
+          "versionSourceUrl": "https://www.postgresql.org/docs/15/"
+        }
+      ],
+      "notes": [
+        "15.20 为本次核对的 PostgreSQL 15 系列文档版本；不将其标成全部 PostgreSQL 系列的最新版。"
+      ]
+    }
+  ]
+}
+

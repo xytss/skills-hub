@@ -3,7 +3,7 @@
 </p>
 
 <p>
-  <img src="assets/readme-badges.svg" width="150" height="28" alt="MIT License · 1 Skill">
+  <img src="assets/readme-badges.svg" width="150" height="28" alt="MIT License · 35 Skills">
 </p>
 
 面向 AI Agent 的开发 Skills 与全局提示词，按领域分类，提供使用指南与执行规范。
@@ -19,7 +19,55 @@
 └── 数据库与存储
     └── 数据库架构与设计
         └── database-design
+前端开发
+└── 蚂蚁前端生态
+    ├── 界面设计与主题定制
+    │   ├── ant-design-skill
+    │   ├── antd-theme-customization
+    │   └── ant-design（视觉设计版）
+    ├── 组件开发与文档查询
+    │   ├── ant-design（官方）
+    │   ├── antd
+    │   ├── antd-component-lookup
+    │   └── ant-design-react（社区 v4）
+    ├── 应用工程与版本迁移
+    │   ├── antd-migration
+    │   ├── pro-upgrade
+    │   └── umi-max
+    ├── AI 对话与生成界面
+    │   ├── x-components
+    │   ├── use-x-chat
+    │   ├── x-chat-provider
+    │   ├── x-request
+    │   ├── x-markdown
+    │   └── x-card
+    ├── Vue、移动与小程序
+    │   ├── ant-design-vue
+    │   ├── ant-design-mobile
+    │   └── ant-design-mini
+    ├── 统计图表与数据叙事
+    │   ├── antv-g2-chart
+    │   └── antv-t8-ntv
+    ├── 关系、流程与地图
+    │   ├── antv-g6-graph
+    │   ├── antv-x6-editor
+    │   └── antv-l7
+    ├── AI 图表与快速配图
+    │   ├── chart-visualization（图片版）
+    │   ├── chart-visualization（GPT-Vis 集成版）
+    │   └── antv-gpt-vis
+    ├── 信息图生成与扩展
+    │   ├── infographic-creator
+    │   ├── antv-infographic
+    │   ├── infographic-syntax-creator
+    │   ├── infographic-structure-creator
+    │   ├── infographic-item-creator
+    │   └── infographic-template-updater
+    └── 图标与设计资源
+        └── icon-retrieval
 ```
+
+前端目录收录 34 项上游 Skill，按“前端开发 → 蚂蚁前端生态 → 业务场景 → Skill”组织，覆盖 Ant Design、Ant Design X、AntV、Umi 与社区扩展。官方／社区表示技能来源，卡片展示适用技术与任务标签。详情提供官方文档、Skill 原文、产品版本、源码修订与核验日期。上游技能的许可证以对应仓库声明为准。
 
 <table>
   <thead>
@@ -90,7 +138,22 @@ npm run build
 npm run preview
 ```
 
-构建输出位于 `dist/`。推送 `main` 后，由 GitHub Actions 构建并发布到 GitHub Pages。资源目录与 `catalog.json` 在构建时原样复制。
+### 维护前端 Skill 数据
+
+编辑根目录的 [`ant-skills.json`](ant-skills.json)，然后同步到现有 [`catalog.json`](catalog.json)：
+
+```powershell
+npm run catalog:sync
+npm run typecheck
+```
+
+同步脚本将 `categoryPath` 映射为 `navigation_path`，将输入输出与调用示例转换为详情字段，并保留独立的 `id`、显示名称、标签和上游安装指引。同步时校验 id 唯一、HTTPS 链接、重复条目、三级分类和关联技能引用。
+
+`catalog.json` 使用 Schema v2：`skillVersion` 保存上游明确声明的技能版本，`sourceRevision` 保存核验时的 commit 与固定原文链接，`compatibleVersions` 保存适用范围，`productVersions` 分别标注当前产品、迁移目标或模板版本。`docsUrl` 为官网／官方文档入口，`verifiedAt` 为核验日期。版本快照与来源依据见 [2026-11-27 核验清单](docs/ant-skills-official-audit-2026-11-27.json)。维护这些数据后，同步重建目录；页面使用已核验的静态数据。
+
+同名的 `ant-design` 与 `chart-visualization` 按来源分别收录。安装区显示实际目标目录与同名替换说明，复制的指引同步携带所选来源；相关技能入口说明不同用途。
+
+`npm run build` 会先同步并校验目录，再运行类型检查和构建。构建输出位于 `dist/`。推送 `main` 后，由 GitHub Actions 构建并发布到 GitHub Pages。资源目录与 `catalog.json` 在构建时原样复制。
 
 ---
 

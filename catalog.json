@@ -1,14 +1,26 @@
 {
-  "schema_version": "1.0",
-  "updated_on": "2026-11-26",
+  "schema_version": 2,
+  "updated_on": "2026-11-27",
   "skills": [
     {
+      "id": "database-design",
       "name": "database-design",
+      "displayName": "database-design",
       "title": "数据库设计",
-      "version": "3.2.0",
       "description": "业务需求建模、现有Schema评审与慢查询索引诊断。",
-      "navigation_path": ["后端开发", "数据库与存储", "数据库架构与设计"],
+      "navigation_path": [
+        "后端开发",
+        "数据库与存储",
+        "数据库架构与设计"
+      ],
       "database": "PostgreSQL 15+",
+      "tags": [
+        "PostgreSQL 15+"
+      ],
+      "sourceRepo": "xytss/skills-hub",
+      "sourceUrl": "https://github.com/xytss/skills-hub/blob/main/skills/database-design/SKILL.md",
+      "installPrompt": "请从 https://github.com/xytss/skills-hub 安装 database-design。阅读安装说明与 SKILL.md，按当前 AI Agent 的技能规范配置。",
+      "license": "MIT",
       "category_paths": [
         "后端开发/数据库与存储/关系型数据库/PostgreSQL",
         "后端开发/数据库与存储/数据库架构与设计/逻辑建模与范式设计",
@@ -22,18 +34,2065 @@
       "details": {
         "purpose": "根据业务需求、现有表结构或慢查询 SQL，完成关系型数据库建模、结构评审与查询优化，并整理字段字典、约束、索引和 DDL。",
         "scenarios": [
-          {"name": "需求建模", "input": "业务需求与数据库版本", "output": "实体关系图、字段字典、约束及 DDL"},
-          {"name": "结构评审", "input": "现有 DDL 或表结构", "output": "问题清单、迁移方案与兼容性说明"},
-          {"name": "查询优化", "input": "SQL、表结构与执行计划", "output": "瓶颈分析、SQL 改写与索引依据"}
+          {
+            "name": "需求建模",
+            "input": "业务需求与数据库版本",
+            "output": "实体关系图、字段字典、约束及 DDL"
+          },
+          {
+            "name": "结构评审",
+            "input": "现有 DDL 或表结构",
+            "output": "问题清单、迁移方案与兼容性说明"
+          },
+          {
+            "name": "查询优化",
+            "input": "SQL、表结构与执行计划",
+            "output": "瓶颈分析、SQL 改写与索引依据"
+          }
         ],
         "workflow": [
-          {"title": "识别任务", "description": "明确任务类型、数据库版本与约束条件。"},
-          {"title": "梳理结构", "description": "设计实体关系、字段及完整性要求。"},
-          {"title": "输出方案", "description": "输出字段字典、约束、索引与 DDL。"},
-          {"title": "一致性检查", "description": "核对名称、类型、默认值及示例一致性。"}
+          {
+            "title": "识别任务",
+            "description": "明确任务类型、数据库版本与约束条件。"
+          },
+          {
+            "title": "梳理结构",
+            "description": "设计实体关系、字段及完整性要求。"
+          },
+          {
+            "title": "输出方案",
+            "description": "输出字段字典、约束、索引与 DDL。"
+          },
+          {
+            "title": "一致性检查",
+            "description": "核对名称、类型、默认值及示例一致性。"
+          }
         ],
-        "principles": ["业务不变量与数据正确性优先", "明确数据库版本与类型语义", "分别记录静态推演与实测证据", "涉及 4 张及以上表时分阶段交付"],
+        "principles": [
+          "业务不变量与数据正确性优先",
+          "明确数据库版本与类型语义",
+          "分别记录静态推演与实测证据",
+          "涉及 4 张及以上表时分阶段交付"
+        ],
         "example": "请使用 database-design，为项目、成员和任务设计 PostgreSQL 15 数据库，先给出实体关系与字段字典，再给出约束及索引方案。"
+      },
+      "skillVersion": "3.2.0",
+      "skillVersionSource": "https://github.com/xytss/skills-hub/blob/main/skills/database-design/SKILL.md",
+      "publisherType": "project",
+      "compatibleVersions": "PostgreSQL 15+",
+      "productVersions": [
+        {
+          "name": "PostgreSQL 15 系列",
+          "version": "15.20",
+          "versionSourceUrl": "https://www.postgresql.org/docs/15/",
+          "label": "PostgreSQL",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "026cce872c56f700917f4cd2463aff9e5e24dc37",
+        "pinnedSourceUrl": "https://github.com/xytss/skills-hub/blob/026cce872c56f700917f4cd2463aff9e5e24dc37/skills/database-design/SKILL.md"
+      },
+      "docsUrl": "https://www.postgresql.org/docs/15/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": []
+    },
+    {
+      "id": "ant-design-skill",
+      "name": "ant-design-skill",
+      "displayName": "ant-design-skill",
+      "title": "ant-design-skill",
+      "skillVersion": "1.0.0",
+      "skillVersionSource": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/main/CHANGELOG.md",
+      "publisherType": "official",
+      "compatibleVersions": "React 19、antd 6、ProComponents ^2.7.0",
+      "productVersions": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/6.7.2",
+          "label": "antd",
+          "scope": "current"
+        },
+        {
+          "name": "@ant-design/pro-components",
+          "version": "2.8.10",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fpro-components/2.8.10",
+          "label": "ProComponents",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "a79207836fa1e29b442cd3e88320b94e2a094da9",
+        "pinnedSourceUrl": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/a79207836fa1e29b442cd3e88320b94e2a094da9/ant-design-skill/SKILL.md"
+      },
+      "docsUrl": "https://ant.design/docs/spec/introduce/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "ant-design-official",
+          "reason": "确定页面结构后，用这份开发指南选择组件、主题和工程方案。"
+        }
+      ],
+      "description": "将 Ant Design 官方设计规范落地为企业级页面结构，覆盖导航、筛选区、工具栏、表单、表格、列表与详情页模板。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "界面设计与主题定制"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/界面设计与主题定制"
+      ],
+      "tags": [
+        "企业界面",
+        "React 19"
+      ],
+      "sourceRepo": "AntGroupDesign/Ant-Design-Skill",
+      "sourceUrl": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/main/ant-design-skill/SKILL.md",
+      "installPrompt": "npx skills add AntGroupDesign/Ant-Design-Skill",
+      "entry": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/main/ant-design-skill/SKILL.md",
+      "overview": "https://ant.design/docs/spec/introduce/",
+      "details": {
+        "purpose": "将 Ant Design 官方设计规范落地为企业级页面结构，覆盖导航、筛选区、工具栏、表单、表格、列表与详情页模板。",
+        "scenarios": [
+          {
+            "name": "界面设计与主题定制",
+            "input": "业务页面需求描述、字段列表或草图",
+            "output": "符合企业级信息架构的页面布局方案与组件组合代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 ant-design-skill 设计一个「技能管理列表页」，包含顶部筛选栏、批量操作工具栏、分页表格和右侧详情抽屉。"
+      }
+    },
+    {
+      "id": "antd-theme-customization",
+      "name": "antd-theme-customization",
+      "displayName": "antd-theme-customization",
+      "title": "antd-theme-customization",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "主题指南包含 v5 样式体系说明；落地时按目标 antd 版本查询",
+      "productVersions": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/6.7.2",
+          "label": "antd",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "768405c1019435763adab015d47bf503505340d6",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-theme-customization/SKILL.md"
+      },
+      "docsUrl": "https://ant.design/docs/react/customize-theme/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "系统化配置 ConfigProvider、全局与组件级 Design Token、主题算法（暗色/紧凑）及 CSS 变量，用于主题定制与视觉统一。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "界面设计与主题定制"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/界面设计与主题定制"
+      ],
+      "tags": [
+        "Design Token",
+        "主题定制"
+      ],
+      "sourceRepo": "ant-design/ant-design",
+      "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-theme-customization/SKILL.md",
+      "installPrompt": "请从 https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-theme-customization/SKILL.md 所在目录安装 antd-theme-customization，保留 SKILL.md 与配套文件，并配置到当前 AI Agent 的技能目录。",
+      "entry": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-theme-customization/SKILL.md",
+      "overview": "https://ant.design/docs/react/customize-theme/",
+      "details": {
+        "purpose": "系统化配置 ConfigProvider、全局与组件级 Design Token、主题算法（暗色/紧凑）及 CSS 变量，用于主题定制与视觉统一。",
+        "scenarios": [
+          {
+            "name": "界面设计与主题定制",
+            "input": "品牌主色、圆角、字体层级或暗色主题切换需求",
+            "output": "完整的 ConfigProvider theme 配置对象与 Token 覆写方案"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "参考 antd-theme-customization，为当前项目配置一套支持亮色/暗色切换的品牌主题，主色为 #1677ff，圆角统一为 6px。"
+      }
+    },
+    {
+      "id": "ant-design-visual-design",
+      "name": "ant-design",
+      "displayName": "ant-design（视觉设计版）",
+      "title": "ant-design（视觉设计版）",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "community",
+      "compatibleVersions": "视觉参考 Ant Design；技能未声明固定组件库版本",
+      "productVersions": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/6.7.2",
+          "label": "antd",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "6195a0e1869efc8ebef01e5b93dbc20806f0cf84",
+        "pinnedSourceUrl": "https://github.com/hidekatsu-izuno/design-system-skills/blob/6195a0e1869efc8ebef01e5b93dbc20806f0cf84/skills/ant-design/SKILL.md"
+      },
+      "docsUrl": "https://ant.design/docs/spec/introduce/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "ant-design-official",
+          "reason": "侧重组件选型与开发决策；与当前技能共用 ant-design 安装名称。"
+        }
+      ],
+      "description": "结合 DESIGN.md 约束 Ant Design 风格的视觉语言、布局比例、配色、字体与页面文案，适用于原型设计与视觉统一。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "界面设计与主题定制"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/界面设计与主题定制"
+      ],
+      "tags": [
+        "视觉规范",
+        "原型设计"
+      ],
+      "sourceRepo": "hidekatsu-izuno/design-system-skills",
+      "sourceUrl": "https://github.com/hidekatsu-izuno/design-system-skills/blob/main/skills/ant-design/SKILL.md",
+      "installPrompt": "npx skills add hidekatsu-izuno/design-system-skills --skill ant-design",
+      "entry": "https://github.com/hidekatsu-izuno/design-system-skills/blob/main/skills/ant-design/SKILL.md",
+      "overview": "https://ant.design/docs/spec/introduce/",
+      "details": {
+        "purpose": "结合 DESIGN.md 约束 Ant Design 风格的视觉语言、布局比例、配色、字体与页面文案，适用于原型设计与视觉统一。",
+        "scenarios": [
+          {
+            "name": "界面设计与主题定制",
+            "input": "页面原型描述或视觉风格对齐需求",
+            "output": "符合 Ant Design 视觉规范的设计说明或高保真前端原型"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 ant-design（视觉设计版）审查当前控制台页面的配色、字体层级与间距密度，并给出视觉优化方案。"
+      }
+    },
+    {
+      "id": "ant-design-official",
+      "name": "ant-design",
+      "displayName": "ant-design（官方）",
+      "title": "ant-design（官方）",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "antd 6、Pro 5 / ProComponents、X 2",
+      "productVersions": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/6.7.2",
+          "label": "antd",
+          "scope": "current"
+        },
+        {
+          "name": "@ant-design/x",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx/2.10.0",
+          "label": "X",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "e65d2d3da9a2a129885131f5aeffe2c9037f83cb",
+        "pinnedSourceUrl": "https://github.com/ant-design/antd-skill/blob/e65d2d3da9a2a129885131f5aeffe2c9037f83cb/skills/ant-design/SKILL.md"
+      },
+      "docsUrl": "https://ant.design/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "antd-cli-skill",
+          "reason": "需要精确查询项目版本的 Props、Token 和示例时，配合本地 CLI 使用。"
+        },
+        {
+          "id": "ant-design-visual-design",
+          "reason": "侧重视觉语言与原型设计；与当前技能共用 ant-design 安装名称。"
+        }
+      ],
+      "description": "提供面向 antd 6、Pro 5（含 ProComponents）与 X v2 的组件选型、组合方式、主题接入、性能与可访问性开发决策。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "组件开发与文档查询"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/组件开发与文档查询"
+      ],
+      "tags": [
+        "antd 6",
+        "组件选型"
+      ],
+      "sourceRepo": "ant-design/antd-skill",
+      "sourceUrl": "https://github.com/ant-design/antd-skill/blob/main/skills/ant-design/SKILL.md",
+      "installPrompt": "npx skills add ant-design/antd-skill --skill ant-design",
+      "entry": "https://github.com/ant-design/antd-skill/blob/main/skills/ant-design/SKILL.md",
+      "overview": "https://ant.design/",
+      "details": {
+        "purpose": "提供面向 antd 6、Pro 5（含 ProComponents）与 X v2 的组件选型、组合方式、主题接入、性能与可访问性开发决策。",
+        "scenarios": [
+          {
+            "name": "组件开发与文档查询",
+            "input": "前端功能需求、技术栈版本或组件选型疑问",
+            "output": "合理的组件选型建议、工程实践方案与示例代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 ant-design（官方）评估复杂审批表单的组件选型，对比原生 Form 与 ProForm 的适用边界并给出实现方案。"
+      }
+    },
+    {
+      "id": "antd-cli-skill",
+      "name": "antd",
+      "displayName": "antd",
+      "title": "antd",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "按 antd 版本查询；含 v3→v4、v4→v5、v5→v6 迁移指导",
+      "productVersions": [
+        {
+          "name": "@ant-design/cli",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fcli/6.7.2",
+          "label": "CLI",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "b82d656ae100e241b4c1166b9547382656c10f43",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design-cli/blob/b82d656ae100e241b4c1166b9547382656c10f43/skills/antd/SKILL.md"
+      },
+      "docsUrl": "https://ant.design/docs/react/cli/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "antd-component-lookup",
+          "reason": "需要直接阅读官网组件文档时，可使用这份查询指南。"
+        }
+      ],
+      "description": "指导 Agent 调用本地 @ant-design/cli，按项目实际版本查询组件 API、示例、Token、语义样式与更新记录，并执行弃用检查与迁移指导。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "组件开发与文档查询"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/组件开发与文档查询"
+      ],
+      "tags": [
+        "API 查询",
+        "离线 CLI"
+      ],
+      "sourceRepo": "ant-design/ant-design-cli",
+      "sourceUrl": "https://github.com/ant-design/ant-design-cli/blob/main/skills/antd/SKILL.md",
+      "installPrompt": "npx skills add ant-design/ant-design-cli\n# 需确保本地已安装 CLI：npm i -g @ant-design/cli",
+      "entry": "https://github.com/ant-design/ant-design-cli/blob/main/skills/antd/SKILL.md",
+      "overview": "https://ant.design/docs/react/cli/",
+      "details": {
+        "purpose": "指导 Agent 调用本地 @ant-design/cli，按项目实际版本查询组件 API、示例、Token、语义样式与更新记录，并执行弃用检查与迁移指导。",
+        "scenarios": [
+          {
+            "name": "组件开发与文档查询",
+            "input": "组件名称、项目版本号或待检查的代码文件",
+            "output": "准确的组件 API 说明、合规代码或弃用项修复建议"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "调用 antd 技能检查当前项目的 Table 和 Modal 用法，确认是否存在 antd 6 已弃用的属性并给出替换方案。"
+      }
+    },
+    {
+      "id": "antd-component-lookup",
+      "name": "antd-component-lookup",
+      "displayName": "antd-component-lookup",
+      "title": "antd-component-lookup",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "跟随目标版本的官方组件文档",
+      "productVersions": [
+        {
+          "name": "antd",
+          "version": "6.7.2",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/6.7.2",
+          "label": "antd",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "768405c1019435763adab015d47bf503505340d6",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-component-lookup/SKILL.md"
+      },
+      "docsUrl": "https://ant.design/components/overview/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "antd-cli-skill",
+          "reason": "需要离线查询、版本匹配和弃用检查时，选择 CLI 指南。"
+        }
+      ],
+      "description": "通过 Ant Design 官网文档查询组件 Props、默认值、类型定义与官方示例（已有正常工作的 CLI 时可直接使用现有查询流程）。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "组件开发与文档查询"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/组件开发与文档查询"
+      ],
+      "tags": [
+        "API 查询",
+        "官方示例"
+      ],
+      "sourceRepo": "ant-design/ant-design",
+      "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-component-lookup/SKILL.md",
+      "installPrompt": "请从 https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-component-lookup/SKILL.md 所在目录安装 antd-component-lookup，保留 SKILL.md 与配套文件，并配置到当前 AI Agent 的技能目录。",
+      "entry": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-component-lookup/SKILL.md",
+      "overview": "https://ant.design/components/overview/",
+      "details": {
+        "purpose": "通过 Ant Design 官网文档查询组件 Props、默认值、类型定义与官方示例（已有正常工作的 CLI 时可直接使用现有查询流程）。",
+        "scenarios": [
+          {
+            "name": "组件开发与文档查询",
+            "input": "待查询的组件名或具体属性问题",
+            "output": "官网对应的 Props 定义、类型说明与用法示例"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 antd-component-lookup 查询 DatePicker.RangePicker 的 presets 与 disabledDate 属性签名及示例。"
+      }
+    },
+    {
+      "id": "ant-design-react-community",
+      "name": "ant-design-react",
+      "displayName": "ant-design-react（社区 v4）",
+      "title": "ant-design-react（社区 v4）",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "community",
+      "compatibleVersions": "antd 4",
+      "productVersions": [
+        {
+          "name": "antd",
+          "label": "antd",
+          "version": "4.24.16",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/4.24.16",
+          "scope": "target"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
+        "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-react/SKILL.md"
+      },
+      "docsUrl": "https://4x.ant.design/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "提供 React 组件、主题、TypeScript 与国际化开发指导；入口偏 v4 文档，仅建议用于历史版本维护（antd 6 项目请使用官方技能）。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "组件开发与文档查询"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/组件开发与文档查询"
+      ],
+      "tags": [
+        "antd 4 专用",
+        "旧项目维护"
+      ],
+      "sourceRepo": "full-stack-skills/antd-skills",
+      "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-react/SKILL.md",
+      "installPrompt": "npx skills add full-stack-skills/antd-skills --skill ant-design-react",
+      "entry": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-react/SKILL.md",
+      "overview": "https://4x.ant.design/",
+      "details": {
+        "purpose": "提供 React 组件、主题、TypeScript 与国际化开发指导；入口偏 v4 文档，仅建议用于历史版本维护（antd 6 项目请使用官方技能）。",
+        "scenarios": [
+          {
+            "name": "组件开发与文档查询",
+            "input": "基于 antd v4 的旧项目维护或组件开发需求",
+            "output": "兼容 antd v4 API 的 React 组件代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 ant-design-react（社区 v4）为老版系统编写一个兼容 antd v4 的国际化日期选择与表单校验模块。"
+      }
+    },
+    {
+      "id": "antd-migration",
+      "name": "antd-migration",
+      "displayName": "antd-migration",
+      "title": "antd-migration",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "antd 4 → 5",
+      "productVersions": [
+        {
+          "name": "antd",
+          "label": "antd",
+          "version": "5.29.3",
+          "versionSourceUrl": "https://registry.npmjs.org/antd/5.29.3",
+          "scope": "target"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "768405c1019435763adab015d47bf503505340d6",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-migration/SKILL.md"
+      },
+      "docsUrl": "https://5x.ant.design/docs/react/migration-v5/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "指导 Ant Design v4 到 v5 的迁移流程，涵盖样式体系调整、破坏性组件替换与 @ant-design/codemod-v5 工具使用（v5 → v6 请改用 CLI 的 antd migrate）。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "应用工程与版本迁移"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/应用工程与版本迁移"
+      ],
+      "tags": [
+        "antd 4 → 5",
+        "版本迁移"
+      ],
+      "sourceRepo": "ant-design/ant-design",
+      "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-migration/SKILL.md",
+      "installPrompt": "请从 https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-migration/SKILL.md 所在目录安装 antd-migration，保留 SKILL.md 与配套文件，并配置到当前 AI Agent 的技能目录。",
+      "entry": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-migration/SKILL.md",
+      "overview": "https://5x.ant.design/docs/react/migration-v5/",
+      "details": {
+        "purpose": "指导 Ant Design v4 到 v5 的迁移流程，涵盖样式体系调整、破坏性组件替换与 @ant-design/codemod-v5 工具使用（v5 → v6 请改用 CLI 的 antd migrate）。",
+        "scenarios": [
+          {
+            "name": "应用工程与版本迁移",
+            "input": "基于 antd v4 的旧版组件代码或样式文件",
+            "output": "符合 antd v5 规范的迁移步骤与改造后代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 antd-migration 将当前项目的 v4 主题 Less 变量与旧版 Modal/Form 写法迁移至 antd v5。"
+      }
+    },
+    {
+      "id": "pro-upgrade",
+      "name": "pro-upgrade",
+      "displayName": "pro-upgrade",
+      "title": "pro-upgrade",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "基于 Pro 脚手架比较最新模板",
+      "productVersions": [
+        {
+          "name": "ant-design-pro",
+          "label": "Pro 模板",
+          "version": "6.0.3",
+          "versionSourceUrl": "https://github.com/ant-design/ant-design-pro/blob/c70e0d89525933c4dab373143d486c93331392fb/package.json",
+          "scope": "template"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "c70e0d89525933c4dab373143d486c93331392fb",
+        "pinnedSourceUrl": "https://github.com/ant-design/ant-design-pro/blob/c70e0d89525933c4dab373143d486c93331392fb/.claude/skills/pro-upgrade/SKILL.md"
+      },
+      "docsUrl": "https://github.com/ant-design/ant-design-pro/blob/master/docs/cheatsheet.en-US.md",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "对照最新 Ant Design Pro 官方模板升级项目依赖、构建配置与框架文件，同时保留已有业务定制代码。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "应用工程与版本迁移"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/应用工程与版本迁移"
+      ],
+      "tags": [
+        "Ant Design Pro",
+        "模板升级"
+      ],
+      "sourceRepo": "ant-design/ant-design-pro",
+      "sourceUrl": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
+      "installPrompt": "请从 https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md 所在目录安装 pro-upgrade，保留 SKILL.md 与配套文件，并配置到当前 AI Agent 的技能目录。",
+      "entry": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
+      "overview": "https://github.com/ant-design/ant-design-pro/blob/master/docs/cheatsheet.en-US.md",
+      "details": {
+        "purpose": "对照最新 Ant Design Pro 官方模板升级项目依赖、构建配置与框架文件，同时保留已有业务定制代码。",
+        "scenarios": [
+          {
+            "name": "应用工程与版本迁移",
+            "input": "现有 Ant Design Pro 项目的 package.json 与配置文件",
+            "output": "依赖升级清单、配置文件 diff 与兼容性修复方案"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 pro-upgrade 对比最新官方模板，升级当前 Ant Design Pro 项目的 Umi 配置与依赖版本。"
+      }
+    },
+    {
+      "id": "umi-max",
+      "name": "umi-max",
+      "displayName": "umi-max",
+      "title": "umi-max",
+      "skillVersion": "3.0",
+      "skillVersionSource": "https://github.com/mik284/umi-max-enterprise/blob/master/SKILL.md",
+      "publisherType": "community",
+      "compatibleVersions": "Umi 4；技能内容偏 antd 5",
+      "productVersions": [
+        {
+          "name": "@umijs/max",
+          "version": "4.7.40",
+          "versionSourceUrl": "https://registry.npmjs.org/%40umijs%2Fmax/4.7.40",
+          "label": "Umi Max",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "0d1607028b1d70b6dbb04a0fbd06f00e9e1de14d",
+        "pinnedSourceUrl": "https://github.com/mik284/umi-max-enterprise/blob/0d1607028b1d70b6dbb04a0fbd06f00e9e1de14d/SKILL.md"
+      },
+      "docsUrl": "https://umijs.org/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "提供完整的 @umijs/max 企业后台工程实践，涵盖路由、RBAC 权限、请求层、ProTable/ProForm、GraphQL 与图表集成。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "应用工程与版本迁移"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/应用工程与版本迁移"
+      ],
+      "tags": [
+        "Umi 4",
+        "antd 5"
+      ],
+      "sourceRepo": "mik284/umi-max-enterprise",
+      "sourceUrl": "https://github.com/mik284/umi-max-enterprise/blob/master/SKILL.md",
+      "installPrompt": "npx skills add mik284/umi-max-enterprise",
+      "entry": "https://github.com/mik284/umi-max-enterprise/blob/master/SKILL.md",
+      "overview": "https://umijs.org/",
+      "details": {
+        "purpose": "提供完整的 @umijs/max 企业后台工程实践，涵盖路由、RBAC 权限、请求层、ProTable/ProForm、GraphQL 与图表集成。",
+        "scenarios": [
+          {
+            "name": "应用工程与版本迁移",
+            "input": "Umi Max 项目的模块架构、权限或 CRUD 页面需求",
+            "output": "符合 Umi 4 约定的配置与业务代码（组件 API 建议以官方 CLI 核对）"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "参考 umi-max 技能，为当前后台新增一个带 RBAC 权限校验的「角色管理」路由模块与 ProTable 增删改查页面。"
+      }
+    },
+    {
+      "id": "x-components",
+      "name": "x-components",
+      "displayName": "x-components",
+      "title": "x-components",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-components/SKILL.md",
+      "publisherType": "official",
+      "compatibleVersions": "Ant Design X 2",
+      "productVersions": [
+        {
+          "name": "@ant-design/x",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx/2.10.0",
+          "label": "X",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-components/SKILL.md"
+      },
+      "docsUrl": "https://x.ant.design/components/introduce/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "指导选用和组合 Bubble、Sender、Conversations、Prompts、ThoughtChain、Attachments 等 AI 对话专用组件。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成界面"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/AI 对话与生成界面"
+      ],
+      "tags": [
+        "Ant Design X",
+        "对话组件"
+      ],
+      "sourceRepo": "ant-design/x",
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-components/SKILL.md",
+      "installPrompt": "npx skills add ant-design/x --skill x-components",
+      "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-components/SKILL.md",
+      "overview": "https://x.ant.design/components/introduce/",
+      "details": {
+        "purpose": "指导选用和组合 Bubble、Sender、Conversations、Prompts、ThoughtChain、Attachments 等 AI 对话专用组件。",
+        "scenarios": [
+          {
+            "name": "AI 对话与生成界面",
+            "input": "AI 助手或 Agent 侧边栏的交互需求",
+            "output": "基于 @ant-design/x 的对话界面组件代码与状态结构"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 x-components 搭建一个带左侧会话列表（Conversations）、思考链展示（ThoughtChain）和底部附件输入框（Sender）的 AI 助手页面。"
+      }
+    },
+    {
+      "id": "use-x-chat",
+      "name": "use-x-chat",
+      "displayName": "use-x-chat",
+      "title": "use-x-chat",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/use-x-chat/SKILL.md",
+      "publisherType": "official",
+      "compatibleVersions": "Ant Design X SDK 2",
+      "productVersions": [
+        {
+          "name": "@ant-design/x-sdk",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/2.10.0",
+          "label": "X SDK",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/use-x-chat/SKILL.md"
+      },
+      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "指导使用 useXChat Hook 管理 AI 对话的消息生命周期、加载与错误状态、多会话切换及 Provider 集成。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成界面"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/AI 对话与生成界面"
+      ],
+      "tags": [
+        "X SDK",
+        "消息管理"
+      ],
+      "sourceRepo": "ant-design/x",
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/use-x-chat/SKILL.md",
+      "installPrompt": "npx skills add ant-design/x --skill use-x-chat",
+      "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/use-x-chat/SKILL.md",
+      "overview": "https://x.ant.design/x-sdks/introduce/",
+      "details": {
+        "purpose": "指导使用 useXChat Hook 管理 AI 对话的消息生命周期、加载与错误状态、多会话切换及 Provider 集成。",
+        "scenarios": [
+          {
+            "name": "AI 对话与生成界面",
+            "input": "对话状态流转、重试逻辑或多会话管理需求",
+            "output": "基于 useXChat 的状态管理与消息处理代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 use-x-chat 为聊天页面接入多会话消息管理，支持消息中断、错误回退与重新生成。"
+      }
+    },
+    {
+      "id": "x-chat-provider",
+      "name": "x-chat-provider",
+      "displayName": "x-chat-provider",
+      "title": "x-chat-provider",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-chat-provider/SKILL.md",
+      "publisherType": "official",
+      "compatibleVersions": "Ant Design X SDK 2",
+      "productVersions": [
+        {
+          "name": "@ant-design/x-sdk",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/2.10.0",
+          "label": "X SDK",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-chat-provider/SKILL.md"
+      },
+      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "指导编写自定义 Chat Provider，将任意自有大模型、后端代理或非标 SSE 流式接口适配为 Ant Design X 所需的数据格式。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成界面"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/AI 对话与生成界面"
+      ],
+      "tags": [
+        "X SDK",
+        "接口适配"
+      ],
+      "sourceRepo": "ant-design/x",
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-chat-provider/SKILL.md",
+      "installPrompt": "npx skills add ant-design/x --skill x-chat-provider",
+      "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-chat-provider/SKILL.md",
+      "overview": "https://x.ant.design/x-sdks/introduce/",
+      "details": {
+        "purpose": "指导编写自定义 Chat Provider，将任意自有大模型、后端代理或非标 SSE 流式接口适配为 Ant Design X 所需的数据格式。",
+        "scenarios": [
+          {
+            "name": "AI 对话与生成界面",
+            "input": "后端流式接口的协议格式与字段结构",
+            "output": "可直接传入 useXChat 的自定义 Chat Provider 实现代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 x-chat-provider 将公司内部 SSE 接口（返回 delta.content 与 reasoning 字段）适配为 Ant Design X 的标准消息流。"
+      }
+    },
+    {
+      "id": "x-request",
+      "name": "x-request",
+      "displayName": "x-request",
+      "title": "x-request",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-request/SKILL.md",
+      "publisherType": "official",
+      "compatibleVersions": "Ant Design X SDK 2",
+      "productVersions": [
+        {
+          "name": "@ant-design/x-sdk",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/2.10.0",
+          "label": "X SDK",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-request/SKILL.md"
+      },
+      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "指导配置与使用 XRequest，处理不同大模型服务端的鉴权、请求头、流式响应解析与异常处理。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成界面"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/AI 对话与生成界面"
+      ],
+      "tags": [
+        "X SDK",
+        "流式请求"
+      ],
+      "sourceRepo": "ant-design/x",
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-request/SKILL.md",
+      "installPrompt": "npx skills add ant-design/x --skill x-request",
+      "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-request/SKILL.md",
+      "overview": "https://x.ant.design/x-sdks/introduce/",
+      "details": {
+        "purpose": "指导配置与使用 XRequest，处理不同大模型服务端的鉴权、请求头、流式响应解析与异常处理。",
+        "scenarios": [
+          {
+            "name": "AI 对话与生成界面",
+            "input": "目标模型 API 地址、鉴权方式与流式解析要求",
+            "output": "配置完整的 XRequest 请求实例与回调处理代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 x-request 封装一个带 Bearer Token 鉴权、超时控制和流式分片解析的模型请求客户端。"
+      }
+    },
+    {
+      "id": "x-markdown",
+      "name": "x-markdown",
+      "displayName": "x-markdown",
+      "title": "x-markdown",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-markdown/SKILL.md",
+      "publisherType": "official",
+      "compatibleVersions": "Ant Design X Markdown 2",
+      "productVersions": [
+        {
+          "name": "@ant-design/x-markdown",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-markdown/2.10.0",
+          "label": "X Markdown",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-markdown/SKILL.md"
+      },
+      "docsUrl": "https://x.ant.design/x-markdowns/introduce/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "指导使用 @ant-design/x-markdown 处理 AI 流式输出中的不完整 Markdown 语法、自定义组件映射、插件扩展与主题适配。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成界面"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/AI 对话与生成界面"
+      ],
+      "tags": [
+        "X Markdown",
+        "富文本"
+      ],
+      "sourceRepo": "ant-design/x",
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-markdown/SKILL.md",
+      "installPrompt": "npx skills add ant-design/x --skill x-markdown",
+      "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-markdown/SKILL.md",
+      "overview": "https://x.ant.design/x-markdowns/introduce/",
+      "details": {
+        "purpose": "指导使用 @ant-design/x-markdown 处理 AI 流式输出中的不完整 Markdown 语法、自定义组件映射、插件扩展与主题适配。",
+        "scenarios": [
+          {
+            "name": "AI 对话与生成界面",
+            "input": "流式 Markdown 文本及自定义渲染需求（如代码块、图表标签）",
+            "output": "支持平滑流式渲染与自定义组件替换的 Markdown 渲染器代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 x-markdown 渲染 AI 流式回复，为代码块增加一键复制按钮，并将自定义引用标签映射为 Popover 气泡。"
+      }
+    },
+    {
+      "id": "x-card",
+      "name": "x-card",
+      "displayName": "x-card",
+      "title": "x-card",
+      "skillVersion": "2.10.0",
+      "skillVersionSource": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-card/SKILL.md",
+      "publisherType": "official",
+      "compatibleVersions": "技能主要讲解 A2UI v0.9；当前 X Card 文档同时列出 v0.8 / v0.9",
+      "productVersions": [
+        {
+          "name": "@ant-design/x-card",
+          "version": "2.10.0",
+          "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-card/2.10.0",
+          "label": "X Card",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
+        "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-card/SKILL.md"
+      },
+      "docsUrl": "https://x.ant.design/x-cards/introduce/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "指导使用 @ant-design/x-card（XCard.Box / XCard.Card）、A2UI v0.9 指令、数据绑定、组件目录与动作系统，实现 AI 动态生成交互卡片。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 对话与生成界面"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/AI 对话与生成界面"
+      ],
+      "tags": [
+        "X Card",
+        "生成式 UI"
+      ],
+      "sourceRepo": "ant-design/x",
+      "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-card/SKILL.md",
+      "installPrompt": "npx skills add ant-design/x --skill x-card",
+      "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-card/SKILL.md",
+      "overview": "https://x.ant.design/x-cards/introduce/",
+      "details": {
+        "purpose": "指导使用 @ant-design/x-card（XCard.Box / XCard.Card）、A2UI v0.9 指令、数据绑定、组件目录与动作系统，实现 AI 动态生成交互卡片。",
+        "scenarios": [
+          {
+            "name": "AI 对话与生成界面",
+            "input": "希望 AI 动态输出的交互卡片结构与可触发动作",
+            "output": "符合 A2UI v0.9 规范的 XCard 组件注册与渲染代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 x-card 搭建一个由 AI 动态生成的「差旅审批卡片」，支持在对话流中直接点击同意或驳回。"
+      }
+    },
+    {
+      "id": "ant-design-vue",
+      "name": "ant-design-vue",
+      "displayName": "ant-design-vue",
+      "title": "ant-design-vue",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "community",
+      "compatibleVersions": "Vue 3、Ant Design Vue 4",
+      "productVersions": [
+        {
+          "name": "ant-design-vue",
+          "version": "4.2.6",
+          "versionSourceUrl": "https://registry.npmjs.org/ant-design-vue/4.2.6",
+          "label": "Ant Design Vue",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
+        "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-vue/SKILL.md"
+      },
+      "docsUrl": "https://www.antdv.com/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "提供基于 Vue 3 与 Ant Design Vue 的组件 API 规范、组合式 API 用法及常见后台页面模板。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "Vue、移动与小程序"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/Vue、移动与小程序"
+      ],
+      "tags": [
+        "Vue 3",
+        "界面组件"
+      ],
+      "sourceRepo": "full-stack-skills/antd-skills",
+      "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-vue/SKILL.md",
+      "installPrompt": "npx skills add full-stack-skills/antd-skills --skill ant-design-vue",
+      "entry": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-vue/SKILL.md",
+      "overview": "https://www.antdv.com/",
+      "details": {
+        "purpose": "提供基于 Vue 3 与 Ant Design Vue 的组件 API 规范、组合式 API 用法及常见后台页面模板。",
+        "scenarios": [
+          {
+            "name": "Vue、移动与小程序",
+            "input": "Vue 3 后台页面或组件开发需求",
+            "output": "符合 Ant Design Vue 规范的 SFC 单文件组件代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 ant-design-vue 编写一个基于 Vue 3 `<script setup>` 的用户管理表格与弹窗表单。"
+      }
+    },
+    {
+      "id": "ant-design-mobile",
+      "name": "ant-design-mobile",
+      "displayName": "ant-design-mobile",
+      "title": "ant-design-mobile",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "community",
+      "compatibleVersions": "未固定具体版本；参考 Ant Design Mobile 当前文档",
+      "productVersions": [
+        {
+          "name": "antd-mobile",
+          "version": "5.43.0",
+          "versionSourceUrl": "https://registry.npmjs.org/antd-mobile/5.43.0",
+          "label": "Ant Design Mobile",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
+        "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-mobile/SKILL.md"
+      },
+      "docsUrl": "https://mobile.ant.design/zh/guide/quick-start/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "提供 Ant Design Mobile 的移动端组件、主题变量、手势交互与 H5/企业微应用适配规范。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "Vue、移动与小程序"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/Vue、移动与小程序"
+      ],
+      "tags": [
+        "移动 H5",
+        "手势交互"
+      ],
+      "sourceRepo": "full-stack-skills/antd-skills",
+      "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mobile/SKILL.md",
+      "installPrompt": "npx skills add full-stack-skills/antd-skills --skill ant-design-mobile",
+      "entry": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mobile/SKILL.md",
+      "overview": "https://mobile.ant.design/zh/guide/quick-start/",
+      "details": {
+        "purpose": "提供 Ant Design Mobile 的移动端组件、主题变量、手势交互与 H5/企业微应用适配规范。",
+        "scenarios": [
+          {
+            "name": "Vue、移动与小程序",
+            "input": "移动端 H5 页面或交互组件需求",
+            "output": "基于 antd-mobile 的响应式移动端页面代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 ant-design-mobile 开发一个带下拉刷新、无限滚动和底部操作栏的移动端工单列表页。"
+      }
+    },
+    {
+      "id": "ant-design-mini",
+      "name": "ant-design-mini",
+      "displayName": "ant-design-mini",
+      "title": "ant-design-mini",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "community",
+      "compatibleVersions": "Ant Design Mini",
+      "productVersions": [
+        {
+          "name": "antd-mini",
+          "version": "3.4.3",
+          "versionSourceUrl": "https://registry.npmjs.org/antd-mini/3.4.3",
+          "label": "Ant Design Mini",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
+        "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-mini/SKILL.md"
+      },
+      "docsUrl": "https://mini.ant.design/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "提供 Ant Design Mini 的小程序组件、事件处理、主题定制及支付宝/微信小程序平台适配指导。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "Vue、移动与小程序"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/Vue、移动与小程序"
+      ],
+      "tags": [
+        "小程序",
+        "跨平台"
+      ],
+      "sourceRepo": "full-stack-skills/antd-skills",
+      "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mini/SKILL.md",
+      "installPrompt": "npx skills add full-stack-skills/antd-skills --skill ant-design-mini",
+      "entry": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mini/SKILL.md",
+      "overview": "https://mini.ant.design/",
+      "details": {
+        "purpose": "提供 Ant Design Mini 的小程序组件、事件处理、主题定制及支付宝/微信小程序平台适配指导。",
+        "scenarios": [
+          {
+            "name": "Vue、移动与小程序",
+            "input": "小程序页面布局与组件交互需求",
+            "output": "符合 Ant Design Mini 规范的小程序模板与脚本代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 ant-design-mini 搭建一个包含顶部搜索、分类标签与商品卡片列表的小程序首页。"
+      }
+    },
+    {
+      "id": "antv-g2-chart",
+      "name": "antv-g2-chart",
+      "displayName": "antv-g2-chart",
+      "title": "antv-g2-chart",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "G2 5",
+      "productVersions": [
+        {
+          "name": "@antv/g2",
+          "version": "5.4.8",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fg2/5.4.8",
+          "label": "G2",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-g2-chart/SKILL.md"
+      },
+      "docsUrl": "https://g2.antv.antgroup.com/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "基于 AntV G2 v5 语法规范编写统计图表，覆盖数据映射、坐标系、比例尺、数据转换与交互配置。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "统计图表与数据叙事"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/统计图表与数据叙事"
+      ],
+      "tags": [
+        "统计图表",
+        "数据看板"
+      ],
+      "sourceRepo": "antvis/chart-visualization-skills",
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g2-chart/SKILL.md",
+      "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-g2-chart",
+      "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g2-chart/SKILL.md",
+      "overview": "https://g2.antv.antgroup.com/",
+      "details": {
+        "purpose": "基于 AntV G2 v5 语法规范编写统计图表，覆盖数据映射、坐标系、比例尺、数据转换与交互配置。",
+        "scenarios": [
+          {
+            "name": "统计图表与数据叙事",
+            "input": "数据结构样例、指标维度与分析目标",
+            "output": "可直接运行的 G2 v5 图表配置与 React 封装代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 antv-g2-chart 编写一个双轴折柱混合图，展示近 12 个月的调用量（柱状）与成功率（折线），支持悬浮提示与图例筛选。"
+      }
+    },
+    {
+      "id": "antv-t8-ntv",
+      "name": "antv-t8-ntv",
+      "displayName": "antv-t8-ntv",
+      "title": "antv-t8-ntv",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "T8",
+      "productVersions": [
+        {
+          "name": "@antv/t8",
+          "version": "0.3.1",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Ft8/0.3.1",
+          "label": "T8",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-t8-ntv/SKILL.md"
+      },
+      "docsUrl": "https://github.com/antvis/T8/blob/main/README.md",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "基于 AntV T8 将统计数据组织为带语义实体标注、涨跌指标与行内迷你图（Sparkline）的数据叙事文本报告。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "统计图表与数据叙事"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/统计图表与数据叙事"
+      ],
+      "tags": [
+        "数据叙事",
+        "文本报告"
+      ],
+      "sourceRepo": "antvis/chart-visualization-skills",
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-t8-ntv/SKILL.md",
+      "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-t8-ntv",
+      "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-t8-ntv/SKILL.md",
+      "overview": "https://github.com/antvis/T8/blob/main/README.md",
+      "details": {
+        "purpose": "基于 AntV T8 将统计数据组织为带语义实体标注、涨跌指标与行内迷你图（Sparkline）的数据叙事文本报告。",
+        "scenarios": [
+          {
+            "name": "统计图表与数据叙事",
+            "input": "经营指标数据与分析结论要点",
+            "output": "符合 T8 规范的数据叙事结构化 Schema 与渲染代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 antv-t8-ntv 将本季度各区域营收数据生成一份带同比涨跌高亮和行内趋势小图的经营摘要。"
+      }
+    },
+    {
+      "id": "antv-g6-graph",
+      "name": "antv-g6-graph",
+      "displayName": "antv-g6-graph",
+      "title": "antv-g6-graph",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "G6 5",
+      "productVersions": [
+        {
+          "name": "@antv/g6",
+          "version": "5.1.1",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fg6/5.1.1",
+          "label": "G6",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-g6-graph/SKILL.md"
+      },
+      "docsUrl": "https://g6.antv.antgroup.com/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "基于 AntV G6 v5 构建关系网络与图分析应用，涵盖节点、边、力导向/层级布局、分组（Combo）、交互行为与插件。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "关系、流程与地图"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/关系、流程与地图"
+      ],
+      "tags": [
+        "关系图",
+        "知识图谱"
+      ],
+      "sourceRepo": "antvis/chart-visualization-skills",
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g6-graph/SKILL.md",
+      "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-g6-graph",
+      "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g6-graph/SKILL.md",
+      "overview": "https://g6.antv.antgroup.com/",
+      "details": {
+        "purpose": "基于 AntV G6 v5 构建关系网络与图分析应用，涵盖节点、边、力导向/层级布局、分组（Combo）、交互行为与插件。",
+        "scenarios": [
+          {
+            "name": "关系、流程与地图",
+            "input": "实体节点与关系边数据、图探索交互需求",
+            "output": "基于 G6 v5 的图渲染、布局与交互代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 antv-g6-graph 实现一个微服务调用依赖图，支持按业务域分组折叠、点击节点高亮上下游链路。"
+      }
+    },
+    {
+      "id": "antv-x6-editor",
+      "name": "antv-x6-editor",
+      "displayName": "antv-x6-editor",
+      "title": "antv-x6-editor",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "X6 3",
+      "productVersions": [
+        {
+          "name": "@antv/x6",
+          "version": "3.1.8",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fx6/3.1.8",
+          "label": "X6",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-x6-editor/SKILL.md"
+      },
+      "docsUrl": "https://x6.antv.antgroup.com/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "基于 AntV X6 v3 开发可编辑的流程图与画布应用，涵盖自定义节点、连接桩（Port）、拖拽连线、撤销重做插件与图数据序列化。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "关系、流程与地图"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/关系、流程与地图"
+      ],
+      "tags": [
+        "流程编辑",
+        "工作流"
+      ],
+      "sourceRepo": "antvis/chart-visualization-skills",
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-x6-editor/SKILL.md",
+      "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-x6-editor",
+      "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-x6-editor/SKILL.md",
+      "overview": "https://x6.antv.antgroup.com/",
+      "details": {
+        "purpose": "基于 AntV X6 v3 开发可编辑的流程图与画布应用，涵盖自定义节点、连接桩（Port）、拖拽连线、撤销重做插件与图数据序列化。",
+        "scenarios": [
+          {
+            "name": "关系、流程与地图",
+            "input": "工作流节点类型、连线规则与画布操作需求",
+            "output": "完整的 X6 v3 画布初始化、节点注册与导入导出代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 antv-x6-editor 搭建一个可视化 Agent 编排画布，支持从左侧拖拽节点、端口连线校验及 JSON 导出。"
+      }
+    },
+    {
+      "id": "antv-l7",
+      "name": "antv-l7",
+      "displayName": "antv-l7",
+      "title": "antv-l7",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "L7 2",
+      "productVersions": [
+        {
+          "name": "@antv/l7",
+          "version": "2.29.1",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fl7/2.29.1",
+          "label": "L7",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "f022a1406260cf909123a2ce361440512877afdb",
+        "pinnedSourceUrl": "https://github.com/antvis/L7/blob/f022a1406260cf909123a2ce361440512877afdb/skills/l7/SKILL.md"
+      },
+      "docsUrl": "https://l7.antv.antgroup.com/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "基于 AntV L7 2.x 构建 WebGL 地理空间可视化，支持点/线/面图层、热力图、轨迹飞线与地图交互（另提供单文件版 l7-single 供 WeaveFox 环境使用）。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "关系、流程与地图"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/关系、流程与地图"
+      ],
+      "tags": [
+        "WebGL 地图",
+        "地理空间"
+      ],
+      "sourceRepo": "antvis/L7",
+      "sourceUrl": "https://github.com/antvis/L7/blob/master/skills/l7/SKILL.md",
+      "installPrompt": "npx skills add antvis/L7 --skill antv-l7",
+      "entry": "https://github.com/antvis/L7/blob/master/skills/l7/SKILL.md",
+      "overview": "https://l7.antv.antgroup.com/",
+      "details": {
+        "purpose": "基于 AntV L7 2.x 构建 WebGL 地理空间可视化，支持点/线/面图层、热力图、轨迹飞线与地图交互（另提供单文件版 l7-single 供 WeaveFox 环境使用）。",
+        "scenarios": [
+          {
+            "name": "关系、流程与地图",
+            "input": "GeoJSON / 经纬度空间数据与地图展示需求",
+            "output": "基于 L7 的底图初始化、图层配置与交互代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 antv-l7 在地图上绘制全国物流节点热力图与省际干线飞线图，支持悬浮查看站点吞吐量。"
+      }
+    },
+    {
+      "id": "chart-visualization-image",
+      "name": "chart-visualization",
+      "displayName": "chart-visualization（图片版）",
+      "title": "chart-visualization（图片版）",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "AntV 图表图片生成服务",
+      "productVersions": [],
+      "sourceRevision": {
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/chart-visualization/SKILL.md"
+      },
+      "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "chart-visualization-gpt-vis",
+          "reason": "需要可嵌入页面的 JSON、流式语法或代码时，选择 GPT-Vis 集成版；两者共用安装名称。"
+        }
+      ],
+      "description": "根据数据特征自动选择合适图表类型，调用 AntV 图表生成服务直接输出静态图表图片地址，适合快速分析与报告配图。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 图表与快速配图"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/AI 图表与快速配图"
+      ],
+      "tags": [
+        "输出图片",
+        "报告配图"
+      ],
+      "sourceRepo": "antvis/chart-visualization-skills",
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
+      "installPrompt": "npx skills add antvis/chart-visualization-skills --skill chart-visualization",
+      "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
+      "overview": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
+      "details": {
+        "purpose": "根据数据特征自动选择合适图表类型，调用 AntV 图表生成服务直接输出静态图表图片地址，适合快速分析与报告配图。",
+        "scenarios": [
+          {
+            "name": "AI 图表与快速配图",
+            "input": "原始数据表与图表展示意图",
+            "output": "可直接插入文档或对话的图表图片 URL"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 chart-visualization（图片版）将这组各渠道转化率数据生成一张漏斗图并返回图片地址。"
+      }
+    },
+    {
+      "id": "chart-visualization-gpt-vis",
+      "name": "chart-visualization",
+      "displayName": "chart-visualization（GPT-Vis 集成版）",
+      "title": "chart-visualization（GPT-Vis 集成版）",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "GPT-Vis 1.x 的 JSON / Syntax / 集成代码",
+      "productVersions": [
+        {
+          "name": "@antv/gpt-vis",
+          "version": "1.3.2",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fgpt-vis/1.3.2",
+          "label": "GPT-Vis",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "ea3e9cb0514ac3023ec4709e77447122290447c9",
+        "pinnedSourceUrl": "https://github.com/antvis/GPT-Vis/blob/ea3e9cb0514ac3023ec4709e77447122290447c9/skills/chart-visualization/SKILL.md"
+      },
+      "docsUrl": "https://gpt-vis.antv.vision/docs/agent-skill",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "chart-visualization-image",
+          "reason": "只需报告配图和图片地址时，选择图片版；两者共用安装名称。"
+        },
+        {
+          "id": "antv-gpt-vis",
+          "reason": "同样面向 GPT-Vis 集成，由集中技能仓库维护，可作为关联指南。"
+        }
+      ],
+      "description": "根据分析目标生成 GPT-Vis 的 JSON 配置、流式 Syntax、前端集成代码与自定义主题，适合嵌入 AI 对话与业务系统。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 图表与快速配图"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/AI 图表与快速配图"
+      ],
+      "tags": [
+        "GPT-Vis",
+        "代码与配置"
+      ],
+      "sourceRepo": "antvis/GPT-Vis",
+      "sourceUrl": "https://github.com/antvis/GPT-Vis/blob/ai/skills/chart-visualization/SKILL.md",
+      "installPrompt": "npx skills add antvis/GPT-Vis --skill chart-visualization",
+      "entry": "https://github.com/antvis/GPT-Vis/blob/ai/skills/chart-visualization/SKILL.md",
+      "overview": "https://gpt-vis.antv.vision/docs/agent-skill",
+      "details": {
+        "purpose": "根据分析目标生成 GPT-Vis 的 JSON 配置、流式 Syntax、前端集成代码与自定义主题，适合嵌入 AI 对话与业务系统。",
+        "scenarios": [
+          {
+            "name": "AI 图表与快速配图",
+            "input": "业务数据与希望在 AI 回复中渲染的图表需求",
+            "output": "可集成的 GPT-Vis 语法块、JSON 配置或组件代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 chart-visualization（GPT-Vis 集成版），将这组季度营收数据转为可在 React 对话流中渲染的 GPT-Vis 柱状图配置。"
+      }
+    },
+    {
+      "id": "antv-gpt-vis",
+      "name": "antv-gpt-vis",
+      "displayName": "antv-gpt-vis",
+      "title": "antv-gpt-vis",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "GPT-Vis JSON / Syntax / 集成代码",
+      "productVersions": [
+        {
+          "name": "@antv/gpt-vis",
+          "version": "1.3.2",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fgpt-vis/1.3.2",
+          "label": "GPT-Vis",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-gpt-vis/SKILL.md"
+      },
+      "docsUrl": "https://gpt-vis.antv.vision/docs",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "chart-visualization-gpt-vis",
+          "reason": "GPT-Vis 主仓库随项目维护的集成指南，适合优先查阅当前产品用法。"
+        }
+      ],
+      "description": "根据分析目标生成 GPT-Vis 可视化语法、JSON 配置或可运行代码，用于 AI 回答中的流式图表渲染（同仓库另提供中文版 gpt-vis）。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "AI 图表与快速配图"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/AI 图表与快速配图"
+      ],
+      "tags": [
+        "GPT-Vis",
+        "流式图表"
+      ],
+      "sourceRepo": "antvis/chart-visualization-skills",
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-gpt-vis/SKILL.md",
+      "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-gpt-vis",
+      "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-gpt-vis/SKILL.md",
+      "overview": "https://gpt-vis.antv.vision/docs",
+      "details": {
+        "purpose": "根据分析目标生成 GPT-Vis 可视化语法、JSON 配置或可运行代码，用于 AI 回答中的流式图表渲染（同仓库另提供中文版 gpt-vis）。",
+        "scenarios": [
+          {
+            "name": "AI 图表与快速配图",
+            "input": "数据分析问题与指标数据",
+            "output": "GPT-Vis 声明式语法或前端渲染配置"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 antv-gpt-vis 生成一段可在 AI 助手中流式渲染的雷达图配置，用于对比 4 个模型的能力维度。"
+      }
+    },
+    {
+      "id": "infographic-creator",
+      "name": "infographic-creator",
+      "displayName": "infographic-creator",
+      "title": "infographic-creator",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "AntV Infographic",
+      "productVersions": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/0.2.20",
+          "label": "Infographic",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-creator/SKILL.md"
+      },
+      "docsUrl": "https://infographic.antv.vision/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "antv-infographic",
+          "reason": "围绕模板、数据与主题生成信息图，适合直接编写配置。"
+        },
+        {
+          "id": "infographic-syntax-creator",
+          "reason": "只需声明式 DSL 配置时，使用语法生成技能。"
+        }
+      ],
+      "description": "解析文字材料的逻辑结构（流程、对比、层级），自动匹配 AntV Infographic 模板并生成带 SVG 导出能力的完整 HTML 页面。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/信息图生成与扩展"
+      ],
+      "tags": [
+        "信息图",
+        "HTML 与 SVG"
+      ],
+      "sourceRepo": "antvis/Infographic",
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-creator/SKILL.md",
+      "installPrompt": "npx skills add antvis/Infographic --skill infographic-creator",
+      "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-creator/SKILL.md",
+      "overview": "https://infographic.antv.vision/",
+      "details": {
+        "purpose": "解析文字材料的逻辑结构（流程、对比、层级），自动匹配 AntV Infographic 模板并生成带 SVG 导出能力的完整 HTML 页面。",
+        "scenarios": [
+          {
+            "name": "信息图生成与扩展",
+            "input": "一段方案说明、产品对比或流程文案",
+            "output": "可运行的信息图 HTML 页面及对应声明语法"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 infographic-creator 将这段「前端发布流水线五步法」的文字整理成一张横向流程信息图，并支持一键导出 SVG。"
+      }
+    },
+    {
+      "id": "antv-infographic",
+      "name": "antv-infographic",
+      "displayName": "antv-infographic",
+      "title": "antv-infographic",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "AntV Infographic",
+      "productVersions": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/0.2.20",
+          "label": "Infographic",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-infographic/SKILL.md"
+      },
+      "docsUrl": "https://infographic.antv.vision/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [
+        {
+          "id": "infographic-creator",
+          "reason": "需要从文字材料生成完整 HTML 并导出 SVG 时，选择此技能。"
+        }
+      ],
+      "description": "基于 AntV Infographic 模板、数据与主题配置生成对比、流程、层级类信息图（与 infographic-creator 功能重叠，按任务择一使用即可）。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/信息图生成与扩展"
+      ],
+      "tags": [
+        "信息图",
+        "模板配置"
+      ],
+      "sourceRepo": "antvis/chart-visualization-skills",
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-infographic/SKILL.md",
+      "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-infographic",
+      "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-infographic/SKILL.md",
+      "overview": "https://infographic.antv.vision/",
+      "details": {
+        "purpose": "基于 AntV Infographic 模板、数据与主题配置生成对比、流程、层级类信息图（与 infographic-creator 功能重叠，按任务择一使用即可）。",
+        "scenarios": [
+          {
+            "name": "信息图生成与扩展",
+            "input": "结构化要点或对比清单",
+            "output": "AntV Infographic 模板配置与信息图代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 antv-infographic 将三种前端状态管理方案的优缺点整理为一张对比信息图。"
+      }
+    },
+    {
+      "id": "infographic-syntax-creator",
+      "name": "infographic-syntax-creator",
+      "displayName": "infographic-syntax-creator",
+      "title": "infographic-syntax-creator",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "AntV Infographic",
+      "productVersions": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/0.2.20",
+          "label": "Infographic",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-syntax-creator/SKILL.md"
+      },
+      "docsUrl": "https://infographic.antv.vision/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "专注将自然语言转换为 AntV Infographic 声明式 DSL 语法，用于 AI 自动生成或增量修改信息图配置。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/信息图生成与扩展"
+      ],
+      "tags": [
+        "配置生成",
+        "Infographic DSL"
+      ],
+      "sourceRepo": "antvis/Infographic",
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-syntax-creator/SKILL.md",
+      "installPrompt": "npx skills add antvis/Infographic --skill infographic-syntax-creator",
+      "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-syntax-creator/SKILL.md",
+      "overview": "https://infographic.antv.vision/",
+      "details": {
+        "purpose": "专注将自然语言转换为 AntV Infographic 声明式 DSL 语法，用于 AI 自动生成或增量修改信息图配置。",
+        "scenarios": [
+          {
+            "name": "信息图生成与扩展",
+            "input": "自然语言描述的信息图内容或修改指令",
+            "output": "标准 Infographic DSL 语法文本"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 infographic-syntax-creator 将这段产品演进路线图描述转为 Infographic DSL，并切换为深色科技主题。"
+      }
+    },
+    {
+      "id": "infographic-structure-creator",
+      "name": "infographic-structure-creator",
+      "displayName": "infographic-structure-creator",
+      "title": "infographic-structure-creator",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "AntV Infographic",
+      "productVersions": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/0.2.20",
+          "label": "Infographic",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-structure-creator/SKILL.md"
+      },
+      "docsUrl": "https://infographic.antv.vision/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "面向信息图库开发与扩展，指导编写新的信息图布局结构、尺寸计算、组件组合与结构注册代码。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/信息图生成与扩展"
+      ],
+      "tags": [
+        "扩展开发",
+        "布局结构"
+      ],
+      "sourceRepo": "antvis/Infographic",
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-structure-creator/SKILL.md",
+      "installPrompt": "npx skills add antvis/Infographic --skill infographic-structure-creator",
+      "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-structure-creator/SKILL.md",
+      "overview": "https://infographic.antv.vision/",
+      "details": {
+        "purpose": "面向信息图库开发与扩展，指导编写新的信息图布局结构、尺寸计算、组件组合与结构注册代码。",
+        "scenarios": [
+          {
+            "name": "信息图生成与扩展",
+            "input": "自定义布局形态需求（如金字塔、环形时间轴）",
+            "output": "符合 Infographic 架构的布局结构源码与注册配置"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 infographic-structure-creator 为信息图库新增一个「双向对比泳道」布局结构并完成注册。"
+      }
+    },
+    {
+      "id": "infographic-item-creator",
+      "name": "infographic-item-creator",
+      "displayName": "infographic-item-creator",
+      "title": "infographic-item-creator",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "AntV Infographic",
+      "productVersions": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/0.2.20",
+          "label": "Infographic",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-item-creator/SKILL.md"
+      },
+      "docsUrl": "https://infographic.antv.vision/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "面向信息图库开发与扩展，指导编写数据项视觉单元（节点、卡片、指标徽章等）及其内部排版逻辑。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/信息图生成与扩展"
+      ],
+      "tags": [
+        "扩展开发",
+        "视觉单元"
+      ],
+      "sourceRepo": "antvis/Infographic",
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-item-creator/SKILL.md",
+      "installPrompt": "npx skills add antvis/Infographic --skill infographic-item-creator",
+      "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-item-creator/SKILL.md",
+      "overview": "https://infographic.antv.vision/",
+      "details": {
+        "purpose": "面向信息图库开发与扩展，指导编写数据项视觉单元（节点、卡片、指标徽章等）及其内部排版逻辑。",
+        "scenarios": [
+          {
+            "name": "信息图生成与扩展",
+            "input": "自定义数据项卡片的视觉样式与字段布局要求",
+            "output": "可复用的 Infographic 视觉单元组件代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 infographic-item-creator 开发一个带顶部图标、主指标数字和底部趋势标签的数据卡片单元。"
+      }
+    },
+    {
+      "id": "infographic-template-updater",
+      "name": "infographic-template-updater",
+      "displayName": "infographic-template-updater",
+      "title": "infographic-template-updater",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "AntV Infographic",
+      "productVersions": [
+        {
+          "name": "@antv/infographic",
+          "version": "0.2.20",
+          "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/0.2.20",
+          "label": "Infographic",
+          "scope": "current"
+        }
+      ],
+      "sourceRevision": {
+        "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
+        "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-template-updater/SKILL.md"
+      },
+      "docsUrl": "https://infographic.antv.vision/",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "面向信息图模板体系维护，指导同步更新模板目录、展示站映射关系以及 AI 提示词中的可用模板列表。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "信息图生成与扩展"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/信息图生成与扩展"
+      ],
+      "tags": [
+        "扩展维护",
+        "模板同步"
+      ],
+      "sourceRepo": "antvis/Infographic",
+      "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-template-updater/SKILL.md",
+      "installPrompt": "npx skills add antvis/Infographic --skill infographic-template-updater",
+      "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-template-updater/SKILL.md",
+      "overview": "https://infographic.antv.vision/",
+      "details": {
+        "purpose": "面向信息图模板体系维护，指导同步更新模板目录、展示站映射关系以及 AI 提示词中的可用模板列表。",
+        "scenarios": [
+          {
+            "name": "信息图生成与扩展",
+            "input": "新增或修改的 Infographic 模板名称与元数据",
+            "output": "同步更新后的模板注册表、站点配置与提示词清单"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 infographic-template-updater 将新开发的 3 个对比类模板同步注册到展示站和 AI 提示词列表中。"
+      }
+    },
+    {
+      "id": "icon-retrieval",
+      "name": "icon-retrieval",
+      "displayName": "icon-retrieval",
+      "title": "icon-retrieval",
+      "skillVersion": null,
+      "skillVersionSource": null,
+      "publisherType": "official",
+      "compatibleVersions": "HTTP 图标检索 API",
+      "productVersions": [],
+      "sourceRevision": {
+        "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
+        "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/icon-retrieval/SKILL.md"
+      },
+      "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
+      "verifiedAt": "2026-11-27",
+      "relatedSkills": [],
+      "description": "通过图标检索 API 按语义关键词查找匹配的矢量图标并获取 SVG 资源，常用于页面图标选型与信息图素材配套。",
+      "navigation_path": [
+        "前端开发",
+        "蚂蚁前端生态",
+        "图标与设计资源"
+      ],
+      "category_paths": [
+        "前端开发/蚂蚁前端生态/图标与设计资源"
+      ],
+      "tags": [
+        "SVG 图标",
+        "素材检索"
+      ],
+      "sourceRepo": "antvis/chart-visualization-skills",
+      "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
+      "installPrompt": "npx skills add antvis/chart-visualization-skills --skill icon-retrieval",
+      "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
+      "overview": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
+      "details": {
+        "purpose": "通过图标检索 API 按语义关键词查找匹配的矢量图标并获取 SVG 资源，常用于页面图标选型与信息图素材配套。",
+        "scenarios": [
+          {
+            "name": "图标与设计资源",
+            "input": "图标语义描述或业务概念关键词",
+            "output": "匹配的 SVG 图标链接或矢量代码"
+          }
+        ],
+        "workflow": [],
+        "principles": [],
+        "example": "使用 icon-retrieval 为「数据采集、清洗、建模、部署」四个流程节点分别检索风格统一的 SVG 图标。"
       }
     }
   ],

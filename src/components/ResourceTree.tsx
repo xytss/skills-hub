@@ -1,10 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Tree } from 'antd';
 import type { DataNode } from 'antd/es/tree';
 import type { Key } from 'react';
 import { Icon } from './Icon';
 
-interface Resource { name: string; navigation_path: string[]; category_paths?: string[] }
+interface Resource { name: string; displayName?: string; navigation_path: string[]; category_paths?: string[] }
 export interface CatalogNode extends DataNode { kind: 'category' | 'resource'; path: string[]; members: string[]; resource?: string; children?: CatalogNode[] }
 
 function makeTree(resources: Resource[]) {
@@ -27,7 +27,7 @@ function makeTree(resources: Resource[]) {
       register(resource.navigation_path.every((part, index) => parts[index] === part) ? resource.navigation_path : parts, resource.name);
     });
     const parent = register(resource.navigation_path, resource.name);
-    parent.children!.push({ key: `resource:${resource.name}`, title: resource.name, kind: 'resource', path: resource.navigation_path, members: [resource.name], resource: resource.name, className: 'resource-node', isLeaf: true, icon: <Icon name="file" /> });
+    parent.children!.push({ key: `resource:${resource.name}`, title: resource.displayName ?? resource.name, kind: 'resource', path: resource.navigation_path, members: [resource.name], resource: resource.name, className: 'resource-node', isLeaf: true, icon: <Icon name="file" /> });
   });
   return root.children!;
 }
@@ -35,9 +35,8 @@ function makeTree(resources: Resource[]) {
 export function ResourceTree({ resources, selected, category, onSelect }: { resources: Resource[]; selected: string; category: string[]; onSelect: (node: CatalogNode) => void }) {
   const tree = useMemo(() => makeTree(resources), [resources]);
   const [expanded, setExpanded] = useState<Key[]>(() => {
-    const keys: Key[] = [];
-    function walk(nodes: CatalogNode[]) { nodes.forEach(node => { if (node.kind === 'category') keys.push(node.key); if (node.children) walk(node.children); }); }
-    walk(tree); return keys;
+    return [...new Set([...tree.map(node => node.key), ...category.map((_, index) => JSON.stringify(category.slice(0, index + 1)))])];
   });
+  useEffect(() => { setExpanded(keys => [...new Set([...keys, ...category.map((_, index) => JSON.stringify(category.slice(0, index + 1)))])]); }, [category]);
   return <Tree className="resource-tree" aria-label="分类目录" treeData={tree} blockNode showIcon showLine={{ showLeafIcon: false }} switcherIcon={<Icon name="chevron" />} virtual={false} multiple expandedKeys={expanded} onExpand={keys => setExpanded(keys)} selectedKeys={[JSON.stringify(category), `resource:${selected}`]} onSelect={(_, info) => onSelect(info.node as CatalogNode)} />;
 }
