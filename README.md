@@ -10,9 +10,32 @@
 
 <a href="https://xytss.github.io/skills-hub/"><strong>浏览 Skill 资源库</strong>&nbsp;<img src="assets/icons/showcase-jump.svg" width="22" height="18" alt="" align="absmiddle"></a>
 
-[分类目录](#skill-目录) · [全局提示词](#全局提示词) · [快速使用](#快速使用) · [参与贡献](https://github.com/xytss/skills-hub/pulls)
+[快速使用](#快速使用) · [Skill 目录](#skill-目录) · [全局提示词](#全局提示词) · [本地开发](#本地开发) · [数据维护](#数据维护)
 
-# Skill 目录
+## 快速使用
+
+1. 打开 [Skill 资源库](https://xytss.github.io/skills-hub/)，按分类选择 Skill。
+2. 在安装区选择 AI Agent，点击“复制安装提示词”，发送给对应工具。
+3. 安装完成后，参照该 Skill 的调用示例提交任务。
+
+以 `database-design` 为例，也可以直接发送：
+
+```text
+请从 https://github.com/xytss/skills-hub 安装 database-design。
+阅读安装说明与 SKILL.md，按当前 Agent 的规范配置。
+检查已有版本，完成后返回安装位置、验证结果与调用方式。
+```
+
+调用示例：请使用 `database-design`，评审这份 PostgreSQL 表结构。
+
+[![database-design 浏览示例：分类目录、Skill 列表、安装提示词与知识预览](assets/readme-preview.png)](https://xytss.github.io/skills-hub/?skill=database-design#catalog)
+
+## Skill 目录
+
+当前收录 **35 个 Skill**：本仓库维护的 `database-design`，以及 34 个上游前端 Skill。
+
+<details>
+<summary>查看完整分类树</summary>
 
 ```text
 后端开发
@@ -67,7 +90,9 @@
         └── icon-retrieval
 ```
 
-前端目录收录 34 项上游 Skill，按“前端开发 → 蚂蚁前端生态 → 业务场景 → Skill”组织，覆盖 Ant Design、Ant Design X、AntV、Umi 与社区扩展。官方／社区表示技能来源，卡片展示适用技术与任务标签。详情提供官方文档、Skill 原文、产品版本、源码修订与核验日期。上游技能的许可证以对应仓库声明为准。
+</details>
+
+**本仓库维护的 Skill**
 
 <table>
   <thead>
@@ -88,7 +113,13 @@
   </tbody>
 </table>
 
-# 全局提示词
+**上游前端 Skill**
+
+覆盖 Ant Design、Ant Design X、AntV、Umi 与社区扩展，按业务场景分类。[浏览全部前端 Skill](https://xytss.github.io/skills-hub/?category=%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91#catalog)。
+
+每项提供用途、调用示例、具体文档链接、Skill 原文及版本核验信息。“官方／社区”标注 Skill 的来源；上游内容按对应仓库的许可证使用。
+
+## 全局提示词
 
 ```text
 AI 工程与 Agent
@@ -96,35 +127,15 @@ AI 工程与 Agent
     └── codex-win
 ```
 
-| 提示词 | 适用环境 | 说明 | 入口 |
-| --- | --- | --- | --- |
-| codex-win | Codex · Windows 11 · PowerShell 7 | 去 AI 味、反防御性编程、React / Ant Design 界面与中文沟通 | [在线阅读与复制](https://xytss.github.io/skills-hub/prompts.html?prompt=codex-win) · [使用指南](prompts/README.md) · [原文](prompts/codex-win.md) |
-
-# 浏览与安装
-
-<sub>以下浏览、安装与调用说明均以 database-design 为例。</sub>
-
-[![Skill 资源库界面：分类目录、Skill 列表与安装提示词、知识预览](assets/readme-preview.png)](https://xytss.github.io/skills-hub/)
-
-按分类查找 Skill，查看说明并复制安装提示词。
-
-# 快速使用
-
-将以下提示词发送给你的 AI Agent：
-
-```text
-请从 https://github.com/xytss/skills-hub 安装 database-design。
-阅读安装说明与 SKILL.md，按当前 Agent 的规范配置。
-检查已有版本，完成后返回安装位置、验证结果与调用方式。
-```
-
-安装后示例：请使用 `database-design`，评审这份 PostgreSQL 表结构。
+| 提示词 | 版本 | 适用环境 | 说明 | 入口 |
+| --- | --- | --- | --- | --- |
+| codex-win | `v1.0.0` | Codex · Windows 11 · PowerShell 7 | 禁止删除文件、精简实现与界面、结论先行的中文沟通 | [在线阅读与复制](https://xytss.github.io/skills-hub/prompts.html?prompt=codex-win) · [使用指南](prompts/README.md) · [原文](prompts/codex-win.md) |
 
 ## 本地开发
 
-前端使用 React、TypeScript、Ant Design 与 Vite，保留原站配色、布局和本地字体。
+前端使用 React、TypeScript、Ant Design 与 Vite。
 
-使用 Node.js 22.12 或以上版本，在仓库目录运行：
+需要 Node.js 22.12 或以上版本。在仓库目录安装依赖并启动开发服务：
 
 ```powershell
 npm ci
@@ -133,27 +144,35 @@ npm run dev
 
 本地入口为终端输出地址下的 `/skills-hub/`；提示词页面为 `/skills-hub/prompts.html?prompt=codex-win`。
 
+构建并预览发布产物：
+
 ```powershell
 npm run build
 npm run preview
 ```
 
-### 维护前端 Skill 数据
+`npm run build` 依次执行目录同步与校验、类型检查、Vite 构建，产物位于 `dist/`。
 
-编辑根目录的 [`ant-skills.json`](ant-skills.json)，然后同步到现有 [`catalog.json`](catalog.json)：
+## 数据维护
+
+| 维护内容 | 编辑文件 |
+| --- | --- |
+| 上游前端 Skill | [`ant-skills.json`](ant-skills.json) |
+| 本仓库数据库 Skill | [`skills/database-design/`](skills/database-design/README.md) 与 [`catalog.json`](catalog.json) 中对应条目 |
+| 全局提示词 | [`prompts/codex-win.md`](prompts/codex-win.md)；介绍、版本和分类保存在 [`catalog.json`](catalog.json) 的 `prompts` 中 |
+
+修改前端 Skill 数据后，同步并校验：
 
 ```powershell
 npm run catalog:sync
 npm run typecheck
 ```
 
-同步脚本将 `categoryPath` 映射为 `navigation_path`，将输入输出与调用示例转换为详情字段，并保留独立的 `id`、显示名称、标签和上游安装指引。同步时校验 id 唯一、HTTPS 链接、重复条目、三级分类和关联技能引用。
+提交时一并包含 `ant-skills.json` 与同步后的 `catalog.json`。字段含义、版本核验、同名 Skill 和条目下架方式见 [数据维护指南](docs/catalog-maintenance.md)。
 
-`catalog.json` 使用 Schema v2：`skillVersion` 保存上游明确声明的技能版本，`sourceRevision` 保存核验时的 commit 与固定原文链接，`compatibleVersions` 保存适用范围，`productVersions` 分别标注当前产品、迁移目标或模板版本。`docsUrl` 为官网／官方文档入口，`verifiedAt` 为核验日期。版本快照与来源依据见 [2026-11-27 核验清单](docs/ant-skills-official-audit-2026-11-27.json)。维护这些数据后，同步重建目录；页面使用已核验的静态数据。
+## 发布
 
-同名的 `ant-design` 与 `chart-visualization` 按来源分别收录。安装区显示实际目标目录与同名替换说明，复制的指引同步携带所选来源；相关技能入口说明不同用途。
-
-`npm run build` 会先同步并校验目录，再运行类型检查和构建。构建输出位于 `dist/`。推送 `main` 后，由 GitHub Actions 构建并发布到 GitHub Pages。资源目录与 `catalog.json` 在构建时原样复制。
+推送 `main` 后，[GitHub Actions](https://github.com/xytss/skills-hub/actions/workflows/deploy.yml) 自动构建并发布到 [GitHub Pages](https://xytss.github.io/skills-hub/)。发布配置见 [`deploy.yml`](.github/workflows/deploy.yml)。
 
 ---
 

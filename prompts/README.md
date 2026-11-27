@@ -10,10 +10,11 @@ AI 工程与 Agent
 
 ## codex-win
 
-Windows 11 + PowerShell 7 环境下的 Codex 全局指令，涵盖去 AI 味、反防御性编程、React / Ant Design 界面与直接中文沟通。
+适用于 Windows 11 与 PowerShell 7 环境的 Codex 全局指令集。核心约束包括：禁止执行文件删除操作、杜绝防御性冗余代码与无效测试、保持前端页面（默认 React + Ant Design）视觉与文案精简，以及采用结论先行的简体中文沟通。
 
 | 项目 | 内容 |
 | --- | --- |
+| 版本 | v1.0.0 |
 | 工具 | Codex |
 | 系统 | Windows 11 |
 | 终端 | PowerShell 7 |
