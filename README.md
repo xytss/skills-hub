@@ -34,7 +34,7 @@
 | --- | --- | --- | --- |
 | 数据库建模与优化 | `database-design` · `v3.2.0` | 需求建模、表结构评审、索引设计与慢查询分析 | [查看 Skill](https://xytss.github.io/skills-hub/?skill=database-design#catalog) |
 | 前端开发与数据可视化 | 34 个官方与社区 Skill，覆盖 Ant Design、Ant Design X、AntV、Umi 等 | 组件选型、主题定制、版本迁移、AI 对话界面、图表与信息图 | [浏览前端 Skill](https://xytss.github.io/skills-hub/?category=%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91#catalog) |
-| Codex 全局行为约束 | `codex-win` · `v1.0.0` · Windows 11 / PowerShell 7 | 禁止执行文件删除操作、精简代码与界面、结论先行的中文沟通 | [阅读与复制](https://xytss.github.io/skills-hub/prompts.html?prompt=codex-win) |
+| Codex 全局行为约束 | `codex-win` · `v1.0.0` · Windows 11 / PowerShell 7 | 禁止执行文件删除操作、精简代码与界面、解释型专业白话沟通 | [阅读与复制](https://xytss.github.io/skills-hub/prompts.html?prompt=codex-win) |
 
 各 Skill 详情提供适用范围、版本核验信息、具体文档页与上游原文入口。
 
