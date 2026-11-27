@@ -9,30 +9,31 @@
 .site-header nav .repository-label .icon { width: 20px; height: 20px; }
 .copy-resource-button { min-width: 112px; }
 .install-controls .copy-resource-button { min-width: 166px; }
+.install-controls > .copy-resource-button { margin-inline-start: auto; }
+.install-options { min-width: 0; }
 .install-agent { color: var(--muted); font-size: var(--text-xs); white-space: nowrap; }
 .install-agent .ant-select { width: 144px; min-width: 144px; font-size: var(--text-body); }
 .ant-segmented { background: var(--surface); border: 1px solid var(--control-border); padding: 0; border-radius: 7px; }
 .ant-segmented-item { border-radius: 5px; }
 .ant-segmented-item + .ant-segmented-item { border-left: 1px solid var(--control-border); }
 .ant-segmented-item-selected { color: var(--blue-strong); background: var(--control-selected-bg); box-shadow: inset 0 0 0 1px var(--control-selected-border); }
-.ant-segmented-item-label { min-height: 32px; padding: 0 12px; line-height: 32px; }
+.ant-segmented-item-label { padding: 0 12px; }
 .ant-segmented-item-icon { display: inline-flex; vertical-align: middle; }
-.resource-tree.ant-tree, .outline-tree.ant-tree { background: transparent; font-family: var(--font-ui); font-size: var(--text-body); }
-.resource-tree .ant-tree-treenode { align-items: flex-start; padding-bottom: 0; }
-.resource-tree .ant-tree-switcher { width: 20px; flex: 0 0 20px; align-self: stretch; color: var(--icon-muted); }
-.resource-tree .ant-tree-node-content-wrapper { min-height: 36px; line-height: 36px; padding: 0 6px; border-radius: 6px; min-width: 0; }
-.resource-tree.ant-tree .ant-tree-node-content-wrapper { display: flex; align-items: center; gap: 8px; }
-.resource-tree.ant-tree .ant-tree-node-content-wrapper .ant-tree-iconEle { display: inline-flex; flex-shrink: 0; width: 18px; margin: 0; }
-.resource-tree .resource-node .ant-tree-title { white-space: normal; line-height: 20px; overflow-wrap: anywhere; }
-.resource-tree .ant-tree-iconEle { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 36px; margin-right: 8px; color: var(--blue); vertical-align: top; }
-.resource-tree .ant-tree-title { white-space: normal; overflow-wrap: anywhere; }
+.resource-tree, .outline-tree.ant-tree { background: transparent; font-family: var(--font-ui); font-size: var(--text-body); }
+.resource-tree .resource-tree-item { align-items: center; min-height: 36px; margin-bottom: 0; }
+.resource-tree .resource-tree-switcher { display: flex; align-items: center; justify-content: center; flex: 0 0 20px; align-self: stretch; color: var(--icon-muted); }
+.resource-tree .resource-tree-title { display: block; width: 100%; min-width: 0; }
+.resource-tree-label { width: 100%; min-width: 0; height: 36px; }
+.resource-tree-label > .icon { width: 18px; height: 18px; color: var(--blue); }
+.resource-tree .resource-tree-caption { flex: 1; width: 0; min-width: 0; color: inherit; font: inherit; line-height: var(--line-body); }
+.resource-tree-chevron { display: inline-flex; width: 12px; height: 12px; }
+.resource-tree-chevron > .icon { width: 12px; height: 12px; }
 .resource-tree .category-node .ant-tree-node-selected { position: relative; color: var(--blue-strong); background: transparent; }
 .resource-tree .category-node .ant-tree-node-selected::before { content: ''; position: absolute; top: 10px; left: -2px; width: 2px; height: 16px; background: var(--blue); }
 .resource-tree .resource-node .ant-tree-node-selected { color: var(--skill-ink); background: var(--skill-selected); }
-.resource-tree .resource-node .ant-tree-node-selected .ant-tree-iconEle { color: var(--skill-icon); }
-.resource-tree .ant-tree-indent-unit { width: 18px; }
-.resource-tree .ant-tree-switcher .icon, .outline-tree .ant-tree-switcher .icon { width: 12px; height: 12px; }
-.resource-tree .ant-tree-switcher_open .icon, .outline-tree .ant-tree-switcher_open .icon { transform: rotate(90deg); }
+.resource-tree-item.resource-node[aria-selected='true'] .resource-tree-label > .icon { color: var(--skill-icon); }
+.outline-tree .ant-tree-switcher .icon { width: 12px; height: 12px; }
+.outline-tree .ant-tree-switcher_open .icon { transform: rotate(90deg); }
 .resource-tree .ant-tree-switcher-leaf-line::before, .resource-tree .ant-tree-switcher-leaf-line::after, .resource-tree .ant-tree-indent-unit::before { border-color: var(--tree-line); }
 .outline-tree.ant-tree .ant-tree-treenode { padding-bottom: 0; }
 .outline-tree .ant-tree-node-content-wrapper { position: relative; min-height: 35px; padding: 7px 4px; line-height: 21px; white-space: normal; overflow-wrap: anywhere; }

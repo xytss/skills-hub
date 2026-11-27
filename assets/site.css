@@ -234,12 +234,13 @@ select { font-size: var(--text-body); background: white; border: 1px solid #bfcf
 .catalog-panel > .panel-heading { flex-shrink: 0; }
 .catalog-content { flex: 1; min-height: 0; overflow-y: auto; }
 .preview-panel { min-height: 0; height: 100%; display: flex; flex-direction: column; }
-.preview-heading { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+.preview-heading { display: flex; align-items: flex-start; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
 .preview-symbol { display: inline-flex; justify-content: center; align-items: center; width: 36px; height: 36px; flex-shrink: 0; background: #edf4ff; color: var(--blue); border-radius: 6px; }
 .preview-symbol .icon { width: 23px; height: 23px; }
-.preview-identity { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; flex: 1; }
-.preview-identity h2 { margin: 0; font-size: var(--text-title); line-height: 1.4; overflow-wrap: anywhere; }
-.preview-actions { display: flex; gap: 5px; flex-shrink: 0; }
+.preview-identity { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; flex: 1; padding-block-start: max(0px, calc((36px - var(--text-title) * var(--line-title)) / 2)); }
+.preview-identity h2 { margin: 0; font-size: var(--text-title); line-height: var(--line-title); overflow-wrap: anywhere; }
+.preview-name-variant { display: inline-block; white-space: nowrap; }
+.preview-actions { display: flex; gap: 5px; flex-shrink: 0; padding-block-start: 2px; }
 .preview-actions .icon-button { width: 32px; height: 32px; border: 1px solid #dbe4ef; background: white; }
 .preview-actions .icon { width: 18px; height: 18px; }
 .preview-content { padding: 20px; min-height: 0; overflow-y: auto; flex: 1; overscroll-behavior: contain; }
