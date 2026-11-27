@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Breadcrumb, Button, Descriptions, Drawer, Flex, Modal, Segmented, Select, Steps, Table, Tabs, Tag, Tooltip } from 'antd';
+import { Breadcrumb, Button, Collapse, Descriptions, Drawer, Flex, Modal, Segmented, Select, Steps, Table, Tabs, Tag, Tooltip } from 'antd';
 import type { ReactNode } from 'react';
 import type { Skill } from '../types';
 import { REPOSITORY } from '../lib/catalog';
@@ -19,14 +19,14 @@ const agents = [
 
 const publisherLabels = { official: '官方', community: '社区', project: '本仓库' };
 
-function versionLabel(skill: Skill) {
-  if (skill.skillVersion) return `Skill v${skill.skillVersion}`;
+function productVersionLabel(skill: Skill) {
   const product = skill.productVersions[0];
   return product ? `${product.scope === 'target' ? '目标 ' : ''}${product.label} ${product.version}` : null;
 }
 function SkillVersionTag({ skill }: { skill: Skill }) {
-  const label = versionLabel(skill);
-  return label && <ResourceMetaTag>{label}</ResourceMetaTag>;
+  return skill.skillVersion
+    ? <ResourceMetaTag>Skill v{skill.skillVersion}</ResourceMetaTag>
+    : <Tag className="resource-meta-tag" variant="filled" styles={{ root: { color: 'var(--muted)', backgroundColor: 'var(--surface-code)' } }}>上游未标注</Tag>;
 }
 function SkillSymbol({ skill }: { skill: Skill }) { return <Icon name={skill.database ? 'database' : 'code'} />; }
 
@@ -42,10 +42,9 @@ function versionRows(skill: Skill): [string, ReactNode][] {
     if (products.length) productRows.push([scope === 'target' ? '目标版本' : scope === 'template' ? '模板版本' : '产品版本', <Flex vertical gap={4}>{products.map(product => <a key={product.name} href={product.versionSourceUrl} target="_blank" rel="noopener noreferrer">{product.label} {product.version}</a>)}</Flex>]);
   }
   return [
-    ...(skill.skillVersion ? [['Skill 版本', <a href={skill.skillVersionSource!} target="_blank" rel="noopener noreferrer">v{skill.skillVersion}</a>] as [string, ReactNode]] : []),
+    ['Skill 版本', skill.skillVersion ? <a href={skill.skillVersionSource!} target="_blank" rel="noopener noreferrer">v{skill.skillVersion}</a> : <span className="version-status-text">上游未标注</span>],
     ['适用范围', skill.compatibleVersions],
     ...productRows,
-    ['源码修订', <a href={skill.sourceRevision.pinnedSourceUrl} target="_blank" rel="noopener noreferrer"><code>{skill.sourceRevision.commit.slice(0, 7)}</code></a>],
     ['核验日期', skill.verifiedAt]
   ];
 }
@@ -66,7 +65,7 @@ function Preview({ skill, skills, onRelatedSelect, onExpand, onClose }: { skill:
   const [name, variant] = skill.displayName.split(/(?=（)/u);
   return <aside className="panel preview-panel" aria-label={skill.displayName}>
     <header className="preview-heading"><span className="preview-symbol"><SkillSymbol skill={skill} /></span><div className="preview-identity"><h2>{name}{variant && <span className="preview-name-variant">{variant}</span>}</h2><SkillVersionTag skill={skill} /></div><div className="preview-actions">{onExpand && <Tooltip title="展开知识卡片" trigger={['hover', 'focus']}><Button className="icon-button" type="text" aria-label="展开知识卡片" icon={<Icon name="expand" />} onClick={onExpand} /></Tooltip>}{onClose && <Tooltip title="关闭知识预览" trigger={['hover', 'focus']}><Button className="icon-button" type="text" aria-label="关闭知识预览" icon={<Icon name="close" />} onClick={onClose} /></Tooltip>}</div></header>
-    <div className="preview-content"><Section title="用途"><p>{skill.details.purpose}</p></Section><Section title="版本与来源"><VersionFacts skill={skill} /></Section><Section title="输入与输出"><Scenarios skill={skill} /></Section><Section title="调用示例"><p className="preview-example">{skill.details.example}</p></Section><RelatedSkills skill={skill} skills={skills} onSelect={onRelatedSelect} /></div>
+    <div className="preview-content"><Section title="用途"><p>{skill.details.purpose}</p></Section><Section title="版本信息"><VersionFacts skill={skill} /></Section><Section title="输入与输出"><Scenarios skill={skill} /></Section><Section title="调用示例"><p className="preview-example">{skill.details.example}</p></Section><RelatedSkills skill={skill} skills={skills} onSelect={onRelatedSelect} /></div>
     <footer className="preview-footer"><ResourceLinks skill={skill} /></footer>
   </aside>;
 }
@@ -80,11 +79,11 @@ function InstallWidget({ skill, skills, agentName, setAgent, mode, setMode }: { 
   const replacement = conflicts.length ? `此目录与 ${conflicts.map(item => `${item.displayName}（${item.sourceRepo}）`).join('、')} 共用。本次选择 ${skill.sourceRepo}；已有同名技能时，按 ${agent.name} 的安装规范更新为所选来源，保持 SKILL.md 与配套文件来自同一来源。` : '';
   const prompt = [
     `请从 ${skill.sourceUrl} 安装 ${skill.name}，按 ${agent.name} 的 Skill 规范配置。`,
-    `来源仓库：${skill.sourceRepo}；核验修订：${skill.sourceRevision.commit.slice(0, 7)}。`,
+    `来源仓库：${skill.sourceRepo}。`,
     `安装目录：${directory}`,
     replacement,
     local ? '阅读仓库安装说明与 SKILL.md。' : `上游安装指引：\n${skill.installPrompt}`,
-    '检查已有版本，保留 SKILL.md 与配套文件，完成后返回来源、安装位置、验证结果和调用方式。'
+    '检查已有安装与来源，保留 SKILL.md 与配套文件，完成后返回来源、安装位置、验证结果和调用方式。'
   ].filter(Boolean).join('\n');
   const command = local ? [
     `if (-not (Test-Path -LiteralPath './skills-hub')) {`,
@@ -116,7 +115,13 @@ function Specification({ skill }: { skill: Skill }) {
   const rows: [string, ReactNode][] = [['名称', skill.name], ['显示名称', skill.title], ['技能来源', publisherLabels[skill.publisherType]], ...versionRows(skill), ['上游仓库', <a href={`https://github.com/${skill.sourceRepo}`} target="_blank" rel="noopener noreferrer">{skill.sourceRepo}</a>], ['主要分类', skill.navigation_path.join(' · ')], ['适用场景', skill.details.scenarios.map(item => item.name).join('、')], ['输入材料', skill.details.scenarios.map(item => item.input).join('；')], ['输出内容', skill.details.scenarios.map(item => item.output).join('；')], ...documentRows];
   if (skill.database) rows.splice(3, 0, ['默认数据库', skill.database]);
   if (skill.license) rows.push(['许可证', skill.license]);
-  return <Descriptions className="resource-descriptions specification-descriptions" size="small" bordered column={1} colon={false} classNames={{ label: 'resource-field-label', content: 'resource-field-value' }} items={rows.map(([label, children], index) => ({ key: `${label}-${index}`, label, children }))} />;
+  return <Flex vertical gap={16}>
+    <Descriptions className="resource-descriptions specification-descriptions" size="small" bordered column={1} colon={false} classNames={{ label: 'resource-field-label', content: 'resource-field-value' }} items={rows.map(([label, children], index) => ({ key: `${label}-${index}`, label, children }))} />
+    <Collapse key={skill.id} ghost size="small" styles={{ header: { padding: 0 }, body: { padding: '12px 0 0' } }} items={[{ key: 'source', label: '来源详情', children: <Descriptions className="resource-descriptions specification-descriptions" size="small" bordered column={1} colon={false} classNames={{ label: 'resource-field-label', content: 'resource-field-value' }} items={[
+      { key: 'snapshot', label: '源码快照', children: <a href={skill.sourceRevision.pinnedSourceUrl} target="_blank" rel="noopener noreferrer">查看核验时的原文</a> },
+      { key: 'commit', label: '提交记录', children: <a href={`https://github.com/${skill.sourceRepo}/commit/${skill.sourceRevision.commit}`} target="_blank" rel="noopener noreferrer">查看对应提交</a> }
+    ]} /> }]} />
+  </Flex>;
 }
 
 export default function SkillsPage({ skills }: { skills: Skill[] }) {
@@ -189,10 +194,11 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
       {!small && catalog}
       <div className="workspace-main">
         <section className="panel skills-panel" aria-labelledby="workspace-title"><header className="panel-heading"><div className="heading-group">{category.length > 1 && <><Breadcrumb className="skill-breadcrumb" aria-label="上级分类" items={category.slice(0, -1).map((part, index) => ({ title: <Button type="link" className="breadcrumb-button" onClick={() => selectCategory(category.slice(0, index + 1))}>{part}</Button> }))} /><span className="breadcrumb-separator" aria-hidden="true">/</span></>}<h1 id="workspace-title" tabIndex={-1}>{category.at(-1)}</h1><ResourceMetaTag>{filtered.length} 项 Skill</ResourceMetaTag></div><Segmented aria-label="Skill 展示方式" value={view} onChange={updateView} options={[{ value: 'cards', label: '卡片', icon: <Icon name="layers" /> }, { value: 'table', label: '表格', icon: <Icon name="table" /> }]} /></header><div className="skill-content">
-          {view === 'cards' ? filtered.map(skill => <article className="skill-card" key={skill.id}><div className="skill-card-head"><div className="skill-identity"><span className="skill-symbol"><SkillSymbol skill={skill} /></span><div className="skill-info"><div className="skill-title"><h3><Button type="text" className="skill-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button></h3><SkillVersionTag skill={skill} /></div><p>{skill.description}</p></div></div></div><div className="skill-metadata">{skill.database ? <span className="metadata-item"><Icon name="database" />{skill.database}</span> : <Flex className="skill-tags" wrap gap={4}><Tag>{publisherLabels[skill.publisherType]}</Tag>{skill.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Flex>}<span>Codex · Claude Code · Cursor 等</span></div><div className="skill-actions"><Button onClick={() => openDetails(skill)}>展开详情</Button></div></article>) : <Table className="skills-table" size="small" pagination={false} rowKey="id" dataSource={filtered} rowClassName={skill => skill.id === selected.id ? 'is-selected' : ''} columns={[
-            { title: 'Skill', dataIndex: 'name', width: '32%', render: (_, skill) => <div className="table-skill"><Button type="link" className="table-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button><span className="table-database">{publisherLabels[skill.publisherType]} · {skill.tags.join(' · ')}</span></div> },
-            { title: '适用任务', render: (_, skill) => skill.details.scenarios.map(item => item.name).join(' · ') }, { title: '版本', width: '22%', render: (_, skill) => versionLabel(skill) ? <SkillVersionTag skill={skill} /> : <span className="revision-label">修订 {skill.sourceRevision.commit.slice(0, 7)}</span> },
-            { title: '操作', width: '18%', render: (_, skill) => <Button type="link" size="small" aria-label={`在侧栏预览 ${skill.displayName}`} onClick={() => preview(skill)}>预览</Button> }
+          {view === 'cards' ? filtered.map(skill => <article className="skill-card" key={skill.id}><div className="skill-card-head"><div className="skill-identity"><span className="skill-symbol"><SkillSymbol skill={skill} /></span><div className="skill-info"><div className="skill-title"><h3><Button type="text" className="skill-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button></h3><SkillVersionTag skill={skill} /></div><p>{skill.description}</p></div></div></div><div className="skill-metadata">{skill.database ? <span className="metadata-item"><Icon name="database" />{skill.database}</span> : <Flex className="skill-tags" wrap gap={4}><Tag>{publisherLabels[skill.publisherType]}</Tag>{skill.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Flex>}{skill.productVersions.length > 0 && <span className="skill-product-version">{productVersionLabel(skill)}</span>}</div><div className="skill-actions"><Button onClick={() => openDetails(skill)}>展开详情</Button></div></article>) : <Table className="skills-table" size="small" pagination={false} rowKey="id" dataSource={filtered} rowClassName={skill => skill.id === selected.id ? 'is-selected' : ''} columns={[
+            { title: 'Skill', dataIndex: 'name', width: '38%', render: (_, skill) => <div className="table-skill"><Button type="link" className="table-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button><span className="table-database">{publisherLabels[skill.publisherType]} · {skill.tags.join(' · ')}</span></div> },
+            { title: 'Skill 版本', width: '22%', render: (_, skill) => <SkillVersionTag skill={skill} /> },
+            { title: '关联版本', width: '28%', render: (_, skill) => productVersionLabel(skill) ?? '—' },
+            { title: '操作', width: '12%', render: (_, skill) => <Button type="link" size="small" aria-label={`在侧栏预览 ${skill.displayName}`} onClick={() => preview(skill)}>预览</Button> }
           ]} />}
         </div></section>
         <section className="panel install-panel" id="install"><header className="install-heading"><h2>安装</h2><span className="install-target">{selected.displayName}<SkillVersionTag skill={selected} /></span></header><InstallWidget {...installProps} /></section>

@@ -115,7 +115,7 @@
 .breadcrumb-button.ant-btn:hover { color: var(--blue); }
 .version-descriptions .resource-field-label { width: 78px; color: var(--muted); }
 .version-descriptions .resource-field-value { color: var(--ink); }
-.revision-label { color: var(--muted); font-size: var(--text-xs); white-space: nowrap; }
+.version-status-text { color: var(--muted); }
 .related-skills { list-style: none; margin: 0; padding: 0; }
 .related-skills li + li { margin-top: 12px; }
 .related-skill-button.ant-btn { height: auto; max-width: 100%; padding: 0; text-align: left; white-space: normal; overflow-wrap: anywhere; font-size: var(--text-body); }
