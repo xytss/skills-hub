@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Button, ConfigProvider, Descriptions, Drawer, Flex, Modal, Steps, Tabs, Tag, Tooltip, Tree, Typography } from 'antd';
 import type { DataNode } from 'antd/es/tree';
 import Markdown from 'react-markdown';
@@ -12,6 +12,15 @@ import { Icon } from '../components/Icon';
 import { CopyButton } from '../components/CopyButton';
 import { ResourceTree } from '../components/ResourceTree';
 import { ResourceMetaTag } from '../components/ResourceMetaTag';
+
+function OutlineLink({ id, title, current }: { id: string; title: string; current: boolean }) {
+  const link = useRef<HTMLAnchorElement>(null);
+  useLayoutEffect(() => { if (current) link.current!.scrollIntoView({ block: 'nearest' }); }, [current]);
+  return <a ref={link} href={`#${id}`} aria-current={current ? 'location' : undefined} onClick={event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) event.stopPropagation();
+    else event.preventDefault();
+  }}>{title}</a>;
+}
 
 function PromptGuide({ prompt, onExpand }: { prompt: Prompt; onExpand?: () => void }) {
   const titleId = useId();
@@ -39,6 +48,9 @@ function PromptContent({ prompt, prompts }: { prompt: Prompt; prompts: Prompt[] 
   const pendingNavigation = useRef('');
   useEffect(() => {
     const controller = new AbortController();
+    const url = new URL(location.href);
+    url.searchParams.set('prompt', prompt.name);
+    history.replaceState(null, '', url);
     fetch(assetUrl(prompt.entry), { signal: controller.signal }).then(response => { if (!response.ok) throw new Error(`提示词读取失败：HTTP ${response.status}`); return response.text(); }).then(setRaw).catch(error => { if (error.name !== 'AbortError') { console.error(error); setError(error.message); } });
     document.title = `${prompt.name} · 全局提示词 · Skills Hub`;
     return () => controller.abort();
@@ -63,7 +75,7 @@ function PromptContent({ prompt, prompts }: { prompt: Prompt; prompts: Prompt[] 
   const fileActions = <div className="prompt-file-actions"><Button className="prompt-file-button" type="text" size="small" href={download || undefined} download={`${prompt.name}.md`} disabled={!raw} icon={<Icon name="download" />}>下载文件</Button><Button className="prompt-file-button" type="text" size="small" href={fileUrl(prompt.entry)} target="_blank" rel="noopener noreferrer" icon={<Icon name="external" />}>查看源码</Button></div>;
   const navigation = <aside id="prompt-navigation" className="panel prompt-navigation" aria-label="提示词导航">
         <section className="prompt-categories"><header className="panel-heading"><h2>分类目录</h2></header><div className="prompt-catalog"><ResourceTree resources={prompts} selected={prompt.name} category={prompt.navigation_path} onSelect={node => { if (node.kind === 'resource') location.href = `?prompt=${encodeURIComponent(node.resource!)}`; }} /></div></section>
-        <nav className="prompt-outline" aria-labelledby="outline-title"><h2 id="outline-title">大纲树</h2><ConfigProvider theme={{ components: { Tree: { nodeSelectedBg: 'transparent' } } }}><Tree className="outline-tree" aria-label="大纲树" treeData={entries.map(outlineNode)} virtual={false} blockNode switcherIcon={<Icon name="chevron" />} selectedKeys={[outline.active]} expandedKeys={outline.expanded} autoExpandParent={false} onExpand={keys => outline.setExpanded(keys.map(String))} onSelect={(_, info) => navigateOutline(String(info.node.key))} titleRender={node => <a href={`#${node.key}`} aria-current={outline.active === node.key ? 'location' : undefined} onClick={event => event.preventDefault()}>{node.title as string}</a>} /></ConfigProvider></nav>
+        <nav className="prompt-outline" aria-labelledby="outline-title"><h2 id="outline-title">大纲树</h2><div className="outline-content"><ConfigProvider theme={{ components: { Tree: { nodeSelectedBg: 'transparent' } } }}><Tree className="outline-tree" aria-label="大纲树" treeData={entries.map(outlineNode)} virtual={false} motion={null} blockNode switcherIcon={<Icon name="chevron" />} selectedKeys={[outline.active]} expandedKeys={outline.expanded} autoExpandParent={false} onExpand={keys => outline.setExpanded(keys.map(String))} onSelect={(_, info) => navigateOutline(String(info.node.key))} titleRender={node => <OutlineLink id={String(node.key)} title={node.title as string} current={outline.active === node.key} />} /></ConfigProvider></div></nav>
       </aside>;
   return <main className="page">
     <div className="prompt-mobile-controls"><Button id="prompt-catalog-toggle" icon={<Icon name="folder" />} aria-expanded={catalogOpen} aria-controls="prompt-navigation" onClick={() => setCatalogOpen(!catalogOpen)}>目录与大纲</Button><Button aria-label="使用说明" icon={small ? undefined : <Icon name="book" />} onClick={() => setGuideOpen(true)}>{compact ? '说明' : '使用说明'}</Button>{small && <CopyButton text={raw} label="复制全文" disabled={!raw} />}</div>
@@ -72,8 +84,8 @@ function PromptContent({ prompt, prompts }: { prompt: Prompt; prompts: Prompt[] 
       <section className="panel prompt-reader" aria-labelledby="prompt-title" aria-busy={!raw && !error}>
         <header className="prompt-header"><div className="prompt-heading-row"><div className="prompt-identity"><span className="skill-symbol"><Icon name="file" /></span><div><Flex className="prompt-title-row" align="center" gap={10} wrap><h1 id="prompt-title" tabIndex={-1}>{prompt.name}</h1><ResourceMetaTag>v{prompt.version}</ResourceMetaTag></Flex><p>{prompt.agent} / {prompt.system} / {prompt.shell}</p></div></div>{!small && <CopyButton text={raw} label="复制全文" disabled={!raw} />}</div><Typography.Paragraph className="prompt-description" ellipsis={small ? { rows: 2, expandable: 'collapsible', symbol: expanded => expanded ? '收起' : '展开' } : false}>{prompt.description}</Typography.Paragraph></header>
         <Tabs className="reader-tabs" classNames={{ header: 'reader-tabs-header', item: 'reader-tabs-item', body: 'reader-tabs-body', content: 'reader-tabs-content' }} activeKey={tab} onChange={setTab} tabBarExtraContent={compact ? undefined : fileActions} renderTabBar={(props, DefaultTabBar) => <><DefaultTabBar {...props} />{compact && <div className="mobile-file-actions">{fileActions}</div>}</>} items={[
-          { key: 'document', label: '正文', forceRender: true, children: <div className="prompt-scroll document-scroll" ref={scrollRef}><article className="prompt-document" id="panel-document">{error ? <p role="alert">{error}</p> : raw ? <Markdown remarkPlugins={plugins}>{raw}</Markdown> : <p className="loading">正在读取提示词…</p>}</article></div> },
-          { key: 'markdown', label: '原始 Markdown', forceRender: true, children: <div className="prompt-scroll markdown-scroll"><pre className="prompt-markdown" id="prompt-markdown">{raw}</pre></div> }
+          { key: 'document', label: '正文', forceRender: true, children: <div className="prompt-scroll document-scroll" ref={scrollRef} role="region" aria-label="提示词正文" tabIndex={0}><article className="prompt-document" id="panel-document">{error ? <p role="alert">{error}</p> : raw ? <Markdown remarkPlugins={plugins}>{raw}</Markdown> : <p className="loading">正在读取提示词…</p>}</article></div> },
+          { key: 'markdown', label: '原始 Markdown', forceRender: true, children: <div className="prompt-scroll markdown-scroll" role="region" aria-label="原始 Markdown 内容" tabIndex={0}><pre className="prompt-markdown" id="prompt-markdown">{raw}</pre></div> }
         ]} />
       </section>
       {!narrow && <PromptGuide prompt={prompt} onExpand={() => setGuideOpen(true)} />}

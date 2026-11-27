@@ -12,7 +12,7 @@ export function usePromptOutline(entries: OutlineEntry[], scrollRef: RefObject<H
   const select = useCallback((entry: OutlineEntry) => {
     setActive(entry.id);
     if (activeSection.current !== entry.section) { setExpanded([entry.section, ...entry.parents]); activeSection.current = entry.section; }
-    else setExpanded(keys => [...new Set([...keys, ...entry.parents])]);
+    else setExpanded(keys => entry.parents.every(parent => keys.includes(parent)) ? keys : [...new Set([...keys, ...entry.parents])]);
   }, []);
   const navigate = useCallback((id: string, history = true) => {
     const entry = targets.find(item => item.id === id);
@@ -26,7 +26,9 @@ export function usePromptOutline(entries: OutlineEntry[], scrollRef: RefObject<H
       pending.current = entry;
       (small ? window : root).scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
       select(entry); node.focus({ preventScroll: true });
-      if (history) window.history.pushState(null, '', `?prompt=${encodeURIComponent(new URLSearchParams(location.search).get('prompt') || 'codex-win')}#${encodeURIComponent(id)}`);
+      const url = new URL(location.href);
+      url.hash = id;
+      if (history && url.href !== location.href) window.history.pushState(null, '', url);
     });
   }, [targets, small, onDocument, select, scrollRef]);
   useEffect(() => {
