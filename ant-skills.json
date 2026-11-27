@@ -47,14 +47,15 @@
       "commit": "a79207836fa1e29b442cd3e88320b94e2a094da9",
       "pinnedSourceUrl": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/a79207836fa1e29b442cd3e88320b94e2a094da9/ant-design-skill/SKILL.md"
     },
-    "docsUrl": "https://ant.design/docs/spec/introduce/",
+    "docsUrl": "https://ant.design/docs/spec/layout-cn/",
     "verifiedAt": "2026-11-27",
     "relatedSkills": [
       {
         "id": "ant-design-official",
         "reason": "确定页面结构后，用这份开发指南选择组件、主题和工程方案。"
       }
-    ]
+    ],
+    "docsTitle": "界面布局规范"
   },
   {
     "id": "antd-theme-customization",
@@ -97,9 +98,10 @@
       "commit": "768405c1019435763adab015d47bf503505340d6",
       "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-theme-customization/SKILL.md"
     },
-    "docsUrl": "https://ant.design/docs/react/customize-theme/",
+    "docsUrl": "https://ant.design/docs/react/customize-theme-cn/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "Design Token 指南"
   },
   {
     "id": "ant-design-visual-design",
@@ -142,14 +144,15 @@
       "commit": "6195a0e1869efc8ebef01e5b93dbc20806f0cf84",
       "pinnedSourceUrl": "https://github.com/hidekatsu-izuno/design-system-skills/blob/6195a0e1869efc8ebef01e5b93dbc20806f0cf84/skills/ant-design/SKILL.md"
     },
-    "docsUrl": "https://ant.design/docs/spec/introduce/",
+    "docsUrl": "https://ant.design/docs/spec/introduce-cn/",
     "verifiedAt": "2026-11-27",
     "relatedSkills": [
       {
         "id": "ant-design-official",
         "reason": "侧重组件选型与开发决策；与当前技能共用 ant-design 安装名称。"
       }
-    ]
+    ],
+    "docsTitle": "设计语言规范"
   },
   {
     "id": "ant-design-official",
@@ -199,7 +202,7 @@
       "commit": "e65d2d3da9a2a129885131f5aeffe2c9037f83cb",
       "pinnedSourceUrl": "https://github.com/ant-design/antd-skill/blob/e65d2d3da9a2a129885131f5aeffe2c9037f83cb/skills/ant-design/SKILL.md"
     },
-    "docsUrl": "https://ant.design/",
+    "docsUrl": "https://ant.design/docs/react/introduce-cn/",
     "verifiedAt": "2026-11-27",
     "relatedSkills": [
       {
@@ -210,7 +213,8 @@
         "id": "ant-design-visual-design",
         "reason": "侧重视觉语言与原型设计；与当前技能共用 ant-design 安装名称。"
       }
-    ]
+    ],
+    "docsTitle": "React 开发指南"
   },
   {
     "id": "antd-cli-skill",
@@ -253,14 +257,15 @@
       "commit": "b82d656ae100e241b4c1166b9547382656c10f43",
       "pinnedSourceUrl": "https://github.com/ant-design/ant-design-cli/blob/b82d656ae100e241b4c1166b9547382656c10f43/skills/antd/SKILL.md"
     },
-    "docsUrl": "https://ant.design/docs/react/cli/",
+    "docsUrl": "https://ant.design/docs/react/cli-cn/",
     "verifiedAt": "2026-11-27",
     "relatedSkills": [
       {
         "id": "antd-component-lookup",
         "reason": "需要直接阅读官网组件文档时，可使用这份查询指南。"
       }
-    ]
+    ],
+    "docsTitle": "CLI 使用指南"
   },
   {
     "id": "antd-component-lookup",
@@ -303,14 +308,15 @@
       "commit": "768405c1019435763adab015d47bf503505340d6",
       "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-component-lookup/SKILL.md"
     },
-    "docsUrl": "https://ant.design/components/overview/",
+    "docsUrl": "https://ant.design/components/overview-cn/",
     "verifiedAt": "2026-11-27",
     "relatedSkills": [
       {
         "id": "antd-cli-skill",
         "reason": "需要离线查询、版本匹配和弃用检查时，选择 CLI 指南。"
       }
-    ]
+    ],
+    "docsTitle": "Ant Design 组件目录"
   },
   {
     "id": "ant-design-react-community",
@@ -353,9 +359,10 @@
       "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
       "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-react/SKILL.md"
     },
-    "docsUrl": "https://4x.ant.design/",
+    "docsUrl": "https://4x.ant.design/docs/react/introduce-cn",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "React v4 开发指南"
   },
   {
     "id": "antd-migration",
@@ -398,9 +405,10 @@
       "commit": "768405c1019435763adab015d47bf503505340d6",
       "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-migration/SKILL.md"
     },
-    "docsUrl": "https://5x.ant.design/docs/react/migration-v5/",
+    "docsUrl": "https://5x.ant.design/docs/react/migration-v5-cn/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "v4 → v5 迁移指南"
   },
   {
     "id": "pro-upgrade",
@@ -443,9 +451,10 @@
       "commit": "c70e0d89525933c4dab373143d486c93331392fb",
       "pinnedSourceUrl": "https://github.com/ant-design/ant-design-pro/blob/c70e0d89525933c4dab373143d486c93331392fb/.claude/skills/pro-upgrade/SKILL.md"
     },
-    "docsUrl": "https://github.com/ant-design/ant-design-pro/blob/master/docs/cheatsheet.en-US.md",
+    "docsUrl": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "Pro 升级流程"
   },
   {
     "id": "umi-max",
@@ -488,9 +497,10 @@
       "commit": "0d1607028b1d70b6dbb04a0fbd06f00e9e1de14d",
       "pinnedSourceUrl": "https://github.com/mik284/umi-max-enterprise/blob/0d1607028b1d70b6dbb04a0fbd06f00e9e1de14d/SKILL.md"
     },
-    "docsUrl": "https://umijs.org/",
+    "docsUrl": "https://umijs.org/docs/max/introduce/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "Umi Max 开发指南"
   },
   {
     "id": "x-components",
@@ -533,9 +543,10 @@
       "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
       "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-components/SKILL.md"
     },
-    "docsUrl": "https://x.ant.design/components/introduce/",
+    "docsUrl": "https://x.ant.design/components/overview-cn/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "AI 组件目录"
   },
   {
     "id": "use-x-chat",
@@ -578,9 +589,10 @@
       "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
       "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/use-x-chat/SKILL.md"
     },
-    "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+    "docsUrl": "https://x.ant.design/x-sdks/use-x-chat-cn/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "useXChat API"
   },
   {
     "id": "x-chat-provider",
@@ -623,9 +635,10 @@
       "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
       "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-chat-provider/SKILL.md"
     },
-    "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+    "docsUrl": "https://x.ant.design/x-sdks/chat-provider-custom-cn/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "自定义 Provider"
   },
   {
     "id": "x-request",
@@ -668,9 +681,10 @@
       "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
       "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-request/SKILL.md"
     },
-    "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+    "docsUrl": "https://x.ant.design/x-sdks/x-request-cn/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "XRequest API"
   },
   {
     "id": "x-markdown",
@@ -713,9 +727,10 @@
       "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
       "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-markdown/SKILL.md"
     },
-    "docsUrl": "https://x.ant.design/x-markdowns/introduce/",
+    "docsUrl": "https://x.ant.design/x-markdowns/examples-cn/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "XMarkdown 示例与 API"
   },
   {
     "id": "x-card",
@@ -758,9 +773,10 @@
       "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
       "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-card/SKILL.md"
     },
-    "docsUrl": "https://x.ant.design/x-cards/introduce/",
+    "docsUrl": "https://x.ant.design/x-cards/introduce-cn/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "XCard 开发指南"
   },
   {
     "id": "ant-design-vue",
@@ -803,9 +819,10 @@
       "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
       "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-vue/SKILL.md"
     },
-    "docsUrl": "https://www.antdv.com/",
+    "docsUrl": "https://www.antdv.com/docs/vue/getting-started-cn",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "Vue 3 快速上手"
   },
   {
     "id": "ant-design-mobile",
@@ -850,7 +867,8 @@
     },
     "docsUrl": "https://mobile.ant.design/zh/guide/quick-start/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "Mobile 快速上手"
   },
   {
     "id": "ant-design-mini",
@@ -893,9 +911,10 @@
       "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
       "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-mini/SKILL.md"
     },
-    "docsUrl": "https://mini.ant.design/",
+    "docsUrl": "https://mini.ant.design/guide/quick-start",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "Mini 快速上手"
   },
   {
     "id": "antv-g2-chart",
@@ -938,9 +957,10 @@
       "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
       "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-g2-chart/SKILL.md"
     },
-    "docsUrl": "https://g2.antv.antgroup.com/",
+    "docsUrl": "https://g2.antv.antgroup.com/zh/manual/quick-start/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "G2 快速上手"
   },
   {
     "id": "antv-t8-ntv",
@@ -983,9 +1003,10 @@
       "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
       "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-t8-ntv/SKILL.md"
     },
-    "docsUrl": "https://github.com/antvis/T8/blob/main/README.md",
+    "docsUrl": "https://t8.antv.vision/zh/tutorial/quick-start",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "T8 快速开始"
   },
   {
     "id": "antv-g6-graph",
@@ -1028,9 +1049,10 @@
       "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
       "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-g6-graph/SKILL.md"
     },
-    "docsUrl": "https://g6.antv.antgroup.com/",
+    "docsUrl": "https://g6.antv.antgroup.com/zh/manual/getting-started/quick-start/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "G6 快速开始"
   },
   {
     "id": "antv-x6-editor",
@@ -1073,9 +1095,10 @@
       "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
       "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-x6-editor/SKILL.md"
     },
-    "docsUrl": "https://x6.antv.antgroup.com/",
+    "docsUrl": "https://x6.antv.antgroup.com/zh/tutorial/getting-started/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "X6 快速上手"
   },
   {
     "id": "antv-l7",
@@ -1118,9 +1141,10 @@
       "commit": "f022a1406260cf909123a2ce361440512877afdb",
       "pinnedSourceUrl": "https://github.com/antvis/L7/blob/f022a1406260cf909123a2ce361440512877afdb/skills/l7/SKILL.md"
     },
-    "docsUrl": "https://l7.antv.antgroup.com/",
+    "docsUrl": "https://l7.antv.antgroup.com/zh/tutorial/quickstart/",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "L7 快速上手"
   },
   {
     "id": "chart-visualization-image",
@@ -1162,7 +1186,8 @@
         "id": "chart-visualization-gpt-vis",
         "reason": "需要可嵌入页面的 JSON、流式语法或代码时，选择 GPT-Vis 集成版；两者共用安装名称。"
       }
-    ]
+    ],
+    "docsTitle": "图表生成接口"
   },
   {
     "id": "chart-visualization-gpt-vis",
@@ -1216,7 +1241,8 @@
         "id": "antv-gpt-vis",
         "reason": "同样面向 GPT-Vis 集成，由集中技能仓库维护，可作为关联指南。"
       }
-    ]
+    ],
+    "docsTitle": "GPT-Vis Skill 指南"
   },
   {
     "id": "antv-gpt-vis",
@@ -1259,14 +1285,15 @@
       "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
       "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-gpt-vis/SKILL.md"
     },
-    "docsUrl": "https://gpt-vis.antv.vision/docs",
+    "docsUrl": "https://gpt-vis.antv.vision/docs/quickstart",
     "verifiedAt": "2026-11-27",
     "relatedSkills": [
       {
         "id": "chart-visualization-gpt-vis",
         "reason": "GPT-Vis 主仓库随项目维护的集成指南，适合优先查阅当前产品用法。"
       }
-    ]
+    ],
+    "docsTitle": "GPT-Vis SDK 入门"
   },
   {
     "id": "infographic-creator",
@@ -1309,7 +1336,7 @@
       "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
       "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-creator/SKILL.md"
     },
-    "docsUrl": "https://infographic.antv.vision/",
+    "docsUrl": "https://infographic.antv.vision/learn/infographic-syntax",
     "verifiedAt": "2026-11-27",
     "relatedSkills": [
       {
@@ -1320,7 +1347,8 @@
         "id": "infographic-syntax-creator",
         "reason": "只需声明式 DSL 配置时，使用语法生成技能。"
       }
-    ]
+    ],
+    "docsTitle": "信息图生成语法"
   },
   {
     "id": "antv-infographic",
@@ -1363,14 +1391,15 @@
       "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
       "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-infographic/SKILL.md"
     },
-    "docsUrl": "https://infographic.antv.vision/",
+    "docsUrl": "https://infographic.antv.vision/learn",
     "verifiedAt": "2026-11-27",
     "relatedSkills": [
       {
         "id": "infographic-creator",
         "reason": "需要从文字材料生成完整 HTML 并导出 SVG 时，选择此技能。"
       }
-    ]
+    ],
+    "docsTitle": "Infographic 快速开始"
   },
   {
     "id": "infographic-syntax-creator",
@@ -1413,9 +1442,10 @@
       "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
       "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-syntax-creator/SKILL.md"
     },
-    "docsUrl": "https://infographic.antv.vision/",
+    "docsUrl": "https://infographic.antv.vision/learn/infographic-syntax",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "信息图语法"
   },
   {
     "id": "infographic-structure-creator",
@@ -1458,9 +1488,10 @@
       "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
       "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-structure-creator/SKILL.md"
     },
-    "docsUrl": "https://infographic.antv.vision/",
+    "docsUrl": "https://infographic.antv.vision/learn/custom-structure",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "自定义结构指南"
   },
   {
     "id": "infographic-item-creator",
@@ -1503,9 +1534,10 @@
       "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
       "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-item-creator/SKILL.md"
     },
-    "docsUrl": "https://infographic.antv.vision/",
+    "docsUrl": "https://infographic.antv.vision/learn/custom-items",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "自定义数据项指南"
   },
   {
     "id": "infographic-template-updater",
@@ -1548,9 +1580,10 @@
       "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
       "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-template-updater/SKILL.md"
     },
-    "docsUrl": "https://infographic.antv.vision/",
+    "docsUrl": "https://infographic.antv.vision/learn/custom-template",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "自定义模板指南"
   },
   {
     "id": "icon-retrieval",
@@ -1587,6 +1620,7 @@
     },
     "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
     "verifiedAt": "2026-11-27",
-    "relatedSkills": []
+    "relatedSkills": [],
+    "docsTitle": "图标检索接口"
   }
 ]

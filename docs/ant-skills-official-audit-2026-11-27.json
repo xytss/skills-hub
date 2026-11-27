@@ -338,8 +338,8 @@
       },
       "sourceUrl": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/main/ant-design-skill/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://ant.design/docs/spec/introduce/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://ant.design/docs/spec/layout-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "React 19、antd 6、ProComponents ^2.7.0",
       "currentPackages": [
         {
@@ -355,7 +355,8 @@
       ],
       "notes": [
         "技能版本来自 CHANGELOG；SKILL.md 头部未单列版本。"
-      ]
+      ],
+      "docsTitle": "界面布局规范"
     },
     {
       "id": "ant-design-official",
@@ -383,8 +384,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/antd-skill/blob/main/skills/ant-design/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://ant.design/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://ant.design/docs/react/introduce-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "antd 6、Pro 5 / ProComponents、X 2",
       "currentPackages": [
         {
@@ -400,7 +401,8 @@
       ],
       "notes": [
         "技能明确列出 Pro 5；当前 Pro 模板 package.json 为 6.0.3，应分开记录。"
-      ]
+      ],
+      "docsTitle": "React 开发指南"
     },
     {
       "id": "antd-cli-skill",
@@ -428,8 +430,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/ant-design-cli/blob/main/skills/antd/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://ant.design/docs/react/cli/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://ant.design/docs/react/cli-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "按 antd 版本查询；含 v3→v4、v4→v5、v5→v6 迁移指导",
       "currentPackages": [
         {
@@ -438,7 +440,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fcli/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "CLI 使用指南"
     },
     {
       "id": "antd-theme-customization",
@@ -466,8 +469,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-theme-customization/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://ant.design/docs/react/customize-theme/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://ant.design/docs/react/customize-theme-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "主题指南包含 v5 样式体系说明；落地时按目标 antd 版本查询",
       "currentPackages": [
         {
@@ -476,7 +479,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/antd/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "Design Token 指南"
     },
     {
       "id": "antd-component-lookup",
@@ -504,8 +508,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-component-lookup/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://ant.design/components/overview/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://ant.design/components/overview-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "跟随目标版本的官方组件文档",
       "currentPackages": [
         {
@@ -514,7 +518,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/antd/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "Ant Design 组件目录"
     },
     {
       "id": "antd-migration",
@@ -542,8 +547,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-migration/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://5x.ant.design/docs/react/migration-v5/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://5x.ant.design/docs/react/migration-v5-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "antd 4 → 5",
       "currentPackages": [],
       "relatedVersions": {
@@ -553,7 +558,8 @@
       "relatedVersionsSource": "https://registry.npmjs.org/antd",
       "notes": [
         "SKILL.md 中 ant.design/docs/react/migration-v5 本次返回 404；已核对的历史文档入口为 5x.ant.design。"
-      ]
+      ],
+      "docsTitle": "v4 → v5 迁移指南"
     },
     {
       "id": "pro-upgrade",
@@ -581,8 +587,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://github.com/ant-design/ant-design-pro/blob/master/docs/cheatsheet.en-US.md",
-      "docsCheck": "upstream_document_read",
+      "docsUrl": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
+      "docsCheck": "topic_page_http_verified",
       "homepageUrl": "https://pro.ant.design/",
       "compatibleVersions": "基于 Pro 脚手架比较最新模板",
       "currentPackages": [],
@@ -591,7 +597,8 @@
       "notes": [
         "官网首页本次跳转 preview.pro.ant.design/welcome；使用文档应指向官方 Cheatsheet。",
         "模板 package.json 为 private:true；npm 中 ant-design-pro 的历史 2.3.2 不用作当前模板版本。"
-      ]
+      ],
+      "docsTitle": "Pro 升级流程"
     },
     {
       "id": "x-components",
@@ -619,8 +626,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-components/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://x.ant.design/components/introduce/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://x.ant.design/components/overview-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "Ant Design X 2",
       "currentPackages": [
         {
@@ -629,7 +636,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "AI 组件目录"
     },
     {
       "id": "use-x-chat",
@@ -657,8 +665,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/use-x-chat/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://x.ant.design/x-sdks/use-x-chat-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "Ant Design X SDK 2",
       "currentPackages": [
         {
@@ -667,7 +675,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "useXChat API"
     },
     {
       "id": "x-chat-provider",
@@ -695,8 +704,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-chat-provider/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://x.ant.design/x-sdks/chat-provider-custom-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "Ant Design X SDK 2",
       "currentPackages": [
         {
@@ -705,7 +714,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "自定义 Provider"
     },
     {
       "id": "x-request",
@@ -733,8 +743,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-request/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://x.ant.design/x-sdks/x-request-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "Ant Design X SDK 2",
       "currentPackages": [
         {
@@ -743,7 +753,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-sdk/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "XRequest API"
     },
     {
       "id": "x-markdown",
@@ -771,8 +782,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-markdown/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://x.ant.design/x-markdowns/introduce/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://x.ant.design/x-markdowns/examples-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "Ant Design X Markdown 2",
       "currentPackages": [
         {
@@ -781,7 +792,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-markdown/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "XMarkdown 示例与 API"
     },
     {
       "id": "x-card",
@@ -809,8 +821,8 @@
       },
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-card/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://x.ant.design/x-cards/introduce/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://x.ant.design/x-cards/introduce-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "技能主要讲解 A2UI v0.9；当前 X Card 文档同时列出 v0.8 / v0.9",
       "currentPackages": [
         {
@@ -819,7 +831,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40ant-design%2Fx-card/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "XCard 开发指南"
     },
     {
       "id": "ant-design-vue",
@@ -847,8 +860,8 @@
       },
       "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-vue/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://www.antdv.com/",
-      "docsCheck": "website_resolved_client_rendered",
+      "docsUrl": "https://www.antdv.com/docs/vue/getting-started-cn",
+      "docsCheck": "topic_page_browser_verified",
       "compatibleVersions": "Vue 3、Ant Design Vue 4",
       "currentPackages": [
         {
@@ -857,7 +870,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/ant-design-vue/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "Vue 3 快速上手"
     },
     {
       "id": "ant-design-mobile",
@@ -886,7 +900,7 @@
       "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mobile/SKILL.md",
       "sourceVerified": true,
       "docsUrl": "https://mobile.ant.design/zh/guide/quick-start/",
-      "docsCheck": "website_resolved_client_rendered",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "未固定具体版本；参考 Ant Design Mobile 当前文档",
       "currentPackages": [
         {
@@ -895,7 +909,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/antd-mobile/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "Mobile 快速上手"
     },
     {
       "id": "ant-design-mini",
@@ -923,8 +938,8 @@
       },
       "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mini/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://mini.ant.design/",
-      "docsCheck": "website_resolved_client_rendered",
+      "docsUrl": "https://mini.ant.design/guide/quick-start",
+      "docsCheck": "topic_page_browser_verified",
       "compatibleVersions": "Ant Design Mini",
       "currentPackages": [
         {
@@ -935,7 +950,8 @@
       ],
       "notes": [
         "技能名为 ant-design-mini，实际组件库 npm 包名为 antd-mini。"
-      ]
+      ],
+      "docsTitle": "Mini 快速上手"
     },
     {
       "id": "umi-max",
@@ -963,8 +979,8 @@
       },
       "sourceUrl": "https://github.com/mik284/umi-max-enterprise/blob/master/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://umijs.org/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://umijs.org/docs/max/introduce/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "Umi 4；技能内容偏 antd 5",
       "currentPackages": [
         {
@@ -973,7 +989,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40umijs%2Fmax/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "Umi Max 开发指南"
     },
     {
       "id": "ant-design-visual-design",
@@ -1001,8 +1018,8 @@
       },
       "sourceUrl": "https://github.com/hidekatsu-izuno/design-system-skills/blob/main/skills/ant-design/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://ant.design/docs/spec/introduce/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://ant.design/docs/spec/introduce-cn/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "视觉参考 Ant Design；技能未声明固定组件库版本",
       "currentPackages": [
         {
@@ -1011,7 +1028,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/antd/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "设计语言规范"
     },
     {
       "id": "ant-design-react-community",
@@ -1039,8 +1057,8 @@
       },
       "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-react/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://4x.ant.design/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://4x.ant.design/docs/react/introduce-cn",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "antd 4",
       "currentPackages": [],
       "relatedVersions": {
@@ -1049,7 +1067,8 @@
       "relatedVersionsSource": "https://registry.npmjs.org/antd",
       "notes": [
         "技能入口引用 v4 文档；当前主站 antd 为 6.7.2，按历史项目用途收录。"
-      ]
+      ],
+      "docsTitle": "React v4 开发指南"
     },
     {
       "id": "antv-g2-chart",
@@ -1077,8 +1096,8 @@
       },
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g2-chart/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://g2.antv.antgroup.com/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://g2.antv.antgroup.com/zh/manual/quick-start/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "G2 5",
       "currentPackages": [
         {
@@ -1087,7 +1106,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fg2/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "G2 快速上手"
     },
     {
       "id": "antv-g6-graph",
@@ -1115,8 +1135,8 @@
       },
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g6-graph/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://g6.antv.antgroup.com/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://g6.antv.antgroup.com/zh/manual/getting-started/quick-start/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "G6 5",
       "currentPackages": [
         {
@@ -1125,7 +1145,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fg6/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "G6 快速开始"
     },
     {
       "id": "antv-x6-editor",
@@ -1153,8 +1174,8 @@
       },
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-x6-editor/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://x6.antv.antgroup.com/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://x6.antv.antgroup.com/zh/tutorial/getting-started/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "X6 3",
       "currentPackages": [
         {
@@ -1163,7 +1184,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fx6/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "X6 快速上手"
     },
     {
       "id": "antv-l7",
@@ -1191,8 +1213,8 @@
       },
       "sourceUrl": "https://github.com/antvis/L7/blob/master/skills/l7/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://l7.antv.antgroup.com/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://l7.antv.antgroup.com/zh/tutorial/quickstart/",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "L7 2",
       "currentPackages": [
         {
@@ -1201,7 +1223,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fl7/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "L7 快速上手"
     },
     {
       "id": "antv-t8-ntv",
@@ -1229,8 +1252,8 @@
       },
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-t8-ntv/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://github.com/antvis/T8/blob/main/README.md",
-      "docsCheck": "upstream_document_read",
+      "docsUrl": "https://t8.antv.vision/zh/tutorial/quick-start",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "T8",
       "currentPackages": [
         {
@@ -1242,7 +1265,8 @@
       "declaredDocsUrl": "https://t8.antv.vision/en/tutorial/quick-start",
       "notes": [
         "上游声明的独立文档入口本次工具未能读取，采用已读取的官方 README 作为跳转入口。"
-      ]
+      ],
+      "docsTitle": "T8 快速开始"
     },
     {
       "id": "icon-retrieval",
@@ -1271,14 +1295,15 @@
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
       "sourceVerified": true,
       "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
-      "docsCheck": "upstream_document_read",
+      "docsCheck": "topic_page_http_verified",
       "homepageUrl": "https://www.weavefox.cn/",
       "compatibleVersions": "HTTP 图标检索 API",
       "currentPackages": [],
       "serviceUrl": "https://www.weavefox.cn/api/v1/infographic/icon",
       "notes": [
         "服务未公开独立语义版本；以技能修订提交记录核验快照。"
-      ]
+      ],
+      "docsTitle": "图标检索接口"
     },
     {
       "id": "chart-visualization-image",
@@ -1307,13 +1332,14 @@
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
       "sourceVerified": true,
       "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
-      "docsCheck": "upstream_document_read",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "AntV 图表图片生成服务",
       "currentPackages": [],
       "serviceUrl": "https://antv-studio.alipay.com/api/gpt-vis",
       "notes": [
         "图片服务未公开独立语义版本；不套用 GPT-Vis SDK 版本。"
-      ]
+      ],
+      "docsTitle": "图表生成接口"
     },
     {
       "id": "chart-visualization-gpt-vis",
@@ -1342,7 +1368,7 @@
       "sourceUrl": "https://github.com/antvis/GPT-Vis/blob/ai/skills/chart-visualization/SKILL.md",
       "sourceVerified": true,
       "docsUrl": "https://gpt-vis.antv.vision/docs/agent-skill",
-      "docsCheck": "website_read",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "GPT-Vis 1.x 的 JSON / Syntax / 集成代码",
       "currentPackages": [
         {
@@ -1351,7 +1377,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fgpt-vis/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "GPT-Vis Skill 指南"
     },
     {
       "id": "antv-gpt-vis",
@@ -1379,8 +1406,8 @@
       },
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-gpt-vis/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://gpt-vis.antv.vision/docs",
-      "docsCheck": "website_link_verified",
+      "docsUrl": "https://gpt-vis.antv.vision/docs/quickstart",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "GPT-Vis JSON / Syntax / 集成代码",
       "currentPackages": [
         {
@@ -1389,7 +1416,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Fgpt-vis/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "GPT-Vis SDK 入门"
     },
     {
       "id": "infographic-creator",
@@ -1417,8 +1445,8 @@
       },
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-creator/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://infographic.antv.vision/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://infographic.antv.vision/learn/infographic-syntax",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "AntV Infographic",
       "currentPackages": [
         {
@@ -1427,7 +1455,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "信息图生成语法"
     },
     {
       "id": "antv-infographic",
@@ -1455,8 +1484,8 @@
       },
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-infographic/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://infographic.antv.vision/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://infographic.antv.vision/learn",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "AntV Infographic",
       "currentPackages": [
         {
@@ -1465,7 +1494,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "Infographic 快速开始"
     },
     {
       "id": "infographic-syntax-creator",
@@ -1493,8 +1523,8 @@
       },
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-syntax-creator/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://infographic.antv.vision/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://infographic.antv.vision/learn/infographic-syntax",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "AntV Infographic",
       "currentPackages": [
         {
@@ -1503,7 +1533,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "信息图语法"
     },
     {
       "id": "infographic-structure-creator",
@@ -1531,8 +1562,8 @@
       },
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-structure-creator/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://infographic.antv.vision/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://infographic.antv.vision/learn/custom-structure",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "AntV Infographic",
       "currentPackages": [
         {
@@ -1541,7 +1572,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "自定义结构指南"
     },
     {
       "id": "infographic-item-creator",
@@ -1569,8 +1601,8 @@
       },
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-item-creator/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://infographic.antv.vision/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://infographic.antv.vision/learn/custom-items",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "AntV Infographic",
       "currentPackages": [
         {
@@ -1579,7 +1611,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "自定义数据项指南"
     },
     {
       "id": "infographic-template-updater",
@@ -1607,8 +1640,8 @@
       },
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-template-updater/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://infographic.antv.vision/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://infographic.antv.vision/learn/custom-template",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "AntV Infographic",
       "currentPackages": [
         {
@@ -1617,7 +1650,8 @@
           "versionSourceUrl": "https://registry.npmjs.org/%40antv%2Finfographic/latest"
         }
       ],
-      "notes": []
+      "notes": [],
+      "docsTitle": "自定义模板指南"
     },
     {
       "id": "database-design",
@@ -1645,8 +1679,8 @@
       },
       "sourceUrl": "https://github.com/xytss/skills-hub/blob/main/skills/database-design/SKILL.md",
       "sourceVerified": true,
-      "docsUrl": "https://www.postgresql.org/docs/15/",
-      "docsCheck": "website_read",
+      "docsUrl": "https://www.postgresql.org/docs/15/ddl.html",
+      "docsCheck": "topic_page_http_verified",
       "compatibleVersions": "PostgreSQL 15+",
       "currentPackages": [
         {
@@ -1657,8 +1691,332 @@
       ],
       "notes": [
         "15.20 为本次核对的 PostgreSQL 15 系列文档版本；不将其标成全部 PostgreSQL 系列的最新版。"
-      ]
+      ],
+      "docsTitle": "PostgreSQL 数据定义"
     }
-  ]
+  ],
+  "documentationAudit": {
+    "verifiedAt": "2026-11-27",
+    "policy": "按技能用途直达指南、组件目录、API 或对应上游说明文件；链接标题显示具体内容；不使用网站首页。",
+    "entries": [
+      {
+        "id": "database-design",
+        "docsTitle": "PostgreSQL 数据定义",
+        "docsUrl": "https://www.postgresql.org/docs/15/ddl.html",
+        "finalUrl": "https://www.postgresql.org/docs/15/ddl.html",
+        "httpStatus": 200,
+        "pageTitle": "PostgreSQL: Documentation: 15: Chapter 5. Data Definition",
+        "specificPage": true
+      },
+      {
+        "id": "ant-design-skill",
+        "docsTitle": "界面布局规范",
+        "docsUrl": "https://ant.design/docs/spec/layout-cn/",
+        "finalUrl": "https://ant.design/docs/spec/layout-cn/",
+        "httpStatus": 200,
+        "pageTitle": " 布局 - Ant Design",
+        "specificPage": true
+      },
+      {
+        "id": "antd-theme-customization",
+        "docsTitle": "Design Token 指南",
+        "docsUrl": "https://ant.design/docs/react/customize-theme-cn/",
+        "finalUrl": "https://ant.design/docs/react/customize-theme-cn/",
+        "httpStatus": 200,
+        "pageTitle": " 定制主题 - Ant Design",
+        "specificPage": true
+      },
+      {
+        "id": "ant-design-visual-design",
+        "docsTitle": "设计语言规范",
+        "docsUrl": "https://ant.design/docs/spec/introduce-cn/",
+        "finalUrl": "https://ant.design/docs/spec/introduce-cn/",
+        "httpStatus": 200,
+        "pageTitle": " 介绍 - Ant Design",
+        "specificPage": true
+      },
+      {
+        "id": "ant-design-official",
+        "docsTitle": "React 开发指南",
+        "docsUrl": "https://ant.design/docs/react/introduce-cn/",
+        "finalUrl": "https://ant.design/docs/react/introduce-cn/",
+        "httpStatus": 200,
+        "pageTitle": " Ant Design of React - Ant Design",
+        "specificPage": true
+      },
+      {
+        "id": "antd-cli-skill",
+        "docsTitle": "CLI 使用指南",
+        "docsUrl": "https://ant.design/docs/react/cli-cn/",
+        "finalUrl": "https://ant.design/docs/react/cli-cn/",
+        "httpStatus": 200,
+        "pageTitle": " CLI - Ant Design",
+        "specificPage": true
+      },
+      {
+        "id": "antd-component-lookup",
+        "docsTitle": "Ant Design 组件目录",
+        "docsUrl": "https://ant.design/components/overview-cn/",
+        "finalUrl": "https://ant.design/components/overview-cn/",
+        "httpStatus": 200,
+        "pageTitle": " 组件总览 - Ant Design",
+        "specificPage": true
+      },
+      {
+        "id": "ant-design-react-community",
+        "docsTitle": "React v4 开发指南",
+        "docsUrl": "https://4x.ant.design/docs/react/introduce-cn",
+        "finalUrl": "https://4x.ant.design/docs/react/introduce-cn",
+        "httpStatus": 200,
+        "pageTitle": "Ant Design of React - Ant Design",
+        "specificPage": true
+      },
+      {
+        "id": "antd-migration",
+        "docsTitle": "v4 → v5 迁移指南",
+        "docsUrl": "https://5x.ant.design/docs/react/migration-v5-cn/",
+        "finalUrl": "https://5x.ant.design/docs/react/migration-v5-cn/",
+        "httpStatus": 200,
+        "pageTitle": " 从 v4 到 v5 - Ant Design",
+        "specificPage": true
+      },
+      {
+        "id": "pro-upgrade",
+        "docsTitle": "Pro 升级流程",
+        "docsUrl": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
+        "finalUrl": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
+        "httpStatus": 200,
+        "pageTitle": "ant-design-pro/.claude/skills/pro-upgrade/SKILL.md at master · ant-design/ant-design-pro · GitHub",
+        "specificPage": true
+      },
+      {
+        "id": "umi-max",
+        "docsTitle": "Umi Max 开发指南",
+        "docsUrl": "https://umijs.org/docs/max/introduce/",
+        "finalUrl": "https://umijs.org/docs/max/introduce/",
+        "httpStatus": 200,
+        "pageTitle": "Umi Max 简介",
+        "specificPage": true
+      },
+      {
+        "id": "x-components",
+        "docsTitle": "AI 组件目录",
+        "docsUrl": "https://x.ant.design/components/overview-cn/",
+        "finalUrl": "https://x.ant.design/components/overview-cn/",
+        "httpStatus": 200,
+        "pageTitle": "总览 - Ant Design X",
+        "specificPage": true
+      },
+      {
+        "id": "use-x-chat",
+        "docsTitle": "useXChat API",
+        "docsUrl": "https://x.ant.design/x-sdks/use-x-chat-cn/",
+        "finalUrl": "https://x.ant.design/x-sdks/use-x-chat-cn/",
+        "httpStatus": 200,
+        "pageTitle": "会话数据 useXChat - Ant Design X",
+        "specificPage": true
+      },
+      {
+        "id": "x-chat-provider",
+        "docsTitle": "自定义 Provider",
+        "docsUrl": "https://x.ant.design/x-sdks/chat-provider-custom-cn/",
+        "finalUrl": "https://x.ant.design/x-sdks/chat-provider-custom-cn/",
+        "httpStatus": 200,
+        "pageTitle": "自定义 Custom Chat Provider - Ant Design X",
+        "specificPage": true
+      },
+      {
+        "id": "x-request",
+        "docsTitle": "XRequest API",
+        "docsUrl": "https://x.ant.design/x-sdks/x-request-cn/",
+        "finalUrl": "https://x.ant.design/x-sdks/x-request-cn/",
+        "httpStatus": 200,
+        "pageTitle": "请求 XRequest - Ant Design X",
+        "specificPage": true
+      },
+      {
+        "id": "x-markdown",
+        "docsTitle": "XMarkdown 示例与 API",
+        "docsUrl": "https://x.ant.design/x-markdowns/examples-cn/",
+        "finalUrl": "https://x.ant.design/x-markdowns/examples-cn/",
+        "httpStatus": 200,
+        "pageTitle": "代码示例 - Ant Design X",
+        "specificPage": true
+      },
+      {
+        "id": "x-card",
+        "docsTitle": "XCard 开发指南",
+        "docsUrl": "https://x.ant.design/x-cards/introduce-cn/",
+        "finalUrl": "https://x.ant.design/x-cards/introduce-cn/",
+        "httpStatus": 200,
+        "pageTitle": "介绍 - Ant Design X",
+        "specificPage": true
+      },
+      {
+        "id": "ant-design-vue",
+        "docsTitle": "Vue 3 快速上手",
+        "docsUrl": "https://www.antdv.com/docs/vue/getting-started-cn",
+        "finalUrl": "https://www.antdv.com/docs/vue/getting-started-cn",
+        "httpStatus": 200,
+        "pageTitle": "Ant Design Vue — An enterprise-class UI components based on Ant Design and Vue.js",
+        "specificPage": true,
+        "contentCheck": "browser_rendered_guide",
+        "pageHeading": "快速上手"
+      },
+      {
+        "id": "ant-design-mobile",
+        "docsTitle": "Mobile 快速上手",
+        "docsUrl": "https://mobile.ant.design/zh/guide/quick-start/",
+        "finalUrl": "https://mobile.ant.design/zh/guide/quick-start/",
+        "httpStatus": 200,
+        "pageTitle": "快速上手 - Ant Design Mobile",
+        "specificPage": true
+      },
+      {
+        "id": "ant-design-mini",
+        "docsTitle": "Mini 快速上手",
+        "docsUrl": "https://mini.ant.design/guide/quick-start",
+        "finalUrl": "https://mini.ant.design/guide/quick-start/",
+        "httpStatus": 200,
+        "pageTitle": "在支付宝小程序中使用 - Ant Design Mini",
+        "specificPage": true,
+        "contentCheck": "browser_rendered_guide"
+      },
+      {
+        "id": "antv-g2-chart",
+        "docsTitle": "G2 快速上手",
+        "docsUrl": "https://g2.antv.antgroup.com/zh/manual/quick-start/",
+        "finalUrl": "https://g2.antv.antgroup.com/zh/manual/quick-start/",
+        "httpStatus": 200,
+        "pageTitle": "快速上手 · G2 一套简明和渐进式的可视化语法 | AntV",
+        "specificPage": true
+      },
+      {
+        "id": "antv-t8-ntv",
+        "docsTitle": "T8 快速开始",
+        "docsUrl": "https://t8.antv.vision/zh/tutorial/quick-start",
+        "finalUrl": "https://t8.antv.vision/zh/tutorial/quick-start",
+        "httpStatus": 200,
+        "pageTitle": "快速开始 | 🧬 T8: Text Visualization Solution for Unstructured Data",
+        "specificPage": true
+      },
+      {
+        "id": "antv-g6-graph",
+        "docsTitle": "G6 快速开始",
+        "docsUrl": "https://g6.antv.antgroup.com/zh/manual/getting-started/quick-start/",
+        "finalUrl": "https://g6.antv.antgroup.com/zh/manual/getting-started/quick-start/",
+        "httpStatus": 200,
+        "pageTitle": "快速开始 · G6 图可视化引擎",
+        "specificPage": true
+      },
+      {
+        "id": "antv-x6-editor",
+        "docsTitle": "X6 快速上手",
+        "docsUrl": "https://x6.antv.antgroup.com/zh/tutorial/getting-started/",
+        "finalUrl": "https://x6.antv.antgroup.com/zh/tutorial/getting-started/",
+        "httpStatus": 200,
+        "pageTitle": "快速上手 · X6 图编辑引擎",
+        "specificPage": true
+      },
+      {
+        "id": "antv-l7",
+        "docsTitle": "L7 快速上手",
+        "docsUrl": "https://l7.antv.antgroup.com/zh/tutorial/quickstart/",
+        "finalUrl": "https://l7.antv.antgroup.com/zh/tutorial/quickstart/",
+        "httpStatus": 200,
+        "pageTitle": "快速上手 · AntV L7 地理空间数据可视化引擎",
+        "specificPage": true
+      },
+      {
+        "id": "chart-visualization-image",
+        "docsTitle": "图表生成接口",
+        "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
+        "finalUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
+        "httpStatus": 200,
+        "pageTitle": "chart-visualization-skills/skills/chart-visualization/SKILL.md at master · antvis/chart-visualization-skills · GitHub",
+        "specificPage": true
+      },
+      {
+        "id": "chart-visualization-gpt-vis",
+        "docsTitle": "GPT-Vis Skill 指南",
+        "docsUrl": "https://gpt-vis.antv.vision/docs/agent-skill",
+        "finalUrl": "https://gpt-vis.antv.vision/docs/agent-skill",
+        "httpStatus": 200,
+        "pageTitle": "Agent Skill | GPT-Vis Docs",
+        "specificPage": true
+      },
+      {
+        "id": "antv-gpt-vis",
+        "docsTitle": "GPT-Vis SDK 入门",
+        "docsUrl": "https://gpt-vis.antv.vision/docs/quickstart",
+        "finalUrl": "https://gpt-vis.antv.vision/docs/quickstart",
+        "httpStatus": 200,
+        "pageTitle": "SDK quickstart | GPT-Vis Docs",
+        "specificPage": true
+      },
+      {
+        "id": "infographic-creator",
+        "docsTitle": "信息图生成语法",
+        "docsUrl": "https://infographic.antv.vision/learn/infographic-syntax",
+        "finalUrl": "https://infographic.antv.vision/learn/infographic-syntax",
+        "httpStatus": 200,
+        "pageTitle": "信息图语法 – AntV Infographic",
+        "specificPage": true
+      },
+      {
+        "id": "antv-infographic",
+        "docsTitle": "Infographic 快速开始",
+        "docsUrl": "https://infographic.antv.vision/learn",
+        "finalUrl": "https://infographic.antv.vision/learn",
+        "httpStatus": 200,
+        "pageTitle": "快速开始 – AntV Infographic",
+        "specificPage": true
+      },
+      {
+        "id": "infographic-syntax-creator",
+        "docsTitle": "信息图语法",
+        "docsUrl": "https://infographic.antv.vision/learn/infographic-syntax",
+        "finalUrl": "https://infographic.antv.vision/learn/infographic-syntax",
+        "httpStatus": 200,
+        "pageTitle": "信息图语法 – AntV Infographic",
+        "specificPage": true
+      },
+      {
+        "id": "infographic-structure-creator",
+        "docsTitle": "自定义结构指南",
+        "docsUrl": "https://infographic.antv.vision/learn/custom-structure",
+        "finalUrl": "https://infographic.antv.vision/learn/custom-structure",
+        "httpStatus": 200,
+        "pageTitle": "自定义结构 – AntV Infographic",
+        "specificPage": true
+      },
+      {
+        "id": "infographic-item-creator",
+        "docsTitle": "自定义数据项指南",
+        "docsUrl": "https://infographic.antv.vision/learn/custom-items",
+        "finalUrl": "https://infographic.antv.vision/learn/custom-items",
+        "httpStatus": 200,
+        "pageTitle": "自定义数据项 – AntV Infographic",
+        "specificPage": true
+      },
+      {
+        "id": "infographic-template-updater",
+        "docsTitle": "自定义模板指南",
+        "docsUrl": "https://infographic.antv.vision/learn/custom-template",
+        "finalUrl": "https://infographic.antv.vision/learn/custom-template",
+        "httpStatus": 200,
+        "pageTitle": "自定义模板 – AntV Infographic",
+        "specificPage": true
+      },
+      {
+        "id": "icon-retrieval",
+        "docsTitle": "图标检索接口",
+        "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
+        "finalUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
+        "httpStatus": 200,
+        "pageTitle": "chart-visualization-skills/skills/icon-retrieval/SKILL.md at master · antvis/chart-visualization-skills · GitHub",
+        "specificPage": true
+      }
+    ]
+  }
 }
-

@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Breadcrumb, Button, Collapse, Descriptions, Drawer, Flex, Modal, Segmented, Select, Steps, Table, Tabs, Tag, Tooltip } from 'antd';
+import type { TableColumnsType } from 'antd';
 import type { ReactNode } from 'react';
 import type { Skill } from '../types';
 import { REPOSITORY } from '../lib/catalog';
@@ -31,10 +32,15 @@ function SkillVersionTag({ skill }: { skill: Skill }) {
 function SkillSymbol({ skill }: { skill: Skill }) { return <Icon name={skill.database ? 'database' : 'code'} />; }
 
 function ResourceLinks({ skill }: { skill: Skill }) {
-  if (skill.docsUrl === skill.sourceUrl) return <a href={skill.docsUrl} target="_blank" rel="noopener noreferrer"><Icon name="book" />Skill 与接口说明<Icon name="external" /></a>;
-  return <><a href={skill.docsUrl} target="_blank" rel="noopener noreferrer"><Icon name="book" />官方文档<Icon name="external" /></a><a href={skill.sourceUrl} target="_blank" rel="noopener noreferrer"><Icon name="file" />Skill 原文<Icon name="external" /></a></>;
+  if (skill.docsUrl === skill.sourceUrl) return <a href={skill.docsUrl} target="_blank" rel="noopener noreferrer"><Icon name="book" />{skill.docsTitle}<Icon name="external" /></a>;
+  return <><a href={skill.docsUrl} target="_blank" rel="noopener noreferrer"><Icon name="book" />{skill.docsTitle}<Icon name="external" /></a><a href={skill.sourceUrl} target="_blank" rel="noopener noreferrer"><Icon name="file" />Skill 原文<Icon name="external" /></a></>;
 }
 function Section({ title, children }: { title: string; children: ReactNode }) { return <section className="info-section"><h3 className="info-title">{title}</h3>{children}</section>; }
+function DetailContent({ skillId, tab, open, children }: { skillId: string; tab: string; open: boolean; children: ReactNode }) {
+  const content = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => { if (open) content.current!.scrollTop = 0; }, [skillId, tab, open]);
+  return <div className="skill-detail-content" ref={content}>{children}</div>;
+}
 function versionRows(skill: Skill): [string, ReactNode][] {
   const productRows: [string, ReactNode][] = [];
   for (const scope of ['current', 'target', 'template'] as const) {
@@ -63,9 +69,11 @@ function Scenarios({ skill }: { skill: Skill }) {
 }
 function Preview({ skill, skills, onRelatedSelect, onExpand, onClose }: { skill: Skill; skills: Skill[]; onRelatedSelect: (skill: Skill) => void; onExpand?: () => void; onClose?: () => void }) {
   const [name, variant] = skill.displayName.split(/(?=（)/u);
+  const content = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => { content.current!.scrollTop = 0; }, [skill.id]);
   return <aside className="panel preview-panel" aria-label={skill.displayName}>
     <header className="preview-heading"><span className="preview-symbol"><SkillSymbol skill={skill} /></span><div className="preview-identity"><h2>{name}{variant && <span className="preview-name-variant">{variant}</span>}</h2><SkillVersionTag skill={skill} /></div><div className="preview-actions">{onExpand && <Tooltip title="展开知识卡片" trigger={['hover', 'focus']}><Button className="icon-button" type="text" aria-label="展开知识卡片" icon={<Icon name="expand" />} onClick={onExpand} /></Tooltip>}{onClose && <Tooltip title="关闭知识预览" trigger={['hover', 'focus']}><Button className="icon-button" type="text" aria-label="关闭知识预览" icon={<Icon name="close" />} onClick={onClose} /></Tooltip>}</div></header>
-    <div className="preview-content"><Section title="用途"><p>{skill.details.purpose}</p></Section><Section title="版本信息"><VersionFacts skill={skill} /></Section><Section title="输入与输出"><Scenarios skill={skill} /></Section><Section title="调用示例"><p className="preview-example">{skill.details.example}</p></Section><RelatedSkills skill={skill} skills={skills} onSelect={onRelatedSelect} /></div>
+    <div className="preview-content" ref={content}><Section title="用途"><p>{skill.details.purpose}</p></Section><Section title="版本信息"><VersionFacts skill={skill} /></Section><Section title="输入与输出"><Scenarios skill={skill} /></Section><Section title="调用示例"><p className="preview-example">{skill.details.example}</p></Section><RelatedSkills skill={skill} skills={skills} onSelect={onRelatedSelect} /></div>
     <footer className="preview-footer"><ResourceLinks skill={skill} /></footer>
   </aside>;
 }
@@ -110,8 +118,8 @@ function Overview({ skill, skills, onRelatedSelect }: { skill: Skill; skills: Sk
 
 function Specification({ skill }: { skill: Skill }) {
   const documentRows: [string, ReactNode][] = skill.docsUrl === skill.sourceUrl
-    ? [['Skill 与接口说明', <a href={skill.docsUrl} target="_blank" rel="noopener noreferrer">{skill.docsUrl}</a>]]
-    : [['官方文档', <a href={skill.docsUrl} target="_blank" rel="noopener noreferrer">{skill.docsUrl}</a>], ['Skill 原文', <a href={skill.sourceUrl} target="_blank" rel="noopener noreferrer">{skill.sourceUrl}</a>]];
+    ? [[skill.docsTitle, <a href={skill.docsUrl} target="_blank" rel="noopener noreferrer">{skill.docsUrl}</a>]]
+    : [[skill.docsTitle, <a href={skill.docsUrl} target="_blank" rel="noopener noreferrer">{skill.docsUrl}</a>], ['Skill 原文', <a href={skill.sourceUrl} target="_blank" rel="noopener noreferrer">{skill.sourceUrl}</a>]];
   const rows: [string, ReactNode][] = [['名称', skill.name], ['显示名称', skill.title], ['技能来源', publisherLabels[skill.publisherType]], ...versionRows(skill), ['上游仓库', <a href={`https://github.com/${skill.sourceRepo}`} target="_blank" rel="noopener noreferrer">{skill.sourceRepo}</a>], ['主要分类', skill.navigation_path.join(' · ')], ['适用场景', skill.details.scenarios.map(item => item.name).join('、')], ['输入材料', skill.details.scenarios.map(item => item.input).join('；')], ['输出内容', skill.details.scenarios.map(item => item.output).join('；')], ...documentRows];
   if (skill.database) rows.splice(3, 0, ['默认数据库', skill.database]);
   if (skill.license) rows.push(['许可证', skill.license]);
@@ -144,27 +152,41 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
   const catalogAction = useRef<(() => void) | null>(null);
   const pendingDetails = useRef(false);
   const previewOpener = useRef<HTMLElement | null>(null);
+  const listContent = useRef<HTMLDivElement>(null);
+  const listPosition = useRef<'start' | 'selected'>('start');
   const filtered = useMemo(() => skills.filter(skill => members.includes(skill.id)), [skills, members]);
   const treeResources = useMemo(() => skills.map(skill => ({ name: skill.id, displayName: skill.displayName, navigation_path: skill.navigation_path, category_paths: skill.category_paths })), [skills]);
   useEffect(() => { document.title = 'Skills Hub · Skill 资源库'; }, []);
+  useLayoutEffect(() => {
+    const content = listContent.current!;
+    if (listPosition.current === 'start') { content.scrollTop = 0; return; }
+    const item = content.querySelector<HTMLElement>(`[data-skill-id="${selected.id}"]`)!;
+    const bounds = content.getBoundingClientRect();
+    const itemBounds = item.getBoundingClientRect();
+    if (itemBounds.top < bounds.top || itemBounds.bottom > bounds.bottom) content.scrollTop += itemBounds.top - bounds.top;
+  }, [selected.id, category, members, view]);
   function updateAgent(name: string) { setAgent(name); localStorage.setItem('skills-hub.agent', name); }
-  function updateView(value: string) { setView(value); localStorage.setItem('skills-hub.view', value); }
+  function updateView(value: string) { listPosition.current = 'selected'; setView(value); localStorage.setItem('skills-hub.view', value); }
   function openDetails(skill: Skill) {
+    listPosition.current = 'selected';
     setSelected(skill); setDetailTab('overview'); setPreviewRequested(false);
     if (!wide && !small && previewRequested) pendingDetails.current = true;
     else setDetailsOpen(true);
   }
   function preview(skill: Skill) {
+    listPosition.current = 'selected';
     setSelected(skill); setPreviewOpen(true);
     if (small) openDetails(skill);
     else if (!wide) { previewOpener.current = document.activeElement as HTMLElement; setPreviewRequested(true); }
   }
   function selectRelated(skill: Skill) {
+    listPosition.current = 'selected';
     setCategory(skill.navigation_path);
     setMembers(skills.filter(item => item.navigation_path.join('/') === skill.navigation_path.join('/')).map(item => item.id));
     setSelected(skill); setDetailTab('overview'); setPreviewOpen(true);
   }
   function selectCategory(path: string[]) {
+    listPosition.current = 'start';
     const matching = skills.filter(skill => path.every((part, index) => skill.navigation_path[index] === part)).map(skill => skill.id);
     setCategory(path); setMembers(matching);
     if (!matching.includes(selected.id)) setSelected(skills.find(skill => matching.includes(skill.id))!);
@@ -178,6 +200,7 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
         setMembers(skills.filter(skill => skill.navigation_path.join('/') === node.path.join('/')).map(skill => skill.id));
         preview(skills.find(skill => skill.id === node.resource)!); return;
       }
+      listPosition.current = 'start';
       setCategory(node.path); setMembers(node.members);
       if (!node.members.includes(selected.id)) setSelected(skills.find(skill => node.members.includes(skill.id))!);
       if (small) requestAnimationFrame(() => document.getElementById('workspace-title')!.focus());
@@ -188,18 +211,29 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
   const installProps = { skill: selected, skills, agentName: agent, setAgent: updateAgent, mode, setMode };
   const previewProps = { skill: selected, skills, onRelatedSelect: selectRelated };
   const catalog = <section className="panel catalog-panel" id="catalog"><header className="panel-heading"><h2>分类目录</h2></header><div className="catalog-content"><ResourceTree resources={treeResources} selected={selected.id} category={category} onSelect={selectCatalog} /></div></section>;
+  const columns: TableColumnsType<Skill> = [
+    { title: 'Skill', dataIndex: 'name', width: '38%', render: (_, skill) => <div className="table-skill"><Button type="link" className="table-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button><span className="table-database">{publisherLabels[skill.publisherType]} · {skill.tags.join(' · ')}</span></div> },
+    { title: 'Skill 版本', width: '22%', render: (_, skill) => <SkillVersionTag skill={skill} /> },
+    { title: '关联版本', width: '28%', render: (_, skill) => productVersionLabel(skill) ?? '—' },
+    { title: '操作', width: '12%', render: (_, skill) => <Button type="link" size="small" aria-label={`在侧栏预览 ${skill.displayName}`} onClick={() => preview(skill)}>预览</Button> }
+  ];
   return <main className="page">
     <div className="page-heading"><Button id="catalog-toggle" icon={<Icon name="folder" />} aria-expanded={catalogOpen} aria-controls="catalog" onClick={() => setCatalogOpen(!catalogOpen)}>分类目录</Button></div>
     <div className={`workspace${previewOpen ? '' : ' preview-hidden'}`}>
       {!small && catalog}
       <div className="workspace-main">
-        <section className="panel skills-panel" aria-labelledby="workspace-title"><header className="panel-heading"><div className="heading-group">{category.length > 1 && <><Breadcrumb className="skill-breadcrumb" aria-label="上级分类" items={category.slice(0, -1).map((part, index) => ({ title: <Button type="link" className="breadcrumb-button" onClick={() => selectCategory(category.slice(0, index + 1))}>{part}</Button> }))} /><span className="breadcrumb-separator" aria-hidden="true">/</span></>}<h1 id="workspace-title" tabIndex={-1}>{category.at(-1)}</h1><ResourceMetaTag>{filtered.length} 项 Skill</ResourceMetaTag></div><Segmented aria-label="Skill 展示方式" value={view} onChange={updateView} options={[{ value: 'cards', label: '卡片', icon: <Icon name="layers" /> }, { value: 'table', label: '表格', icon: <Icon name="table" /> }]} /></header><div className="skill-content">
-          {view === 'cards' ? filtered.map(skill => <article className="skill-card" key={skill.id}><div className="skill-card-head"><div className="skill-identity"><span className="skill-symbol"><SkillSymbol skill={skill} /></span><div className="skill-info"><div className="skill-title"><h3><Button type="text" className="skill-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button></h3><SkillVersionTag skill={skill} /></div><p>{skill.description}</p></div></div></div><div className="skill-metadata">{skill.database ? <span className="metadata-item"><Icon name="database" />{skill.database}</span> : <Flex className="skill-tags" wrap gap={4}><Tag>{publisherLabels[skill.publisherType]}</Tag>{skill.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Flex>}{skill.productVersions.length > 0 && <span className="skill-product-version">{productVersionLabel(skill)}</span>}</div><div className="skill-actions"><Button onClick={() => openDetails(skill)}>展开详情</Button></div></article>) : <Table className="skills-table" size="small" pagination={false} rowKey="id" dataSource={filtered} rowClassName={skill => skill.id === selected.id ? 'is-selected' : ''} columns={[
-            { title: 'Skill', dataIndex: 'name', width: '38%', render: (_, skill) => <div className="table-skill"><Button type="link" className="table-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button><span className="table-database">{publisherLabels[skill.publisherType]} · {skill.tags.join(' · ')}</span></div> },
-            { title: 'Skill 版本', width: '22%', render: (_, skill) => <SkillVersionTag skill={skill} /> },
-            { title: '关联版本', width: '28%', render: (_, skill) => productVersionLabel(skill) ?? '—' },
-            { title: '操作', width: '12%', render: (_, skill) => <Button type="link" size="small" aria-label={`在侧栏预览 ${skill.displayName}`} onClick={() => preview(skill)}>预览</Button> }
-          ]} />}
+        <section className="panel skills-panel" aria-labelledby="workspace-title"><header className="panel-heading"><div className="heading-group">{category.length > 1 && <><Breadcrumb className="skill-breadcrumb" aria-label="上级分类" items={category.slice(0, -1).map((part, index) => ({ title: <Button type="link" className="breadcrumb-button" onClick={() => selectCategory(category.slice(0, index + 1))}>{part}</Button> }))} /><span className="breadcrumb-separator" aria-hidden="true">/</span></>}<h1 id="workspace-title" tabIndex={-1}>{category.at(-1)}</h1><ResourceMetaTag>{filtered.length} 项 Skill</ResourceMetaTag></div><Segmented aria-label="Skill 展示方式" value={view} onChange={updateView} options={[{ value: 'cards', label: '卡片', icon: <Icon name="layers" /> }, { value: 'table', label: '表格', icon: <Icon name="table" /> }]} /></header><div className="skill-content" ref={listContent}>
+          {view === 'cards' ? filtered.map(skill => <article className={`skill-card${skill.id === selected.id ? ' is-selected' : ''}`} data-skill-id={skill.id} aria-current={skill.id === selected.id ? 'true' : undefined} key={skill.id}>
+            <Flex className="skill-identity" align="start" gap={16}>
+              <span className="skill-symbol"><SkillSymbol skill={skill} /></span>
+              <div className="skill-info">
+                <Flex className="skill-title" align="center" gap={12} wrap><h3><Button type="text" className="skill-title-button" aria-label={`预览 ${skill.displayName}`} onClick={() => preview(skill)}>{skill.displayName}</Button></h3><SkillVersionTag skill={skill} /></Flex>
+                <p>{skill.description}</p>
+                <Flex className="skill-metadata" align="center" gap="6px 20px" wrap>{skill.database ? <span className="metadata-item"><Icon name="database" />{skill.database}</span> : <Flex className="skill-tags" wrap gap={4}><Tag>{publisherLabels[skill.publisherType]}</Tag>{skill.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}</Flex>}{skill.productVersions.length > 0 && <span className="skill-product-version">{productVersionLabel(skill)}</span>}</Flex>
+                <Flex className="skill-actions" align="center" gap={10}><Button onClick={() => openDetails(skill)}>展开详情</Button></Flex>
+              </div>
+            </Flex>
+          </article>) : <Table className="skills-table" size="small" pagination={false} rowKey="id" dataSource={filtered} rowClassName={skill => skill.id === selected.id ? 'is-selected' : ''} onRow={skill => ({ 'data-skill-id': skill.id, 'aria-current': skill.id === selected.id ? 'true' : undefined })} columns={columns.map(column => ({ ...column, onCell: (skill: Skill) => ({ style: skill.id === selected.id ? { backgroundColor: 'var(--table-selected)' } : undefined }) }))} />}
         </div></section>
         <section className="panel install-panel" id="install"><header className="install-heading"><h2>安装</h2><span className="install-target">{selected.displayName}<SkillVersionTag skill={selected} /></span></header><InstallWidget {...installProps} /></section>
       </div>
@@ -208,7 +242,7 @@ export default function SkillsPage({ skills }: { skills: Skill[] }) {
     {small && <Drawer title="分类目录" placement="left" size={320} open={catalogOpen} onClose={() => setCatalogOpen(false)} focusable={{ focusTriggerAfterClose: !catalogAction.current }} afterOpenChange={open => { if (!open && catalogAction.current) { const action = catalogAction.current; catalogAction.current = null; action(); } }} className="resource-drawer skill-catalog-overlay">{catalog}</Drawer>}
     <Drawer title={selected.displayName} placement="right" size={520} open={!wide && !small && previewRequested} onClose={() => setPreviewRequested(false)} extra={<Button type="text" aria-label="展开知识卡片" icon={<Icon name="expand" />} onClick={() => openDetails(selected)}>展开详情</Button>} focusable={{ focusTriggerAfterClose: !pendingDetails.current }} afterOpenChange={open => { if (!open && pendingDetails.current) { pendingDetails.current = false; previewOpener.current!.focus(); setDetailsOpen(true); } }} className="resource-drawer skill-preview-overlay"><Preview {...previewProps} /></Drawer>
     <Modal centered className="skill-details-modal" title={<Flex align="center" gap={16}><span className="dialog-icon"><SkillSymbol skill={selected} /></span><span>{selected.displayName}</span><SkillVersionTag skill={selected} /></Flex>} open={detailsOpen} onCancel={() => setDetailsOpen(false)} width={960} footer={<div className="resource-modal-footer"><ResourceLinks skill={selected} /><Button type="link" icon={<Icon name="download" />} onClick={() => setDetailTab('install')}>安装方式</Button></div>}>
-      <p className="detail-description">{selected.description}</p><Tabs activeKey={detailTab} onChange={setDetailTab} items={[{ key: 'overview', label: '概览', children: <Overview {...previewProps} /> }, { key: 'spec', label: '规格表', children: <Specification skill={selected} /> }, { key: 'install', label: '安装', children: <InstallWidget {...installProps} /> }]} />
+      <DetailContent skillId={selected.id} tab={detailTab} open={detailsOpen}><p className="detail-description">{selected.description}</p><Tabs activeKey={detailTab} onChange={setDetailTab} items={[{ key: 'overview', label: '概览', children: <Overview {...previewProps} /> }, { key: 'spec', label: '规格表', children: <Specification skill={selected} /> }, { key: 'install', label: '安装', children: <InstallWidget {...installProps} /> }]} /></DetailContent>
     </Modal>
   </main>;
 }

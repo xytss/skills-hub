@@ -86,7 +86,7 @@
 .prompt-guide-overlay .ant-modal-container { padding: 20px 0 0; }
 .prompt-guide-overlay .ant-modal-header { padding: 0 20px; }
 .skill-details-modal .ant-modal-container { padding: 20px 24px 0; }
-.skill-details-modal .ant-modal-body { max-height: calc(100dvh - 220px); overflow-y: auto; overscroll-behavior: contain; }
+.skill-detail-content { max-height: calc(100dvh - 220px); overflow-y: auto; overscroll-behavior: contain; }
 .skill-details-modal .ant-modal-title { padding-right: 24px; }
 .detail-description { margin: 4px 0 12px 64px; color: var(--muted); }
 .resource-modal-footer { display: flex; border-top: 1px solid var(--line); padding: 10px 0; }
@@ -96,7 +96,6 @@
 .resource-modal-footer a > .icon:last-child { width: 12px; height: 12px; }
 .scenario-table .ant-table { font-size: var(--text-body); }
 .skills-table .ant-table { font-size: var(--text-body); }
-.skills-table .is-selected > td { background: var(--table-selected); }
 .skill-title-button.ant-btn, .table-title-button.ant-btn { height: auto; max-width: 100%; padding: 0; border: 0; border-radius: 3px; background: transparent; box-shadow: none; font: inherit; line-height: inherit; text-align: left; white-space: normal; }
 .skill-title-button.ant-btn { color: inherit; }
 .skill-title-button.ant-btn:not(:disabled):hover { color: var(--blue); background: transparent; }

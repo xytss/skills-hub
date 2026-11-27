@@ -8,7 +8,7 @@ export interface Skill {
   id: string; name: string; displayName: string; title: string; description: string;
   skillVersion: string | null; skillVersionSource: string | null;
   publisherType: 'official' | 'community' | 'project'; compatibleVersions: string;
-  productVersions: ProductVersion[]; verifiedAt: string; docsUrl: string;
+  productVersions: ProductVersion[]; verifiedAt: string; docsUrl: string; docsTitle: string;
   sourceRevision: { commit: string; pinnedSourceUrl: string };
   relatedSkills: { id: string; reason: string }[];
   navigation_path: string[]; category_paths: string[]; tags: string[]; database?: string;

@@ -93,9 +93,10 @@
         "commit": "026cce872c56f700917f4cd2463aff9e5e24dc37",
         "pinnedSourceUrl": "https://github.com/xytss/skills-hub/blob/026cce872c56f700917f4cd2463aff9e5e24dc37/skills/database-design/SKILL.md"
       },
-      "docsUrl": "https://www.postgresql.org/docs/15/",
+      "docsUrl": "https://www.postgresql.org/docs/15/ddl.html",
       "verifiedAt": "2026-11-27",
-      "relatedSkills": []
+      "relatedSkills": [],
+      "docsTitle": "PostgreSQL 数据定义"
     },
     {
       "id": "ant-design-skill",
@@ -126,7 +127,8 @@
         "commit": "a79207836fa1e29b442cd3e88320b94e2a094da9",
         "pinnedSourceUrl": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/a79207836fa1e29b442cd3e88320b94e2a094da9/ant-design-skill/SKILL.md"
       },
-      "docsUrl": "https://ant.design/docs/spec/introduce/",
+      "docsUrl": "https://ant.design/docs/spec/layout-cn/",
+      "docsTitle": "界面布局规范",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -151,7 +153,7 @@
       "sourceUrl": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/main/ant-design-skill/SKILL.md",
       "installPrompt": "npx skills add AntGroupDesign/Ant-Design-Skill",
       "entry": "https://github.com/AntGroupDesign/Ant-Design-Skill/blob/main/ant-design-skill/SKILL.md",
-      "overview": "https://ant.design/docs/spec/introduce/",
+      "overview": "https://ant.design/docs/spec/layout-cn/",
       "details": {
         "purpose": "将 Ant Design 官方设计规范落地为企业级页面结构，覆盖导航、筛选区、工具栏、表单、表格、列表与详情页模板。",
         "scenarios": [
@@ -188,7 +190,8 @@
         "commit": "768405c1019435763adab015d47bf503505340d6",
         "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-theme-customization/SKILL.md"
       },
-      "docsUrl": "https://ant.design/docs/react/customize-theme/",
+      "docsUrl": "https://ant.design/docs/react/customize-theme-cn/",
+      "docsTitle": "Design Token 指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "系统化配置 ConfigProvider、全局与组件级 Design Token、主题算法（暗色/紧凑）及 CSS 变量，用于主题定制与视觉统一。",
@@ -208,7 +211,7 @@
       "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-theme-customization/SKILL.md",
       "installPrompt": "请从 https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-theme-customization/SKILL.md 所在目录安装 antd-theme-customization，保留 SKILL.md 与配套文件，并配置到当前 AI Agent 的技能目录。",
       "entry": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-theme-customization/SKILL.md",
-      "overview": "https://ant.design/docs/react/customize-theme/",
+      "overview": "https://ant.design/docs/react/customize-theme-cn/",
       "details": {
         "purpose": "系统化配置 ConfigProvider、全局与组件级 Design Token、主题算法（暗色/紧凑）及 CSS 变量，用于主题定制与视觉统一。",
         "scenarios": [
@@ -245,7 +248,8 @@
         "commit": "6195a0e1869efc8ebef01e5b93dbc20806f0cf84",
         "pinnedSourceUrl": "https://github.com/hidekatsu-izuno/design-system-skills/blob/6195a0e1869efc8ebef01e5b93dbc20806f0cf84/skills/ant-design/SKILL.md"
       },
-      "docsUrl": "https://ant.design/docs/spec/introduce/",
+      "docsUrl": "https://ant.design/docs/spec/introduce-cn/",
+      "docsTitle": "设计语言规范",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -270,7 +274,7 @@
       "sourceUrl": "https://github.com/hidekatsu-izuno/design-system-skills/blob/main/skills/ant-design/SKILL.md",
       "installPrompt": "npx skills add hidekatsu-izuno/design-system-skills --skill ant-design",
       "entry": "https://github.com/hidekatsu-izuno/design-system-skills/blob/main/skills/ant-design/SKILL.md",
-      "overview": "https://ant.design/docs/spec/introduce/",
+      "overview": "https://ant.design/docs/spec/introduce-cn/",
       "details": {
         "purpose": "结合 DESIGN.md 约束 Ant Design 风格的视觉语言、布局比例、配色、字体与页面文案，适用于原型设计与视觉统一。",
         "scenarios": [
@@ -314,7 +318,8 @@
         "commit": "e65d2d3da9a2a129885131f5aeffe2c9037f83cb",
         "pinnedSourceUrl": "https://github.com/ant-design/antd-skill/blob/e65d2d3da9a2a129885131f5aeffe2c9037f83cb/skills/ant-design/SKILL.md"
       },
-      "docsUrl": "https://ant.design/",
+      "docsUrl": "https://ant.design/docs/react/introduce-cn/",
+      "docsTitle": "React 开发指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -343,7 +348,7 @@
       "sourceUrl": "https://github.com/ant-design/antd-skill/blob/main/skills/ant-design/SKILL.md",
       "installPrompt": "npx skills add ant-design/antd-skill --skill ant-design",
       "entry": "https://github.com/ant-design/antd-skill/blob/main/skills/ant-design/SKILL.md",
-      "overview": "https://ant.design/",
+      "overview": "https://ant.design/docs/react/introduce-cn/",
       "details": {
         "purpose": "提供面向 antd 6、Pro 5（含 ProComponents）与 X v2 的组件选型、组合方式、主题接入、性能与可访问性开发决策。",
         "scenarios": [
@@ -380,7 +385,8 @@
         "commit": "b82d656ae100e241b4c1166b9547382656c10f43",
         "pinnedSourceUrl": "https://github.com/ant-design/ant-design-cli/blob/b82d656ae100e241b4c1166b9547382656c10f43/skills/antd/SKILL.md"
       },
-      "docsUrl": "https://ant.design/docs/react/cli/",
+      "docsUrl": "https://ant.design/docs/react/cli-cn/",
+      "docsTitle": "CLI 使用指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -405,7 +411,7 @@
       "sourceUrl": "https://github.com/ant-design/ant-design-cli/blob/main/skills/antd/SKILL.md",
       "installPrompt": "npx skills add ant-design/ant-design-cli\n# 需确保本地已安装 CLI：npm i -g @ant-design/cli",
       "entry": "https://github.com/ant-design/ant-design-cli/blob/main/skills/antd/SKILL.md",
-      "overview": "https://ant.design/docs/react/cli/",
+      "overview": "https://ant.design/docs/react/cli-cn/",
       "details": {
         "purpose": "指导 Agent 调用本地 @ant-design/cli，按项目实际版本查询组件 API、示例、Token、语义样式与更新记录，并执行弃用检查与迁移指导。",
         "scenarios": [
@@ -442,7 +448,8 @@
         "commit": "768405c1019435763adab015d47bf503505340d6",
         "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-component-lookup/SKILL.md"
       },
-      "docsUrl": "https://ant.design/components/overview/",
+      "docsUrl": "https://ant.design/components/overview-cn/",
+      "docsTitle": "Ant Design 组件目录",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -467,7 +474,7 @@
       "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-component-lookup/SKILL.md",
       "installPrompt": "请从 https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-component-lookup/SKILL.md 所在目录安装 antd-component-lookup，保留 SKILL.md 与配套文件，并配置到当前 AI Agent 的技能目录。",
       "entry": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-component-lookup/SKILL.md",
-      "overview": "https://ant.design/components/overview/",
+      "overview": "https://ant.design/components/overview-cn/",
       "details": {
         "purpose": "通过 Ant Design 官网文档查询组件 Props、默认值、类型定义与官方示例（已有正常工作的 CLI 时可直接使用现有查询流程）。",
         "scenarios": [
@@ -504,7 +511,8 @@
         "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
         "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-react/SKILL.md"
       },
-      "docsUrl": "https://4x.ant.design/",
+      "docsUrl": "https://4x.ant.design/docs/react/introduce-cn",
+      "docsTitle": "React v4 开发指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "提供 React 组件、主题、TypeScript 与国际化开发指导；入口偏 v4 文档，仅建议用于历史版本维护（antd 6 项目请使用官方技能）。",
@@ -524,7 +532,7 @@
       "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-react/SKILL.md",
       "installPrompt": "npx skills add full-stack-skills/antd-skills --skill ant-design-react",
       "entry": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-react/SKILL.md",
-      "overview": "https://4x.ant.design/",
+      "overview": "https://4x.ant.design/docs/react/introduce-cn",
       "details": {
         "purpose": "提供 React 组件、主题、TypeScript 与国际化开发指导；入口偏 v4 文档，仅建议用于历史版本维护（antd 6 项目请使用官方技能）。",
         "scenarios": [
@@ -561,7 +569,8 @@
         "commit": "768405c1019435763adab015d47bf503505340d6",
         "pinnedSourceUrl": "https://github.com/ant-design/ant-design/blob/768405c1019435763adab015d47bf503505340d6/public/.well-known/agent-skills/antd-migration/SKILL.md"
       },
-      "docsUrl": "https://5x.ant.design/docs/react/migration-v5/",
+      "docsUrl": "https://5x.ant.design/docs/react/migration-v5-cn/",
+      "docsTitle": "v4 → v5 迁移指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "指导 Ant Design v4 到 v5 的迁移流程，涵盖样式体系调整、破坏性组件替换与 @ant-design/codemod-v5 工具使用（v5 → v6 请改用 CLI 的 antd migrate）。",
@@ -581,7 +590,7 @@
       "sourceUrl": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-migration/SKILL.md",
       "installPrompt": "请从 https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-migration/SKILL.md 所在目录安装 antd-migration，保留 SKILL.md 与配套文件，并配置到当前 AI Agent 的技能目录。",
       "entry": "https://github.com/ant-design/ant-design/blob/master/public/.well-known/agent-skills/antd-migration/SKILL.md",
-      "overview": "https://5x.ant.design/docs/react/migration-v5/",
+      "overview": "https://5x.ant.design/docs/react/migration-v5-cn/",
       "details": {
         "purpose": "指导 Ant Design v4 到 v5 的迁移流程，涵盖样式体系调整、破坏性组件替换与 @ant-design/codemod-v5 工具使用（v5 → v6 请改用 CLI 的 antd migrate）。",
         "scenarios": [
@@ -618,7 +627,8 @@
         "commit": "c70e0d89525933c4dab373143d486c93331392fb",
         "pinnedSourceUrl": "https://github.com/ant-design/ant-design-pro/blob/c70e0d89525933c4dab373143d486c93331392fb/.claude/skills/pro-upgrade/SKILL.md"
       },
-      "docsUrl": "https://github.com/ant-design/ant-design-pro/blob/master/docs/cheatsheet.en-US.md",
+      "docsUrl": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
+      "docsTitle": "Pro 升级流程",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "对照最新 Ant Design Pro 官方模板升级项目依赖、构建配置与框架文件，同时保留已有业务定制代码。",
@@ -638,7 +648,7 @@
       "sourceUrl": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
       "installPrompt": "请从 https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md 所在目录安装 pro-upgrade，保留 SKILL.md 与配套文件，并配置到当前 AI Agent 的技能目录。",
       "entry": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
-      "overview": "https://github.com/ant-design/ant-design-pro/blob/master/docs/cheatsheet.en-US.md",
+      "overview": "https://github.com/ant-design/ant-design-pro/blob/master/.claude/skills/pro-upgrade/SKILL.md",
       "details": {
         "purpose": "对照最新 Ant Design Pro 官方模板升级项目依赖、构建配置与框架文件，同时保留已有业务定制代码。",
         "scenarios": [
@@ -675,7 +685,8 @@
         "commit": "0d1607028b1d70b6dbb04a0fbd06f00e9e1de14d",
         "pinnedSourceUrl": "https://github.com/mik284/umi-max-enterprise/blob/0d1607028b1d70b6dbb04a0fbd06f00e9e1de14d/SKILL.md"
       },
-      "docsUrl": "https://umijs.org/",
+      "docsUrl": "https://umijs.org/docs/max/introduce/",
+      "docsTitle": "Umi Max 开发指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "提供完整的 @umijs/max 企业后台工程实践，涵盖路由、RBAC 权限、请求层、ProTable/ProForm、GraphQL 与图表集成。",
@@ -695,7 +706,7 @@
       "sourceUrl": "https://github.com/mik284/umi-max-enterprise/blob/master/SKILL.md",
       "installPrompt": "npx skills add mik284/umi-max-enterprise",
       "entry": "https://github.com/mik284/umi-max-enterprise/blob/master/SKILL.md",
-      "overview": "https://umijs.org/",
+      "overview": "https://umijs.org/docs/max/introduce/",
       "details": {
         "purpose": "提供完整的 @umijs/max 企业后台工程实践，涵盖路由、RBAC 权限、请求层、ProTable/ProForm、GraphQL 与图表集成。",
         "scenarios": [
@@ -732,7 +743,8 @@
         "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
         "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-components/SKILL.md"
       },
-      "docsUrl": "https://x.ant.design/components/introduce/",
+      "docsUrl": "https://x.ant.design/components/overview-cn/",
+      "docsTitle": "AI 组件目录",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "指导选用和组合 Bubble、Sender、Conversations、Prompts、ThoughtChain、Attachments 等 AI 对话专用组件。",
@@ -752,7 +764,7 @@
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-components/SKILL.md",
       "installPrompt": "npx skills add ant-design/x --skill x-components",
       "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-components/SKILL.md",
-      "overview": "https://x.ant.design/components/introduce/",
+      "overview": "https://x.ant.design/components/overview-cn/",
       "details": {
         "purpose": "指导选用和组合 Bubble、Sender、Conversations、Prompts、ThoughtChain、Attachments 等 AI 对话专用组件。",
         "scenarios": [
@@ -789,7 +801,8 @@
         "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
         "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/use-x-chat/SKILL.md"
       },
-      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+      "docsUrl": "https://x.ant.design/x-sdks/use-x-chat-cn/",
+      "docsTitle": "useXChat API",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "指导使用 useXChat Hook 管理 AI 对话的消息生命周期、加载与错误状态、多会话切换及 Provider 集成。",
@@ -809,7 +822,7 @@
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/use-x-chat/SKILL.md",
       "installPrompt": "npx skills add ant-design/x --skill use-x-chat",
       "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/use-x-chat/SKILL.md",
-      "overview": "https://x.ant.design/x-sdks/introduce/",
+      "overview": "https://x.ant.design/x-sdks/use-x-chat-cn/",
       "details": {
         "purpose": "指导使用 useXChat Hook 管理 AI 对话的消息生命周期、加载与错误状态、多会话切换及 Provider 集成。",
         "scenarios": [
@@ -846,7 +859,8 @@
         "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
         "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-chat-provider/SKILL.md"
       },
-      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+      "docsUrl": "https://x.ant.design/x-sdks/chat-provider-custom-cn/",
+      "docsTitle": "自定义 Provider",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "指导编写自定义 Chat Provider，将任意自有大模型、后端代理或非标 SSE 流式接口适配为 Ant Design X 所需的数据格式。",
@@ -866,7 +880,7 @@
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-chat-provider/SKILL.md",
       "installPrompt": "npx skills add ant-design/x --skill x-chat-provider",
       "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-chat-provider/SKILL.md",
-      "overview": "https://x.ant.design/x-sdks/introduce/",
+      "overview": "https://x.ant.design/x-sdks/chat-provider-custom-cn/",
       "details": {
         "purpose": "指导编写自定义 Chat Provider，将任意自有大模型、后端代理或非标 SSE 流式接口适配为 Ant Design X 所需的数据格式。",
         "scenarios": [
@@ -903,7 +917,8 @@
         "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
         "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-request/SKILL.md"
       },
-      "docsUrl": "https://x.ant.design/x-sdks/introduce/",
+      "docsUrl": "https://x.ant.design/x-sdks/x-request-cn/",
+      "docsTitle": "XRequest API",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "指导配置与使用 XRequest，处理不同大模型服务端的鉴权、请求头、流式响应解析与异常处理。",
@@ -923,7 +938,7 @@
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-request/SKILL.md",
       "installPrompt": "npx skills add ant-design/x --skill x-request",
       "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-request/SKILL.md",
-      "overview": "https://x.ant.design/x-sdks/introduce/",
+      "overview": "https://x.ant.design/x-sdks/x-request-cn/",
       "details": {
         "purpose": "指导配置与使用 XRequest，处理不同大模型服务端的鉴权、请求头、流式响应解析与异常处理。",
         "scenarios": [
@@ -960,7 +975,8 @@
         "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
         "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-markdown/SKILL.md"
       },
-      "docsUrl": "https://x.ant.design/x-markdowns/introduce/",
+      "docsUrl": "https://x.ant.design/x-markdowns/examples-cn/",
+      "docsTitle": "XMarkdown 示例与 API",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "指导使用 @ant-design/x-markdown 处理 AI 流式输出中的不完整 Markdown 语法、自定义组件映射、插件扩展与主题适配。",
@@ -980,7 +996,7 @@
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-markdown/SKILL.md",
       "installPrompt": "npx skills add ant-design/x --skill x-markdown",
       "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-markdown/SKILL.md",
-      "overview": "https://x.ant.design/x-markdowns/introduce/",
+      "overview": "https://x.ant.design/x-markdowns/examples-cn/",
       "details": {
         "purpose": "指导使用 @ant-design/x-markdown 处理 AI 流式输出中的不完整 Markdown 语法、自定义组件映射、插件扩展与主题适配。",
         "scenarios": [
@@ -1017,7 +1033,8 @@
         "commit": "da08db16714b608d7f5db248c2b2fcc30a756660",
         "pinnedSourceUrl": "https://github.com/ant-design/x/blob/da08db16714b608d7f5db248c2b2fcc30a756660/packages/x-skill/skills/x-card/SKILL.md"
       },
-      "docsUrl": "https://x.ant.design/x-cards/introduce/",
+      "docsUrl": "https://x.ant.design/x-cards/introduce-cn/",
+      "docsTitle": "XCard 开发指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "指导使用 @ant-design/x-card（XCard.Box / XCard.Card）、A2UI v0.9 指令、数据绑定、组件目录与动作系统，实现 AI 动态生成交互卡片。",
@@ -1037,7 +1054,7 @@
       "sourceUrl": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-card/SKILL.md",
       "installPrompt": "npx skills add ant-design/x --skill x-card",
       "entry": "https://github.com/ant-design/x/blob/main/packages/x-skill/skills/x-card/SKILL.md",
-      "overview": "https://x.ant.design/x-cards/introduce/",
+      "overview": "https://x.ant.design/x-cards/introduce-cn/",
       "details": {
         "purpose": "指导使用 @ant-design/x-card（XCard.Box / XCard.Card）、A2UI v0.9 指令、数据绑定、组件目录与动作系统，实现 AI 动态生成交互卡片。",
         "scenarios": [
@@ -1074,7 +1091,8 @@
         "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
         "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-vue/SKILL.md"
       },
-      "docsUrl": "https://www.antdv.com/",
+      "docsUrl": "https://www.antdv.com/docs/vue/getting-started-cn",
+      "docsTitle": "Vue 3 快速上手",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "提供基于 Vue 3 与 Ant Design Vue 的组件 API 规范、组合式 API 用法及常见后台页面模板。",
@@ -1094,7 +1112,7 @@
       "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-vue/SKILL.md",
       "installPrompt": "npx skills add full-stack-skills/antd-skills --skill ant-design-vue",
       "entry": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-vue/SKILL.md",
-      "overview": "https://www.antdv.com/",
+      "overview": "https://www.antdv.com/docs/vue/getting-started-cn",
       "details": {
         "purpose": "提供基于 Vue 3 与 Ant Design Vue 的组件 API 规范、组合式 API 用法及常见后台页面模板。",
         "scenarios": [
@@ -1132,6 +1150,7 @@
         "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-mobile/SKILL.md"
       },
       "docsUrl": "https://mobile.ant.design/zh/guide/quick-start/",
+      "docsTitle": "Mobile 快速上手",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "提供 Ant Design Mobile 的移动端组件、主题变量、手势交互与 H5/企业微应用适配规范。",
@@ -1188,7 +1207,8 @@
         "commit": "ec8b208f54d10443ce1196ab05dbdabd926923fe",
         "pinnedSourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/ec8b208f54d10443ce1196ab05dbdabd926923fe/skills/ant-design-mini/SKILL.md"
       },
-      "docsUrl": "https://mini.ant.design/",
+      "docsUrl": "https://mini.ant.design/guide/quick-start",
+      "docsTitle": "Mini 快速上手",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "提供 Ant Design Mini 的小程序组件、事件处理、主题定制及支付宝/微信小程序平台适配指导。",
@@ -1208,7 +1228,7 @@
       "sourceUrl": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mini/SKILL.md",
       "installPrompt": "npx skills add full-stack-skills/antd-skills --skill ant-design-mini",
       "entry": "https://github.com/full-stack-skills/antd-skills/blob/main/skills/ant-design-mini/SKILL.md",
-      "overview": "https://mini.ant.design/",
+      "overview": "https://mini.ant.design/guide/quick-start",
       "details": {
         "purpose": "提供 Ant Design Mini 的小程序组件、事件处理、主题定制及支付宝/微信小程序平台适配指导。",
         "scenarios": [
@@ -1245,7 +1265,8 @@
         "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
         "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-g2-chart/SKILL.md"
       },
-      "docsUrl": "https://g2.antv.antgroup.com/",
+      "docsUrl": "https://g2.antv.antgroup.com/zh/manual/quick-start/",
+      "docsTitle": "G2 快速上手",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "基于 AntV G2 v5 语法规范编写统计图表，覆盖数据映射、坐标系、比例尺、数据转换与交互配置。",
@@ -1265,7 +1286,7 @@
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g2-chart/SKILL.md",
       "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-g2-chart",
       "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g2-chart/SKILL.md",
-      "overview": "https://g2.antv.antgroup.com/",
+      "overview": "https://g2.antv.antgroup.com/zh/manual/quick-start/",
       "details": {
         "purpose": "基于 AntV G2 v5 语法规范编写统计图表，覆盖数据映射、坐标系、比例尺、数据转换与交互配置。",
         "scenarios": [
@@ -1302,7 +1323,8 @@
         "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
         "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-t8-ntv/SKILL.md"
       },
-      "docsUrl": "https://github.com/antvis/T8/blob/main/README.md",
+      "docsUrl": "https://t8.antv.vision/zh/tutorial/quick-start",
+      "docsTitle": "T8 快速开始",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "基于 AntV T8 将统计数据组织为带语义实体标注、涨跌指标与行内迷你图（Sparkline）的数据叙事文本报告。",
@@ -1322,7 +1344,7 @@
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-t8-ntv/SKILL.md",
       "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-t8-ntv",
       "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-t8-ntv/SKILL.md",
-      "overview": "https://github.com/antvis/T8/blob/main/README.md",
+      "overview": "https://t8.antv.vision/zh/tutorial/quick-start",
       "details": {
         "purpose": "基于 AntV T8 将统计数据组织为带语义实体标注、涨跌指标与行内迷你图（Sparkline）的数据叙事文本报告。",
         "scenarios": [
@@ -1359,7 +1381,8 @@
         "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
         "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-g6-graph/SKILL.md"
       },
-      "docsUrl": "https://g6.antv.antgroup.com/",
+      "docsUrl": "https://g6.antv.antgroup.com/zh/manual/getting-started/quick-start/",
+      "docsTitle": "G6 快速开始",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "基于 AntV G6 v5 构建关系网络与图分析应用，涵盖节点、边、力导向/层级布局、分组（Combo）、交互行为与插件。",
@@ -1379,7 +1402,7 @@
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g6-graph/SKILL.md",
       "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-g6-graph",
       "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-g6-graph/SKILL.md",
-      "overview": "https://g6.antv.antgroup.com/",
+      "overview": "https://g6.antv.antgroup.com/zh/manual/getting-started/quick-start/",
       "details": {
         "purpose": "基于 AntV G6 v5 构建关系网络与图分析应用，涵盖节点、边、力导向/层级布局、分组（Combo）、交互行为与插件。",
         "scenarios": [
@@ -1416,7 +1439,8 @@
         "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
         "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-x6-editor/SKILL.md"
       },
-      "docsUrl": "https://x6.antv.antgroup.com/",
+      "docsUrl": "https://x6.antv.antgroup.com/zh/tutorial/getting-started/",
+      "docsTitle": "X6 快速上手",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "基于 AntV X6 v3 开发可编辑的流程图与画布应用，涵盖自定义节点、连接桩（Port）、拖拽连线、撤销重做插件与图数据序列化。",
@@ -1436,7 +1460,7 @@
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-x6-editor/SKILL.md",
       "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-x6-editor",
       "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-x6-editor/SKILL.md",
-      "overview": "https://x6.antv.antgroup.com/",
+      "overview": "https://x6.antv.antgroup.com/zh/tutorial/getting-started/",
       "details": {
         "purpose": "基于 AntV X6 v3 开发可编辑的流程图与画布应用，涵盖自定义节点、连接桩（Port）、拖拽连线、撤销重做插件与图数据序列化。",
         "scenarios": [
@@ -1473,7 +1497,8 @@
         "commit": "f022a1406260cf909123a2ce361440512877afdb",
         "pinnedSourceUrl": "https://github.com/antvis/L7/blob/f022a1406260cf909123a2ce361440512877afdb/skills/l7/SKILL.md"
       },
-      "docsUrl": "https://l7.antv.antgroup.com/",
+      "docsUrl": "https://l7.antv.antgroup.com/zh/tutorial/quickstart/",
+      "docsTitle": "L7 快速上手",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "基于 AntV L7 2.x 构建 WebGL 地理空间可视化，支持点/线/面图层、热力图、轨迹飞线与地图交互（另提供单文件版 l7-single 供 WeaveFox 环境使用）。",
@@ -1493,7 +1518,7 @@
       "sourceUrl": "https://github.com/antvis/L7/blob/master/skills/l7/SKILL.md",
       "installPrompt": "npx skills add antvis/L7 --skill antv-l7",
       "entry": "https://github.com/antvis/L7/blob/master/skills/l7/SKILL.md",
-      "overview": "https://l7.antv.antgroup.com/",
+      "overview": "https://l7.antv.antgroup.com/zh/tutorial/quickstart/",
       "details": {
         "purpose": "基于 AntV L7 2.x 构建 WebGL 地理空间可视化，支持点/线/面图层、热力图、轨迹飞线与地图交互（另提供单文件版 l7-single 供 WeaveFox 环境使用）。",
         "scenarios": [
@@ -1523,6 +1548,7 @@
         "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/chart-visualization/SKILL.md"
       },
       "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/chart-visualization/SKILL.md",
+      "docsTitle": "图表生成接口",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -1585,6 +1611,7 @@
         "pinnedSourceUrl": "https://github.com/antvis/GPT-Vis/blob/ea3e9cb0514ac3023ec4709e77447122290447c9/skills/chart-visualization/SKILL.md"
       },
       "docsUrl": "https://gpt-vis.antv.vision/docs/agent-skill",
+      "docsTitle": "GPT-Vis Skill 指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -1650,7 +1677,8 @@
         "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
         "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-gpt-vis/SKILL.md"
       },
-      "docsUrl": "https://gpt-vis.antv.vision/docs",
+      "docsUrl": "https://gpt-vis.antv.vision/docs/quickstart",
+      "docsTitle": "GPT-Vis SDK 入门",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -1675,7 +1703,7 @@
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-gpt-vis/SKILL.md",
       "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-gpt-vis",
       "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-gpt-vis/SKILL.md",
-      "overview": "https://gpt-vis.antv.vision/docs",
+      "overview": "https://gpt-vis.antv.vision/docs/quickstart",
       "details": {
         "purpose": "根据分析目标生成 GPT-Vis 可视化语法、JSON 配置或可运行代码，用于 AI 回答中的流式图表渲染（同仓库另提供中文版 gpt-vis）。",
         "scenarios": [
@@ -1712,7 +1740,8 @@
         "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
         "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-creator/SKILL.md"
       },
-      "docsUrl": "https://infographic.antv.vision/",
+      "docsUrl": "https://infographic.antv.vision/learn/infographic-syntax",
+      "docsTitle": "信息图生成语法",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -1741,7 +1770,7 @@
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-creator/SKILL.md",
       "installPrompt": "npx skills add antvis/Infographic --skill infographic-creator",
       "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-creator/SKILL.md",
-      "overview": "https://infographic.antv.vision/",
+      "overview": "https://infographic.antv.vision/learn/infographic-syntax",
       "details": {
         "purpose": "解析文字材料的逻辑结构（流程、对比、层级），自动匹配 AntV Infographic 模板并生成带 SVG 导出能力的完整 HTML 页面。",
         "scenarios": [
@@ -1778,7 +1807,8 @@
         "commit": "a105fa12a9fa41fccccc2eba7f4b34973628f5d3",
         "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/antv-infographic/SKILL.md"
       },
-      "docsUrl": "https://infographic.antv.vision/",
+      "docsUrl": "https://infographic.antv.vision/learn",
+      "docsTitle": "Infographic 快速开始",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [
         {
@@ -1803,7 +1833,7 @@
       "sourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-infographic/SKILL.md",
       "installPrompt": "npx skills add antvis/chart-visualization-skills --skill antv-infographic",
       "entry": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/antv-infographic/SKILL.md",
-      "overview": "https://infographic.antv.vision/",
+      "overview": "https://infographic.antv.vision/learn",
       "details": {
         "purpose": "基于 AntV Infographic 模板、数据与主题配置生成对比、流程、层级类信息图（与 infographic-creator 功能重叠，按任务择一使用即可）。",
         "scenarios": [
@@ -1840,7 +1870,8 @@
         "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
         "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-syntax-creator/SKILL.md"
       },
-      "docsUrl": "https://infographic.antv.vision/",
+      "docsUrl": "https://infographic.antv.vision/learn/infographic-syntax",
+      "docsTitle": "信息图语法",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "专注将自然语言转换为 AntV Infographic 声明式 DSL 语法，用于 AI 自动生成或增量修改信息图配置。",
@@ -1860,7 +1891,7 @@
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-syntax-creator/SKILL.md",
       "installPrompt": "npx skills add antvis/Infographic --skill infographic-syntax-creator",
       "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-syntax-creator/SKILL.md",
-      "overview": "https://infographic.antv.vision/",
+      "overview": "https://infographic.antv.vision/learn/infographic-syntax",
       "details": {
         "purpose": "专注将自然语言转换为 AntV Infographic 声明式 DSL 语法，用于 AI 自动生成或增量修改信息图配置。",
         "scenarios": [
@@ -1897,7 +1928,8 @@
         "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
         "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-structure-creator/SKILL.md"
       },
-      "docsUrl": "https://infographic.antv.vision/",
+      "docsUrl": "https://infographic.antv.vision/learn/custom-structure",
+      "docsTitle": "自定义结构指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "面向信息图库开发与扩展，指导编写新的信息图布局结构、尺寸计算、组件组合与结构注册代码。",
@@ -1917,7 +1949,7 @@
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-structure-creator/SKILL.md",
       "installPrompt": "npx skills add antvis/Infographic --skill infographic-structure-creator",
       "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-structure-creator/SKILL.md",
-      "overview": "https://infographic.antv.vision/",
+      "overview": "https://infographic.antv.vision/learn/custom-structure",
       "details": {
         "purpose": "面向信息图库开发与扩展，指导编写新的信息图布局结构、尺寸计算、组件组合与结构注册代码。",
         "scenarios": [
@@ -1954,7 +1986,8 @@
         "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
         "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-item-creator/SKILL.md"
       },
-      "docsUrl": "https://infographic.antv.vision/",
+      "docsUrl": "https://infographic.antv.vision/learn/custom-items",
+      "docsTitle": "自定义数据项指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "面向信息图库开发与扩展，指导编写数据项视觉单元（节点、卡片、指标徽章等）及其内部排版逻辑。",
@@ -1974,7 +2007,7 @@
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-item-creator/SKILL.md",
       "installPrompt": "npx skills add antvis/Infographic --skill infographic-item-creator",
       "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-item-creator/SKILL.md",
-      "overview": "https://infographic.antv.vision/",
+      "overview": "https://infographic.antv.vision/learn/custom-items",
       "details": {
         "purpose": "面向信息图库开发与扩展，指导编写数据项视觉单元（节点、卡片、指标徽章等）及其内部排版逻辑。",
         "scenarios": [
@@ -2011,7 +2044,8 @@
         "commit": "5ae0d9394ac6280cb688eb4b4345881e291b9209",
         "pinnedSourceUrl": "https://github.com/antvis/Infographic/blob/5ae0d9394ac6280cb688eb4b4345881e291b9209/skills/infographic-template-updater/SKILL.md"
       },
-      "docsUrl": "https://infographic.antv.vision/",
+      "docsUrl": "https://infographic.antv.vision/learn/custom-template",
+      "docsTitle": "自定义模板指南",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "面向信息图模板体系维护，指导同步更新模板目录、展示站映射关系以及 AI 提示词中的可用模板列表。",
@@ -2031,7 +2065,7 @@
       "sourceUrl": "https://github.com/antvis/Infographic/blob/main/skills/infographic-template-updater/SKILL.md",
       "installPrompt": "npx skills add antvis/Infographic --skill infographic-template-updater",
       "entry": "https://github.com/antvis/Infographic/blob/main/skills/infographic-template-updater/SKILL.md",
-      "overview": "https://infographic.antv.vision/",
+      "overview": "https://infographic.antv.vision/learn/custom-template",
       "details": {
         "purpose": "面向信息图模板体系维护，指导同步更新模板目录、展示站映射关系以及 AI 提示词中的可用模板列表。",
         "scenarios": [
@@ -2061,6 +2095,7 @@
         "pinnedSourceUrl": "https://github.com/antvis/chart-visualization-skills/blob/a105fa12a9fa41fccccc2eba7f4b34973628f5d3/skills/icon-retrieval/SKILL.md"
       },
       "docsUrl": "https://github.com/antvis/chart-visualization-skills/blob/master/skills/icon-retrieval/SKILL.md",
+      "docsTitle": "图标检索接口",
       "verifiedAt": "2026-11-27",
       "relatedSkills": [],
       "description": "通过图标检索 API 按语义关键词查找匹配的矢量图标并获取 SVG 资源，常用于页面图标选型与信息图素材配套。",

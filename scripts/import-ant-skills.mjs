@@ -10,7 +10,7 @@ const ids = new Set();
 const sources = new Set();
 const identities = new Set();
 for (const skill of incoming) {
-  for (const field of ['id', 'name', 'displayName', 'sourceRepo', 'sourceUrl', 'docsUrl', 'compatibleVersions', 'verifiedAt']) {
+  for (const field of ['id', 'name', 'displayName', 'sourceRepo', 'sourceUrl', 'docsUrl', 'docsTitle', 'compatibleVersions', 'verifiedAt']) {
     if (typeof skill[field] !== 'string' || !skill[field].trim()) throw new Error(`Skill 缺少字段：${field}`);
   }
   if (ids.has(skill.id)) throw new Error(`重复 Skill id：${skill.id}`);
@@ -29,6 +29,7 @@ for (const skill of incoming) {
   for (const url of [skill.docsUrl, skill.sourceRevision.pinnedSourceUrl, ...(skill.skillVersion === null ? [] : [skill.skillVersionSource])]) {
     if (typeof url !== 'string' || new URL(url).protocol !== 'https:') throw new Error(`核验链接必须使用 HTTPS：${skill.id}`);
   }
+  if (new URL(skill.docsUrl).pathname === '/') throw new Error(`文档链接必须指向具体内容页：${skill.id}`);
   for (const product of skill.productVersions) {
     if (!product.name || !product.label || !product.version || !['current', 'target', 'template'].includes(product.scope) || new URL(product.versionSourceUrl).protocol !== 'https:') throw new Error(`产品版本格式错误：${skill.id}`);
   }
@@ -49,6 +50,7 @@ const converted = incoming.map(skill => ({
   productVersions: skill.productVersions,
   sourceRevision: skill.sourceRevision,
   docsUrl: skill.docsUrl,
+  docsTitle: skill.docsTitle,
   verifiedAt: skill.verifiedAt,
   relatedSkills: skill.relatedSkills,
   description: skill.detail.purpose,
