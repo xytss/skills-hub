@@ -2,6 +2,8 @@
 
 前端 Skill 的编辑源为根目录的 [`ant-skills.json`](../ant-skills.json)。页面读取 [`catalog.json`](../catalog.json)，其中还包含本仓库的数据库 Skill 与全局提示词。汇总目录使用 Schema v2，前端类型见 [`src/types.ts`](../src/types.ts)。
 
+本地开发与发布说明见 [贡献指南](../CONTRIBUTING.md)。
+
 ## 更新流程
 
 1. 核对上游 Skill 原文、版本声明、源码提交及具体文档页，将适用范围、产品版本和实际核验日期写入 `ant-skills.json`。
