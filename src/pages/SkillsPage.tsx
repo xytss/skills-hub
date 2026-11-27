@@ -112,7 +112,7 @@ function InstallWidget({ skill, skills, agentName, setAgent, mode, setMode }: { 
   return <div className="install-widget">
     <Flex className="install-controls" align="center" justify="space-between" gap={16} wrap><Flex className="install-options" align="center" gap={16} wrap><Segmented aria-label="安装方式" value={mode} onChange={setMode} options={[{ value: 'prompt', label: '提示词安装' }, { value: 'manual', label: '手动安装' }]} /><Flex className="install-agent" align="center" gap={8}><span>AI Agent</span><Select aria-label="AI Agent" value={agentName} onChange={setAgent} options={agents.map(agent => ({ value: agent.name, label: agent.name }))} /></Flex></Flex><CopyButton text={manual ? manualText : prompt} label={manual ? local ? '复制安装命令' : '复制安装指引' : '复制安装提示词'} /></Flex>
     <Flex className="install-location" align="center" justify="space-between" gap={8} wrap><span>安装目录 <code>{directory}</code></span>{conflicts.length > 0 && <Tooltip title={replacement} trigger={['hover', 'focus']}><span tabIndex={0} className="install-conflict">替换同名技能</span></Tooltip>}</Flex>
-    {manual ? <><p className="command-caption">{local ? 'PowerShell · 用户级安装' : `上游安装指引 · ${skill.sourceRepo}`}</p><div className="code-block"><pre><code>{manualText}</code></pre></div><p className="install-invocation">调用 <code>{agent.invocation.replaceAll('database-design', skill.name)}</code></p></> : <div className="prompt-text">{prompt}</div>}
+    {manual ? <><p className="command-caption">{local ? 'PowerShell · 用户级安装' : `上游安装指引 · ${skill.sourceRepo}`}</p><div className="code-block install-preview" role="region" aria-label="安装命令预览" tabIndex={0}><pre><code>{manualText}</code></pre></div><p className="install-invocation">调用 <code>{agent.invocation.replaceAll('database-design', skill.name)}</code></p></> : <div className="prompt-text install-preview" role="region" aria-label="安装提示词预览" tabIndex={0}>{prompt}</div>}
   </div>;
 }
 
@@ -155,6 +155,7 @@ function SkillsWorkspace({ skills, selected, category, members, listPosition, on
   const catalogAction = useRef<(() => void) | null>(null);
   const pendingDetails = useRef(false);
   const previewOpener = useRef<HTMLElement | null>(null);
+  const detailsOpener = useRef<{ element: HTMLElement; skillId: string } | null>(null);
   const listContent = useRef<HTMLDivElement>(null);
   const filtered = useMemo(() => skills.filter(skill => members.includes(skill.id)), [skills, members]);
   const treeResources = useMemo(() => skills.map(skill => ({ name: skill.id, displayName: skill.displayName, navigation_path: skill.navigation_path, category_paths: skill.category_paths })), [skills]);
@@ -170,17 +171,23 @@ function SkillsWorkspace({ skills, selected, category, members, listPosition, on
   function updateAgent(name: string) { setAgent(name); localStorage.setItem('skills-hub.agent', name); }
   function updateView(value: string) { onNavigate(selected, category, 'selected'); setView(value); localStorage.setItem('skills-hub.view', value); }
   function openDetails(skill: Skill) {
+    detailsOpener.current = { element: !wide && !small && previewRequested ? previewOpener.current! : document.activeElement as HTMLElement, skillId: skill.id };
     onNavigate(skill, category, 'selected'); setDetailTab('overview'); setPreviewRequested(false);
     if (!wide && !small && previewRequested) pendingDetails.current = true;
     else setDetailsOpen(true);
   }
   function preview(skill: Skill, path: string[]) {
     onNavigate(skill, path, 'selected'); setPreviewOpen(true);
-    if (small) { setDetailTab('overview'); setPreviewRequested(false); setDetailsOpen(true); }
+    if (small) { detailsOpener.current = { element: document.activeElement as HTMLElement, skillId: skill.id }; setDetailTab('overview'); setPreviewRequested(false); setDetailsOpen(true); }
     else if (!wide) { previewOpener.current = document.activeElement as HTMLElement; setPreviewRequested(true); }
   }
   function selectRelated(skill: Skill) {
     onNavigate(skill, skill.navigation_path, 'selected'); setDetailTab('overview'); setPreviewOpen(true);
+  }
+  function restoreDetailsFocus() {
+    const opener = detailsOpener.current!;
+    if (opener.skillId === selected.id && opener.element.isConnected) opener.element.focus({ preventScroll: true });
+    else listContent.current!.querySelector<HTMLElement>(`[data-skill-id="${selected.id}"] button`)!.focus({ preventScroll: true });
   }
   function selectCategory(path: string[]) {
     const matching = categorySkills(skills, path);
@@ -232,7 +239,7 @@ function SkillsWorkspace({ skills, selected, category, members, listPosition, on
     </div>
     {small && <Drawer title="分类目录" placement="left" size={320} open={catalogOpen} onClose={() => setCatalogOpen(false)} focusable={{ focusTriggerAfterClose: !catalogAction.current }} afterOpenChange={open => { if (!open && catalogAction.current) { const action = catalogAction.current; catalogAction.current = null; action(); } }} className="resource-drawer skill-catalog-overlay">{catalog}</Drawer>}
     <Drawer title={selected.displayName} placement="right" size={520} open={!wide && !small && previewRequested} onClose={() => setPreviewRequested(false)} extra={<Button type="text" aria-label="展开知识卡片" icon={<Icon name="expand" />} onClick={() => openDetails(selected)}>展开详情</Button>} focusable={{ focusTriggerAfterClose: !pendingDetails.current }} afterOpenChange={open => { if (!open && pendingDetails.current) { pendingDetails.current = false; previewOpener.current!.focus(); setDetailsOpen(true); } }} className="resource-drawer skill-preview-overlay"><Preview {...previewProps} /></Drawer>
-    <Modal centered className="skill-details-modal" title={<Flex align="center" gap={16}><span className="dialog-icon"><SkillSymbol skill={selected} /></span><span>{selected.displayName}</span><SkillVersionTag skill={selected} /></Flex>} open={detailsOpen} onCancel={() => setDetailsOpen(false)} width={960} footer={<div className="resource-modal-footer"><ResourceLinks skill={selected} /><Button type="link" icon={<Icon name="download" />} onClick={() => setDetailTab('install')}>安装方式</Button></div>}>
+    <Modal centered className="skill-details-modal" title={<Flex align="center" gap={16}><span className="dialog-icon"><SkillSymbol skill={selected} /></span><span>{selected.displayName}</span><SkillVersionTag skill={selected} /></Flex>} open={detailsOpen} onCancel={() => setDetailsOpen(false)} afterClose={restoreDetailsFocus} focusable={{ focusTriggerAfterClose: false }} width={960} footer={<div className="resource-modal-footer"><ResourceLinks skill={selected} /><Button type="link" icon={<Icon name="download" />} onClick={() => setDetailTab('install')}>安装方式</Button></div>}>
       <DetailContent skillId={selected.id} tab={detailTab} open={detailsOpen}><p className="detail-description">{selected.description}</p><Tabs activeKey={detailTab} onChange={setDetailTab} items={[{ key: 'overview', label: '概览', children: <Overview {...previewProps} /> }, { key: 'spec', label: '规格表', children: <Specification skill={selected} /> }, { key: 'install', label: '安装', children: <InstallWidget {...installProps} /> }]} /></DetailContent>
     </Modal>
   </main>;

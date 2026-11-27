@@ -149,7 +149,7 @@ code, pre { font-family: var(--font-code); }
 .empty-state { padding: 20px 0; color: var(--muted); }
 .install-panel { padding: 20px; }
 .install-panel > h2 { margin-bottom: 24px; }
-.install-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 13px; }
+.install-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0; }
 .agent-select { display: inline-flex; gap: 12px; align-items: center; color: #586b87; font-size: var(--text-body); padding-left: 0; }
 select { font-size: var(--text-body); background: white; border: 1px solid #bfcfe4; border-radius: 6px; min-width: 200px; min-height: 32px; padding: 4px 28px 4px 11px; color: #24344a; }
 .command-caption { margin: -3px 0 8px; color: var(--muted); font-size: var(--text-xs); }
@@ -216,7 +216,11 @@ select { font-size: var(--text-body); background: white; border: 1px solid #bfcf
 .example { display: flex; align-items: flex-start; gap: 12px; }
 .example > .icon { width: 22px; height: 22px; margin-top: 3px; color: var(--blue); }
 /* Prompt is the default installation interface; terminal commands are secondary. */
-.prompt-text { padding: 16px; border: 1px solid #e4eaf2; border-radius: 6px; background: #f6f8fb; color: var(--skill-ink); font: 400 var(--text-body)/1.8 var(--font-ui); white-space: pre-wrap; overflow-wrap: anywhere; }
+.prompt-text { padding: 16px; border: 1px solid #e4eaf2; border-radius: 6px; background: #f6f8fb; color: var(--skill-ink); font: 400 var(--text-body)/var(--line-body) var(--font-ui); white-space: pre-wrap; overflow-wrap: anywhere; }
+.install-preview:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+@media (min-width: 1024px) {
+  .install-panel .install-preview { max-height: calc(var(--text-body) * var(--line-body) * 4 + 32px); overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+}
 .install-mode-button { display: inline-flex; align-items: center; gap: 7px; margin-top: 14px; padding: 0; min-height: 30px; color: var(--blue); border: 0; border-radius: 3px; background: transparent; }
 .install-mode-button .icon { width: 16px; height: 16px; }
 .catalog-table th:first-child { width: 32%; }
